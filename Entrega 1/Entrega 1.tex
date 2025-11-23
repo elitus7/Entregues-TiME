@@ -39,14 +39,65 @@
 	
 	% Aseguramos que las cabeceras se muestren también en la primera página
 	\thispagestyle{fancy}
-L'equació fonamental per l'energia lliure de Gibbs és
-\begin{equation}
+\begin{equation*}
 	G = -nRT\ln\left(\frac{AT^c}{P}\right),
-\end{equation}
+\end{equation*}
 on $n$ és el nombre de mols, $A$ és un paràmetre i $c$ una constant positiva.
 
 \section*{Apartat a)}	
 \textbf{Trobeu l’equació tèrmica d’estat i l’equació calòrica d’estat per l’energia interna. De quin tipus de gas es tracta?}
+
+La transformada de Legendre de l'energia $U(S,V,N)$ en l'entropia $S$ i el volum $V$ ens dona l'energia lliure de Gibbs $G(T,P,N)$ en les seves variables naturals. L'expressió per a aquesta transformada és
+\begin{equation}
+	G(T,P,N)=U-V\left(\frac{\partial U}{\partial V}\right)_{S,N}-S\left(\frac{\partial U}{\partial S}\right)_{V,N}.
+\label{eq1}
+\end{equation}
+Per altra banda, sabem que l'equació de Gibbs per l'energia interna $U$ és
+\begin{equation}
+	dU= TdS - PdV + \mu_i dN_i.
+\label{eq2}
+\end{equation}
+D'aquesta última equació podem deduir les següents relacions:
+\begin{equation*}
+	\left(\frac{\partial U}{\partial V}\right)_{S,N} = -P
+\end{equation*}
+\begin{equation*}
+	\left(\frac{\partial U}{\partial S}\right)_{V,N} = T
+\end{equation*}
+\begin{equation*}
+	\left(\frac{\partial U}{\partial N_i}\right)_{V,S} = \mu_i
+\end{equation*}
+Recuperant l'expressió $\eqref{eq1}$ i substituint aquestes correspondències trobem fàcilment que
+\begin{equation}
+	G(T,P,N)=U-ST+PV.
+\label{eq3}
+\end{equation}
+Si diferenciem aquesta expressió de l'energia de Gibbs, aplicant la regla de la cadena, trobem
+\begin{equation*}
+	dG=dU-TdS-SdT+PdV+VdP
+\end{equation*}
+Aquí podem substituir el diferencial de l'energia interna per l'equació $\eqref{eq2}$, de manera que s'eliminen molts termes i ens queda l'equació de Gibbs per l'energia lliure de Gibbs $G(T,P,N)$.
+\begin{equation}
+	dG=-SdT+VdP+\mu dN
+\label{eq4}
+\end{equation}
+Per altra banda, $G(T,P,N)$ també es pot diferenciar en les seves variables naturals obtenint així que
+\begin{equation}
+	dG=\left(\frac{\partial G}{\partial T}\right)_{P,N} dT + \left(\frac{\partial G}{\partial P}\right)_{T,N} dP + \left(\frac{\partial G}{\partial N}\right)_{T,P} dN.
+\label{eq5}
+\end{equation}
+Per comparació entre les expressions $\eqref{eq4}$ i $\eqref{eq5}$, veiem que $\left(\frac{\partial G}{\partial P}\right)_{T,N} = V$
+
+Fem doncs la derivada de l'equació fonamental de l'energia de Gibbs que ens dona l'enunciat:
+\begin{equation*}
+	\left(\frac{\partial G}{\partial P}\right)_{T,N} = -nRT\cdot\left(\frac{P}{AT^c}\cdot\left(-\frac{AcT^c}{P^2}\right)\right)= \frac{nRT}{P}.
+\end{equation*}
+Com que aquesta derivada era igual al volum $V$, acabem de trobar l'equació tèrmica d'estat del sistema:
+\begin{equation}
+	\boxed{PV=nRT}
+\label{eq6}
+\end{equation}
+Aquesta equació ens indica també que estem tractant amb un \textbf{gas ideal}.
 
 \textit{E: Escric ja algunes eqs aquí per no haver-les de copiar més tard.} :D
 
