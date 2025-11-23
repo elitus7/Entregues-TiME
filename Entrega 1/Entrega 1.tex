@@ -31,15 +31,120 @@
 \begin{document}
 	\title{\Huge{\textbf{Primer Lliurament}} \\ \vspace{0.2cm} \large{\textbf{Termodinàmica i Mecànica Estadística}}}
 
-	\author{1549086: Bujones Umbert, Jun Shan \\
-		1672980: González Barea, Eric \\
-		1644841: Vilarrúbias Morral, Natàlia}
+	\author{\small{1549086: Bujones Umbert, Jun Shan} \\
+		\small{1672980: González Barea, Eric} \\
+		\small{1644841: Vilarrúbias Morral, Natàlia}}
 	\date{Novembre 2025}
 	\maketitle
 	
 	% Aseguramos que las cabeceras se muestren también en la primera página
 	\thispagestyle{fancy}
-	
+L'equació fonamental per l'energia lliure de Gibbs és
+\begin{equation}
+	G = -nRT\ln\left(\frac{AT^c}{P}\right),
+\end{equation}
+on $n$ és el nombre de mols, $A$ és un paràmetre i $c$ una constant positiva.
 
-	
+\section*{Apartat a)}	
+\textbf{Trobeu l’equació tèrmica d’estat i l’equació calòrica d’estat per l’energia interna. De quin tipus de gas es tracta?}
+
+\textit{E: Escric ja algunes eqs aquí per no haver-les de copiar més tard.} :D
+
+EQUACIÓ FONAMENTAL
+\begin{equation}
+	U(S,V,N) = (c-1)Nk_B\exp[\frac{1}{c-1}\left(\frac{S}{Nk_B}-\ln(\frac{AV}{Nk_B})-c\right)]
+\end{equation}
+
+EQUACIÓ CALÒRICA
+\begin{equation}
+	U(T,N) = (c-1)Nk_BT
+\end{equation}
+
+EQUACIÓ TÈRMICA
+\begin{equation}
+	V(N,P,T) = \frac{Nk_BT}{P}
+\end{equation}
+
+TEMPERATURA 
+\begin{equation}
+	T(S,V,N) = \exp[\frac{1}{c-1}\left(\frac{S}{Nk_B}-\ln(\frac{AV}{Nk_B})-c\right)]
+\end{equation}
+\section*{Apartat b)}
+\textbf{Quina és la interpretació microscòpica de $c$? Quant ha de valer $c$ perquè el gas sigui un sistema termodinàmicament estable?}
+
+Estudiem primer per quins valors de $c$ el gas és termodinàmica estable. Recordem que, tal i com vam veure a teoria, el criteri d'estabilitat termodinàmica ve donat pel signe de les segones derivades respecte les variables naturals pels potencials termodinàmics. En particular, pels potencials termodinàmics $F$ i $H$, aquestes condicions se simplifiquen molt, obtenint el següent:
+\begin{itemize}
+	\item Estabilitat tèrmica $\Leftrightarrow$ $F_{TT}<0$ I $H_{SS}>0$.
+	\item Estabilitat mecànica $\Leftrightarrow$ $F_{VV}>0$ I $H_{PP}<0$.
+	\item Estabilitat material $\Leftrightarrow$ $F_{NN}>0$ I $H_{NN}>0$.
+\end{itemize}
+D'aquí, recordem que, tenint en compte les definicions de
+\begin{equation}
+	\kappa_{T} = -\frac{1}{V}\left(\frac{\partial V(T,P,N)}{\partial P}\right)_{T,N}, \hspace{0.25cm}\kappa_{S} = -\frac{1}{V}\left(\frac{\partial V(P,S,N)}{\partial P}\right)_{S,N}, 
+\end{equation}
+\begin{equation}
+	C_{P} = T\left(\frac{\partial S(T,P,N)}{\partial T}\right)_{P,N}, \hspace{0.25cm} C_{V} = T\left(\frac{\partial S(T,V,N)}{\partial T}\right)_{V,N},
+\end{equation}
+podem acabar trobant que, un sistema serà termodinàmicament estable si, i només si, se satisfà que:
+\begin{equation}
+	\boxed{C_P>C_V>0, \hspace{0.25cm} \kappa_T > \kappa_S >0}
+\end{equation}
+Calculem, doncs, els coeficients termodinàmics $C_P$, $C_V$, $\kappa_T$ i $\kappa_P$ usant les equacions que hem trobat per $S(T,P,N)$ i per $p(T,V,N)$ (equació tèrmica) \textbf{\textit{REFERENCIAR EQUACIONS}}
+\begin{equation*}
+	C_P = T\left(\frac{\partial S}{\partial T}\right)_{p,N} = TNk_B\frac{\partial}{\partial T}\left[\ln(\frac{A}{P})+c\ln(T)+c\right]_{p,N} = TNk_Bc\frac{1}{T} = Nk_Bc,
+\end{equation*}
+\begin{equation*}
+	C_V = T\left(\frac{\partial S}{\partial T}\right)_{V,N} = TNk_B\frac{\partial}{\partial T}\left[\ln\left(\frac{AVT^c}{Nk_BT}\right)+c\right]_{V,N} = TNk_B(c-1)\frac{1}{T} = Nk_B(c-1),
+\end{equation*}
+\begin{equation*}
+	\kappa_T = -\frac{1}{V}\frac{\partial}{\partial P}\left[\frac{Nk_BT}{P}\right]_{T,N} = \frac{Nk_BT}{V}\frac{1}{p^2}=\frac{1}{p},
+\end{equation*}
+\begin{equation*}
+	\kappa_S = -\frac{1}{V}\frac{\partial}{\partial P}\left[\frac{Nk_BT}{P}\right]_{S,N} = -\frac{1}{V}\frac{\partial}{\partial P}\left[\frac{Nk_B}{V}\exp(\frac{1}{c-1}\left(\frac{S}{Nk_B}-\ln\left(\frac{AV}{Nk_B}-c\right)\right))\right]_{S,N} = \frac{1}{V} \frac{Nk_B}{p^2}\alpha = \frac{\alpha}{p},
+\end{equation*}
+on, al penúltim pas, hem definit
+\begin{equation}
+	\alpha \equiv \exp(\frac{1}{c-1}\left(\frac{S}{Nk_B}-\ln\left(\frac{AV}{Nk_B}-c\right)\right)),
+\end{equation}
+que és una constant respecte de $P$. De les anteriors equacions podem veure el següent:
+\begin{itemize}
+	\item Els coeficients $\kappa_{S}$ i $\kappa_{T}$ són sempre positius, independentment de valor de $c$ (ja que $p>0$). No ens donen cap restricció associada als valors que pot prendre $c$.
+	\item Els coeficients $C_P$ i $C_V$ només satisfan que $C_P>C_V>0$ si
+	\begin{equation*}
+		c > c-1 > 0 \Rightarrow \boxed{c>1}.
+	\end{equation*}
+\end{itemize}
+Aquesta és la condició que ha de satisfer $c$. Per tal que el sistema sigui termodinàmicament estable és necessari que $c>1$.
+
+Pel que fa a la interpretació microscòpia de $c$, el teorema d'equipartició de l'energia \textbf{\textit{REFERENCIA}} ens diu que, si considerem un gas ideal, s'ha de satisfer que
+\begin{equation}
+	U = \frac{f}{2}Nk_BT \label{eq6}
+\end{equation}
+on $f$ són els graus de llibertat del sistema. Per exemple, per un gas ideal monoatòmic, tenim 3 graus de llibertat translacionals $\Rightarrow$ $f=3$, 
+\begin{equation}
+	U = \frac{3}{2}Nk_BT,
+\end{equation}
+per un gas ideal diatòmic (a temperatures no molt elevades), tenim 5 graus de llibertat (3 translacionals + 2 rotacionals),
+\begin{equation}
+	U = \frac{5}{2}Nk_BT,
+\end{equation}
+i així successivament. Comparant \eqref{eq6} amb l'equació calòrica que hem trobat pel sistema \textbf{\textit{REFERENCIAR EQUACIÓ}} podem veure que
+\begin{equation}
+	c-1 = \frac{f}{2} \Rightarrow \boxed{c=\frac{f}{2}+1},
+\end{equation}
+és a dir, microscòpicament $c$ està directament relacionada amb els graus de llibertat del gas que estiguem considerant.
+
+Notem que això dóna sentit al fet que, per tal que el sistema sigui termodinàmicament estable, $c$ hagi de ser necessàriament major que 1; altrament podríem tenir 0 graus de llibertat pel nostre sistema, o fins i tot valors negatius, cosa que no tindria cap sentit físic.
+
+
+
+
+\section*{Apartat c)}	
+\textbf{Una certa quantitat d'aquest gas es troba dins d'un recipient cilíndric de secció transversal $A$ de parets adiabàtiques. El cilindre està obert per la part superior i en contacte amb l'atmosfera a pressió $P_0$. Damunt del gas es col·loca un disc adiabàtic de massa menyspreable i un bloc de massa $m$ (veure FIGURA). El disc i el bloc baixen fins a una altura $h$ respecte del fons del cilindre. En aquesta situació el gas es troba en equilibri a temperatura $T_0$.}
+\begin{enumerate}
+	\item \textbf{Calculeu el nombre de mols de gas.}
+	\item \textbf{Ara traiem el bloc i el gas s'expandeix fins una altura $h_f$. Calculeu $h_f$ i la temperatura final del gas.}
+	\item \textbf{Calculeu el canvi d'entropia del gas en treure el bloc.}
+\end{enumerate}
+
 \end{document}
