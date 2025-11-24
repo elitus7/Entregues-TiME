@@ -39,6 +39,7 @@
 	
 	% Aseguramos que las cabeceras se muestren también en la primera página
 	\thispagestyle{fancy}
+L'equació fonamental per l'energia lliure de Gibbs d'un gas és
 \begin{equation*}
 	G = -nRT\ln\left(\frac{AT^c}{P}\right),
 \end{equation*}
@@ -47,7 +48,7 @@ on $n$ és el nombre de mols, $A$ és un paràmetre i $c$ una constant positiva.
 \section*{Apartat a)}	
 \textbf{Trobeu l’equació tèrmica d’estat i l’equació calòrica d’estat per l’energia interna. De quin tipus de gas es tracta?}
 
-La transformada de Legendre de l'energia $U(S,V,N)$ en l'entropia $S$ i el volum $V$ ens dona l'energia lliure de Gibbs $G(T,P,N)$ en les seves variables naturals. L'expressió per a aquesta transformada és
+La transformada de Legendre de l'energia interna $U(S,V,N)$ en l'entropia $S$ i el volum $V$ ens dona l'energia lliure de Gibbs $G(T,P,N)$ en les seves variables naturals. L'expressió per a aquesta transformada és
 \begin{equation}
 	G(T,P,N)=U-V\left(\frac{\partial U}{\partial V}\right)_{S,N}-S\left(\frac{\partial U}{\partial S}\right)_{V,N}.
 \label{eq1}
@@ -74,11 +75,11 @@ Recuperant l'expressió $\eqref{eq1}$ i substituint aquestes correspondències t
 \end{equation}
 Si diferenciem aquesta expressió de l'energia de Gibbs, aplicant la regla de la cadena, trobem
 \begin{equation*}
-	dG=dU-TdS-SdT+PdV+VdP
+	dG=dU-TdS-SdT+PdV+VdP.
 \end{equation*}
-Aquí podem substituir el diferencial de l'energia interna per l'equació $\eqref{eq2}$, de manera que s'eliminen molts termes i ens queda l'equació de Gibbs per l'energia lliure de Gibbs $G(T,P,N)$.
+Aquí podem substituir el diferencial de l'energia interna per l'equació $\eqref{eq2}$, de manera que s'eliminen molts termes i ens queda l'equació de Gibbs per l'energia lliure de Gibbs $G(T,P,N)$
 \begin{equation}
-	dG=-SdT+VdP+\mu dN
+	dG=-SdT+VdP+\mu dN.
 \label{eq4}
 \end{equation}
 Per altra banda, $G(T,P,N)$ també es pot diferenciar en les seves variables naturals obtenint així que
@@ -123,13 +124,13 @@ TEMPERATURA
 \section*{Apartat b)}
 \textbf{Quina és la interpretació microscòpica de $c$? Quant ha de valer $c$ perquè el gas sigui un sistema termodinàmicament estable?}
 
-Estudiem primer per quins valors de $c$ el gas és termodinàmica estable. Recordem que, tal i com vam veure a teoria, el criteri d'estabilitat termodinàmica ve donat pel signe de les segones derivades respecte les variables naturals pels potencials termodinàmics. En particular, pels potencials termodinàmics $F$ i $H$, aquestes condicions se simplifiquen molt, obtenint el següent:
+Estudiem primer per quins valors de $c$ el gas és termodinàmica estable. Recordem que, tal i com vam veure a teoria, el criteri d'estabilitat termodinàmica ve donat pel signe de les segones derivades respecte les variables naturals pels potencials termodinàmics. En particular, pels potencials termodinàmics $F$ i $H$, aquestes condicions se simplifiquen molt:
 \begin{itemize}
 	\item Estabilitat tèrmica $\Leftrightarrow$ $F_{TT}<0$ I $H_{SS}>0$.
 	\item Estabilitat mecànica $\Leftrightarrow$ $F_{VV}>0$ I $H_{PP}<0$.
 	\item Estabilitat material $\Leftrightarrow$ $F_{NN}>0$ I $H_{NN}>0$.
 \end{itemize}
-D'aquí, recordem que, tenint en compte les definicions de
+Si tenim en compte les definicions dels coeficients termodinàmics
 \begin{equation}
 	\kappa_{T} = -\frac{1}{V}\left(\frac{\partial V(T,P,N)}{\partial P}\right)_{T,N}, \hspace{0.25cm}\kappa_{S} = -\frac{1}{V}\left(\frac{\partial V(P,S,N)}{\partial P}\right)_{S,N}, 
 \end{equation}
@@ -159,7 +160,7 @@ on, al penúltim pas, hem definit
 \end{equation}
 que és una constant respecte de $P$. De les anteriors equacions podem veure el següent:
 \begin{itemize}
-	\item Els coeficients $\kappa_{S}$ i $\kappa_{T}$ són sempre positius, independentment de valor de $c$ (ja que $p>0$). No ens donen cap restricció associada als valors que pot prendre $c$.
+	\item Els coeficients $\kappa_{S}$ i $\kappa_{T}$ són sempre positius, independentment del valor de $c$ (ja que $P>0$). No ens donen cap restricció associada als valors que pot prendre $c$.
 	\item Els coeficients $C_P$ i $C_V$ només satisfan que $C_P>C_V>0$ si
 	\begin{equation*}
 		c > c-1 > 0 \Rightarrow \boxed{c>1}.
@@ -167,7 +168,7 @@ que és una constant respecte de $P$. De les anteriors equacions podem veure el 
 \end{itemize}
 Aquesta és la condició que ha de satisfer $c$. Per tal que el sistema sigui termodinàmicament estable és necessari que $c>1$.
 
-Pel que fa a la interpretació microscòpia de $c$, el teorema d'equipartició de l'energia \textbf{\textit{REFERENCIA}} ens diu que, si considerem un gas ideal, s'ha de satisfer que
+Pel que fa a la interpretació microscòpia de $c$, el teorema d'equipartició de l'energia \textbf{\textit{REFERENCIA}} ens diu que, si considerem un gas ideal, s'ha de satisfer que \textbf{\textit{REESCRIURE AIXÒ MILLOR}}
 \begin{equation}
 	U = \frac{f}{2}Nk_BT \label{eq6}
 \end{equation}
