@@ -40,37 +40,39 @@
 	% Aseguramos que las cabeceras se muestren también en la primera página
 	\thispagestyle{fancy}
 L'equació fonamental per l'energia lliure de Gibbs d'un gas és
-\begin{equation*}
-	G = -nRT\ln\left(\frac{AT^c}{P}\right),
-\end{equation*}
-on $n$ és el nombre de mols, $A$ és un paràmetre i $c$ una constant positiva.
+\begin{equation}
+	G = -nRT\ln\left(\frac{AT^c}{P}\right) = -Nk_BT\ln\left(\frac{AT^c}{P}\right), \label{eqenunciat}
+\end{equation}
+on $n$ és el nombre de mols, $N$ el nombre de partícules, $A$ és un paràmetre i $c$ una constant positiva.
 
 \section*{Apartat a)}	
 \textbf{Trobeu l’equació tèrmica d’estat i l’equació calòrica d’estat per l’energia interna. De quin tipus de gas es tracta?}
 
-La transformada de Legendre de l'energia interna $U(S,V,N)$ en l'entropia $S$ i el volum $V$ ens dona l'energia lliure de Gibbs $G(T,P,N)$ en les seves variables naturals. L'expressió per a aquesta transformada és
+Per tal de poder trobar l'equació tèrmica d'estat buscarem primer quina és l'equació de Gibbs per $G$. Per fer això, primer cal que trobem quina forma pren $G$. Els potencials termodinàmics (entre ells l'energia lliure de Gibbs) es poden obtenir fent la transformada de Legendre en $x_1,\ldots,x_k$ (les variables que transformem) de l'equació fonamental del nostre sistema en la representació de l'energia interna. Tanmateix, recordem que
 \begin{equation}
-	G(T,P,N)=U-V\left(\frac{\partial U}{\partial V}\right)_{S,N}-S\left(\frac{\partial U}{\partial S}\right)_{V,N}.
+	\mathcal{L}_{x_1,\ldots,x_k}[y(x_1,\ldots,x_n)]=y(p_1,\ldots,p_k,x_{k+1}\ldots,x_n)-\sum_{i=1}^kx_ip_i, \label{legendre}
+\end{equation}
+on hem definit $p_i = \left(\frac{\partial y}{\partial x_i}\right)_{x_{j\neq i}}$.
+
+Així, usant \eqref{legendre}, la transformada de Legendre de l'energia interna $U(S,V,N)$ en l'entropia $S$ i el volum $V$ ens dona l'energia lliure de Gibbs $G$ en les seves variables naturals $(T,P,N)$. L'expressió per a aquesta transformada és
+\begin{equation}
+	\mathcal{L}[U(S,V,N)]_{S,V}=G(T,P,N)=U-V\left(\frac{\partial U}{\partial V}\right)_{S,N}-S\left(\frac{\partial U}{\partial S}\right)_{V,N}.
 \label{eq1}
 \end{equation}
-Per altra banda, sabem que l'equació de Gibbs per l'energia interna $U$ és
+Per altra banda, sabem que l'equació de Gibbs per l'energia interna $U$ per un fluid monocomponent és
 \begin{equation}
-	dU= TdS - PdV + \mu_i dN_i.
+	dU= TdS - PdV + \mu dN.
 \label{eq2}
 \end{equation}
 D'aquesta última equació podem deduir les següents relacions:
-\begin{equation*}
-	\left(\frac{\partial U}{\partial V}\right)_{S,N} = -P
-\end{equation*}
-\begin{equation*}
-	\left(\frac{\partial U}{\partial S}\right)_{V,N} = T
-\end{equation*}
-\begin{equation*}
-	\left(\frac{\partial U}{\partial N_i}\right)_{V,S} = \mu_i
-\end{equation*}
+\begin{align*}
+	\left(\frac{\partial U}{\partial V}\right)_{S,N} &=  -P 
+	\left(\frac{\partial U}{\partial S}\right)_{V,N} &=  T 
+	\left(\frac{\partial U}{\partial N}\right)_{V,S} &=  \mu 
+\end{align*}
 Recuperant l'expressió $\eqref{eq1}$ i substituint aquestes correspondències trobem fàcilment que
 \begin{equation}
-	G(T,P,N)=U-ST+PV.
+	G=U-ST+PV.
 \label{eq3}
 \end{equation}
 Si diferenciem aquesta expressió de l'energia de Gibbs, aplicant la regla de la cadena, trobem
@@ -82,45 +84,64 @@ Aquí podem substituir el diferencial de l'energia interna per l'equació $\eqre
 	dG=-SdT+VdP+\mu dN.
 \label{eq4}
 \end{equation}
-Per altra banda, $G(T,P,N)$ també es pot diferenciar en les seves variables naturals obtenint així que
+Per altra banda, $G(T,P,N)$ també es pot diferenciar obtenint així que
 \begin{equation}
 	dG=\left(\frac{\partial G}{\partial T}\right)_{P,N} dT + \left(\frac{\partial G}{\partial P}\right)_{T,N} dP + \left(\frac{\partial G}{\partial N}\right)_{T,P} dN.
 \label{eq5}
 \end{equation}
-Per comparació entre les expressions $\eqref{eq4}$ i $\eqref{eq5}$, veiem que $\left(\frac{\partial G}{\partial P}\right)_{T,N} = V$
+Per comparació entre les expressions $\eqref{eq4}$ i $\eqref{eq5}$, veiem que $\left(\frac{\partial G}{\partial P}\right)_{T,N} = V$. Aquesta equació ens portarà fins a l'equació tèrmica d'estat pel sistema que estem estudiant.
 
 Fem doncs la derivada de l'equació fonamental de l'energia de Gibbs que ens dona l'enunciat:
 \begin{equation*}
 	\left(\frac{\partial G}{\partial P}\right)_{T,N} = -nRT\cdot\left(\frac{P}{AT^c}\cdot\left(-\frac{AcT^c}{P^2}\right)\right)= \frac{nRT}{P}.
 \end{equation*}
-Com que aquesta derivada era igual al volum $V$, acabem de trobar l'equació tèrmica d'estat del sistema:
+Com que aquesta derivada és igual al volum $V$, acabem trobant l'equació tèrmica d'estat del sistema:
 \begin{equation}
-	\boxed{PV=nRT}
-\label{eq6}
+	\boxed{P(T,V,N)=\frac{Nk_BT}{V}}. \label{eq6}
 \end{equation}
 Aquesta equació ens indica també que estem tractant amb un \textbf{gas ideal}.
 
-\textit{E: Escric ja algunes eqs aquí per no haver-les de copiar més tard.} :D
-
-EQUACIÓ FONAMENTAL
+Busquem ara l'equació calòrica pel sistema en la representació de l'energia interna. Ho podem fer de vàries maneres, la més general és determinant prèviament l'equació fonamental del sistema en la representació de l'energia interna $U(S,V,N)$ i després, usant \eqref{eq2} per trobar les equacions calòriques d'estat. De \eqref{eq3} és immediat veure que
 \begin{equation}
-	U(S,V,N) = (c-1)Nk_B\exp[\frac{1}{c-1}\left(\frac{S}{Nk_B}-\ln(\frac{AV}{Nk_B})-c\right)]
+	U = G + ST - PV, \label{eqU}
 \end{equation}
-
-EQUACIÓ CALÒRICA
+i, si substituïm per \eqref{eqenunciat}, tenim que
+\begin{equation*}
+	U = -Nk_BT\ln(\frac{AT^c}{P})+TS-PV.
+\end{equation*}
+Ara bé, per tal que aquesta equació sigui fonamental, l'hem d'expressar en termes de les variables naturals de $U$, això és $S$, $V$ i $N$. Comencem buscant una expressió per l'entropia. Comparant \eqref{eq4} i \eqref{eq5}, tenim que $S = \left(\frac{\partial G}{\partial T}\right)_{P,N}$, per tant
+\begin{equation*}
+	S = \frac{\partial}{\partial T}\left[Nk_BT\ln(\frac{AT^c}{P})\right]_{P,N} = Nk_B\left(\ln(\frac{AT^c}{P})+c\right),
+\end{equation*}
+i, usant l'equació tèrmica, obtenim
+\begin{equation*}
+	S = Nk_B\left(\ln(\frac{AVT^{c-1}}{Nk_B})+c\right).
+\end{equation*}
+Finalment,
 \begin{equation}
-	U(T,N) = (c-1)Nk_BT
+	S(T,V,N) = Nk_B\left(\ln(\frac{AV}{Nk_B})+(c-1)\ln T+c\right). \label{eqS}
 \end{equation}
-
-EQUACIÓ TÈRMICA
+Ara usem \eqref{eqS} i l'equació tèrmica d'estat sobre \eqref{eqU}:
+\begin{align*}
+	U & = G + TS - PV = -Nk_BT\ln\left(\frac{AT^c}{P}\right) + Nk_BT\left(\ln(\frac{AV}{Nk_B})+(c-1)\ln T+c\right) - Nk_BT \\
+	& = -Nk_BT\left[\ln\left(\frac{AT^c}{P}\right) + (c-1)\ln T - \frac{S}{N_kB}+1\right] \\
+	& = Nk_BT(c-1).
+\end{align*}
+Aquesta darrera equació ja és l'equació calòrica que estàvem buscant per $U$. Així doncs,
 \begin{equation}
-	V(N,P,T) = \frac{Nk_BT}{P}
+	\boxed{U(T,N) = Nk_BT(c-1)}. \label{eqcalorica}
 \end{equation}
+Igual que en el cas de l'equació tèrmica d'estat, l'equació calòrica ens diu que tenim un gas ideal. En funció del valor que prengui la constant $c-1$, tindrem un tipus de gas ideal o un altre (monoatòmic, diatòmic, etc.). Ho discutim en el següent apartat.
 
-TEMPERATURA 
+Si volem arribar fins a l'equació fonamental en la representació de l'energia interna, només cal invertir $S(T,N,V)$ \eqref{eqS} i substituir a l'equació tèrmica \eqref{eq6}. Si ho fem, tenim
 \begin{equation}
-	T(S,V,N) = \exp[\frac{1}{c-1}\left(\frac{S}{Nk_B}-\ln(\frac{AV}{Nk_B})-c\right)]
+	T(S,V,N) = \exp[\frac{1}{c-1}\left(\frac{S}{Nk_B}-\ln(\frac{AV}{Nk_B})-c\right)] \label{eqT},
 \end{equation}
+i, finalment,
+\begin{equation}
+	U(S,V,N) = (c-1)Nk_B\exp[\frac{1}{c-1}\left(\frac{S}{Nk_B}-\ln(\frac{AV}{Nk_B})-c\right)],
+\end{equation}
+que també coincideix, llevat de la constant $c-1$, amb l'equació fonamental en la representació de l'energia interna per un gas ideal. Partint d'aquesta equació fonamental, podríem tornar a derivar la mateixa equació calòrica \eqref{eqcalorica} usant les derivades parcials de $U$ (que hem vist al principi d'aquest apartat) respecte les seves variables naturals.
 \section*{Apartat b)}
 \textbf{Quina és la interpretació microscòpica de $c$? Quant ha de valer $c$ perquè el gas sigui un sistema termodinàmicament estable?}
 
@@ -141,7 +162,7 @@ podem acabar trobant que, un sistema serà termodinàmicament estable si, i nom�
 \begin{equation}
 	\boxed{C_P>C_V>0, \hspace{0.25cm} \kappa_T > \kappa_S >0}
 \end{equation}
-Calculem, doncs, els coeficients termodinàmics $C_P$, $C_V$, $\kappa_T$ i $\kappa_P$ usant les equacions que hem trobat per $S(T,P,N)$ i per $p(T,V,N)$ (equació tèrmica) \textbf{\textit{REFERENCIAR EQUACIONS}}
+Calculem, doncs, els coeficients termodinàmics $C_P$, $C_V$, $\kappa_T$ i $\kappa_P$ usant les equacions que hem trobat per $S(T,V,N)$ \eqref{eqS} i per $p(T,V,N)$ \eqref{eq6} 
 \begin{equation*}
 	C_P = T\left(\frac{\partial S}{\partial T}\right)_{p,N} = TNk_B\frac{\partial}{\partial T}\left[\ln(\frac{A}{P})+c\ln(T)+c\right]_{p,N} = TNk_Bc\frac{1}{T} = Nk_Bc,
 \end{equation*}
@@ -170,7 +191,7 @@ Aquesta és la condició que ha de satisfer $c$. Per tal que el sistema sigui te
 
 Pel que fa a la interpretació microscòpia de $c$, el teorema d'equipartició de l'energia \textbf{\textit{REFERENCIA}} ens diu que, si considerem un gas ideal, s'ha de satisfer que \textbf{\textit{REESCRIURE AIXÒ MILLOR}}
 \begin{equation}
-	U = \frac{f}{2}Nk_BT \label{eq6}
+	U = \frac{f}{2}Nk_BT \label{eqb5}
 \end{equation}
 on $f$ són els graus de llibertat del sistema. Per exemple, per un gas ideal monoatòmic, tenim 3 graus de llibertat translacionals $\Rightarrow$ $f=3$, 
 \begin{equation}
@@ -180,7 +201,7 @@ per un gas ideal diatòmic (a temperatures no molt elevades), tenim 5 graus de l
 \begin{equation}
 	U = \frac{5}{2}Nk_BT,
 \end{equation}
-i així successivament. Comparant \eqref{eq6} amb l'equació calòrica que hem trobat pel sistema \textbf{\textit{REFERENCIAR EQUACIÓ}} podem veure que
+i així successivament. Comparant \eqref{eqb5} amb l'equació calòrica que hem trobat pel sistema \textbf{\textit{REFERENCIAR EQUACIÓ}} podem veure que
 \begin{equation}
 	c-1 = \frac{f}{2} \Rightarrow \boxed{c=\frac{f}{2}+1},
 \end{equation}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  24 NOV 2025 22:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  25 NOV 2025 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -785,11 +785,7 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmargin=\skip73
 \droptitle=\skip74
 )
-(Entrega 1.aux
-
-LaTeX Warning: Label `eq6' multiply defined.
-
-)
+(Entrega 1.aux)
 \openout1 = `"Entrega 1.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -901,26 +897,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [2]
 
-[3] (Entrega 1.aux)
+[3]
+
+[4] (Entrega 1.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `"Entrega 1".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26290 strings out of 473682
- 501470 string characters out of 5719215
- 891563 words of memory out of 5000000
- 48936 multiletter control sequences out of 15000+600000
- 568217 words of font info for 74 fonts, out of 8000000 for 9000
+ 26300 strings out of 473682
+ 501591 string characters out of 5719215
+ 893758 words of memory out of 5000000
+ 48943 multiletter control sequences out of 15000+600000
+ 567871 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,13n,121p,532b,469s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,13n,121p,532b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx
 1000.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm1000.pk><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/
@@ -929,17 +923,20 @@ amsfonts/cm/cmbx10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type
 onts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/ericg/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/ericg/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ericg/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/
-ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/
+ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C
 :/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr9.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "Entrega 1.pdf" (3 pages, 181477 bytes).
+0.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmr5.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ericg/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/ericg/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on "Entrega 1.pdf" (4 pages, 212836 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 28 named destinations out of 1000 (max. 500000)
+ 174 PDF objects out of 1000 (max. 8388607)
+ 32 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
