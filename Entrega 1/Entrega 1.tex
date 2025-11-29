@@ -214,10 +214,141 @@ Notem que això dóna sentit al fet que, per tal que el sistema sigui termodinà
 
 \section*{Apartat c)}	
 \textbf{Una certa quantitat d'aquest gas es troba dins d'un recipient cilíndric de secció transversal $A$ de parets adiabàtiques. El cilindre està obert per la part superior i en contacte amb l'atmosfera a pressió $P_0$. Damunt del gas es col·loca un disc adiabàtic de massa menyspreable i un bloc de massa $m$ (veure FIGURA). El disc i el bloc baixen fins a una altura $h$ respecte del fons del cilindre. En aquesta situació el gas es troba en equilibri a temperatura $T_0$.}
+
+
 \begin{enumerate}
 	\item \textbf{Calculeu el nombre de mols de gas.}
 	\item \textbf{Ara traiem el bloc i el gas s'expandeix fins una altura $h_f$. Calculeu $h_f$ i la temperatura final del gas.}
 	\item \textbf{Calculeu el canvi d'entropia del gas en treure el bloc.}
 \end{enumerate}
+
+APARTAT A
+
+Per determinar el nombre de mols de gas, utilitzem l’equació tèrmica d’estat \eqref{eq6} obtinguda a l’apartat \textbf{a} . 
+
+La pressió total del sistema és la suma de la pressió externa, $P_0$, i de la pressió exercida per la massa $m$, la qual correspon a la força $mg$ per unitat d’àrea $A$
+
+\begin{equation}
+	P = P_0 + \frac{F}{A} = P_0 + \frac{mg}{A}.
+\end{equation}
+
+El volum ve donat per $V = A h$, mentre que la temperatura inicial és $T = T_0$. Sigui $R$ la constant dels gasos ideals. Substituint aquestes expressions a l’equació tèrmica d’estat \eqref{eq6}, obtenim el nombre de mols de gas
+
+\begin{equation}
+	\boxed{n = \left(P_0 + \frac{mg}{A} \right)\frac{A h}{R T_0}}. \label{eqn}
+\end{equation}
+
+
+APARTAT B
+
+Per determinar els valors de $h_f$ i $T$, tornarem a utilitzar l’equació tèrmica d’estat \eqref{eq6} i l’equació calòrica \eqref{eqcalorica}, totes dues obtingudes a l’apartat \textbf{a}.
+
+Partint de l’equació tèrmica d’estat, en l’estat final s’ha de complir
+
+\begin{equation}
+	P_0 A h_f = nRT
+\end{equation}
+
+on la pressió és $P = P_0$ i el volum $V = A h_f$.
+
+Aïllem la temperatura final $T$ 
+
+\begin{equation}
+	T = \frac{P_0 A h_f}{nR} \label{eqT}
+\end{equation}
+
+A continuació, utilitzem l’equació calòrica. La primera llei de la termodinàmica estableix que $\Delta U = \Delta Q + \Delta W$. En aquest procés no hi ha flux de calor (les parets són adiabàtiques), de manera que $\Delta U = \Delta W = -P_{\text{ext}} \Delta V$.
+
+Combinant aquesta expressió amb l'expressió de l’energia interna obtinguda a l’apartat \textbf{a} \eqref{eqcalorica}, obtenim
+
+\begin{equation}
+	(C-1)nR(T_f - T_i) = -P_{\text{ext}}(V_f - V_i)
+\end{equation}
+
+Definim, doncs, l’estat inicial i final
+
+\begin{align}
+	T_i &= T_0, \qquad T_f = T \\
+	V_i &= A h, \qquad V_f = A h_f
+\end{align}
+
+Substituint a l’equació anterior, i tenint en compte que en un procés irreversible la pressió externa és constant i igual a $P_0$, obtenim
+
+\begin{equation}
+	(C-1)nR(T - T_0) = -P_0 A (h_f - h)
+\end{equation}
+
+Aïllem $h_f$
+
+\begin{equation}
+	h_f = \frac{-nR(T - T_0)(C-1) + P_0 A h}{P_0 A}
+\end{equation}
+
+Ara substituïm l’expressió de $T$ obtinguda abans \eqref{eqT}
+
+\begin{equation}
+	h_f = 
+	\frac{
+		-nR\left(\frac{P_0 A h_f}{nR} - T_0\right)(C-1) + P_0 A h
+	}{P_0 A}
+	=
+	-h_f(C-1) + 
+	\frac{nR T_0(C-1) + P_0 A h}{P_0 A}
+\end{equation}
+
+Aïllant $h_f$ s’arriba a
+
+\begin{equation}
+	h_f = \frac{nR T_0 (C-1) + P_0 A h}{P_0 A C}
+\end{equation}
+
+Substituïm l’expressió dels mols obtinguda a l’apartat \textbf{a} \eqref{eqn}
+
+\begin{equation}
+	h_f 
+	= 
+	\frac{(P_0 + \frac{mg}{A})hA(C-1) + P_0 A h}{P_0 A C}
+	=
+	h \left( \frac{P_0 A + (P_0 A + mg)(C-1)}{P_0 A C} \right)
+	=
+	h \left( \frac{P_0 A C + mg(C-1)}{P_0 A C} \right)
+\end{equation}
+
+I, simplificant, obtenim
+
+\begin{equation}
+	\boxed{h_f = h \left( 1 + \frac{mg(C-1)}{P_0 A C} \right)} \label{eqhf}
+\end{equation}
+
+Per determinar la temperatura final, substituïm l'expressió trobada de $h_f$ \eqref{eqhf} en l’expressió anterior de $T$ \eqref{eqT}
+
+\begin{equation}
+	T 
+	= 
+	\frac{P_0 A}{nR} h 
+	\left( 1 + \frac{mg(C-1)}{P_0 A C} \right)
+	=
+	\frac{h}{nRC}
+	\left( P_0 A C + mg(C-1) \right)
+\end{equation}
+
+Ara tornem a substituir el nombre de mols \eqref{eqn}
+
+\begin{equation}
+	T 
+	= 
+	\frac{h R T_0}{RC (P_0 + \frac{mg}{A})hA}
+	\left( P_0 A C + mg(C-1) \right)
+	=
+	T_0
+	\frac{P_0 A C + mg(C-1)}{C(P_0 A + mg)}
+\end{equation}
+
+Finalment, simplificant l’expressió, s’obté
+
+\begin{equation}
+	\boxed{T = T_0 \left( 1 - \frac{mg}{C(P_0 A + mg)} \right)}
+\end{equation}
+
 
 \end{document}
