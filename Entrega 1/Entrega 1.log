@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  29 NOV 2025 19:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  29 NOV 2025 20:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -847,13 +847,13 @@ Package rerunfilecheck Info: File `"Entrega 1".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23913 strings out of 474486
- 443312 string characters out of 5743756
+ 23914 strings out of 474486
+ 443320 string characters out of 5743756
  1949542 words of memory out of 5000000
- 45771 multiletter control sequences out of 15000+600000
+ 45772 multiletter control sequences out of 15000+600000
  567871 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,13n,107p,532b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,13n,107p,532b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx
 1000.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm1000.pk><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/
@@ -873,7 +873,7 @@ public/amsfonts/cm/cmr7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts
 X/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/natvi/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/natvi/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "Entrega 1.pdf" (6 pages, 226984 bytes).
+Output written on "Entrega 1.pdf" (6 pages, 228020 bytes).
 PDF statistics:
  213 PDF objects out of 1000 (max. 8388607)
  50 named destinations out of 1000 (max. 500000)
