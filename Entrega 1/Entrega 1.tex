@@ -337,8 +337,21 @@ Notem que això dóna sentit al fet que, per tal que el sistema sigui termodinà
 \end{enumerate}
 Tal i com ja hem comentat, el procés que tenim és irreversible. A més, per resoldre aquest apartat tindrem en compte que la temperatura inicial és $T_i=T_0$ i que la final ($T_0$) és la calculada a l'apartat anterior, la qual que ve donada per l'equació \textbf{REFERENCIAR EQUACIÓ 37}. Finalment, pel que fa a la pressió, el seu valor inicial $P_i$ es correspon amb l'expressió \textbf{REFERENCIAR ES LA 22} i, en expandir-se en treure el bloc, $P_f=P_0$.
 
-Partim doncs de l'expressió \textbf{REFRENCIAR EQ 10} per l'entropia del nostre sistema.
-
-MEN VAIG A DORMIR NO ENTENC RES c? c-1??
-
+Partim doncs d'una expressió trobada a l'apartat a per a l'entropia del nostre sistema:
+\begin{equation}
+	S = Nk_B\left[\ln(\frac{AT^{c}}{P})+c\right]
+\end{equation} 
+Com que el que volem calcular és l'increment d'entropia, hem de restar el valor final menys l'inicial, de manera que, per les propietats dels logaritmes, ens queda que
+\begin{equation*}
+	\Delta S = Nk_B\left[c\ln(\frac{T_f}{T_i})+\ln(\frac{P_i}{P_f})\right].
+\end{equation*}
+Substituint ara $T_f$ i $P_i$ per les corresponents expressions obtenim
+\begin{equation*}
+	\Delta S = Nk_B\left[c\ln(\frac{T_0\frac{P_0 Ac+mg(c-1)}{(P_0A+mg)c}}{T_0})+\ln(\frac{P_0+\frac{mg}{A}}{P_0})\right].
+\end{equation*}
+Simplificant-ho arribem a l'expressió pel canvi d'entropia que estàvem buscant:
+\begin{equation}
+	\boxed{\Delta S = Nk_B\left[\ln(\frac{P_0 Ac+mg(c-1)}{P_0A+mg})+\ln(\frac{P_0+\frac{mg}{A}}{P_0})\right]}.
+\end{equation}
+Notem que el valor de l'increment d'entropia sempre serà positiu, ja que ambdós logaritmes ho són. Això es correspon amb l'esperat per un procés irreverible.
 \end{document}
