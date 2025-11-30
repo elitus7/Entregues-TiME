@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.19)  30 NOV 2025 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.19)  30 NOV 2025 18:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -927,10 +927,10 @@ Package rerunfilecheck Info: File `"Entrega 1".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26735 strings out of 473650
- 509772 string characters out of 5717934
- 903073 words of memory out of 5000000
- 49376 multiletter control sequences out of 15000+600000
+ 26736 strings out of 473650
+ 509776 string characters out of 5717934
+ 903145 words of memory out of 5000000
+ 49377 multiletter control sequences out of 15000+600000
  567512 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,13n,121p,536b,604s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -956,9 +956,9 @@ ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/juuns/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/juuns/
 AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/User
 s/juuns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "Entrega 1.pdf" (6 pages, 449170 bytes).
+Output written on "Entrega 1.pdf" (6 pages, 447630 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
+ 243 PDF objects out of 1000 (max. 8388607)
  55 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
