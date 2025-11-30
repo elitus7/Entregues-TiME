@@ -41,7 +41,7 @@
 	
 	% Aseguramos que las cabeceras se muestren también en la primera página
 	\thispagestyle{fancy}
-L'equació fonamental per l'energia lliure de Gibbs d'un gas és
+L'equació fonamental per l'energia lliure de Gibbs d'un gas és\footnote{Al llarg de l'entrega, usarem de forma indistinta $nR$ i $Nk_B$ segons convingui, essent $N$ el nombre de partícules, $n$ el nombre de mols, $R$ la constant dels gasos ideals i $k_B$ la constant de Boltzmann.}
 \begin{equation}
 	G = -nRT\ln\left(\frac{AT^c}{P}\right) = -Nk_BT\ln\left(\frac{AT^c}{P}\right), \label{eqenunciat}
 \end{equation}
@@ -63,13 +63,13 @@ Així, usant \eqref{legendre}, la transformada de Legendre de l'energia interna 
 \end{equation}
 Per altra banda, sabem que l'equació de Gibbs per l'energia interna $U$ per un fluid monocomponent és
 \begin{equation}
-	dU= TdS - PdV + \mu dN.
+	\mathrm{d}U= T\mathrm{d}S - P\mathrm{d}V + \mu \mathrm{d}N.
 \label{eq2}
 \end{equation}
 D'aquesta última equació podem deduir les següents relacions:
 \begin{align*}
-	\left(\frac{\partial U}{\partial V}\right)_{S,N} &=  -P 
-	\left(\frac{\partial U}{\partial S}\right)_{V,N} &=  T 
+	\left(\frac{\partial U}{\partial V}\right)_{S,N} &=  -P \\
+	\left(\frac{\partial U}{\partial S}\right)_{V,N} &=  T \\
 	\left(\frac{\partial U}{\partial N}\right)_{V,S} &=  \mu 
 \end{align*}
 Recuperant l'expressió $\eqref{eq1}$ i substituint aquestes correspondències trobem fàcilment que
@@ -79,16 +79,16 @@ Recuperant l'expressió $\eqref{eq1}$ i substituint aquestes correspondències t
 \end{equation}
 Si diferenciem aquesta expressió de l'energia de Gibbs, aplicant la regla de la cadena, trobem
 \begin{equation*}
-	dG=dU-TdS-SdT+PdV+VdP.
+	\mathrm{d}G=\mathrm{d}U-T\mathrm{d}S-S\mathrm{d}T+P\mathrm{d}V+V\mathrm{d}P.
 \end{equation*}
 Aquí podem substituir el diferencial de l'energia interna per l'equació $\eqref{eq2}$, de manera que s'eliminen molts termes i ens queda l'equació de Gibbs per l'energia lliure de Gibbs $G(T,P,N)$
 \begin{equation}
-	dG=-SdT+VdP+\mu dN.
+	\mathrm{d}G=-S\mathrm{d}T+V\mathrm{d}P+\mu \mathrm{d}N.
 \label{eq4}
 \end{equation}
 Per altra banda, $G(T,P,N)$ també es pot diferenciar obtenint així que
 \begin{equation}
-	dG=\left(\frac{\partial G}{\partial T}\right)_{P,N} dT + \left(\frac{\partial G}{\partial P}\right)_{T,N} dP + \left(\frac{\partial G}{\partial N}\right)_{T,P} dN.
+	\mathrm{d}G=\left(\frac{\partial G}{\partial T}\right)_{P,N} \mathrm{d}T + \left(\frac{\partial G}{\partial P}\right)_{T,N} \mathrm{d}P + \left(\frac{\partial G}{\partial N}\right)_{T,P} \mathrm{d}N.
 \label{eq5}
 \end{equation}
 Per comparació entre les expressions $\eqref{eq4}$ i $\eqref{eq5}$, veiem que $\left(\frac{\partial G}{\partial P}\right)_{T,N} = V$. Aquesta equació ens portarà fins a l'equació tèrmica d'estat pel sistema que estem estudiant.
@@ -149,9 +149,9 @@ que també coincideix, llevat de la constant $c-1$, amb l'equació fonamental en
 
 Estudiem primer per quins valors de $c$ el gas és termodinàmica estable. Recordem que, tal i com vam veure a teoria, el criteri d'estabilitat termodinàmica ve donat pel signe de les segones derivades respecte les variables naturals pels potencials termodinàmics. En particular, pels potencials termodinàmics $F$ i $H$, aquestes condicions se simplifiquen molt:
 \begin{itemize}
-	\item Estabilitat tèrmica $\Leftrightarrow$ $F_{TT}<0$ I $H_{SS}>0$.
-	\item Estabilitat mecànica $\Leftrightarrow$ $F_{VV}>0$ I $H_{PP}<0$.
-	\item Estabilitat material $\Leftrightarrow$ $F_{NN}>0$ I $H_{NN}>0$.
+	\item Estabilitat tèrmica $\Leftrightarrow$ $F_{TT}<0$ i $H_{SS}>0$.
+	\item Estabilitat mecànica $\Leftrightarrow$ $F_{VV}>0$ i $H_{PP}<0$.
+	\item Estabilitat material $\Leftrightarrow$ $F_{NN}>0$ i $H_{NN}>0$.
 \end{itemize}
 Si tenim en compte les definicions dels coeficients termodinàmics
 \begin{equation}
@@ -191,19 +191,24 @@ que és una constant respecte de $P$. De les anteriors equacions podem veure el 
 \end{itemize}
 Aquesta és la condició que ha de satisfer $c$. Per tal que el sistema sigui termodinàmicament estable és necessari que $c>1$.
 
-Pel que fa a la interpretació microscòpia de $c$, el teorema d'equipartició de l'energia \textbf{\textit{REFERENCIA}} ens diu que, si considerem un gas ideal, s'ha de satisfer que \textbf{\textit{REESCRIURE AIXÒ MILLOR}}
+Pel que fa a la interpretació microscòpia de $c$, el teorema d'equipartició de l'energia aplicat a un sistema ideal (no sotmès  a cap potencial $V(\vec{r})$), ens diu que, si tenim en compte el límit termodinàmic ($N\rightarrow \infty$)
 \begin{equation}
 	U = \frac{f}{2}Nk_BT \label{eqb5}
 \end{equation}
-on $f$ són els graus de llibertat del sistema. Per exemple, per un gas ideal monoatòmic, tenim 3 graus de llibertat translacionals $\Rightarrow$ $f=3$, 
-\begin{equation}
-	U = \frac{3}{2}Nk_BT,
-\end{equation}
-per un gas ideal diatòmic (a temperatures no molt elevades), tenim 5 graus de llibertat (3 translacionals + 2 rotacionals),
-\begin{equation}
-	U = \frac{5}{2}Nk_BT,
-\end{equation}
-i així successivament. Comparant \eqref{eqb5} amb l'equació calòrica que hem trobat pel sistema \textbf{\textit{REFERENCIAR EQUACIÓ}} podem veure que
+on $f$ són els graus de llibertat del sistema. Per exemple:
+\begin{itemize}
+	\item Per un gas ideal monoatòmic, tenim 3 graus de llibertat translacionals $\Rightarrow$ $f=3$, 
+	\begin{equation}
+		U = \frac{3}{2}Nk_BT.
+	\end{equation}
+	\item Per un gas ideal diatòmic, tenim 5 graus de llibertat (3 translacionals i 2 rotacionals)\footnote{Si considerem que els nivells vibracionals encara no s'han activat perquè estem per sota d'una determinada temperatura.} $\Rightarrow f = 5$,
+	\begin{equation}
+		U = \frac{5}{2}Nk_BT,
+	\end{equation}
+	\item $\ldots$
+\end{itemize}
+
+I així successivament. Comparant \eqref{eqb5} amb l'equació calòrica \eqref{eqcalorica} que hem trobat pel sistema que estem estudiant podem veure que, necessàriament
 \begin{equation}
 	c-1 = \frac{f}{2} \Rightarrow \boxed{c=\frac{f}{2}+1},
 \end{equation}
@@ -215,141 +220,117 @@ Notem que això dóna sentit al fet que, per tal que el sistema sigui termodinà
 
 
 \section*{Apartat c)}	
-\textbf{Una certa quantitat d'aquest gas es troba dins d'un recipient cilíndric de secció transversal $A$ de parets adiabàtiques. El cilindre està obert per la part superior i en contacte amb l'atmosfera a pressió $P_0$. Damunt del gas es col·loca un disc adiabàtic de massa menyspreable i un bloc de massa $m$ (veure FIGURA). El disc i el bloc baixen fins a una altura $h$ respecte del fons del cilindre. En aquesta situació el gas es troba en equilibri a temperatura $T_0$.}
+\textbf{Una certa quantitat d'aquest gas es troba dins d'un recipient cilíndric de secció transversal $A$ de parets adiabàtiques. El cilindre està obert per la part superior i en contacte amb l'atmosfera a pressió $P_0$. Damunt del gas es col·loca un disc adiabàtic de massa menyspreable i un bloc de massa $m$ (veure \ref{fig1}). El disc i el bloc baixen fins a una altura $h$ respecte del fons del cilindre. En aquesta situació el gas es troba en equilibri a temperatura $T_0$.}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\linewidth]{screenshot001}
+	\caption{Sistema de l'apartat c).}
+	\label{fig1}
+\end{figure}
 
 \begin{enumerate}[leftmargin=0pt,label=\arabic*.,labelsep=0.5em,before=\setlength{\parindent}{0pt}]
 
 	\item \textbf{Calculeu el nombre de mols de gas.}
 	
-	Per determinar el nombre de mols de gas, utilitzem l’equació tèrmica d’estat \eqref{eq6} obtinguda a l’apartat \textbf{a} . 
+	Per determinar el nombre de mols de gas, utilitzem l’equació tèrmica d’estat \eqref{eq6} obtinguda a l’apartat \textbf{a)} . 
 	
 	La pressió total del sistema és la suma de la pressió externa, $P_0$, i de la pressió exercida per la massa $m$, la qual correspon a la força $mg$ per unitat d’àrea $A$
-	
 	\begin{equation}
 		P = P_0 + \frac{F}{A} = P_0 + \frac{mg}{A}.
 	\end{equation}
-	
 	El volum ve donat per $V = A h$, mentre que la temperatura inicial és $T = T_0$. Sigui $R$ la constant dels gasos ideals. Substituint aquestes expressions a l’equació tèrmica d’estat \eqref{eq6}, obtenim el nombre de mols de gas
-	
 	\begin{equation}
 		\boxed{n = \left(P_0 + \frac{mg}{A} \right)\frac{A h}{R T_0}}. \label{eqn}
 	\end{equation}
-	
 	
 	\item \textbf{Ara traiem el bloc i el gas s'expandeix fins una altura $h_f$. Calculeu $h_f$ i la temperatura final del gas.}
 
 	Per determinar els valors de $h_f$ i $T$, tornarem a utilitzar l’equació tèrmica d’estat \eqref{eq6} i l’equació calòrica \eqref{eqcalorica}, totes dues obtingudes a l’apartat \textbf{a}.
 	
 	Partint de l’equació tèrmica d’estat, en l’estat final s’ha de complir
-	
 	\begin{equation}
-		P_0 A h_f = nRT
+		P_0 A h_f = nRT,
 	\end{equation}
-	
 	on la pressió és $P = P_0$ i el volum $V = A h_f$.
 	
 	Aïllem la temperatura final $T$ 
-	
 	\begin{equation}
-		T = \frac{P_0 A h_f}{nR} \label{eqT}
+		T = \frac{P_0 A h_f}{nR} \label{eqT}.
 	\end{equation}
-	
 	A continuació, utilitzem l’equació calòrica. La primera llei de la termodinàmica estableix que $\Delta U = \Delta Q + \Delta W$. En aquest procés no hi ha flux de calor (les parets són adiabàtiques), de manera que $\Delta U = \Delta W = -P_{\text{ext}} \Delta V$.
 	
 	Combinant aquesta expressió amb l'expressió de l’energia interna obtinguda a l’apartat \textbf{a} \eqref{eqcalorica}, obtenim
-	
 	\begin{equation}
-		(C-1)nR(T_f - T_i) = -P_{\text{ext}}(V_f - V_i)
+		(c-1)nR(T_f - T_i) = -P_{\text{ext}}(V_f - V_i).
 	\end{equation}
-	
 	Definim, doncs, l’estat inicial i final
-	
 	\begin{align}
 		T_i &= T_0, \qquad T_f = T \\
 		V_i &= A h, \qquad V_f = A h_f
 	\end{align}
-	
 	Substituint a l’equació anterior, i tenint en compte que en un procés irreversible la pressió externa és constant i igual a $P_0$, obtenim
-	
 	\begin{equation}
-		(C-1)nR(T - T_0) = -P_0 A (h_f - h)
+		(c-1)nR(T - T_0) = -P_0 A (h_f - h).
 	\end{equation}
-	
 	Aïllem $h_f$
-	
 	\begin{equation}
-		h_f = \frac{-nR(T - T_0)(C-1) + P_0 A h}{P_0 A}
+		h_f = \frac{-nR(T - T_0)(c-1) + P_0 A h}{P_0 A}.
 	\end{equation}
-	
 	Ara substituïm l’expressió de $T$ obtinguda abans \eqref{eqT}
-	
 	\begin{equation}
 		h_f = 
 		\frac{
-			-nR\left(\frac{P_0 A h_f}{nR} - T_0\right)(C-1) + P_0 A h
+			-nR\left(\frac{P_0 A h_f}{nR} - T_0\right)(c-1) + P_0 A h
 		}{P_0 A}
 		=
 		-h_f(C-1) + 
-		\frac{nR T_0(C-1) + P_0 A h}{P_0 A}
+		\frac{nR T_0(c-1) + P_0 A h}{P_0 A}.
 	\end{equation}
-	
 	Aïllant $h_f$ s’arriba a
-	
 	\begin{equation}
-		h_f = \frac{nR T_0 (C-1) + P_0 A h}{P_0 A C}
+		h_f = \frac{nR T_0 (c-1) + P_0 A h}{P_0 A c}.
 	\end{equation}
-	
 	Substituïm l’expressió dels mols obtinguda a l’apartat \textbf{a} \eqref{eqn}
-	
 	\begin{equation}
 		h_f 
 		= 
-		\frac{(P_0 + \frac{mg}{A})hA(C-1) + P_0 A h}{P_0 A C}
+		\frac{(P_0 + \frac{mg}{A})hA(c-1) + P_0 A h}{P_0 A c}
 		=
-		h \left( \frac{P_0 A + (P_0 A + mg)(C-1)}{P_0 A C} \right)
+		h \left( \frac{P_0 A + (P_0 A + mg)(c-1)}{P_0 A c} \right)
 		=
-		h \left( \frac{P_0 A C + mg(C-1)}{P_0 A C} \right)
+		h \left( \frac{P_0 A c + mg(c-1)}{P_0 A c} \right),
 	\end{equation}
-	
-	I, simplificant, obtenim
-	
+	i, simplificant, obtenim
 	\begin{equation}
-		\boxed{h_f = h \left( 1 + \frac{mg(C-1)}{P_0 A C} \right)} \label{eqhf}
+		\boxed{h_f = h \left( 1 + \frac{mg(c-1)}{P_0 A c} \right)} \label{eqhf}.
 	\end{equation}
-	
 	Podem observar que $h_f > h$, ja que, com hem determinat abans, cal que $C>1$. El valor obtingut és coherent, ja que en treure el bloc, la pressió sobre el gas disminueix i el volum ha d’augmentar per ajustar-se al nou equilibri del sistema.
 	
 	Per determinar la temperatura final, substituïm l'expressió trobada de $h_f$ \eqref{eqhf} en l’expressió anterior de $T$ \eqref{eqT}
-	
 	\begin{equation}
 		T 
 		= 
 		\frac{P_0 A}{nR} h 
-		\left( 1 + \frac{mg(C-1)}{P_0 A C} \right)
+		\left( 1 + \frac{mg(c-1)}{P_0 A c} \right)
 		=
 		\frac{h}{nRC}
-		\left( P_0 A C + mg(C-1) \right)
+		\left( P_0 A c + mg(c-1) \right)
 	\end{equation}
-	
 	Ara tornem a substituir el nombre de mols \eqref{eqn}
-	
 	\begin{equation}
 		T 
 		= 
-		\frac{h R T_0}{RC (P_0 + \frac{mg}{A})hA}
-		\left( P_0 A C + mg(C-1) \right)
+		\frac{h R T_0}{Rc (P_0 + \frac{mg}{A})hA}
+		\left( P_0 A c + mg(c-1) \right)
 		=
 		T_0
-		\frac{P_0 A C + mg(C-1)}{C(P_0 A + mg)}
+		\frac{P_0 A c + mg(c-1)}{c(P_0 A + mg)}
 	\end{equation}
-	
 	Finalment, simplificant l’expressió, s’obté
-	
 	\begin{equation}
-		\boxed{T = T_0 \left( 1 - \frac{mg}{C(P_0 A + mg)} \right)}
+		\boxed{T = T_0 \left( 1 - \frac{mg}{c(P_0 A + mg)} \right)}
 	\end{equation}
-	
 	En aquesta expressió podem veure que $T < T_0$. És coherent ja que, en expandir-se el gas sense transferència de calor, la seva energia interna es reparteix sobre un volum major, fet que fa que la temperatura final sigui menor que la inicial.
 	
 	\item \textbf{Calculeu el canvi d'entropia del gas en treure el bloc.}
@@ -358,6 +339,6 @@ Tal i com ja hem comentat, el procés que tenim és irreversible. A més, per re
 
 Partim doncs de l'expressió \textbf{REFRENCIAR EQ 10} per l'entropia del nostre sistema.
 
-MEN VAIG A DORMIR NO ENTENC RES C? C-1??
+MEN VAIG A DORMIR NO ENTENC RES c? c-1??
 
 \end{document}
