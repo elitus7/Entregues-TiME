@@ -1,0 +1,65 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[catalan]{babel}
+\usepackage{tcolorbox}
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{caption}
+\captionsetup{labelfont=bf}
+\usepackage{hyperref}
+\usepackage[arrowdel]{physics}
+\newtcolorbox{definició}[1]{title=#1}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1.95cm, right=1.95cm, top=30mm, bottom=20mm]{geometry} 
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\setlist[enumerate]{leftmargin=0pt, label=\arabic*., labelsep=0.5em}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{titling} % Per controlar el títol
+\pagestyle{fancy}
+\fancyhf{}
+\lhead[\leftmark]{{Universitat Autònoma de Barcelona}}
+\rhead{Termodinàmica i Mecànica Estadística}
+\cfoot[]{\thepage}
+\renewcommand{\labelenumi}{\textbf{\theenumi.}} % Numeració en Bf.
+
+% Redueixo l'espai abans del títol
+\setlength{\droptitle}{-2cm}
+
+\begin{document}
+	\title{\Huge{\textbf{Segon Lliurament}} \\ \vspace{0.2cm} \large{\textbf{Termodinàmica i Mecànica Estadística}}}
+	
+	\author{\small{1549086: Bujones Umbert, Jun Shan} \\
+		\small{1672980: González Barea, Eric} \\
+		\small{1644841: Vilarrúbias Morral, Natàlia}}
+	\date{Desembre 2025}
+	\maketitle
+	
+	% Aseguramos que las cabeceras se muestren también en la primera página
+	\thispagestyle{fancy}
+	
+Un objecte de massa $m$ es troba subjecte entre dues molles de constant $k$ i longitud natural
+$l$. La distància entre les parets és $2l$ (com es mostra a la figura \ref{fig1}) i la partícula només es pot moure
+unidimensionalment. El Hamiltonià de la partícula és
+\begin{equation}
+	H = \frac{p^2}{2m}+kx^2.
+\end{equation}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{screenshot001}
+	\caption{Sistema d'estudi.}
+	\label{fig1}
+\end{figure}
+
+\section*{Apartat a)}
+\textbf{Calculeu el nombre de microstats de la partícula en funció de la seva energia $E$.}
+
+\section*{Apartat b)}
+\textbf{Si tot el sistema es troba dins d'un bany tèrmic a temperatura $T$ la partícula estarà sotmesa a un soroll tèrmic. Calculeu la funció de partició de la partícula i el valor mig de l'energia de la partícula $\langle E \rangle$. Establiu els límits d'altes i baixes temperatures i trobeu $\langle E \rangle$ en aquests límits. Raoneu físicament els resultats. Calculeu el valor mig de la posició de la partícula i la variança de la posició i analitzeu i raoneu els límits d'altes i baixes temperatures.}
+
+\end{document}
