@@ -14,7 +14,6 @@
 \usepackage{fancyhdr}
 \usepackage{amssymb}
 \usepackage{enumitem}
-\setlist[enumerate]{leftmargin=0pt, label=\arabic*., labelsep=0.5em}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{cancel}
@@ -46,7 +45,7 @@ Un objecte de massa $m$ es troba subjecte entre dues molles de constant $k$ i lo
 $l$. La distància entre les parets és $2l$ (com es mostra a la figura \ref{fig1}) i la partícula només es pot moure
 unidimensionalment. El Hamiltonià de la partícula és
 \begin{equation}
-	H = \frac{p^2}{2m}+kx^2.
+	H = \frac{p^2}{2m}+kx^2. \label{eq:enunciat}
 \end{equation}
 
 \begin{figure}[h]
@@ -61,5 +60,124 @@ unidimensionalment. El Hamiltonià de la partícula és
 
 \section*{Apartat b)}
 \textbf{Si tot el sistema es troba dins d'un bany tèrmic a temperatura $T$ la partícula estarà sotmesa a un soroll tèrmic. Calculeu la funció de partició de la partícula i el valor mig de l'energia de la partícula $\langle E \rangle$. Establiu els límits d'altes i baixes temperatures i trobeu $\langle E \rangle$ en aquests límits. Raoneu físicament els resultats. Calculeu el valor mig de la posició de la partícula i la variança de la posició i analitzeu i raoneu els límits d'altes i baixes temperatures.}
+
+\begin{enumerate}
+	\item \textbf{\textit{Càlcul de la funció de partició.}}
+
+La funció de partició que hem de calcular és la funció de partició canònica $Z$ (tenim el sistema en un bany tèrmic a temperatura $T$). Per calcular-la podem usar la seva definició (que vam veure a teoria) aplicada a aquest cas en què tenim una única partícula sotmesa al hamiltonià de \eqref{eq:enunciat}. Així doncs, tenim que
+
+\begin{equation}
+	Z = \int \frac{\mathrm{d}x\mathrm{d}p}{h}e^{-\beta H(x,p)} = \int \frac{\mathrm{d}x\mathrm{d}p}{h}e^{-\beta p^2/2m}e^{-\beta k x^2} = \frac{1}{h} \int_{-l}^{l} e^{-\beta kx^2}\mathrm{d}x\int_{-\infty}^{+\infty} e^{-\beta p^2/2m} \mathrm{d}p. \label{eqb1:1}
+\end{equation}
+	
+Calculem ara per separat les dues integrals anteriors. La segona és una integral Gaussiana estàndard que es pot calcular si recordem que
+\begin{equation}
+	\int_{-\infty}^{+\infty} e^{-ax^2}\mathrm{d}x = \sqrt{\frac{\pi}{a}}, \label{eqb1:2}
+\end{equation}
+de manera que tenim que
+\begin{equation}
+	\int_{-\infty}^{+\infty} e^{-\beta p^2/2m} \mathrm{d}p = \sqrt{\frac{2\pi m}{\beta}}. \label{eqb1:3}
+\end{equation}
+Per altra banda, la primera integral és també una Gaussiana però amb els límits d'integració diferents de $\pm \infty$ i, per tant, la podem deixar en termes de la \textit{error function} erf$(x)$. Recordem que aquesta funció és la següent
+\begin{equation}
+	\mathrm{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2}\mathrm{d}t. \label{eqb1:4}
+\end{equation}
+Si desenvolupem la primera integral de \eqref{eqb1:1} tenim el següent
+\begin{equation*}
+	\int_{-l}^{l} e^{-\beta kx^2}\mathrm{d}x = 2 \int_{0}^{l} e^{-\beta kx^2}\mathrm{d}x = \frac{2}{\sqrt{\beta k}}\int_0^{l\sqrt{\beta k}}e^{-t^2}\mathrm{d}t = \frac{2}{\sqrt{\beta k}} \cdot \frac{\sqrt{\pi}}{2}\mathrm{erf}(l\sqrt{\beta k}) \Rightarrow
+\end{equation*}
+\begin{equation}
+	\Rightarrow \sqrt{\frac{\pi}{\beta k}} \mathrm{erf}(l\sqrt{\beta k}), \label{eqb1:5}
+\end{equation}
+on al primer pas hem fet usat que la $e^{-\beta k x^2}$ és una funció simètrica respecte del 0 i, al segon pas, hem fet el següent canvi de variable
+\begin{align*}
+	\sqrt{\beta k} x &= t, \\
+	\sqrt{\beta k} \mathrm{d}x &= \mathrm{d}t.
+\end{align*}
+Així doncs, si usem els resultats \eqref{eqb1:3} i \eqref{eqb1:5} sobre \eqref{eqb1:1}, trobem la funció de partició canònica pel sistema que estem estudiant
+\begin{equation}
+	\boxed{Z(\beta) = \frac{\pi}{h\beta}\sqrt{\frac{2m}{k}}\mathrm{erf}(l\sqrt{\beta k})}. \label{eqb1:6}
+\end{equation}
+
+Una forma alternativa de calcular aquesta funció de partició és usant que 
+\begin{equation}
+	Z = \int_{0}^{\infty}\mathrm{d}Ee^{-\beta E}\Omega(E,V,N),
+\end{equation}
+aprofitant que, a l'apartat anterior, hem calculat el nombre de microestats $\Omega$.
+\\
+	\item \textbf{\textit{Càlcul de $\langle E \rangle$ i límits d'altes i baixes temperatures.}}
+Per calcular $\langle E \rangle$ (que es correspondria amb l'energia interna $U$ un cop prenguéssim el límit termodinàmic $N \rightarrow \infty$), usem que, tal i com es va demostrar a les classes teòriques
+\begin{equation}
+	\langle E \rangle = - \frac{\partial \ln Z}{\partial \beta}. \label{eqb2:1}
+\end{equation}
+Si prenem el logaritme neperià de $Z(\beta)$ (equació \eqref{eqb1:6}), tenim que
+\begin{equation}
+	\ln Z = \ln\left(\frac{1}{\beta}\right) + \ln\left(\frac{\pi}{h}\cdot \sqrt{\frac{2m}{k}}\right) + \ln(\mathrm{erf}(l\sqrt{\beta k})),\label{eqb2:2}
+\end{equation}
+de manera que
+\begin{equation*}
+	\frac{\partial \ln Z}{\partial \beta} = \frac{1}{1/\beta}\cdot \left(-\frac{1}{\beta^2}\right) + \frac{\mathrm{d}}{\mathrm{d} \beta}\left[\ln\left(\mathrm{erf}(l\sqrt{\beta k})\right)\right] = -\frac{1}{\beta} + \frac{1}{\mathrm{erf}(l\sqrt{\beta k})}\cdot \frac{\mathrm{d}}{\mathrm{d} \beta}\left[\mathrm{erf}(l\sqrt{\beta k})\right]. 
+\end{equation*}
+Per fer la darrera derivada, apliquem la regla de la cadena
+\begin{equation*}
+	\frac{\mathrm{d}}{\mathrm{d}\beta}\left[\mathrm{erf}(l\sqrt{\beta k})\right] = \frac{\mathrm{d}(\mathrm{erf}(l\sqrt{\beta k}))}{\mathrm{d}(l\sqrt{\beta k})}\cdot \frac{\mathrm{d}(l\sqrt{\beta k})}{\mathrm{d}\beta} = \frac{l\sqrt{k}\beta^{-1/2}}{2}\cdot \frac{\mathrm{d}(\mathrm{erf}(l\sqrt{\beta k}))}{\mathrm{d}(l\sqrt{\beta k})} = \ldots
+\end{equation*}
+usant la definició de la \textit{error function} donada a \eqref{eqb1:4}, obtenim
+\begin{equation*}
+	\ldots = l \sqrt{\frac{k}{\pi \beta}} \frac{\mathrm{d}}{\mathrm{d}(l\sqrt{\beta k})}\left[\int_0^{l\sqrt{\beta k}}e^{-t^2}\mathrm{d}t\right] = \ldots
+\end{equation*}
+i ara, recordant la \textit{regla de Barrow}, arribem a que
+\begin{equation*}
+	\ldots = l \sqrt{\frac{k}{\pi \beta}}\frac{\mathrm{d}}{\mathrm{d}(l\sqrt{\beta k})}\left[F(l\sqrt{\beta k})- F(0)\right] = l \sqrt{\frac{k}{\pi \beta}}\frac{\mathrm{d}}{\mathrm{d}(l\sqrt{\beta k})}\left[F(l\sqrt{\beta k})\right] = l \sqrt{\frac{k}{\pi \beta}} e^{-l^2\beta k}.
+\end{equation*}
+Així doncs, si agrupem tot això
+\begin{equation}
+	\frac{\partial \ln Z}{\partial \beta} = -\frac{1}{\beta} + \sqrt{\frac{kl^2}{\pi \beta}} \cdot \frac{e^{-l^2k\beta}}{\mathrm{erf}(l\sqrt{\beta k})}. \label{eqb2:3}
+\end{equation}
+Per tant, el valor esperat de l'energia de la partícula serà
+\begin{equation}
+	\boxed{\langle E \rangle = \frac{1}{\beta} - \sqrt{\frac{kl^2}{\pi \beta}} \cdot \frac{e^{-l^2k\beta}}{\mathrm{erf}(l\sqrt{\beta k})}}. \label{eqb2:4}
+\end{equation}
+
+Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de comparar l'energia tèrmica del sistema $k_BT \equiv \frac{1}{\beta}$ amb l'energia potencial elàstica $kl^2$ deguda a la presència de les molles. És a dir, hem d'estudiar el comportament del factor
+\begin{equation}
+	x \equiv \frac{kl^2}{k_BT} = l^2\beta k.
+\end{equation}
+\begin{enumerate}
+	\item \textbf{Comportament de $\langle E \rangle$ a altes temperatures.} En aquest cas tenim que $T \rightarrow \infty$ i, aleshores
+	\begin{equation*}
+		k_BT \gg kl^2 \Rightarrow 1 \gg \frac{kl^2}{k_BT} \Rightarrow 1 \gg l^2\beta k
+	\end{equation*}
+	Per veure el comportament de la \textit{error function} quan la variable $l^2k\beta \rightarrow$ usem la seva expansió en sèrie de Taylor (treballant fins a primer ordre)\footnote{Aquest resultat es pot trobar desenvolupant $e^{-z^2}$ en sèrie de Taylor i integrant terme a terme. Veure \url{https://en.wikipedia.org/wiki/Error_function}.}
+	\begin{equation}
+		\mathrm{erf}(z) = \frac{2}{\sqrt{\pi}}\left(z-\frac{z^3}{3}+\frac{z^5}{10}-\frac{z^7}{42}+\ldots\right) \approx \frac{2}{\sqrt{\pi}}z. \label{eqb2:5}
+	\end{equation}
+	Això, en el nostre cas, es tradueix en què
+	\begin{equation}
+		\mathrm{erf}(l\sqrt{\beta k}) \approx 2\sqrt{\frac{l^2\beta k}{\pi}}. \label{eqb2:6}
+	\end{equation}
+	Per altra banda, per $1 \gg l^2\beta k$, tenim que
+	\begin{equation}
+		e^{-l^2\beta k} \approx 1. \label{eqb2:7}
+	\end{equation}
+	Si substituïm les aproximacions per altes temperatures \eqref{eqb2:6} i \eqref{eqb2:7} sobre \eqref{eqb2:5}, trobem que
+	\begin{equation*}
+		\langle E \rangle = \frac{1}{\beta} - \frac{1}{2\beta} =\frac{1}{\beta} \Rightarrow
+	\end{equation*}
+	\begin{equation}
+		\boxed{\langle E \rangle_{T\rightarrow \infty} \approx \frac{1}{2} k_BT}. \label{eqb2:8}
+	\end{equation}
+	
+	\textbf{RAONAR FÍSICAMENT A PARTIR DEL TEOREMA D'EQUIPARTICIÓ}
+	
+	\item \textbf{Comportament de $\langle E \rangle$ a baixes temperatures.}
+	
+	\textbf{AAAAAAAAAAA}
+\end{enumerate}
+
+
+
+	\item \textbf{\textit{Càlcul de $\langle x \rangle$, $\langle x^2 \rangle$ i $(\Delta x)^2$ i límits d'altes i baixes temperatures.}}
+\end{enumerate}
 
 \end{document}
