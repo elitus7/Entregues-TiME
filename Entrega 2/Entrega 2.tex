@@ -44,9 +44,9 @@
 Un objecte de massa $m$ es troba subjecte entre dues molles de constant $k$ i longitud natural
 $l$. La distància entre les parets és $2l$ (com es mostra a la figura \ref{fig1}) i la partícula només es pot moure
 unidimensionalment. El Hamiltonià de la partícula és
-\begin{equation*}
+\begin{equation}
 	H = \frac{p^2}{2m}+kx^2. \label{eq:enunciat}
-\end{equation*}
+\end{equation}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{screenshot001}
@@ -62,7 +62,7 @@ Per tal de calcular el nombre de microstats tenim que
 	\Omega \left(E,V,N\right)=\int \frac{\mathrm{d} \vec{q}\mathrm{d}\vec{p}}{h^{3N}}\delta \left(E-H(\vec{q},\vec{p})\right).
 \label{eqa:1}
 \end{equation}
-Aquesta integral és molt complicada de resoldre i, per això, definirem una nova funció que representi el volum contingut dins de la hipersuperfície de l'espai de fases:
+Aquesta integral és molt complicada de resoldre i, per això, definirem una nova funció que representi el volum contingut dins de la hipersuperfície de l'espai de fases
 \begin{equation}
 	\Gamma\left(E,V,N\right)=\int_{0}^{E}\Omega\left(E',V,N\right)\mathrm{d}E'.
 \label{eqa:2}
@@ -80,9 +80,9 @@ La condició que s'ha de complir és
 \begin{equation*}
 	H\left(\vec{q},\vec{p}\right)=\frac{p^2}{2m}+kx^2\leq E \Rightarrow \frac{p^2}{2mE}+\frac{k}{E}x^2 \leq 1.
 \end{equation*}
-Per tal de resoldre la integral hem de fer un parell de canvis de variable:
+Per tal de resoldre la integral hem de fer un parell de canvis de variable
 \begin{equation*}
-	Z_1^2=\frac{p^2}{2mE} \Rightarrow \mathrm{d}Z_1=\frac{\mathrm{d}p}{\sqrt{2mE}}.
+	Z_1^2=\frac{p^2}{2mE} \Rightarrow \mathrm{d}Z_1=\frac{\mathrm{d}p}{\sqrt{2mE}},
 \end{equation*}
 \begin{equation*}
 	Z_2^2=\frac{k}{E}x^2 \Rightarrow \mathrm{d}Z_2=\sqrt{\frac{k}{E}}\mathrm{d}x.
@@ -93,9 +93,9 @@ Aplicant aquests canvis a l'equació \eqref{eqa:2} tenim
 	\Gamma\left(E,V,N\right)=\frac{1}{h}\int_{Z_1^2+Z_2^2\leq1}\sqrt{2mE}\cdot\sqrt{\frac{E}{k}}\mathrm{d}Z_1\mathrm{d}Z_2=\sqrt{\frac{2m}{k}}E\cdot\frac{1}{h}\int_{Z_1^2+Z_2^2\leq1}\mathrm{d}Z_1\mathrm{d}Z_2.
 \label{eqa:4}
 \end{equation}
-Hem d'utilitzar el volum de la hiperesfera següent:
+Hem d'utilitzar el volum de la hiperesfera següent
 \begin{equation}
-	\int_{x_1^2+...+x_n^2\leq R^2} \mathrm{d}x_1 ... \mathrm{d}x_n = \frac{\sqrt{\pi^n}}{\left(\frac{n}{2}\right)!}R^n.
+	\int_{x_1^2+...+x_n^2\leq R^2} \mathrm{d}x_1 \cdots \mathrm{d}x_n = \frac{\sqrt{\pi^n}}{\left(\frac{n}{2}\right)!}R^n.
 \label{eqa:5}
 \end{equation}
 Per tant, podem continuar l'expressió que teníem a \eqref{eqa:4}
@@ -103,14 +103,14 @@ Per tant, podem continuar l'expressió que teníem a \eqref{eqa:4}
 	\Gamma\left(E,V,N\right)=\sqrt{\frac{2m}{k}}\frac{E}{h}\cdot\frac{\sqrt{\pi^2}}{\left(\frac{2}{2}\right)!}\cdot1^2=\sqrt{\frac{2m}{k}}\frac{E}{h}\pi.
 \label{eqa:6}
 \end{equation}
-Tal i com hem raonat anteriorment a \eqref{eqa:3}, ara només ens queda derivar aquest volum respecte l'energia $E$ per trobar el nombre de microstats.
+Tal i com hem raonat anteriorment a \eqref{eqa:3}, ara només ens queda derivar aquest volum respecte l'energia $E$ per trobar el nombre de microestats.
 
 Fent la derivada obtenim que
 \begin{equation}
-	\boxed{\Omega\left(E,V,N\right)=\sqrt{\frac{2m}{k}\frac{\pi}{h}}}.
+	\boxed{\Omega\left(E,V,N\right)=\sqrt{\frac{2m}{k}}\frac{\pi}{h}}.
 \label{eqa:7}
 \end{equation}
-Hi ha una manera alternativa de trobar la funció gamma que exposarem a continuació.
+Hi ha una manera alternativa per trobar l'hipervolum $\Gamma$ que exposarem a continuació.
 
 Tenint la condició
 \begin{equation*}
@@ -118,20 +118,19 @@ Tenint la condició
 \end{equation*}
 podem aïllar el moment en funció de la posició, és a dir
 \begin{equation}
-	p(x)=\pm \sqrt{2m\left(E-kx^2\right)}.
+	p(x)=\pm \sqrt{2m\left(E-kx^2\right)},
 \label{eqa:8}
 \end{equation}
-
-Representem aquesta funció:
+on hem escollit $H = E$, és a dir, hem escollit la hipersuperfície que delimita l'hipervolum de l'espai de fases. Si representem aquesta funció tenim el següent:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.45\linewidth]{Graf}
 	\caption{Representació gràfica del moment en funció de la posició.}
 	\label{fig2}
 \end{figure}
-Mirant la figura \ref{fig2} veiem que tenim una el·Lipse en una dimensió. El volum, en aquest cas superfície, que estem buscant és l'interior d'aquesta el·lipse i, aprofitant que és una forma geomètrica coneguda, podem utilitzar la fórmula següent:
+Mirant la figura \ref{fig2} veiem que tenim una el·lipse en una dimensió. L'hipervolum $\Gamma$ que estem buscant és justament el volum comprés a l'interior d'aquesta el·lipse i, aprofitant que és una forma geomètrica coneguda, podem utilitzar la fórmula següent
 \begin{equation}
-	\text{Àrea d'una el·lipse}=\pi \cdot a \cdot b
+	\text{Àrea d'una el·lipse}=\pi \cdot a \cdot b,
 \label{eqa:9}
 \end{equation}
 on $a$ i $b$ són els radis major i menor que clarament són
@@ -141,7 +140,7 @@ on $a$ i $b$ són els radis major i menor que clarament són
 \begin{equation*}
 	b=\sqrt{2mE}.
 \end{equation*}
-Amb l'equació \eqref{eqa:9} trobem la mateixa expressió que hem obtingut anteriorment \eqref{eqa:6}. Per tant, derivant l'expressió en funció de l'energia acabem trobant la mateixa equació \eqref{eqa:7}.
+Amb l'equació \eqref{eqa:9} trobem la mateixa expressió que hem obtingut anteriorment \eqref{eqa:6}. Per tant, derivant l'expressió en funció de l'energia acabem trobant la mateixa equació \eqref{eqa:7}\footnote{Llevat del factor $\frac{1}{h}$, que hauríem d'afegir a posteriori.}.
 
 \section*{Apartat b)}
 \textbf{Si tot el sistema es troba dins d'un bany tèrmic a temperatura $T$ la partícula estarà sotmesa a un soroll tèrmic. Calculeu la funció de partició de la partícula i el valor mig de l'energia de la partícula $\langle E \rangle$. Establiu els límits d'altes i baixes temperatures i trobeu $\langle E \rangle$ en aquests límits. Raoneu físicament els resultats. Calculeu el valor mig de la posició de la partícula i la variança de la posició i analitzeu i raoneu els límits d'altes i baixes temperatures.}
@@ -233,7 +232,7 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\begin{equation*}
 		k_BT \gg kl^2 \Rightarrow 1 \gg \frac{kl^2}{k_BT} \Rightarrow 1 \gg l^2\beta k
 	\end{equation*}
-	Per veure el comportament de la \textit{error function} quan la variable $l^2k\beta \rightarrow$ usem la seva expansió en sèrie de Taylor (treballant fins a primer ordre)\footnote{Aquest resultat es pot trobar desenvolupant $e^{-z^2}$ en sèrie de Taylor i integrant terme a terme. Veure \url{https://en.wikipedia.org/wiki/Error_function}.}
+	Per veure el comportament de la \textit{error function} quan la variable $l^2k\beta$ tendeix a 0 usem la seva expansió en sèrie de Taylor (treballant fins a primer ordre)\footnote{Aquest resultat es pot trobar desenvolupant $e^{-z^2}$ en sèrie de Taylor i integrant terme a terme. Veure \url{https://en.wikipedia.org/wiki/Error_function}.}
 	\begin{equation}
 		\mathrm{erf}(z) = \frac{2}{\sqrt{\pi}}\left(z-\frac{z^3}{3}+\frac{z^5}{10}-\frac{z^7}{42}+\ldots\right) \approx \frac{2}{\sqrt{\pi}}z. \label{eqb2:5}
 	\end{equation}
@@ -250,7 +249,7 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 		\langle E \rangle = \frac{1}{\beta} - \frac{1}{2\beta} =\frac{1}{\beta} \Rightarrow
 	\end{equation*}
 	\begin{equation}
-		\boxed{\langle E \rangle_{T\rightarrow \infty} \approx \frac{1}{2} k_BT}. \label{eqb2:8}
+		 \Rightarrow \boxed{\langle E \rangle_{T\rightarrow \infty} \approx \frac{1}{2} k_BT}. \label{eqb2:8}
 	\end{equation}
 	
 	\textbf{RAONAR FÍSICAMENT A PARTIR DEL TEOREMA D'EQUIPARTICIÓ}
