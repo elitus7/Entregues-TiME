@@ -44,10 +44,9 @@
 Un objecte de massa $m$ es troba subjecte entre dues molles de constant $k$ i longitud natural
 $l$. La distància entre les parets és $2l$ (com es mostra a la figura \ref{fig1}) i la partícula només es pot moure
 unidimensionalment. El Hamiltonià de la partícula és
-\begin{equation}
+\begin{equation*}
 	H = \frac{p^2}{2m}+kx^2. \label{eq:enunciat}
-\end{equation}
-
+\end{equation*}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{screenshot001}
@@ -57,6 +56,93 @@ unidimensionalment. El Hamiltonià de la partícula és
 
 \section*{Apartat a)}
 \textbf{Calculeu el nombre de microstats de la partícula en funció de la seva energia $E$.}
+
+Per tal de calcular el nombre de microstats tenim que
+\begin{equation}
+	\Omega \left(E,V,N\right)=\int \frac{\mathrm{d} \vec{q}\mathrm{d}\vec{p}}{h^{3N}}\delta \left(E-H(\vec{q},\vec{p})\right).
+\label{eqa:1}
+\end{equation}
+Aquesta integral és molt complicada de resoldre i, per això, definirem una nova funció que representi el volum contingut dins de la hipersuperfície de l'espai de fases:
+\begin{equation}
+	\Gamma\left(E,V,N\right)=\int_{0}^{E}\Omega\left(E',V,N\right)\mathrm{d}E'.
+\label{eqa:2}
+\end{equation}
+Amb aquesta nova relació, el càlcul del nombre de microstats se'ns simplifica i ve donat per
+\begin{equation}
+	\Omega\left(E,V,N\right)=\left(\frac{\partial\Gamma\left(E,V,N\right)}{\partial E}\right)_{V,N}.
+\label{eqa:3}
+\end{equation}
+Trobem doncs primer la funció $\Gamma(E,V,N)$ amb l'expressió \eqref{eqa:2}.
+
+Notem que el nostre problema té una sola dimensió i que només tenim una massa. Per això, l'$h$ del denominador queda elevada a 1. Per aquest mateix motiu, la posició només dependrà de $x$ i el moment només tindrà aquesta mateixa component.
+
+La condició que s'ha de complir és
+\begin{equation*}
+	H\left(\vec{q},\vec{p}\right)=\frac{p^2}{2m}+kx^2\leq E \Rightarrow \frac{p^2}{2mE}+\frac{k}{E}x^2 \leq 1.
+\end{equation*}
+Per tal de resoldre la integral hem de fer un parell de canvis de variable:
+\begin{equation*}
+	Z_1^2=\frac{p^2}{2mE} \Rightarrow \mathrm{d}Z_1=\frac{\mathrm{d}p}{\sqrt{2mE}}.
+\end{equation*}
+\begin{equation*}
+	Z_2^2=\frac{k}{E}x^2 \Rightarrow \mathrm{d}Z_2=\sqrt{\frac{k}{E}}\mathrm{d}x.
+\end{equation*}
+La condició, doncs, ara és $Z_1^2+Z_2^2\leq1$.
+Aplicant aquests canvis a l'equació \eqref{eqa:2} tenim
+\begin{equation}
+	\Gamma\left(E,V,N\right)=\frac{1}{h}\int_{Z_1^2+Z_2^2\leq1}\sqrt{2mE}\cdot\sqrt{\frac{E}{k}}\mathrm{d}Z_1\mathrm{d}Z_2=\sqrt{\frac{2m}{k}}E\cdot\frac{1}{h}\int_{Z_1^2+Z_2^2\leq1}\mathrm{d}Z_1\mathrm{d}Z_2.
+\label{eqa:4}
+\end{equation}
+Hem d'utilitzar el volum de la hiperesfera següent:
+\begin{equation}
+	\int_{x_1^2+...+x_n^2\leq R^2} \mathrm{d}x_1 ... \mathrm{d}x_n = \frac{\sqrt{\pi^n}}{\left(\frac{n}{2}\right)!}R^n.
+\label{eqa:5}
+\end{equation}
+Per tant, podem continuar l'expressió que teníem a \eqref{eqa:4}
+\begin{equation}
+	\Gamma\left(E,V,N\right)=\sqrt{\frac{2m}{k}}\frac{E}{h}\cdot\frac{\sqrt{\pi^2}}{\left(\frac{2}{2}\right)!}\cdot1^2=\sqrt{\frac{2m}{k}}\frac{E}{h}\pi.
+\label{eqa:6}
+\end{equation}
+Tal i com hem raonat anteriorment a \eqref{eqa:3}, ara només ens queda derivar aquest volum respecte l'energia $E$ per trobar el nombre de microstats.
+
+Fent la derivada obtenim que
+\begin{equation}
+	\boxed{\Omega\left(E,V,N\right)=\sqrt{\frac{2m}{k}\frac{\pi}{h}}}.
+\label{eqa:7}
+\end{equation}
+Hi ha una manera alternativa de trobar la funció gamma que exposarem a continuació.
+
+Tenint la condició
+\begin{equation*}
+	H\left(\vec{q},\vec{p}\right)=\frac{p^2}{2m}+kx^2\leq E,
+\end{equation*}
+podem aïllar el moment en funció de la posició, és a dir
+\begin{equation}
+	p(x)=\pm \sqrt{2m\left(E-kx^2\right)}.
+\label{eqa:8}
+\end{equation}
+Hem agafat el cas en què $H=E$ perquè això ens defineix el volum més "extern".
+
+Representem aquesta funció:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\linewidth]{Graf}
+	\caption{Representació gràfica del moment en funció de la posició.}
+	\label{fig2}
+\end{figure}
+Mirant la figura \ref{fig2} veiem que tenim una el·Lipse en una dimensió. El volum, en aquest cas superfície, que estem buscant és l'interior d'aquesta el·lipse i, aprofitant que és una forma geomètrica coneguda, podem utilitzar la fórmula següent:
+\begin{equation}
+	\text{Àrea d'una el·lipse}=\pi \cdot a \cdot b
+\label{eqa:9}
+\end{equation}
+on $a$ i $b$ són els radis major i menor que clarament són
+\begin{equation*}
+	a=\sqrt{\frac{E}{k}}
+\end{equation*}
+\begin{equation*}
+	b=\sqrt{2mE}.
+\end{equation*}
+Amb l'equació \eqref{eqa:9} trobem la mateixa expressió que hem obtingut anteriorment \eqref{eqa:6}. Per tant, derivant l'expressió en funció de l'energia acabem trobant la mateixa equació \eqref{eqa:7}.
 
 \section*{Apartat b)}
 \textbf{Si tot el sistema es troba dins d'un bany tèrmic a temperatura $T$ la partícula estarà sotmesa a un soroll tèrmic. Calculeu la funció de partició de la partícula i el valor mig de l'energia de la partícula $\langle E \rangle$. Establiu els límits d'altes i baixes temperatures i trobeu $\langle E \rangle$ en aquests límits. Raoneu físicament els resultats. Calculeu el valor mig de la posició de la partícula i la variança de la posició i analitzeu i raoneu els límits d'altes i baixes temperatures.}
