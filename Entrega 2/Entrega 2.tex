@@ -329,13 +329,15 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	
 	Seguim el mateix procediment fins ara, però tenint $x^2$. Aplicant els mateixos canvis de variable, ens queda
 	\begin{equation}
-		\langle x^2 \rangle = A \sqrt{\frac{2m}{\beta}}\frac{1}{\sqrt{\beta k}}\frac{1}{\beta k}\int \mathrm{d}u_1 \, e^{-u_1^2} \int \mathrm{d}u_2 \, u_2^2 e^{-u_2^2}.
+		\langle x^2 \rangle = A \sqrt{\frac{2m}{\beta}}\frac{1}{\sqrt{\beta k}}\frac{1}{\beta k}\int_{-\infty}^{\infty} \mathrm{d}u_1 \, e^{-u_1^2} \int_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} \mathrm{d}u_2 \, u_2^2 e^{-u_2^2}.
 	\end{equation} 
-	Observem que afegint un terme $ 2/\sqrt{\pi} $ a l'integral del moment lineal, tenim una $\textit{error function}$. Aquesta integra de $ -\infty$ a $\infty $. Sabent que $\erf(\infty) = 1$ (REF de quan l'eric posi la demostració) i que és una funció imparella, ens queda que l'integral del moment és 
+	
+	Observem que l'integral respecte $u_1$ és una integral gaussiana estàndard, on la solució ve donada per $\eqref{eqb1:2}$, ens queda 
+	 
 	\begin{equation}
-		\frac{\sqrt{\pi}}{2}\int_{-\infty}^{\infty} \mathrm{d}u_1 \,\frac{2}{\sqrt{\pi}}e^{-u_1^2} = \frac{\sqrt{\pi}}{2}[\erf(u_1)]_{-\infty}^{\infty} = \sqrt{\pi}
+		\int_{-\infty}^{\infty} \mathrm{d}u_1 \,e^{-u_1^2} = \sqrt{\pi}
 	\end{equation}
-	Per l'integral de la posició, la integrem per parts
+	Per l'integral respecte $u_2$ , la resolem per parts
 	\begin{equation}
 		v = u_2, \hspace{0.5cm} \mathrm{d}v = du_2, \\
 	\end{equation}
@@ -344,10 +346,10 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\end{equation} 
 	i ens queda 
 	\begin{equation}
-		-\frac{1}{2}\left[u_2 e^{-u_2^2} - \int e^{-u_2^2} \mathrm{d}u_2 \right] = -\frac{1}{2}\left[u_2 e^{-u_2^2} - \frac{\sqrt{\pi}}{2}\int\frac{2}{\sqrt{\pi}} e^{-u_2^2} \mathrm{d}u_2 \right]
+		-\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \int e^{-u_2^2} \mathrm{d}u_2 \right) = -\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \frac{\sqrt{\pi}}{2}\int\frac{2}{\sqrt{\pi}} e^{-u_2^2} \mathrm{d}u_2 \right)
 	\end{equation}
 	
-	Tornem a tenir una $\textit{error function}$, aquest cop integrada de $-l$ a $l$, desfent el canvi de variable i aplicant els límits d'integració
+	Tenim una $\textit{error function}$, desfent el canvi de variable i aplicant els límits d'integració ens queda 
 	
 	\begin{equation}
 		-\frac{1}{2}\left[\sqrt{\beta k} x e^{-\beta k x^2} - \frac{\sqrt{\pi}}{2}\erf(\sqrt{\beta k} x)\right]_{-l}^{l} = -\frac{1}{2}\left[2\sqrt{\beta k} l e^{-\beta k l^2} - \sqrt{\pi}\erf(\sqrt{\beta k} l)\right]
