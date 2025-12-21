@@ -55,9 +55,9 @@ unidimensionalment. El Hamiltonià de la partícula és
 \end{figure}
 
 \section*{Apartat a)}
-\textbf{Calculeu el nombre de microstats de la partícula en funció de la seva energia $E$.}
+\textbf{Calculeu el nombre de microestats de la partícula en funció de la seva energia $E$.}
 
-Per tal de calcular el nombre de microstats tenim que
+Per tal de calcular el nombre de microestats tenim que
 \begin{equation}
 	\Omega \left(E,V,N\right)=\int \frac{\mathrm{d} \vec{q}\mathrm{d}\vec{p}}{h^{3N}}\delta \left(E-H(\vec{q},\vec{p})\right).
 \label{eqa:1}
@@ -128,7 +128,7 @@ on hem escollit $H = E$, és a dir, hem escollit la hipersuperfície que delimit
 	\caption{Representació gràfica del moment en funció de la posició.}
 	\label{fig2}
 \end{figure}
-Mirant la figura \ref{fig2} veiem que tenim una el·lipse en una dimensió. L'hipervolum $\Gamma$ que estem buscant és justament el volum comprés a l'interior d'aquesta el·lipse i, aprofitant que és una forma geomètrica coneguda, podem utilitzar la fórmula següent
+Mirant la figura \ref{fig2} veiem que tenim una el·lipse. L'hipervolum $\Gamma$ que estem buscant és justament el volum comprés a l'interior d'aquesta el·lipse i, aprofitant que és una forma geomètrica coneguda, podem utilitzar la fórmula següent
 \begin{equation}
 	\text{Àrea d'una el·lipse}=\pi \cdot a \cdot b,
 \label{eqa:9}
@@ -252,38 +252,38 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 		 \Rightarrow \boxed{\langle E \rangle_{T\rightarrow \infty} \approx \frac{1}{2} k_BT} \label{eqb2:8}
 	\end{equation}
 	
-	\textbf{RAONAR FÍSICAMENT A PARTIR DEL TEOREMA D'EQUIPARTICIÓ}
-	
 	\item \textbf{Comportament de $\langle E \rangle$ a baixes temperatures.}
 	
 	En aquest cas tenim que $ T \rightarrow 0 $ i, aleshores 
 	\begin{equation*}
 		 kl^2 \gg k_BT \Rightarrow  \frac{kl^2}{k_BT} \gg 1  \Rightarrow  l^2\beta k \gg 1
 	\end{equation*}
-	
-	Sabem (no se si voleu explicar pq dona 1 o citem algun lloc q ho digui) que la funció d'error, $ erf(x) $, és igual a 1 quan $ x \rightarrow \infty $. 
+	Si $x\equiv l^2\beta k \rightarrow \infty$, la \textit{error function} esdevé
+	\begin{equation}
+		\mathrm{erf}(x\rightarrow \infty) = \frac{2}{\sqrt{\pi}} \int_0^\infty e^{-t^2}\mathrm{d}t, 
+	\end{equation}
+	que és, justament, la integral de mitja Gaussiana multiplicada pel factor $\frac{2}{\sqrt{\pi}}$. Usant la fórmula donada per \eqref{eqb1:2}, obtenim que
+	\begin{equation}
+		\mathrm{erf}(x\rightarrow \infty) \approx \frac{2}{\sqrt{\pi}}\cdot \frac{\sqrt{\pi}}{2} = 1 \label{eqb2:bT1}
+	\end{equation}
 	
 	Per altra banda, per $ l^2\beta k \gg 1 $, tenim que 
 	\begin{equation}
-		e^{-l^2\beta k} \approx 0 \label{eqb2:10}
+		e^{-l^2\beta k} \approx 0 \label{eqb2:bT2}
 	\end{equation}
-	
-	Substituint les aproximacions per a baixes temperatures (REF) sobre (REF), trobem que 
-	
+	Substituint les aproximacions per a baixes temperatures \eqref{eqb2:bT1} i \eqref{eqb2:bT2} sobre \eqref{eqb2:5}, trobem que 
 	\begin{equation*}
 		\langle E \rangle = \frac{1}{\beta} - 0  =\frac{1}{\beta} \Rightarrow
 	\end{equation*}
-	
 	\begin{equation}
 		\Rightarrow \boxed{\langle E \rangle_{T\rightarrow 0} \approx k_BT} \label{eqb2:11}
 	\end{equation}
 
-	\item \textbf{\textit{Discussió dels resultats obtinguts}}
+	\item \textbf{Discussió dels resultats obtinguts.}
 	
-	L'evolució de l'energia mitjana s'explica mitjançant el teorema d'equipartició, el qual estableix que, en equilibri tèrmic, cada grau de llibertat que contribueix de forma quadràtica al Hamiltonià aporta exactament $k_B T/2$ a l'energia total del sistema. 
+	Els límits físics de l'energia mitjana es poden explicar mitjançant el teorema d'equipartició, el qual estableix que, en equilibri tèrmic, cada grau de llibertat que contribueix de forma quadràtica al Hamiltonià aporta exactament un factor $\frac{1}{2}k_BT$ a l'energia total del sistema. 
 	
-	Al límit de baixes temperatures, la partícula es comporta com un oscil·lador harmònic pur perquè no té prou energia per arribar a les parets, presentant dos termes quadràtics, el de l'energia cinètica, $p^2/2m$, i el del potencial, $kx^2$, que ens dona un resultat de $k_B T$. En canvi, en el límit d'altes temperatures, l'energia tèrmica domina sobre la potencial elàstica, fent que el sistema es comporti com una partícula en una caixa, és a dir, el terme potencial deixa de ser quadràtic (no se com explicar aixo, tipo, q AAAAAAAA), i per tant, només el grau de llibertat cinètic es manté rellevant segons el teorema, resultant en una energia mitjana de $k_B T/2$.
-	
+	Al límit de baixes temperatures, la partícula es comporta com un oscil·lador harmònic clàssic pur perquè no té prou energia per arribar a les parets del sistema, presentant dos termes quadràtics en el Hamiltonià, el de l'energia cinètica, $\frac{p^2}{2m}$, i el del potencial elàstic, $kx^2$, que ens dona un resultat per a l'energia mitjana total de $k_B T$, segons el teorema d'equipartició. En canvi, en el límit d'altes temperatures, l'energia tèrmica domina sobre la potencial elàstica, fent que el sistema es comporti com una partícula lliure en una caixa (essent el potencial $V=0$ dins de la caixa i $V\rightarrow \infty$ fora d'aquesta), ja que l'efecte de les molles esdevé negligible i només el de les parets (i l'associat a l'energia cinètica de la partícula) són rellevants. Sota aquestes condicions el potencial, doncs, deixa de ser quadràtic i, per tant, només el grau de llibertat cinètic es manté rellevant. Això últim, segons el teorema d'equipartició, resulta en una energia mitjana de $\frac{1}{2}k_BT$.
 \end{enumerate}
 
 
@@ -292,65 +292,59 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	
 	Per determinar el valor esperat de la posició $\langle x \rangle$, utilitzem l'expressió del valor mitjà 
 	\begin{equation}
-		\langle x \rangle = \int \frac{dx \, dp}{h} x \rho(x,p)
+		\langle x \rangle = \int \frac{\mathrm{d}x \, \mathrm{d}p}{h} x \rho(x,p),
 	\end{equation}
-	on $\rho(x,p)$ representa la densitat de probabilitat en l'espai de fases, definida com
+	on $\rho(x,p)$ representa la densitat de probabilitat en l'espai de fases (en el context de la col·lectivitat canònica), definida com
 	\begin{equation}
-		\rho(x,p) = \frac{e^{-\beta H(x,p)}}{Z}
+		\rho(x,p) = \frac{e^{-\beta H(x,p)}}{Z}.
 	\end{equation}
 	Substituint el Hamiltonià $H(x,p) = \frac{p^2}{2m} + kx^2$ i la funció de partició $Z$ obtinguda anteriorment (REF), l'expressió es pot factoritzar en dues integrals independents sobre el moment i la posició, quedant
 	\begin{equation}
-		\langle x \rangle = \frac{1}{Z h} \int_{-\infty}^{\infty} e^{-\frac{\beta p^2}{2m}} dp \int_{-l}^{l} x e^{-\beta k x^2} dx = A \int_{-\infty}^{\infty} e^{-\frac{\beta p^2}{2m}} dp \int_{-l}^{l} x e^{-\beta k x^2} dx
+		\langle x \rangle = \frac{1}{Z h} \int_{-\infty}^{\infty} e^{-\frac{\beta p^2}{2m}} \mathrm{d}p \int_{-l}^{l} x e^{-\beta k x^2} \mathrm{d}x = A \int_{-\infty}^{\infty} e^{-\frac{\beta p^2}{2m}} \mathrm{d}p \int_{-l}^{l} x e^{-\beta k x^2} \mathrm{d}x,
 	\end{equation}
-	On hem definit la constant de normalització $A = (Z h)^{-1}$. 
+	on hem definit la constant de normalització $A = (Z h)^{-1}$. 
 	
 	Aplicant els següents canvis de variable
 	\begin{align}
-		u_1 &= p\sqrt{\frac{\beta}{2m}} \implies dp = \sqrt{\frac{2m}{\beta}} du_1 \\
-		u_2 &= x\sqrt{\beta k} \implies dx = \frac{1}{\sqrt{\beta k}} du_2
+		u_1 &= p\sqrt{\frac{\beta}{2m}} \implies \mathrm{d}p = \sqrt{\frac{2m}{\beta}} \mathrm{d}u_1, \\
+		u_2 &= x\sqrt{\beta k} \implies \mathrm{d}x = \frac{1}{\sqrt{\beta k}} \mathrm{d}u_2,
 	\end{align}
-	L'expressió esdevé
+	l'expressió esdevé
 	\begin{equation}
-		\langle x \rangle = A \sqrt{\frac{2m}{\beta}} \frac{1}{\beta k} \int_{-\infty}^{\infty} e^{-u_1^2} du_1 \int_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} u_2 e^{-u_2^2} du_2
+		\langle x \rangle = A \sqrt{\frac{2m}{\beta}} \frac{1}{\beta k} \int_{-\infty}^{\infty} e^{-u_1^2} \mathrm{d}u_1 \int_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} u_2 e^{-u_2^2} \mathrm{d}u_2.
 	\end{equation}
 	Observem que la integral respecte a $u_2$ es pot resoldre de forma directa
 	\begin{equation}
-		\int_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} u_2 e^{-u_2^2} du_2 = \left[ -\frac{1}{2} e^{-u_2^2} \right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} = -\frac{1}{2} \left( e^{-l^2 \beta k} - e^{-l^2\beta k} \right) = 0
+		\int_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} u_2 e^{-u_2^2} \mathrm{d}u_2 = \left[ -\frac{1}{2} e^{-u_2^2} \right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} = -\frac{1}{2} \left( e^{-l^2 \beta k} - e^{-l^2\beta k} \right) = 0.
 	\end{equation}
+	Ja podíem preveure que aquesta integral seria 0 perquè, en global, estem integrant una funció imparella sota uns límits simètrics. 
 	
-	Que al ser una funció imparella, i l'interval d'integració ser simètric, la integral s'anul·a. Per tant, el valor esperat de la posició és
+	Per tant, el valor esperat de la posició és
 	\begin{equation}
-		\boxed{\langle x \rangle = 0}
+		\boxed{\langle x \rangle = 0}.
 	\end{equation}
 	
 
-	
-	Per trobar la variança de la posició, cal trobar $ \langle x^2 \rangle $, ja que $ \Delta x^2 = \langle x^2 \rangle - \langle x \rangle ^2 $. 
+	Per trobar la variança de la posició, cal trobar $ \langle x^2 \rangle $, ja que $(\Delta x)^2 = \langle x^2 \rangle - \langle x \rangle ^2 $. 
 	
 	Seguim el mateix procediment fins ara, però tenint $x^2$. Aplicant els mateixos canvis de variable, ens queda
-	
 	\begin{equation}
-		\langle x^2 \rangle = A \sqrt{\frac{2m}{\beta}}\frac{1}{\sqrt{\beta k}}\frac{1}{\beta k}\int du_1 \, e^{-u_1^2} \int du_2 \, u_2^2 e^{-u_2^2}
+		\langle x^2 \rangle = A \sqrt{\frac{2m}{\beta}}\frac{1}{\sqrt{\beta k}}\frac{1}{\beta k}\int \mathrm{d}u_1 \, e^{-u_1^2} \int \mathrm{d}u_2 \, u_2^2 e^{-u_2^2}.
 	\end{equation} 
-	
-	
 	Observem que afegint un terme $ 2/\sqrt{\pi} $ a l'integral del moment lineal, tenim una $\textit{error function}$. Aquesta integra de $ -\infty$ a $\infty $. Sabent que $\erf(\infty) = 1$ (REF de quan l'eric posi la demostració) i que és una funció imparella, ens queda que l'integral del moment és 
-	
 	\begin{equation}
-		\frac{\sqrt{\pi}}{2}\int_{-\infty}^{\infty} du_1 \,\frac{2}{\sqrt{\pi}}e^{-u_1^2} = \frac{\sqrt{\pi}}{2}[\erf(u_1)]_{-\infty}^{\infty} = \sqrt{\pi}
+		\frac{\sqrt{\pi}}{2}\int_{-\infty}^{\infty} \mathrm{d}u_1 \,\frac{2}{\sqrt{\pi}}e^{-u_1^2} = \frac{\sqrt{\pi}}{2}[\erf(u_1)]_{-\infty}^{\infty} = \sqrt{\pi}
 	\end{equation}
-	
 	Per l'integral de la posició, la integrem per parts
-	
-	\begin{align}
-		v &= u_2 \hspace{0.8cm} dv = du_2 \\
-		dw &= u_2 e^{-u_2^2} du_2 \hspace{0.5cm}  w = -\frac{1}{2} e^{-u_2^2}
-	\end{align} 
-	
-	Que ens queda 
-	
 	\begin{equation}
-		-\frac{1}{2}\left[u_2 e^{-u_2^2} - \int e^{-u_2^2} du_2 \right] = -\frac{1}{2}\left[u_2 e^{-u_2^2} - \frac{\sqrt{\pi}}{2}\int\frac{2}{\sqrt{\pi}} e^{-u_2^2} du_2 \right]
+		v = u_2, \hspace{0.5cm} \mathrm{d}v = du_2, \\
+	\end{equation}
+	\begin{equation}
+		\mathrm{d}w = u_2 e^{-u_2^2}, \hspace{0.5cm}  \mathrm{d}u_2  w = -\frac{1}{2} e^{-u_2^2},
+	\end{equation} 
+	i ens queda 
+	\begin{equation}
+		-\frac{1}{2}\left[u_2 e^{-u_2^2} - \int e^{-u_2^2} \mathrm{d}u_2 \right] = -\frac{1}{2}\left[u_2 e^{-u_2^2} - \frac{\sqrt{\pi}}{2}\int\frac{2}{\sqrt{\pi}} e^{-u_2^2} \mathrm{d}u_2 \right]
 	\end{equation}
 	
 	Tornem a tenir una $\textit{error function}$, aquest cop integrada de $-l$ a $l$, desfent el canvi de variable i aplicant els límits d'integració
@@ -360,27 +354,53 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\end{equation}
 	
 	Combinant els resultats trobats per a les integrals individualment amb les constants inicials fora l'integral, ens queda 
+\begin{align*}
+	\langle x^2 \rangle
+	= {} & A \sqrt{\frac{2m}{\beta}}
+	\frac{1}{\sqrt{\beta k}}
+	\frac{1}{\beta k}\,\sqrt{\pi}
+	\left[
+	-\frac{1}{2}\left(
+	2\sqrt{\beta k}\,l\, e^{-\beta k l^2}
+	- \sqrt{\pi}\,\mathrm{erf}(\sqrt{\beta k}\,l)
+	\right)
+	\right] \\[6pt]
+	= {} &
+	\frac{A}{\beta^2 k}
+	\sqrt{\frac{2m}{k}}\sqrt{\pi}
+	\left[
+	\frac{1}{2}\left(
+	-2\sqrt{\beta k}\,l\, e^{-\beta k l^2}
+	+ \sqrt{\pi}\,\mathrm{erf}(\sqrt{\beta k}\,l)
+	\right)
+	\right] \\[6pt]
+	= {} &
+	\frac{\beta}{\pi\sqrt{\frac{2m}{k}}\,\mathrm{erf}(\sqrt{\beta k}\,l)}
+	\frac{1}{\beta^2 k}
+	\sqrt{\frac{2m}{k}}\sqrt{\pi}
+	\left[
+	\frac{1}{2}\left(
+	-2\sqrt{\beta k}\,l\, e^{-\beta k l^2}
+	+ \sqrt{\pi}\,\mathrm{erf}(\sqrt{\beta k}\,l)
+	\right)
+	\right]
+\end{align*}
+	Finalment, simplificant, ens queda 
+	
+	\begin{equation*}
+		\langle x^2 \rangle = \frac{1}{2\beta k \sqrt{\pi}\mathrm{erf}}\left( \sqrt{\pi}\erf(\sqrt{\beta k} l)-2\sqrt{\beta k} l e^{-\beta k l^2}\right)\Rightarrow
+	\end{equation*}
+	
 	\begin{equation}
-		\langle x^2 \rangle = A \sqrt{\frac{2m}{\beta}}\frac{1}{\sqrt{\beta k}}\frac{1}{\beta k}[\sqrt{\pi}]\left[-\frac{1}{2}\left(2\sqrt{\beta k} l e^{-\beta k l^2} - \sqrt{\pi}\erf(\sqrt{\beta k} l)\right)\right]
-	\end{equation}
-	\begin{equation}
-		\langle x^2 \rangle = \frac{A}{\beta^2 k} \sqrt{\frac{2m}{k}}\sqrt{\pi}\left(\frac{1}{2}\left(-2\sqrt{\beta k} l e^{-\beta k l^2} + \sqrt{\pi}\erf(\sqrt{\beta k} l)\right)\right)
-	\end{equation}
-	\begin{equation}
-		\langle x^2 \rangle = \frac{\beta}{\pi\sqrt{\frac{2m}{k}}\mathrm{erf}(\sqrt{\beta k l})}    \frac{1}{\beta^2 k} \sqrt{\frac{2m}{k}}\sqrt{\pi}\left(\frac{1}{2}\left(-2\sqrt{\beta k} l e^{-\beta k l^2} + \sqrt{\pi}\erf(\sqrt{\beta k} l)\right)\right)
+		\boxed{\langle x^2 \rangle = \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{e^{-\beta k l^2}}{\mathrm{erf(\sqrt{\beta k} l)}}\right)}.
 	\end{equation}
 	
-	Simplificant, ens queda 
-	
+	Notem que, com que hem vist que $\langle x \rangle = 0$, en tant que $(\Delta x)^2 = \langle x^2 \rangle - \langle x \rangle ^2 $, arribem a que
 	\begin{equation}
-		\langle x^2 \rangle = \frac{1}{2\beta k \sqrt{\pi}\mathrm{erf}}\left( \sqrt{\pi}\erf(\sqrt{\beta k} l)-2\sqrt{\beta k} l e^{-\beta k l^2}\right)
+		\boxed{(\Delta x)^2 = \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{e^{-\beta k l^2}}{\mathrm{erf(\sqrt{\beta k} l)}}\right)}.
 	\end{equation}
 	
-	\begin{equation}
-		\boxed{\langle x^2 \rangle = \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{e^{-\beta k l^2}}{\mathrm{erf(\sqrt{\beta k} l)}}\right)}
-	\end{equation}
-	
-	Estudiarem ara els límits d'altes i baixes temperatures. Compararem l'energia tèrmica del sistema amb la potencial, que correspon al factor $\eqref{eqb2:9}$, com hem fet també per al valor mig de l'energia, $\langle E \rangle$. 
+	Estudiarem ara els límits d'altes i baixes temperatures. Compararem l'energia tèrmica del sistema amb la potencial elàstica, usant el factor $\eqref{eqb2:9}$, com hem fet també per al valor mig de l'energia, $\langle E \rangle$. 
 	
 \begin{enumerate}
 	\item \textbf{Comportament de $\langle x^2 \rangle$ a altes temperatures.} 
