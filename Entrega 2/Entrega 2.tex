@@ -170,7 +170,7 @@ que, per arguments de simetria, es redueix al càlcul de la següent integral
 	\Gamma(E) = \frac{4}{h}\int_0^l \sqrt{2m(E-kx^2)} \mathrm{d}x =\frac{4\sqrt{2mk}}{h} \int_0^l \sqrt{\frac{E}{k} - x^2} \, dx.
 \label{eqa:14}
 \end{equation}
-Per tal de poder integrar-ho hem de fer un canvi de variable:
+Per tal de poder integrar-ho hem de fer un canvi de variable
 \begin{equation*}
 	 a = \sqrt{\frac{E}{k}} \implies a^2 = \frac{E}{k} \hspace{0.3cm} \longrightarrow \text{Per tant ens queda:} \hspace{0.2cm}\Gamma(E) = \frac{4\sqrt{2mk}}{h} \int_0^l \sqrt{a^2 - x^2} \, dx.
 \end{equation*}
@@ -403,7 +403,7 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\end{equation} 
 	i ens queda 
 	\begin{equation}
-		-\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \int e^{-u_2^2} \mathrm{d}u_2 \right) = -\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \frac{\sqrt{\pi}}{2}\int\frac{2}{\sqrt{\pi}} e^{-u_2^2} \mathrm{d}u_2 \right).
+		-\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \int_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} e^{-u_2^2} \mathrm{d}u_2 \right) = -\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \frac{\sqrt{\pi}}{2}\int_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} \frac{2}{\sqrt{\pi}} e^{-u_2^2} \mathrm{d}u_2 \right).
 	\end{equation}
 	
 	Tenim una $\textit{error function}$, desfent el canvi de variable i aplicant els límits d'integració ens queda 
@@ -501,8 +501,11 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	
 	El resultat obtingut per $\langle x \rangle$ és completament coherent amb el que es podria esperar d'un oscil·lador harmònic com el que tenim. En promig, la posició esperada per la partícula de massa $m$ és $x=0$.
 	
-	Els resultats obtinguts per a $\langle x^2 \rangle = (\Delta x)^2$ en els límits d'altes i baixes temperatures del bany tèrmic son coherents amb els esperats. En el límit de baixes temperatures, on l'energia potencial elàstica domina sobre l'energia tèrmica, el sistema es comporta com un oscil·lador harmònic clàssic no confinat. La partícula realitza oscil·lacions al voltant del punt d'equilibri i la probabilitat que arribi a les parets és pràcticament nul·la, de manera que el valor aproximat obtingut és el terme predit pel teorema d'equipartició per a un potencial parabòlic, que actua com si les parets no existissin. Per al límit d'altes temperatures, l'energia tèrmica domina sobre l'energia potencial elàstica. En aquest límit, la massa té prou energia per moure's per tot l'espai disponible fins a xocar amb les parets, les quals passen a ser el factor determinant del moviment. El sistema passa a tenir el comportament d'una partícula lliure en una caixa de potencial infinit on la constant elàstica de les molles ja no influeix en el resultat i el valor de $\langle x^2 \rangle$ depèn exclusivament de la distància entre les parets. 
+	Els resultats obtinguts per a $\langle x^2 \rangle = (\Delta x)^2$ en els límits d'altes i baixes temperatures del bany tèrmic son coherents amb els esperats. En el límit de baixes temperatures, on l'energia potencial elàstica domina sobre l'energia tèrmica, el sistema es comporta com un oscil·lador harmònic clàssic no confinat. La partícula realitza petites oscil·lacions al voltant del punt d'equilibri i la probabilitat que arribi a les parets és pràcticament nul·la, per aquest motiu, podem ignorar els límits imposats per les parets en el càlcul. Sota aquest comportament de potencial parabòlic ideal, s'aplica amb rigor el teorema d'equipartició, el qual ens diu que cada grau de llibertat quadràtic del Hamiltonià ha de contribuir en $\frac{1}{2\beta} $ a l'energia mitjana. En igualar l'energia potencial elàstica del sistema amb aquest valor, és a dir, $k \langle x^2 \rangle = \frac{1}{2\beta} $, s'obté directament el resultat $\langle x^2 \rangle = \frac{1}{2\beta k}$, confirmant que el sistema es comporta com un oscil·lador harmònic clàssic que actua com si les parets no existissin. 
 	
+	En canvi, per al límit d'altes temperatures, l'energia tèrmica domina sobre l'energia potencial elàstica. En aquest límit, la massa té prou energia per moure's per tot l'espai disponible fins a xocar amb les parets, les quals passen a ser el factor determinant del moviment. Aquest impediment físic fa que el potencial passi de parabòlic a ser infinit a $x= -l $ i $ x = l$. Això fa que el teorema d'equipartició deixi de ser aplicable, i per tant, no obtenir el mateix resultat anterior. El sistema passa a tenir el comportament d'una partícula lliure en una caixa de potencial infinit on la constant elàstica de les molles ja no influeix en el resultat i el valor de $\langle x^2 \rangle$ depèn exclusivament de la distància entre les parets. 
+	
+
 	
 \end{enumerate}
 
