@@ -62,7 +62,7 @@ Per tal de calcular el nombre de microestats tenim que
 	\Omega \left(E,V,N\right)=\int \frac{\mathrm{d} \vec{q}\mathrm{d}\vec{p}}{h^{3N}}\delta \left(E-H(\vec{q},\vec{p})\right).
 \label{eqa:1}
 \end{equation}
-Aquesta integral és molt complicada de resoldre i, per això, definirem una nova funció que representi el volum contingut dins de la hipersuperfície de l'espai de fases
+Aquesta integral és molt complicada de resoldre i, per això, es defineix una nova funció que representa el volum contingut dins de la hipersuperfície de l'espai de fases
 \begin{equation}
 	\Gamma\left(E,V,N\right)=\int_{0}^{E}\Omega\left(E',V,N\right)\mathrm{d}E'.
 \label{eqa:2}
@@ -74,9 +74,9 @@ Amb aquesta nova relació, el càlcul del nombre de microstats se'ns simplifica 
 \end{equation}
 Trobem doncs primer la funció $\Gamma(E,V,N)$ amb l'expressió \eqref{eqa:2}.
 
-Notem que el nostre problema té una sola dimensió i que només tenim una massa. Per això, l'$h$ del denominador queda elevada a 1. Per aquest mateix motiu, la posició només dependrà de $x$ i el moment només tindrà aquesta mateixa component.
+Notem que el nostre problema té una sola dimensió i que només tenim una massa. Per això, l'$h$ del denominador queda elevada a 1. Per aquest mateix motiu, la posició només dependrà de la coordenada $x$ i el moment només tindrà aquesta mateixa component.
 
-La condició que s'ha de complir és
+La condició que s'ha de complir (és a dir, la regió d'integració) és
 \begin{equation*}
 	H\left(\vec{q},\vec{p}\right)=\frac{p^2}{2m}+kx^2\leq E \Rightarrow \frac{p^2}{2mE}+\frac{k}{E}x^2 \leq 1.
 \end{equation*}
@@ -167,16 +167,16 @@ L'hipervolum que hem de calcular ara serà l'àrea sota la corba
 \end{equation}
 que, per arguments de simetria, es redueix al càlcul de la següent integral
 \begin{equation}
-	\Gamma(E) = \frac{4}{h}\int_0^l \sqrt{2m(E-kx^2)} \mathrm{d}x =\frac{4\sqrt{2mk}}{h} \int_0^l \sqrt{\frac{E}{k} - x^2} \, dx.
+	\Gamma(E) = \frac{4}{h}\int_0^l \sqrt{2m(E-kx^2)} \mathrm{d}x =\frac{4\sqrt{2mk}}{h} \int_0^l \sqrt{\frac{E}{k} - x^2} \, \mathrm{d}x.
 \label{eqa:14}
 \end{equation}
 Per tal de poder integrar-ho hem de fer un canvi de variable
 \begin{equation*}
-	 a = \sqrt{\frac{E}{k}} \implies a^2 = \frac{E}{k} \hspace{0.3cm} \longrightarrow \text{Per tant ens queda:} \hspace{0.2cm}\Gamma(E) = \frac{4\sqrt{2mk}}{h} \int_0^l \sqrt{a^2 - x^2} \, dx.
+	 a = \sqrt{\frac{E}{k}} \implies a^2 = \frac{E}{k} \hspace{0.3cm} \longrightarrow \text{Per tant ens queda:} \hspace{0.2cm}\Gamma(E) = \frac{4\sqrt{2mk}}{h} \int_0^l \sqrt{a^2 - x^2} \, \mathrm{d}x.
 \end{equation*}
 Amb això, la integral es pot resoldre de manera immediata perquè
 \begin{equation*}
-	\int \sqrt{a^2 - x^2} \, dx = \frac{x}{2}\sqrt{a^2 - x^2} + \frac{a^2}{2}\arcsin\left(\frac{x}{a}\right).
+	\int \sqrt{a^2 - x^2} \, \mathrm{d}x = \frac{x}{2}\sqrt{a^2 - x^2} + \frac{a^2}{2}\arcsin\left(\frac{x}{a}\right).
 \end{equation*}
 Aplicant els límits d'integració tenim que
 \begin{equation*}
@@ -405,13 +405,10 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\begin{equation}
 		-\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \int_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} e^{-u_2^2} \mathrm{d}u_2 \right) = -\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \frac{\sqrt{\pi}}{2}\int_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} \frac{2}{\sqrt{\pi}} e^{-u_2^2} \mathrm{d}u_2 \right).
 	\end{equation}
-	
 	Tenim una $\textit{error function}$, desfent el canvi de variable i aplicant els límits d'integració ens queda 
-	
 	\begin{equation}
 		-\frac{1}{2}\left[\sqrt{\beta k} x e^{-\beta k x^2} - \frac{\sqrt{\pi}}{2}\erf(\sqrt{\beta k} x)\right]_{-l}^{l} = -\frac{1}{2}\left[2\sqrt{\beta k} l e^{-\beta k l^2} - \sqrt{\pi}\erf(\sqrt{\beta k} l)\right]
 	\end{equation}
-	
 	Combinant els resultats trobats per a les integrals individualment amb les constants inicials fora l'integral, ens queda 
 \begin{align*}
 	\langle x^2 \rangle
@@ -446,14 +443,14 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 \end{align*}
 	i finalment, simplificant, ens queda 
 	\begin{equation*}
-		\langle x^2 \rangle = \frac{1}{2\beta k \sqrt{\pi}\mathrm{erf}}\left( \sqrt{\pi}\erf(\sqrt{\beta k} l)-2\sqrt{\beta k} l e^{-\beta k l^2}\right)\Rightarrow
+		\langle x^2 \rangle = \frac{1}{2\beta k \sqrt{\pi}\mathrm{erf}(\sqrt{\beta k} l)}\left( \sqrt{\pi}\erf(\sqrt{\beta k} l)-2\sqrt{\beta k} l e^{-\beta k l^2}\right)\Rightarrow
 	\end{equation*}
 	\begin{equation}
-		\boxed{\langle x^2 \rangle = \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{e^{-\beta k l^2}}{\mathrm{erf(\sqrt{\beta k} l)}}\right)}.
+		\boxed{\langle x^2 \rangle = \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{e^{-\beta k l^2}}{\mathrm{erf}(\sqrt{\beta k} l)}\right)}.
 	\end{equation}
 	Notem que, com que hem vist que $\langle x \rangle = 0$, en tant que $(\Delta x)^2 = \langle x^2 \rangle - \langle x \rangle ^2 $, arribem a que
 	\begin{equation}
-		\boxed{(\Delta x)^2 = \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{e^{-\beta k l^2}}{\mathrm{erf(\sqrt{\beta k} l)}}\right)}.
+		\boxed{(\Delta x)^2 = \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{e^{-\beta k l^2}}{\mathrm{erf}(\sqrt{\beta k} l)}\right)}.
 	\end{equation}
 	
 	Estudiarem ara els límits d'altes i baixes temperatures. Compararem l'energia tèrmica del sistema amb la potencial elàstica, usant el factor $\eqref{eqb2:9}$, com hem fet també per al valor mig de l'energia, $\langle E \rangle$. 
@@ -494,16 +491,16 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\end{equation}
 	Per tant, per al límit de temperatures baixes, obtenim que
 	\begin{equation}
-		\boxed{\langle x^2 \rangle \approx \frac{1}{2\beta k}}.
+		\boxed{\langle x^2 \rangle \approx \frac{1}{2\beta k} = \frac{1}{2k}k_BT}.
 	\end{equation}
 	
 	\item \textbf{Discussió dels resultats obtinguts}
 	
 	El resultat obtingut per $\langle x \rangle$ és completament coherent amb el que es podria esperar d'un oscil·lador harmònic com el que tenim. En promig, la posició esperada per la partícula de massa $m$ és $x=0$.
 	
-	Els resultats obtinguts per a $\langle x^2 \rangle = (\Delta x)^2$ en els límits d'altes i baixes temperatures del bany tèrmic son coherents amb els esperats. En el límit de baixes temperatures, on l'energia potencial elàstica domina sobre l'energia tèrmica, el sistema es comporta com un oscil·lador harmònic clàssic no confinat. La partícula realitza petites oscil·lacions al voltant del punt d'equilibri i la probabilitat que arribi a les parets és pràcticament nul·la, per aquest motiu, podem ignorar els límits imposats per les parets en el càlcul. Sota aquest comportament de potencial parabòlic ideal, s'aplica amb rigor el teorema d'equipartició, el qual ens diu que cada grau de llibertat quadràtic del Hamiltonià ha de contribuir en $\frac{1}{2\beta} $ a l'energia mitjana. En igualar l'energia potencial elàstica del sistema amb aquest valor, és a dir, $k \langle x^2 \rangle = \frac{1}{2\beta} $, s'obté directament el resultat $\langle x^2 \rangle = \frac{1}{2\beta k}$, confirmant que el sistema es comporta com un oscil·lador harmònic clàssic que actua com si les parets no existissin. 
+	Els resultats obtinguts per a $\langle x^2 \rangle = (\Delta x)^2$ en els límits d'altes i baixes temperatures del bany tèrmic son coherents amb els esperats. En el límit de baixes temperatures, on l'energia potencial elàstica domina sobre l'energia tèrmica, el sistema es comporta com un oscil·lador harmònic clàssic no confinat. La partícula realitza petites oscil·lacions al voltant del punt d'equilibri i la probabilitat que arribi a les parets és pràcticament nul·la, per aquest motiu, podem ignorar els límits imposats per les parets en el càlcul. Sota aquest comportament de potencial parabòlic ideal, s'aplica amb rigor el teorema d'equipartició, el qual ens diu que cada grau de llibertat quadràtic del Hamiltonià ha de contribuir en $\frac{1}{2}k_BT$ a l'energia mitjana. Si apliquem aquest teorema al terme de l'energia potencial elàstica tenim, doncs, que $k \langle x^2 \rangle = \frac{1}{2\beta} = \frac{1}{2}k_BT$ i obtenim directament el resultat $\langle x^2 \rangle = \frac{1}{2k} k_BT$, confirmant que el sistema es comporta com un oscil·lador harmònic clàssic que actua com si les parets no existissin. 
 	
-	En canvi, per al límit d'altes temperatures, l'energia tèrmica domina sobre l'energia potencial elàstica. En aquest límit, la massa té prou energia per moure's per tot l'espai disponible fins a xocar amb les parets, les quals passen a ser el factor determinant del moviment. Aquest impediment físic fa que el potencial passi de parabòlic a ser infinit a $x= -l $ i $ x = l$. Això fa que el teorema d'equipartició deixi de ser aplicable, i per tant, no obtenir el mateix resultat anterior. El sistema passa a tenir el comportament d'una partícula lliure en una caixa de potencial infinit on la constant elàstica de les molles ja no influeix en el resultat i el valor de $\langle x^2 \rangle$ depèn exclusivament de la distància entre les parets. 
+	En canvi, per al límit d'altes temperatures, l'energia tèrmica domina sobre l'energia potencial elàstica. En aquest límit, la massa té prou energia per moure's per tot l'espai disponible fins a xocar amb les parets, les quals passen a ser el factor determinant del moviment. Aquest impediment físic fa que el potencial passi de parabòlic a ser infinit a $x= -l $ i $ x = l$ (i 0 dins la caixa). Això fa que el teorema d'equipartició deixi de ser aplicable, i per tant, no es pugui obtenir el mateix resultat anterior. El sistema passa a tenir el comportament d'una partícula lliure en una caixa de potencial infinit on la constant elàstica de les molles ja no influeix en el resultat i el valor de $\langle x^2 \rangle$ depèn exclusivament de la distància entre les parets. 
 	
 
 	
