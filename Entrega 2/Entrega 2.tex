@@ -100,14 +100,14 @@ Hem d'utilitzar el volum de la hiperesfera següent
 \end{equation}
 Per tant, podem continuar l'expressió que teníem a \eqref{eqa:4}
 \begin{equation}
-	\Gamma\left(E,V,N\right)=\sqrt{\frac{2m}{k}}\frac{E}{h}\cdot\frac{\sqrt{\pi^2}}{\left(\frac{2}{2}\right)!}\cdot1^2=\sqrt{\frac{2m}{k}}\frac{E}{h}\pi.
+	\Gamma\left(E\right)=\sqrt{\frac{2m}{k}}\frac{E}{h}\cdot\frac{\sqrt{\pi^2}}{\left(\frac{2}{2}\right)!}\cdot1^2=\sqrt{\frac{2m}{k}}\frac{E}{h}\pi.
 \label{eqa:6}
 \end{equation}
 Tal i com hem raonat anteriorment a \eqref{eqa:3}, ara només ens queda derivar aquest volum respecte l'energia $E$ per trobar el nombre de microestats.
 
 Fent la derivada obtenim que
 \begin{equation}
-	\boxed{\Omega\left(E,V,N\right)=\sqrt{\frac{2m}{k}}\frac{\pi}{h}}.
+	\boxed{\Omega=\sqrt{\frac{2m}{k}}\frac{\pi}{h}}.
 \label{eqa:7}
 \end{equation}
 Hi ha una manera alternativa per trobar l'hipervolum $\Gamma$ que exposarem a continuació.
@@ -142,6 +142,34 @@ on $a$ i $b$ són els radis major i menor que clarament són
 \end{equation*}
 Amb l'equació \eqref{eqa:9} trobem la mateixa expressió que hem obtingut anteriorment \eqref{eqa:6}. Per tant, derivant l'expressió en funció de l'energia acabem trobant la mateixa equació \eqref{eqa:7}\footnote{Llevat del factor $\frac{1}{h}$, que hauríem d'afegir a posteriori.}.
 
+Tanmateix, notem que aquest càlcul del nombre de microestats és vàlid si considerem que tenim un oscil·lador lliure, sense tenir present les parets del sistema, és a dir, estem sota la condició
+\begin{equation}
+	\sqrt{\frac{E}{k}} < l \Rightarrow E < kl^2,
+\end{equation}
+de manera que la partícula no té prou energia com per arribar a les parets i, per tant, és com si no les veiés.
+
+Ara bé, si considerem la situació en què la massa $m$ té prou energia com per arribar (i, virtualment, superar) les parets a $l$ i $-l$, és a dir,
+\begin{equation}
+	\sqrt{\frac{E}{k}} \geq l \Rightarrow E \geq kl^2,
+\end{equation}
+cal tenir present que l'espai de fases ja no serà l'el·lipse de la figura \ref{fig2}, sinó que serà una el·lipse truncada a $l$ i $-l$, tal i com es pot veure a la figura \ref{fig3}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{screenshot004}
+	\caption{Espai de fases truncat per les parets del sistema.}
+	\label{fig3}
+\end{figure}
+
+L'hipervolum que hem de calcular ara serà l'àrea sota la corba 
+\begin{equation}
+	p=\pm\sqrt{2m(E-kx^2)},
+\end{equation}
+que, per arguments de simetria, es redueix al càlcul de la següent integral
+\begin{equation*}
+	\Gamma(E) = 4\int_0^l \sqrt{2m(E-kx^2)} \mathrm{d}x = 
+\end{equation*}
+\textbf{sigue aquí Jun Shan}
 \section*{Apartat b)}
 \textbf{Si tot el sistema es troba dins d'un bany tèrmic a temperatura $T$ la partícula estarà sotmesa a un soroll tèrmic. Calculeu la funció de partició de la partícula i el valor mig de l'energia de la partícula $\langle E \rangle$. Establiu els límits d'altes i baixes temperatures i trobeu $\langle E \rangle$ en aquests límits. Raoneu físicament els resultats. Calculeu el valor mig de la posició de la partícula i la variança de la posició i analitzeu i raoneu els límits d'altes i baixes temperatures.}
 
@@ -332,10 +360,9 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 		\langle x^2 \rangle = A \sqrt{\frac{2m}{\beta}}\frac{1}{\sqrt{\beta k}}\frac{1}{\beta k}\int_{-\infty}^{\infty} \mathrm{d}u_1 \, e^{-u_1^2} \int_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} \mathrm{d}u_2 \, u_2^2 e^{-u_2^2}.
 	\end{equation} 
 	
-	Observem que l'integral respecte $u_1$ és una integral gaussiana estàndard, on la solució ve donada per $\eqref{eqb1:2}$, ens queda 
-	 
+	Observem que l'integral respecte $u_1$ és una integral Gaussiana estàndard, on la solució ve donada per $\eqref{eqb1:2}$, ens queda 
 	\begin{equation}
-		\int_{-\infty}^{\infty} \mathrm{d}u_1 \,e^{-u_1^2} = \sqrt{\pi}
+		\int_{-\infty}^{\infty} \mathrm{d}u_1 \,e^{-u_1^2} = \sqrt{\pi}.
 	\end{equation}
 	Per l'integral respecte $u_2$ , la resolem per parts
 	\begin{equation}
@@ -346,7 +373,7 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\end{equation} 
 	i ens queda 
 	\begin{equation}
-		-\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \int e^{-u_2^2} \mathrm{d}u_2 \right) = -\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \frac{\sqrt{\pi}}{2}\int\frac{2}{\sqrt{\pi}} e^{-u_2^2} \mathrm{d}u_2 \right)
+		-\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \int e^{-u_2^2} \mathrm{d}u_2 \right) = -\frac{1}{2}\left(\left[u_2 e^{-u_2^2}\right]_{-l\sqrt{\beta k}}^{l\sqrt{\beta k}} - \frac{\sqrt{\pi}}{2}\int\frac{2}{\sqrt{\pi}} e^{-u_2^2} \mathrm{d}u_2 \right).
 	\end{equation}
 	
 	Tenim una $\textit{error function}$, desfent el canvi de variable i aplicant els límits d'integració ens queda 
@@ -385,18 +412,15 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	-2\sqrt{\beta k}\,l\, e^{-\beta k l^2}
 	+ \sqrt{\pi}\,\mathrm{erf}(\sqrt{\beta k}\,l)
 	\right)
-	\right]
+	\right],
 \end{align*}
-	Finalment, simplificant, ens queda 
-	
+	i finalment, simplificant, ens queda 
 	\begin{equation*}
 		\langle x^2 \rangle = \frac{1}{2\beta k \sqrt{\pi}\mathrm{erf}}\left( \sqrt{\pi}\erf(\sqrt{\beta k} l)-2\sqrt{\beta k} l e^{-\beta k l^2}\right)\Rightarrow
 	\end{equation*}
-	
 	\begin{equation}
 		\boxed{\langle x^2 \rangle = \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{e^{-\beta k l^2}}{\mathrm{erf(\sqrt{\beta k} l)}}\right)}.
 	\end{equation}
-	
 	Notem que, com que hem vist que $\langle x \rangle = 0$, en tant que $(\Delta x)^2 = \langle x^2 \rangle - \langle x \rangle ^2 $, arribem a que
 	\begin{equation}
 		\boxed{(\Delta x)^2 = \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{e^{-\beta k l^2}}{\mathrm{erf(\sqrt{\beta k} l)}}\right)}.
@@ -411,47 +435,43 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\begin{equation}
 		\langle x^2 \rangle \approx \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{1}{2\sqrt{\frac{\beta k l^2}{\pi}}}\right) = \frac{1}{2\beta k}(1-1) = 0
 	\end{equation}
-
-	Com que el terme principal s’anul·la, cal considerar termes d’ordre superior. Per simplificar els càlculs, ho deixem en funció de $z = \sqrt{\beta k l^2} $. Tenim
-	
+	Com que el terme principal s’anul·la, cal considerar termes d’ordre superior. Per simplificar els càlculs, ho deixem en funció de $z = \sqrt{\beta k l^2} $. Tenim (a partir de \eqref{eqb2:5} i del desenvolupament en sèrie de Taylor de $e^{-z^2}$)
 	\begin{equation}
 		\erf(z) \approx \frac{2}{\sqrt{\pi}}\left(z - \frac{z^3}{3}\right)
 	\end{equation}
 	\begin{equation}
 		e^{-z^2} \approx 1 - z^2
 	\end{equation}
-	
-	Substituint
-	
+	Si substituïm obtenim
+	\begin{equation*}
+		\langle x^2 \rangle \approx \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{1-z^2}{\frac{2}{\sqrt{\pi}}(z - \frac{z^3}{3})}\right) = \frac{1}{2\beta k}\left( 1 - \frac{2}{\sqrt{\pi}}z\frac{1-z^2}{\frac{2}{\sqrt{\pi}}(z - \frac{z^3}{3})}\right) \Rightarrow
+	\end{equation*}
 	\begin{equation}
-		\langle x^2 \rangle \approx \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{1-z^2}{\frac{2}{\sqrt{\pi}}(z - \frac{z^3}{3})}\right) = \frac{1}{2\beta k}\left( 1 - \frac{2}{\sqrt{\pi}}z\frac{1-z^2}{\frac{2}{\sqrt{\pi}}(z - \frac{z^3}{3})}\right) = \frac{1}{2\beta k}\left( 1 - \frac{1-z^2}{1 - \frac{z^2}{3}}\right)
+		\langle x^2 \rangle \approx \frac{1}{2\beta k}\left( 1 - \frac{1-z^2}{1 - \frac{z^2}{3}}\right).
 	\end{equation}
-	
 	Tenint en compte que per $u$ petites, $\frac{1}{1-u} \approx 1 + u$, sent, en aquest cas, $u = \frac{z^2}{3} $  , ens queda 
 	\begin{equation}
 		\langle x^2 \rangle \approx \frac{1}{2\beta k}\left( 1 - (1-z^2)(1 + \frac{z^2}{3})\right) \approx \frac{1}{2\beta k}\left( 1 - 1 + \frac{2}{3}z^2\right) = \frac{1}{2\beta k}\frac{2}{3}\beta k l^2 
 	\end{equation}
-	
 	On només s’han conservat els termes fins a segon ordre, ja que $z \ll 1$. Per tant, per al límit de temperatures altes, ens queda 
 	\begin{equation}
-		\boxed{\langle x^2 \rangle \approx  \frac{1}{3}l^2}
+		\boxed{\langle x^2 \rangle \approx  \frac{1}{3}l^2}.
 	\end{equation}
 	\item \textbf{Comportament de $\langle x^2 \rangle$ a baixes temperatures.}
-	Com ja hem comentat per al límit de temperatures altes, usarem les mateixes aproximacions trobades per al cas de l'energia. Tenint $\eqref{eqb2:bT1}$ i $\eqref{eqb2:bT2}$, ens queda 
-	
+	Com ja hem comentat per al límit de temperatures altes, usarem les mateixes aproximacions trobades pel cas de l'energia. Tenint $\eqref{eqb2:bT1}$ i $\eqref{eqb2:bT2}$, ens queda 
 	\begin{equation}
-		\langle x^2 \rangle \approx  \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{0}{1}\right) =  \frac{1}{2\beta k} 
+		\langle x^2 \rangle \approx  \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{0}{1}\right) =  \frac{1}{2\beta k}.
 	\end{equation}
-	Per tant, per al límit de temperatures baixes, obtenim  
-	
+	Per tant, per al límit de temperatures baixes, obtenim que
 	\begin{equation}
-		\boxed{\langle x^2 \rangle \approx \frac{1}{2\beta k} }
+		\boxed{\langle x^2 \rangle \approx \frac{1}{2\beta k}}.
 	\end{equation}
 	
 	\item \textbf{Discussió dels resultats obtinguts}
-
 	
-	Els resultats obtinguts per a $\langle x^2 \rangle$ en els límits d'altes i baixes temperatures del bany tèrmic son coherents amb els esperats. En el límit de baixes temperatures, on l'energia potencial elàstica domina sobre l'energia tèrmica, el sistema es comporta com un oscil·lador harmònic clàssic no confinat. La partícula realitza oscil·lacions al voltant del punt d'equilibri i la probabilitat que arribi a les parets és pràcticament nul·la, de manera que el valor aproximat obtingut és el terme predit pel teorema d'equipartició per a un potencial parabòlic, que actua com si les parets no existissin. Per al límit d'altes temperatures, l'energia tèrmica domina sobre l'energia potencial elàstica. En aquest límit, la massa té prou energia per moure's per tot l'espai disponible fins a xocar amb les parets, les quals passen a ser el factor determinant del moviment. El sistema passa a tenir el comportament d'una partícula lliure en una caixa de potencial infinit on la constant elàstica de les molles ja no influeix en el resultat i el valor de $\langle x^2 \rangle$ depèn exclusivament de la distància entre les parets. 
+	El resultat obtingut per $\langle x \rangle$ és completament coherent amb el que es podria esperar d'un oscil·lador harmònic com el que tenim. En promig, la posició esperada per la partícula de massa $m$ és $x=0$.
+	
+	Els resultats obtinguts per a $\langle x^2 \rangle = (\Delta x)^2$ en els límits d'altes i baixes temperatures del bany tèrmic son coherents amb els esperats. En el límit de baixes temperatures, on l'energia potencial elàstica domina sobre l'energia tèrmica, el sistema es comporta com un oscil·lador harmònic clàssic no confinat. La partícula realitza oscil·lacions al voltant del punt d'equilibri i la probabilitat que arribi a les parets és pràcticament nul·la, de manera que el valor aproximat obtingut és el terme predit pel teorema d'equipartició per a un potencial parabòlic, que actua com si les parets no existissin. Per al límit d'altes temperatures, l'energia tèrmica domina sobre l'energia potencial elàstica. En aquest límit, la massa té prou energia per moure's per tot l'espai disponible fins a xocar amb les parets, les quals passen a ser el factor determinant del moviment. El sistema passa a tenir el comportament d'una partícula lliure en una caixa de potencial infinit on la constant elàstica de les molles ja no influeix en el resultat i el valor de $\langle x^2 \rangle$ depèn exclusivament de la distància entre les parets. 
 	
 	
 \end{enumerate}
