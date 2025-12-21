@@ -125,7 +125,7 @@ on hem escollit $H = E$, és a dir, hem escollit la hipersuperfície que delimit
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.45\linewidth]{Graf}
-	\caption{Representació gràfica del moment en funció de la posició.}
+	\caption{Representació gràfica del moment en funció de la posició. És l'espai de fases.}
 	\label{fig2}
 \end{figure}
 Mirant la figura \ref{fig2} veiem que tenim una el·lipse. L'hipervolum $\Gamma$ que estem buscant és justament el volum comprés a l'interior d'aquesta el·lipse i, aprofitant que és una forma geomètrica coneguda, podem utilitzar la fórmula següent
@@ -166,10 +166,40 @@ L'hipervolum que hem de calcular ara serà l'àrea sota la corba
 	p=\pm\sqrt{2m(E-kx^2)},
 \end{equation}
 que, per arguments de simetria, es redueix al càlcul de la següent integral
+\begin{equation}
+	\Gamma(E) = \frac{4}{h}\int_0^l \sqrt{2m(E-kx^2)} \mathrm{d}x =\frac{4\sqrt{2mk}}{h} \int_0^l \sqrt{\frac{E}{k} - x^2} \, dx.
+\label{eqa:14}
+\end{equation}
+Per tal de poder integrar-ho hem de fer un canvi de variable:
 \begin{equation*}
-	\Gamma(E) = \frac{4}{h}\int_0^l \sqrt{2m(E-kx^2)} \mathrm{d}x = 
+	 a = \sqrt{\frac{E}{k}} \implies a^2 = \frac{E}{k} \hspace{0.3cm} \longrightarrow \text{Per tant ens queda:} \hspace{0.2cm}\Gamma(E) = \frac{4\sqrt{2mk}}{h} \int_0^l \sqrt{a^2 - x^2} \, dx.
 \end{equation*}
-\textbf{sigue aquí Jun Shan}
+Amb això, la integral es pot resoldre de manera immediata perquè
+\begin{equation*}
+	\int \sqrt{a^2 - x^2} \, dx = \frac{x}{2}\sqrt{a^2 - x^2} + \frac{a^2}{2}\arcsin\left(\frac{x}{a}\right).
+\end{equation*}
+Aplicant els límits d'integració tenim que
+\begin{equation*}
+	\left[ \frac{x}{2}\sqrt{a^2 - x^2} + \frac{a^2}{2}\arcsin\left(\frac{x}{a}\right) \right]_0^l = \frac{l}{2}\sqrt{a^2 - l^2} + \frac{a^2}{2}\arcsin\left(\frac{l}{a}\right).
+\end{equation*}
+Amb tot això, la integral \eqref{eqa:14} ens dona
+\begin{equation}
+	\Gamma(E) = \frac{4\sqrt{2mk}}{h} \left[ \frac{l}{2}\sqrt{\frac{E}{k} - l^2} + \frac{E}{2k}\arcsin\left( \frac{l}{\sqrt{E/k}} \right) \right].
+\end{equation}
+Tal i com hem fet anteriorment, el nombre de microstats és la derivada respecte l'energia d'aquest volum, de manera que acabem obtenint
+\begin{equation}
+	\boxed{\Omega\left(E\right)=\frac{2\sqrt{2m}}{h\sqrt{k}} \arcsin \left( \frac{l}{\sqrt{E/k}} \right)}.
+\end{equation}
+Aquest resultat és totalment compatible amb el que havíem obtingut a \eqref{eqa:7}. De fet, ara comentarem breument el nombre de microstats pels dos casos d'energia comentats:
+\begin{itemize}
+	\item \textbf{Si $\boldsymbol{E=kl^2}$:} Notem que l'argument de l'arcsin esdevé 1 i, com que $\arcsin(1)=\frac{\pi}{2}$, recuperem l'expressió \eqref{eqa:7}, la qual considerava que la massa no arribava a xocar amb les parets.
+	\item \textbf{Si $\boldsymbol{E\to \infty}$:} En aquest cas l'$\arcsin$ es pot aproximar al seu argument, de manera que obtenim l'expressió \eqref{eqa:17} que es correspon exactament al nombre de microstats per a una partícula lliure en una caixa de longitud $2l$. És coherent amb l'esperat, ja que, per a aquestes energies tan elevades, el potencial de la molla es pot despreciar en front de l'energia cinètica de la massa.
+	\begin{equation}
+		\Omega\left(E\right)\approx\frac{2l\sqrt{2mE}}{h}
+	\label{eqa:17}
+	\end{equation}
+\end{itemize}
+
 \section*{Apartat b)}
 \textbf{Si tot el sistema es troba dins d'un bany tèrmic a temperatura $T$ la partícula estarà sotmesa a un soroll tèrmic. Calculeu la funció de partició de la partícula i el valor mig de l'energia de la partícula $\langle E \rangle$. Establiu els límits d'altes i baixes temperatures i trobeu $\langle E \rangle$ en aquests límits. Raoneu físicament els resultats. Calculeu el valor mig de la posició de la partícula i la variança de la posició i analitzeu i raoneu els límits d'altes i baixes temperatures.}
 
