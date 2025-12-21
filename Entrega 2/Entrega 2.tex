@@ -57,7 +57,7 @@ unidimensionalment. El Hamiltonià de la partícula és
 \section*{Apartat a)}
 \textbf{Calculeu el nombre de microestats de la partícula en funció de la seva energia $E$.}
 
-Per tal de calcular el nombre de microestats tenim que
+Per tal de calcular el nombre de microestats, tenim que
 \begin{equation}
 	\Omega \left(E,V,N\right)=\int \frac{\mathrm{d} \vec{q}\mathrm{d}\vec{p}}{h^{3N}}\delta \left(E-H(\vec{q},\vec{p})\right).
 \label{eqa:1}
@@ -72,7 +72,7 @@ Amb aquesta nova relació, el càlcul del nombre de microstats se'ns simplifica 
 	\Omega\left(E,V,N\right)=\left(\frac{\partial\Gamma\left(E,V,N\right)}{\partial E}\right)_{V,N}.
 \label{eqa:3}
 \end{equation}
-Trobem doncs primer la funció $\Gamma(E,V,N)$ amb l'expressió \eqref{eqa:2}.
+Trobem, doncs, primer la funció $\Gamma(E,V,N)$ amb l'expressió \eqref{eqa:2}.
 
 Notem que el nostre problema té una sola dimensió i que només tenim una massa. Per això, l'$h$ del denominador queda elevada a 1. Per aquest mateix motiu, la posició només dependrà de la coordenada $x$ i el moment només tindrà aquesta mateixa component.
 
@@ -80,7 +80,7 @@ La condició que s'ha de complir (és a dir, la regió d'integració) és
 \begin{equation*}
 	H\left(\vec{q},\vec{p}\right)=\frac{p^2}{2m}+kx^2\leq E \Rightarrow \frac{p^2}{2mE}+\frac{k}{E}x^2 \leq 1.
 \end{equation*}
-Per tal de resoldre la integral hem de fer un parell de canvis de variable
+Per tal de resoldre la integral, hem de fer un parell de canvis de variable
 \begin{equation*}
 	Z_1^2=\frac{p^2}{2mE} \Rightarrow \mathrm{d}Z_1=\frac{\mathrm{d}p}{\sqrt{2mE}},
 \end{equation*}
@@ -105,7 +105,7 @@ Per tant, podem continuar l'expressió que teníem a \eqref{eqa:4}
 \end{equation}
 Tal i com hem raonat anteriorment a \eqref{eqa:3}, ara només ens queda derivar aquest volum respecte l'energia $E$ per trobar el nombre de microestats.
 
-Fent la derivada obtenim que
+Fent la derivada, obtenim que
 \begin{equation}
 	\boxed{\Omega=\sqrt{\frac{2m}{k}}\frac{\pi}{h}}.
 \label{eqa:7}
@@ -121,26 +121,26 @@ podem aïllar el moment en funció de la posició, és a dir
 	p(x)=\pm \sqrt{2m\left(E-kx^2\right)},
 \label{eqa:8}
 \end{equation}
-on hem escollit $H = E$, és a dir, hem escollit la hipersuperfície que delimita l'hipervolum de l'espai de fases. Si representem aquesta funció tenim el següent:
+on hem escollit $H = E$, és a dir, hem escollit la hipersuperfície que delimita l'hipervolum de l'espai de fases. Si representem aquesta funció, tenim el següent
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.45\linewidth]{Graf}
 	\caption{Representació gràfica del moment en funció de la posició. És l'espai de fases.}
 	\label{fig2}
 \end{figure}
-Mirant la figura \ref{fig2} veiem que tenim una el·lipse. L'hipervolum $\Gamma$ que estem buscant és justament el volum comprés a l'interior d'aquesta el·lipse i, aprofitant que és una forma geomètrica coneguda, podem utilitzar la fórmula següent
+Mirant la figura \ref{fig2}, veiem que tenim una el·lipse. L'hipervolum $\Gamma$ que estem buscant és justament el volum comprés a l'interior d'aquesta el·lipse i, aprofitant que és una forma geomètrica coneguda, podem utilitzar la fórmula següent
 \begin{equation}
 	\text{Àrea d'una el·lipse}=\pi \cdot a \cdot b,
 \label{eqa:9}
 \end{equation}
-on $a$ i $b$ són els radis major i menor que clarament són
+on $a$ i $b$ són els radis major i menor, que clarament són
 \begin{equation*}
 	a=\sqrt{\frac{E}{k}}
 \end{equation*}
 \begin{equation*}
 	b=\sqrt{2mE}.
 \end{equation*}
-Amb l'equació \eqref{eqa:9} trobem la mateixa expressió que hem obtingut anteriorment \eqref{eqa:6}. Per tant, derivant l'expressió en funció de l'energia acabem trobant la mateixa equació \eqref{eqa:7}\footnote{Llevat del factor $\frac{1}{h}$, que hauríem d'afegir a posteriori.}.
+Amb l'equació \eqref{eqa:9}, trobem la mateixa expressió que hem obtingut anteriorment \eqref{eqa:6}. Per tant, derivant l'expressió en funció de l'energia acabem trobant la mateixa equació \eqref{eqa:7}\footnote{Llevat del factor $\frac{1}{h}$, que hauríem d'afegir a posteriori.}.
 
 Tanmateix, notem que aquest càlcul del nombre de microestats és vàlid si considerem que tenim un oscil·lador lliure, sense tenir present les parets del sistema, és a dir, estem sota la condició
 \begin{equation}
@@ -170,7 +170,7 @@ que, per arguments de simetria, es redueix al càlcul de la següent integral
 	\Gamma(E) = \frac{4}{h}\int_0^l \sqrt{2m(E-kx^2)} \mathrm{d}x =\frac{4\sqrt{2mk}}{h} \int_0^l \sqrt{\frac{E}{k} - x^2} \, \mathrm{d}x.
 \label{eqa:14}
 \end{equation}
-Per tal de poder integrar-ho hem de fer un canvi de variable
+Per tal de poder integrar-ho, hem de fer un canvi de variable
 \begin{equation*}
 	 a = \sqrt{\frac{E}{k}} \implies a^2 = \frac{E}{k} \hspace{0.3cm} \longrightarrow \text{Per tant ens queda:} \hspace{0.2cm}\Gamma(E) = \frac{4\sqrt{2mk}}{h} \int_0^l \sqrt{a^2 - x^2} \, \mathrm{d}x.
 \end{equation*}
@@ -206,7 +206,7 @@ Aquest resultat és totalment compatible amb el que havíem obtingut a \eqref{eq
 \begin{enumerate}
 	\item \textbf{\textit{Càlcul de la funció de partició.}}
 
-La funció de partició que hem de calcular és la funció de partició canònica $Z$ (tenim el sistema en un bany tèrmic a temperatura $T$). Per calcular-la podem usar la seva definició (que vam veure a teoria) aplicada a aquest cas en què tenim una única partícula sotmesa al hamiltonià de \eqref{eq:enunciat}. Així doncs, tenim que
+La funció de partició que hem de calcular és la funció de partició canònica $Z$ (tenim el sistema en un bany tèrmic a temperatura $T$). Per calcular-la, podem usar la seva definició (que vam veure a teoria) aplicada a aquest cas en què tenim una única partícula sotmesa al hamiltonià de \eqref{eq:enunciat}. Així doncs, tenim que
 
 \begin{equation}
 	Z = \int \frac{\mathrm{d}x\mathrm{d}p}{h}e^{-\beta H(x,p)} = \int \frac{\mathrm{d}x\mathrm{d}p}{h}e^{-\beta p^2/2m}e^{-\beta k x^2} = \frac{1}{h} \int_{-l}^{l} e^{-\beta kx^2}\mathrm{d}x\int_{-\infty}^{+\infty} e^{-\beta p^2/2m} \mathrm{d}p. \label{eqb1:1}
@@ -216,7 +216,7 @@ Calculem ara per separat les dues integrals anteriors. La segona és una integra
 \begin{equation}
 	\int_{-\infty}^{+\infty} e^{-ax^2}\mathrm{d}x = \sqrt{\frac{\pi}{a}}, \label{eqb1:2}
 \end{equation}
-de manera que tenim que
+de manera que tenim
 \begin{equation}
 	\int_{-\infty}^{+\infty} e^{-\beta p^2/2m} \mathrm{d}p = \sqrt{\frac{2\pi m}{\beta}}. \label{eqb1:3}
 \end{equation}
@@ -224,14 +224,14 @@ Per altra banda, la primera integral és també una Gaussiana però amb els lím
 \begin{equation}
 	\mathrm{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2}\mathrm{d}t. \label{eqb1:4}
 \end{equation}
-Si desenvolupem la primera integral de \eqref{eqb1:1} tenim el següent
+Si desenvolupem la primera integral de \eqref{eqb1:1}, tenim el següent
 \begin{equation*}
 	\int_{-l}^{l} e^{-\beta kx^2}\mathrm{d}x = 2 \int_{0}^{l} e^{-\beta kx^2}\mathrm{d}x = \frac{2}{\sqrt{\beta k}}\int_0^{l\sqrt{\beta k}}e^{-t^2}\mathrm{d}t = \frac{2}{\sqrt{\beta k}} \cdot \frac{\sqrt{\pi}}{2}\mathrm{erf}(l\sqrt{\beta k}) \Rightarrow
 \end{equation*}
 \begin{equation}
 	\Rightarrow \sqrt{\frac{\pi}{\beta k}} \mathrm{erf}(l\sqrt{\beta k}), \label{eqb1:5}
 \end{equation}
-on al primer pas hem fet usat que la $e^{-\beta k x^2}$ és una funció simètrica respecte del 0 i, al segon pas, hem fet el següent canvi de variable
+on al primer pas hem usat que la $e^{-\beta k x^2}$ és una funció simètrica respecte del 0 i, al segon pas, hem fet el següent canvi de variable
 \begin{align*}
 	\sqrt{\beta k} x &= t, \\
 	\sqrt{\beta k} \mathrm{d}x &= \mathrm{d}t.
@@ -290,7 +290,7 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\begin{equation*}
 		k_BT \gg kl^2 \Rightarrow 1 \gg \frac{kl^2}{k_BT} \Rightarrow 1 \gg l^2\beta k
 	\end{equation*}
-	Per veure el comportament de la \textit{error function} quan la variable $l^2k\beta$ tendeix a 0 usem la seva expansió en sèrie de Taylor (treballant fins a primer ordre)\footnote{Aquest resultat es pot trobar desenvolupant $e^{-z^2}$ en sèrie de Taylor i integrant terme a terme. Veure \url{https://en.wikipedia.org/wiki/Error_function}.}
+	Per veure el comportament de la \textit{error function} quan la variable $l^2k\beta$ tendeix a 0, usem la seva expansió en sèrie de Taylor (treballant fins a primer ordre)\footnote{Aquest resultat es pot trobar desenvolupant $e^{-z^2}$ en sèrie de Taylor i integrant terme a terme. Veure \url{https://en.wikipedia.org/wiki/Error_function}.}
 	\begin{equation}
 		\mathrm{erf}(z) = \frac{2}{\sqrt{\pi}}\left(z-\frac{z^3}{3}+\frac{z^5}{10}-\frac{z^7}{42}+\ldots\right) \approx \frac{2}{\sqrt{\pi}}z. \label{eqb2:5}
 	\end{equation}
@@ -356,7 +356,7 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\begin{equation}
 		\rho(x,p) = \frac{e^{-\beta H(x,p)}}{Z}.
 	\end{equation}
-	Substituint el Hamiltonià $H(x,p) = \frac{p^2}{2m} + kx^2$ i la funció de partició $Z$ obtinguda anteriorment (REF), l'expressió es pot factoritzar en dues integrals independents sobre el moment i la posició, quedant
+	Substituint el Hamiltonià $H(x,p) = \frac{p^2}{2m} + kx^2$ i la funció de partició $Z$ obtinguda anteriorment $ \eqref{eqb1:6}$, l'expressió es pot factoritzar en dues integrals independents sobre el moment i la posició, quedant
 	\begin{equation}
 		\langle x \rangle = \frac{1}{Z h} \int_{-\infty}^{\infty} e^{-\frac{\beta p^2}{2m}} \mathrm{d}p \int_{-l}^{l} x e^{-\beta k x^2} \mathrm{d}x = A \int_{-\infty}^{\infty} e^{-\frac{\beta p^2}{2m}} \mathrm{d}p \int_{-l}^{l} x e^{-\beta k x^2} \mathrm{d}x,
 	\end{equation}
@@ -496,7 +496,7 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	
 	\item \textbf{Discussió dels resultats obtinguts}
 	
-	El resultat obtingut per $\langle x \rangle$ és completament coherent amb el que es podria esperar d'un oscil·lador harmònic com el que tenim. En promig, la posició esperada per la partícula de massa $m$ és $x=0$.
+	El resultat obtingut per $\langle x \rangle$ és completament coherent amb el que es podria esperar d'un oscil·lador harmònic com el que tenim. En promig, la posició esperada per la partícula de massa $m$ és $\langle x \rangle=0$.
 	
 	Els resultats obtinguts per a $\langle x^2 \rangle = (\Delta x)^2$ en els límits d'altes i baixes temperatures del bany tèrmic son coherents amb els esperats. En el límit de baixes temperatures, on l'energia potencial elàstica domina sobre l'energia tèrmica, el sistema es comporta com un oscil·lador harmònic clàssic no confinat. La partícula realitza petites oscil·lacions al voltant del punt d'equilibri i la probabilitat que arribi a les parets és pràcticament nul·la, per aquest motiu, podem ignorar els límits imposats per les parets en el càlcul. Sota aquest comportament de potencial parabòlic ideal, s'aplica amb rigor el teorema d'equipartició, el qual ens diu que cada grau de llibertat quadràtic del Hamiltonià ha de contribuir en $\frac{1}{2}k_BT$ a l'energia mitjana. Si apliquem aquest teorema al terme de l'energia potencial elàstica tenim, doncs, que $k \langle x^2 \rangle = \frac{1}{2\beta} = \frac{1}{2}k_BT$ i obtenim directament el resultat $\langle x^2 \rangle = \frac{1}{2k} k_BT$, confirmant que el sistema es comporta com un oscil·lador harmònic clàssic que actua com si les parets no existissin. 
 	
