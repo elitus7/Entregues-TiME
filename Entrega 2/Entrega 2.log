@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  21 DEC 2025 17:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  21 DEC 2025 17:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -855,28 +855,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--192
 
  []
 
-[4] [5] [6] [7]
-
-LaTeX Warning: Reference `eqb2:10' on page 8 undefined on input line 440.
-
-[8] (Entrega 2.aux)
+[4] [5] [6] [7] [8] (Entrega 2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `"Entrega 2".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24328 strings out of 474486
- 450133 string characters out of 5743756
+ 24323 strings out of 474486
+ 450086 string characters out of 5743756
  1949542 words of memory out of 5000000
- 46148 multiletter control sequences out of 15000+600000
- 570040 words of font info for 80 fonts, out of 8000000 for 9000
+ 46145 multiletter control sequences out of 15000+600000
+ 569421 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  101i,13n,107p,1200b,697s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
@@ -904,9 +896,9 @@ atvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:
 .pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmti10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmtt8.pfb>
-Output written on "Entrega 2.pdf" (8 pages, 3837372 bytes).
+Output written on "Entrega 2.pdf" (8 pages, 3837632 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
+ 298 PDF objects out of 1000 (max. 8388607)
  78 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

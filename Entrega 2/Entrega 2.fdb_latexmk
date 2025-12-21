@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1766334268.55855 "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Entrega 2/Entrega 2.tex" "Entrega 2.pdf" "Entrega 2" 1766334270.15312 0
+["pdflatex"] 1766334901.91367 "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Entrega 2/Entrega 2.tex" "Entrega 2.pdf" "Entrega 2" 1766334903.37041 0
   "C:/Users/natvi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1764442595 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/natvi/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1736360430 11548 7a51d9bf312f281e530ad857906ddea0 ""
   "C:/Users/natvi/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1736360310 24225045 eb36e6abbafa3ddc4d12a79479c5de36 ""
@@ -16,8 +16,6 @@
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
-  "C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx5.tfm" 1136765053 1332 f817c21a1ba54560425663374f1b651a ""
-  "C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx7.tfm" 1136765053 1336 3125ccb448c1a09074e3aa4a9832f130 ""
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbxti10.tfm" 1136765053 1532 9162035f4e7176612125649e348e2195 ""
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmex10.tfm" 1136765053 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -189,11 +187,11 @@
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "Entrega 2.aux" 1766334269 2351 4a80ef0ad5a077ee2995913695e725c6 "pdflatex"
-  "Entrega 2.out" 1766334269 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Entrega 2.tex" 1766334267 26822 ac8e00b456d47882419770ad9f9cf6e7 ""
+  "Entrega 2.aux" 1766334903 2351 4a80ef0ad5a077ee2995913695e725c6 "pdflatex"
+  "Entrega 2.out" 1766334902 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Entrega 2.tex" 1766334901 26816 a7705cafc16268bf22db7493a6333896 ""
   "Graf.png" 1766260658 3537114 3ef988f9b59d3d84b5f5253d785ad07c ""
-  "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Entrega 2/Entrega 2.tex" 1766334267 26822 ac8e00b456d47882419770ad9f9cf6e7 ""
+  "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Entrega 2/Entrega 2.tex" 1766334901 26816 a7705cafc16268bf22db7493a6333896 ""
   "screenshot001.png" 1766260658 31801 e6429c80de60be1cf4dbefda37f78d6f ""
   (generated)
   "Entrega 2.aux"
