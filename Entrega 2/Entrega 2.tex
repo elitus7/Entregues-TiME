@@ -225,7 +225,7 @@ Per tant, el valor esperat de l'energia de la partícula serà
 
 Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de comparar l'energia tèrmica del sistema $k_BT \equiv \frac{1}{\beta}$ amb l'energia potencial elàstica $kl^2$ deguda a la presència de les molles. És a dir, hem d'estudiar el comportament del factor
 \begin{equation}
-	x \equiv \frac{kl^2}{k_BT} = l^2\beta k.
+	x \equiv \frac{kl^2}{k_BT} = l^2\beta k \label{eqb2:9}
 \end{equation}
 \begin{enumerate}
 	\item \textbf{Comportament de $\langle E \rangle$ a altes temperatures.} En aquest cas tenim que $T \rightarrow \infty$ i, aleshores
@@ -265,7 +265,7 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	
 	Per altra banda, per $ l^2\beta k \gg 1 $, tenim que 
 	\begin{equation}
-		e^{-l^2\beta k} \approx 0
+		e^{-l^2\beta k} \approx 0 \label{eqb2:10}
 	\end{equation}
 	
 	Substituint les aproximacions per a baixes temperatures (REF) sobre (REF), trobem que 
@@ -275,10 +275,15 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	\end{equation*}
 	
 	\begin{equation}
-		\Rightarrow \boxed{\langle E \rangle_{T\rightarrow 0} \approx k_BT}
+		\Rightarrow \boxed{\langle E \rangle_{T\rightarrow 0} \approx k_BT} \label{eqb2:11}
 	\end{equation}
 
-	CALDRIA ARA RAONAR COSES 
+	\item \textbf{\textit{Discussió dels resultats obtinguts}}
+	
+	L'evolució de l'energia mitjana s'explica mitjançant el teorema d'equipartició, el qual estableix que, en equilibri tèrmic, cada grau de llibertat que contribueix de forma quadràtica al Hamiltonià aporta exactament $k_B T/2$ a l'energia total del sistema. 
+	
+	Al límit de baixes temperatures, la partícula es comporta com un oscil·lador harmònic pur perquè no té prou energia per arribar a les parets, presentant dos termes quadràtics, el de l'energia cinètica, $p^2/2m$, i el del potencial, $kx^2$, que ens dona un resultat de $k_B T$. En canvi, en el límit d'altes temperatures, l'energia tèrmica domina sobre la potencial elàstica, fent que el sistema es comporti com una partícula en una caixa, és a dir, el terme potencial deixa de ser quadràtic (no se com explicar aixo, tipo, q AAAAAAAA), i per tant, només el grau de llibertat cinètic es manté rellevant segons el teorema, resultant en una energia mitjana de $k_B T/2$.
+	
 \end{enumerate}
 
 
@@ -322,33 +327,33 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 	
 	Per trobar la variança de la posició, cal trobar $ \langle x^2 \rangle $, ja que $ \Delta x^2 = \langle x^2 \rangle - \langle x \rangle ^2 $. 
 	
-	Fem el mateix procediment que el d'abans, però tenint $x^2$ 
+	Seguim el mateix procediment fins ara, però tenint $x^2$. Aplicant els mateixos canvis de variable, ens queda
 	
 	\begin{equation}
 		\langle x^2 \rangle = A \sqrt{\frac{2m}{\beta}}\frac{1}{\sqrt{\beta k}}\frac{1}{\beta k}\int du_1 \, e^{-u_1^2} \int du_2 \, u_2^2 e^{-u_2^2}
 	\end{equation} 
 	
 	
-	Observem que afegint un terme $ 2/\sqrt{\pi} $ a l'integral del moment lineal, tenim una funció error de Gauss. Aquesta integra de $ -\infty$ a $\infty $. Sabent que $\erf(\infty) = 1$ i que és una funció imparella, ens queda que l'integral del moment lineal és 
+	Observem que afegint un terme $ 2/\sqrt{\pi} $ a l'integral del moment lineal, tenim una $\textit{error function}$. Aquesta integra de $ -\infty$ a $\infty $. Sabent que $\erf(\infty) = 1$ (REF de quan l'eric posi la demostració) i que és una funció imparella, ens queda que l'integral del moment és 
 	
 	\begin{equation}
 		\frac{\sqrt{\pi}}{2}\int_{-\infty}^{\infty} du_1 \,\frac{2}{\sqrt{\pi}}e^{-u_1^2} = \frac{\sqrt{\pi}}{2}[\erf(u_1)]_{-\infty}^{\infty} = \sqrt{\pi}
 	\end{equation}
 	
-	Per l'integral de la posició, la integrem per parts,
+	Per l'integral de la posició, la integrem per parts
 	
 	\begin{align}
 		v &= u_2 \hspace{0.8cm} dv = du_2 \\
 		dw &= u_2 e^{-u_2^2} du_2 \hspace{0.5cm}  w = -\frac{1}{2} e^{-u_2^2}
 	\end{align} 
 	
-	Quedant per aquesta integral, 
+	Que ens queda 
 	
 	\begin{equation}
 		-\frac{1}{2}\left[u_2 e^{-u_2^2} - \int e^{-u_2^2} du_2 \right] = -\frac{1}{2}\left[u_2 e^{-u_2^2} - \frac{\sqrt{\pi}}{2}\int\frac{2}{\sqrt{\pi}} e^{-u_2^2} du_2 \right]
 	\end{equation}
 	
-	Tornem a tenir una funció error, aquest cop integrada de $-l$ a $l$, desfent el canvi de variable i aplicant els límits d'integració
+	Tornem a tenir una $\textit{error function}$, aquest cop integrada de $-l$ a $l$, desfent el canvi de variable i aplicant els límits d'integració
 	
 	\begin{equation}
 		-\frac{1}{2}\left[\sqrt{\beta k} x e^{-\beta k x^2} - \frac{\sqrt{\pi}}{2}\erf(\sqrt{\beta k} x)\right]_{-l}^{l} = -\frac{1}{2}\left[2\sqrt{\beta k} l e^{-\beta k l^2} - \sqrt{\pi}\erf(\sqrt{\beta k} l)\right]
@@ -375,8 +380,59 @@ Estudiem ara els límits d'altes i baixes temperatures. Per fer això, hem de co
 		\boxed{\langle x^2 \rangle = \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{e^{-\beta k l^2}}{\mathrm{erf(\sqrt{\beta k} l)}}\right)}
 	\end{equation}
 	
+	Estudiarem ara els límits d'altes i baixes temperatures. Compararem l'energia tèrmica del sistema amb la potencial, que correspon al factor $\eqref{eqb2:9}$, com hem fet també per al valor mig de l'energia, $\langle E \rangle$. 
+	
+\begin{enumerate}
+	\item \textbf{Comportament de $\langle x^2 \rangle$ a altes temperatures.} 
+	En aquest cas tenim que $T \rightarrow \infty$. 
+	Com hem dit, el comportament del sistema ve determinat pel mateix factor $\eqref{eqb2:9}$ que s'ha analitzat en el càlcul de l'energia mitjana $\langle E \rangle$. També tenim d'aquest apartat, l'aproximació per la $\textit{error function}$ $\eqref{eqb2:6}$, i l'exponencial $\eqref{eqb2:7}$. D'aquesta manera,  $\langle x^2 \rangle$ ens queda com
+	\begin{equation}
+		\langle x^2 \rangle \approx \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{1}{2\sqrt{\frac{\beta k l^2}{\pi}}}\right) = \frac{1}{2\beta k}(1-1) = 0
+	\end{equation}
+
+	Com que el terme principal s’anul·la, cal considerar termes d’ordre superior. Per simplificar els càlculs, ho deixem en funció de $z = \sqrt{\beta k l^2} $. Tenim
+	
+	\begin{equation}
+		\erf(z) \approx \frac{2}{\sqrt{\pi}}\left(z - \frac{z^3}{3}\right)
+	\end{equation}
+	\begin{equation}
+		e^{-z^2} \approx 1 - z^2
+	\end{equation}
+	
+	Substituint
+	
+	\begin{equation}
+		\langle x^2 \rangle \approx \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{1-z^2}{\frac{2}{\sqrt{\pi}}(z - \frac{z^3}{3})}\right) = \frac{1}{2\beta k}\left( 1 - \frac{2}{\sqrt{\pi}}z\frac{1-z^2}{\frac{2}{\sqrt{\pi}}(z - \frac{z^3}{3})}\right) = \frac{1}{2\beta k}\left( 1 - \frac{1-z^2}{1 - \frac{z^2}{3}}\right)
+	\end{equation}
+	
+	Tenint en compte que per $u$ petites, $\frac{1}{1-u} \approx 1 + u$, sent, en aquest cas, $u = \frac{z^2}{3} $  , ens queda 
+	\begin{equation}
+		\langle x^2 \rangle \approx \frac{1}{2\beta k}\left( 1 - (1-z^2)(1 + \frac{z^2}{3})\right) \approx \frac{1}{2\beta k}\left( 1 - 1 + \frac{2}{3}z^2\right) = \frac{1}{2\beta k}\frac{2}{3}\beta k l^2 
+	\end{equation}
+	
+	On només s’han conservat els termes fins a segon ordre, ja que $z \ll 1$. Per tant, per al límit de temperatures altes, ens queda 
+	\begin{equation}
+		\boxed{\langle x^2 \rangle \approx  \frac{1}{3}l^2}
+	\end{equation}
+	\item \textbf{Comportament de $\langle x^2 \rangle$ a baixes temperatures.}
+	Com ja hem comentat per al límit de temperatures altes, usarem les mateixes aproximacions trobades per al cas de l'energia. Tenint (REF erf(infinit)=1 eric) i $\eqref{eqb2:10}$, ens queda 
+	
+	\begin{equation}
+		\langle x^2 \rangle \approx  \frac{1}{2\beta k}\left( 1 - 2\sqrt{\frac{\beta k l^2}{\pi}}\frac{0}{1}\right) =  \frac{1}{2\beta k} 
+	\end{equation}
+	Per tant, per al límit de temperatures baixes, obtenim  
+	
+	\begin{equation}
+		\boxed{\langle x^2 \rangle \approx \frac{1}{2\beta k} }
+	\end{equation}
+	
+	\item \textbf{Discussió dels resultats obtinguts}
+
+	
+	Els resultats obtinguts per a $\langle x^2 \rangle$ en els límits d'altes i baixes temperatures del bany tèrmic son coherents amb els esperats. En el límit de baixes temperatures, on l'energia potencial elàstica domina sobre l'energia tèrmica, el sistema es comporta com un oscil·lador harmònic clàssic no confinat. La partícula realitza oscil·lacions al voltant del punt d'equilibri i la probabilitat que arribi a les parets és pràcticament nul·la, de manera que el valor aproximat obtingut és el terme predit pel teorema d'equipartició per a un potencial parabòlic, que actua com si les parets no existissin. Per al límit d'altes temperatures, l'energia tèrmica domina sobre l'energia potencial elàstica. En aquest límit, la massa té prou energia per moure's per tot l'espai disponible fins a xocar amb les parets, les quals passen a ser el factor determinant del moviment. El sistema passa a tenir el comportament d'una partícula lliure en una caixa de potencial infinit on la constant elàstica de les molles ja no influeix en el resultat i el valor de $\langle x^2 \rangle$ depèn exclusivament de la distància entre les parets. 
 	
 	
+\end{enumerate}
 
 	
 \end{enumerate}
