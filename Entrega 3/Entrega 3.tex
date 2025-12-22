@@ -1,0 +1,50 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[catalan]{babel}
+\usepackage{tcolorbox}
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{caption}
+\captionsetup{labelfont=bf}
+\usepackage{hyperref}
+\usepackage[arrowdel]{physics}
+\newtcolorbox{definició}[1]{title=#1}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1.95cm, right=1.95cm, top=30mm, bottom=20mm]{geometry} 
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{titling} % Per controlar el títol
+\pagestyle{fancy}
+\fancyhf{}
+\lhead[\leftmark]{{Universitat Autònoma de Barcelona}}
+\rhead{Termodinàmica i Mecànica Estadística}
+\cfoot[]{\thepage}
+\renewcommand{\labelenumi}{\textbf{\theenumi.}} % Numeració en Bf.
+
+% Redueixo l'espai abans del títol
+\setlength{\droptitle}{-2cm}
+
+\begin{document}
+	\title{\Huge{\textbf{Tercer Lliurament}} \\ \vspace{0.2cm} \large{\textbf{Termodinàmica i Mecànica Estadística}}}
+	
+	\author{\small{1549086: Bujones Umbert, Jun Shan} \\
+		\small{1672980: González Barea, Eric} \\
+		\small{1644841: Vilarrúbias Morral, Natàlia}}
+	\date{Gener 2026}
+	\maketitle
+	
+	% Aseguramos que las cabeceras se muestren también en la primera página
+	\thispagestyle{fancy}
+
+\textbf{Considereu un sistema ideal de $N$ partícules que es mouen en un espai tridimensional tancades per un volum $V$. L'energia de cada partícula és 
+\begin{equation}
+	H = ap^s, \label{eq:enunciat}
+\end{equation}
+on $p$ és el mòdul del moment lineal, $a$ un paràmetre positiu i $s$ un nombre real positiu. Trobeu la longitud d'ona tèrmica de de Broglie. Per quin rang de valors de la temperatura es pot tractar clàssicament el sistema? Expresseu el resultat en funció dels paràmetres característics i de la densitat del sistema.}
+
+\end{document}
