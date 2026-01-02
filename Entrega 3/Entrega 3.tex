@@ -43,8 +43,80 @@
 
 \textbf{Considereu un sistema ideal de $N$ partícules que es mouen en un espai tridimensional tancades per un volum $V$. L'energia de cada partícula és 
 \begin{equation}
-	H = ap^s, \label{eq:enunciat}
+	H = ap^s, \label{eq:1}
 \end{equation}
 on $p$ és el mòdul del moment lineal, $a$ un paràmetre positiu i $s$ un nombre real positiu. Trobeu la longitud d'ona tèrmica de de Broglie. Per quin rang de valors de la temperatura es pot tractar clàssicament el sistema? Expresseu el resultat en funció dels paràmetres característics i de la densitat del sistema.}
+
+Primer de tot, hem de calcular la funció de partició canònica Z del sistema. Tenim que
+\begin{equation}
+	Z = \int \frac{\mathrm{d}\textbf{q}\mathrm{d}\textbf{p}}{h^{3N}}e^{-\beta H(\textbf{q},\textbf{p})} = \int \frac{\mathrm{d}\textbf{q}_1\mathrm{d}\textbf{p}_1}{h^{3}}e^{-\beta H(\textbf{q}_1,\textbf{p}_1)} \cdots \int \frac{\mathrm{d}\textbf{q}_N\mathrm{d}\textbf{p}_N}{h^{3}}e^{-\beta H(\textbf{q}_N,\textbf{p}_N)}. 
+\end{equation}
+Com que totes les partícules tenen el mateix hamiltonià, donat per \eqref{eq:1}, tindrem que 
+\begin{equation}
+	Z = \frac{1}{h^{3N}} \left[ \int \mathrm{d}\textbf{q}_1\mathrm{d}\textbf{p}_1e^{-\beta ap_1^s}\right]^N,
+\end{equation}
+i, com que la integral en les posicions és simplement $V^N$, obtenim que
+\begin{equation}
+	Z = \frac{V^N}{h^{3N}} \left[ \int \mathrm{d}\textbf{p}_1e^{-\beta ap_1^s}\right]^N.
+\end{equation}
+Per simplicitat, podem resoldre aquesta integral en coordenades esfèriques, aprofitant que a l'exponencial apareix el mòdul de $\textbf{p}_1$. Si ho fem 
+\begin{equation}
+	Z = \frac{V^N}{h^{3N}} \int_0^{2\pi} \mathrm{d}\varphi \int_0^\pi \mathrm{d}\theta \sin\theta \int_{0}^{\infty}\mathrm{d}p_1 p_1^2 e^{-\beta a p_1^s} = 4\pi\frac{V^N}{h^{3N}} \int_{0}^{\infty}\mathrm{d}p_1 p_1^2 e^{-\beta a p_1^s}, \label{eq:5}
+\end{equation}
+i ens queda una integral complexa de resoldre. És convenient expressar l'anterior integral en funció de la funció \textit{gamma d'Euler}
+\begin{equation}
+	\Gamma(z) = \int_0^{\infty}\mathrm{d}t\hspace{0.1cm}t^{z-1}e^{-t} \label{eq:6}
+\end{equation}
+a través del següent canvi de variable
+\begin{equation*}
+	t = \beta a p_1^s\Rightarrow p_1 = \left(\frac{t}{\beta a}\right)^{\frac{1}{s}}, \hspace{0.5cm} \mathrm{d}p_1 = \frac{t^{\frac{1}{s}-1}}{\beta a s}\mathrm{d}t,
+\end{equation*}
+de manera que, si apliquem aquest canvi sobre la integral de \eqref{eq:5} (obviem el factor multiplicatiu $4\pi \frac{V^N}{h^{3N}}$ de moment)
+\begin{equation*}
+	I = \int_0^{\infty} \mathrm{d}t\frac{t^{\frac{1}{s}-1}}{(\beta a)^\frac{1}{s} s} \left[\left(\frac{t}{\beta a}\right)^{\frac{1}{s}}\right]^2e^{-t},
+\end{equation*}
+que, si ho reordenem, ens queda com
+\begin{equation}
+	I = \frac{1}{(\beta a)^\frac{3}{s}s} \int_0^{\infty}\mathrm{d}t \hspace{0.1cm} t^{\frac{3}{s}-1}e^{-t}.
+\end{equation}
+Comparant amb la definició de la funció \textit{gamma d'Euler}, trobem que
+\begin{equation}
+	I = \int_0^\infty \mathrm{d}p_1 p_1^2e^{-\beta a p_1^s} = \frac{\Gamma(\frac{3}{s})}{(\beta a)^{\frac{3}{s}}}.\label{eq:8}
+\end{equation}
+De fet, canviant l'exponent de $p_1$ per $m$, trobem la següent fórmula
+\begin{equation}
+	\int_0^\infty x^m e^{-cx^s}\mathrm{d}x = \frac{\Gamma(\frac{m+1}{s})}{sc^{\frac{m+1}{s}}},
+\end{equation}
+\textcolor{red}{\textbf{ESPECIFICAR QUAN ÉS VÀLIDA EN FUNCIÓ DE $m$ i $s$?}}
+
+Si usem el resultat trobat a \eqref{eq:8} sobre \eqref{eq:5} acabem trobant la funció de partició del sistema
+\begin{equation}
+	Z = \left[\frac{4\pi V}{h^3} \frac{\Gamma(\frac{3}{s})}{(\beta a )^\frac{3}{s}s}\right]^N,
+\end{equation}
+i, considerant que les partícules del gas ideal són indistingibles (és el cas típic amb el que ens hem trobat)\footnote{Si fossin distingibles simplement cal no introduir aquest factor $\frac{1}{N!}$}, aleshores
+\begin{equation}
+	\boxed{Z = \frac{1}{N!}\left[\frac{4\pi V}{h^3} \frac{\Gamma(\frac{3}{s})}{(\beta a )^\frac{3}{s}s}\right]^N}.
+\end{equation}
+Notem que, per altra banda, com que les partícules són idèntiques i tenen el mateix hamiltonià, se satisfà que
+\begin{equation}
+	Z = \frac{1}{N!}(Z_1)^N,
+\end{equation}
+essent
+\begin{equation}
+	Z_1 = \frac{4\pi V}{h^3} \frac{\Gamma(\frac{3}{s})}{(\beta a )^\frac{3}{s}s}.
+\end{equation}
+La longitud d'ona tèrmica de De Broglie per aquest sistema la podem definir de manera anàloga a la del gas ideal monoatòmic clàssic. Fixem-nos en què podem considerar que $Z_1$, en ser adimensional, és un volum dividit per una longitud característica al cub
+\begin{equation}
+	Z_1 \equiv \frac{V}{\lambda_T^3},
+\end{equation}
+on $\lambda_T$ és, precisament, la longitud d'ona tèrmica de De Broglie. En el nostre cas
+\begin{equation*}
+	\lambda_T^3 = \frac{h^3 (\beta a)^{\frac{3}{s}}s}{4\pi \Gamma(\frac{3}{s})},
+\end{equation*}
+per tant
+\begin{equation}
+	\boxed{\lambda_T = h(\beta a)^\frac{1}{s}\left(\frac{s}{4\pi \Gamma(\frac{3}{s})}\right)^{\frac{1}{3}}}.
+\end{equation}
+\textcolor{red}{\textbf{A l'enunciat diu que s'ha d'expressar en termes de la densitat del sistema$\ldots$ No se si això també o no, ho he de pensar. Estoy cansao jefe}}
 
 \end{document}
