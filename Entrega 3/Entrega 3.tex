@@ -15,6 +15,7 @@
 \usepackage{amssymb}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\usepackage{amssymb}
 \usepackage{subfigure}
 \usepackage{cancel}
 \usepackage{float}
@@ -116,7 +117,35 @@ on $\lambda_T$ és, precisament, la longitud d'ona tèrmica de De Broglie. En el
 per tant
 \begin{equation}
 	\boxed{\lambda_T = h(\beta a)^\frac{1}{s}\left(\frac{s}{4\pi \Gamma(\frac{3}{s})}\right)^{\frac{1}{3}}}.
+\label{eq15}
 \end{equation}
-\textcolor{red}{\textbf{A l'enunciat diu que s'ha d'expressar en termes de la densitat del sistema$\ldots$ No se si això també o no, ho he de pensar. Estoy cansao jefe}}
+\textcolor{red}{\textbf{A l'enunciat diu que s'ha d'expressar en termes de la densitat del sistema$\ldots$ No se si això també o no, ho he de pensar. Estoy cansao jefe// Jo crec que no perquè no apareix el volum ni res així, només tenim les variables de l'enunciat}}
+
+Per tal de trobar el rang de temperatures pel qual podem tractar el sistema clàssicament, cal recordar la condició següent:
+\begin{center}
+	El sistema requerirà un tractament quàntic quan $\ell \lesssim \lambda_T$, sent $\ell$ la distància entre dues partícules.
+\end{center}
+Com que el problema ens demana un tractament clàssic, el criteri que cal complir serà
+\begin{equation}
+	\ell >> \lambda_T.
+\end{equation}
+Notem que, en tenir un sistema ideal de $N$ partícules que es troben en un volum $V$ tridimensional, podem aproximar
+\begin{equation*}
+	\ell \sim \left(\frac{V}{N}\right)^{\frac{1}{3}}=\frac{1}{\rho^{\frac{1}{3}}}
+\end{equation*}
+i, per tant, la condició es converteix en
+\begin{equation}
+	\frac{1}{\rho^{\frac{1}{3}}} >> \lambda_T.
+\end{equation}
+Substituint per l'expressió de la longitud d'ona de De Broglie obtinguda (equació \eqref{eq15}), obtenim
+\begin{equation}
+	\frac{1}{\rho^{\frac{1}{3}}} >> h(\beta a)^\frac{1}{s}\left(\frac{s}{4\pi \Gamma(\frac{3}{s})}\right)^{\frac{1}{3}}.
+\end{equation}
+Com que $\beta = \frac{1}{k_BT}$, podem aïllar la temperatura en funció de tota la resta de variables (els paràmetres característics i la densitat del sistema).
+
+Així, trobem que
+\begin{equation}
+	\boxed{T >> \frac{ah^s}{k_B}\cdot \left(\frac{s\rho}{4\pi\cdot\Gamma\left(\frac{3}{s}\right)}\right)^{\frac{s}{3}}}.
+\end{equation}
 
 \end{document}
