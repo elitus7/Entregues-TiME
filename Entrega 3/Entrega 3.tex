@@ -88,15 +88,13 @@ De fet, canviant l'exponent de $p_1$ per $m$, trobem la següent fórmula
 \begin{equation}
 	\int_0^\infty x^m e^{-cx^s}\mathrm{d}x = \frac{\Gamma(\frac{m+1}{s})}{sc^{\frac{m+1}{s}}},
 \end{equation}
-\textcolor{red}{\textbf{ESPECIFICAR QUAN ÉS VÀLIDA EN FUNCIÓ DE $m$ i $s$?}}
-
 Si usem el resultat trobat a \eqref{eq:8} sobre \eqref{eq:5} acabem trobant la funció de partició del sistema
 \begin{equation}
 	Z = \left[\frac{4\pi V}{h^3} \frac{\Gamma(\frac{3}{s})}{(\beta a )^\frac{3}{s}s}\right]^N,
 \end{equation}
 i, considerant que les partícules del gas ideal són indistingibles (és el cas típic amb el que ens hem trobat)\footnote{Si fossin distingibles simplement cal no introduir aquest factor $\frac{1}{N!}$}, aleshores
 \begin{equation}
-	\boxed{Z = \frac{1}{N!}\left[\frac{4\pi V}{h^3} \frac{\Gamma(\frac{3}{s})}{(\beta a )^\frac{3}{s}s}\right]^N}.
+	\boxed{Z = \frac{1}{N!}\left[\frac{4\pi V}{h^3} \frac{\Gamma(\frac{3}{s})}{(\beta a )^\frac{3}{s}s}\right]^N}. \label{eq:11}
 \end{equation}
 Notem que, per altra banda, com que les partícules són idèntiques i tenen el mateix hamiltonià, se satisfà que
 \begin{equation}
@@ -116,10 +114,8 @@ on $\lambda_T$ és, precisament, la longitud d'ona tèrmica de De Broglie. En el
 \end{equation*}
 per tant
 \begin{equation}
-	\boxed{\lambda_T = h(\beta a)^\frac{1}{s}\left(\frac{s}{4\pi \Gamma(\frac{3}{s})}\right)^{\frac{1}{3}}}.
-\label{eq15}
+	\boxed{\lambda_T = h(\beta a)^\frac{1}{s}\left(\frac{s}{4\pi \Gamma(\frac{3}{s})}\right)^{\frac{1}{3}}}. \label{eq:15}
 \end{equation}
-\textcolor{red}{\textbf{A l'enunciat diu que s'ha d'expressar en termes de la densitat del sistema$\ldots$ No se si això també o no, ho he de pensar. Estoy cansao jefe// Jo crec que no perquè no apareix el volum ni res així, només tenim les variables de l'enunciat}}
 
 Per tal de trobar el rang de temperatures pel qual podem tractar el sistema clàssicament, cal recordar la condició següent:
 \begin{center}
@@ -127,25 +123,68 @@ Per tal de trobar el rang de temperatures pel qual podem tractar el sistema clà
 \end{center}
 Com que el problema ens demana un tractament clàssic, el criteri que cal complir serà
 \begin{equation}
-	\ell >> \lambda_T.
+	\ell \gg \lambda_T.
 \end{equation}
 Notem que, en tenir un sistema ideal de $N$ partícules que es troben en un volum $V$ tridimensional, podem aproximar
 \begin{equation*}
 	\ell \sim \left(\frac{V}{N}\right)^{\frac{1}{3}}=\frac{1}{\rho^{\frac{1}{3}}}
 \end{equation*}
-i, per tant, la condició es converteix en
+on $\rho$ és la densitat del sistema. Amb això, la condició que ha de satisfer $\lambda_T$ es converteix en
 \begin{equation}
-	\frac{1}{\rho^{\frac{1}{3}}} >> \lambda_T.
+	\frac{1}{\rho^{\frac{1}{3}}} \gg \lambda_T.
 \end{equation}
-Substituint per l'expressió de la longitud d'ona de De Broglie obtinguda (equació \eqref{eq15}), obtenim
+Substituint per l'expressió de la longitud d'ona de De Broglie obtinguda (equació \eqref{eq:15}), obtenim
 \begin{equation}
-	\frac{1}{\rho^{\frac{1}{3}}} >> h(\beta a)^\frac{1}{s}\left(\frac{s}{4\pi \Gamma(\frac{3}{s})}\right)^{\frac{1}{3}}.
+	\frac{1}{\rho^{\frac{1}{3}}} \gg h(\beta a)^\frac{1}{s}\left(\frac{s}{4\pi \Gamma(\frac{3}{s})}\right)^{\frac{1}{3}}.
 \end{equation}
 Com que $\beta = \frac{1}{k_BT}$, podem aïllar la temperatura en funció de tota la resta de variables (els paràmetres característics i la densitat del sistema).
 
-Així, trobem que
+Així, trobem que, per tal que el sistema es comporti clàssicament, cal que
 \begin{equation}
-	\boxed{T >> \frac{ah^s}{k_B}\cdot \left(\frac{s\rho}{4\pi\cdot\Gamma\left(\frac{3}{s}\right)}\right)^{\frac{s}{3}}}.
+	\boxed{T \gg \frac{ah^s}{k_B}\cdot \left(\frac{s\rho}{4\pi\cdot\Gamma\left(\frac{3}{s}\right)}\right)^{\frac{s}{3}}}.
 \end{equation}
+Una forma de comprovar si els resultats que hem trobat són coherents és veure què passar per certs valors de $s$ característics. 
+
+Si $s=2$, aleshores el hamiltonià esdevé 
+\begin{equation}
+	H = ap^2,
+\end{equation}
+que, identificant la constant $a$ amb $\frac{1}{2m}$, recuperem el hamiltonià del gas ideal monoatòmic. La corresponent funció de partició és, usant el que hem trobat a \eqref{eq:11}
+\begin{equation}
+	Z = \frac{1}{N!}\left[\frac{2\pi V}{h^3}\frac{\Gamma(\frac{3}{2})}{(\beta a)^\frac{3}{2}}\right]^N. \label{eq:21}
+\end{equation}
+El valor de $\Gamma(\frac{3}{2})$ es pot determinar usant la propietat de recursivitat de la \textit{funció Gamma d'Euler}
+\begin{equation}
+	\Gamma(z+1)=z\Gamma(z),
+\end{equation}
+i calculant usant la definició donada a \eqref{eq:6}
+\begin{equation*}
+	\Gamma\left(\frac{1}{2}\right) = \int_0^\infty \mathrm{d}t \hspace{0.1cm} t^{-1/2}e^{-t}
+\end{equation*}
+Fem el canvi de variable
+\begin{equation*}
+	t = x^2, \hspace{0.5cm} \mathrm{d}t = 2x\mathrm{d}x,
+\end{equation*}
+de manera que 
+\begin{equation}
+	\Gamma\left(\frac{1}{2}\right) = 2\int_0^\infty \mathrm{d}x\hspace{0.1cm} e^{-x^2} = \int_{-\infty}^\infty \mathrm{d}x\hspace{0.1cm} e^{-x^2}, 
+\end{equation}
+que és una integral Gaussiana i es pot resoldre usant la fórmula
+\begin{equation}
+	\int_{-\infty}^{\infty} \mathrm{d}x\hspace{0.1cm} e^{-ax^2} = \sqrt{\frac{\pi}{a}}.
+\end{equation}
+Així doncs
+\begin{equation}
+	\Gamma\left(\frac{3}{2}\right) = \frac{1}{2}\cdot\Gamma\left(\frac{1}{2}\right) = \frac{\sqrt{\pi}}{2}
+\end{equation}
+Usant aquest darrer resultat sobre \eqref{eq:21} i identificant, com hem dit, $a=\frac{1}{2m}$, trobem que
+\begin{equation}
+	Z = \frac{1}{N!}\left[\frac{V}{h^3}\left(\frac{2\pi m}{\beta}\right)\right],
+\end{equation}
+que és, efectivament, la funció de partició del gas ideal monoatòmic clàssic, tal i com vam veure a teoria. Similarment podem recuperar l'expressió de la longitud d'ona tèrmica de De Broglie per aquest cas concret partint de \eqref{eq:15}
+\begin{equation}
+	\lambda_T = \frac{h}{\sqrt{2\pi mk_BT}}.
+\end{equation}
+
 
 \end{document}
