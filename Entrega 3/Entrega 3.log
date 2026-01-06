@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.5.26)  5 JAN 2026 00:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.5.26)  6 JAN 2026 20:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -848,7 +848,7 @@ Package rerunfilecheck Info: File `"Entrega 3".out' has not changed.
 Here is how much of TeX's memory you used:
  24107 strings out of 473523
  445574 string characters out of 5715618
- 849597 words of memory out of 5000000
+ 849599 words of memory out of 5000000
  46921 multiletter control sequences out of 15000+600000
  567965 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -874,7 +874,7 @@ onts/cm/cmsy10.pfb><C:/Users/W10/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmsy7.pfb><C:/Users/W10/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmti10.pfb><C:/Users/W10/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on "Entrega 3.pdf" (3 pages, 241005 bytes).
+Output written on "Entrega 3.pdf" (3 pages, 240921 bytes).
 PDF statistics:
  161 PDF objects out of 1000 (max. 8388607)
  32 named destinations out of 1000 (max. 500000)
