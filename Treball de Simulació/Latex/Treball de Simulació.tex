@@ -1,0 +1,124 @@
+\documentclass[a4paper,10.5pt]{report}
+
+\usepackage[toc]{appendix}
+\renewcommand{\appendixname}{Annexos}
+\renewcommand{\appendixtocname}{Annexos}
+\renewcommand{\appendixpagename}{Annexos}
+\usepackage[catalan]{babel}
+\usepackage{booktabs}
+\usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage[nottoc]{tocbibind}
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+	language=Python,                 % Lenguaje del código
+	frame=single,                    % Marco alrededor del código
+	basicstyle=\ttfamily\footnotesize, % Fuente del código
+	keywordstyle=\color{blue},       % Color para palabras clave (def, if, else...)
+	commentstyle=\color{gray},       % Color para comentarios
+	stringstyle=\color{teal},        % Color para strings
+	numbers=left,                    % Numeración de líneas
+	numberstyle=\tiny\color{gray},   % Estilo de los números de línea
+	stepnumber=1,                     % Cada cuántas líneas numerar
+	showspaces=false,                 % No mostrar espacios en blanco
+	showstringspaces=false,            % No mostrar espacios en strings
+	breaklines=true,                   % Romper líneas largas automáticamente
+	tabsize=4,                         % Tamaño de tabulación
+	captionpos=b,                      % Posición de la caption (arriba o abajo)
+	morekeywords={self, as, in},       % Palabras clave adicionales
+}
+\lstset{style=mystyle} % Aplicar este estilo a todos los listados
+\usepackage{tcolorbox}
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\captionsetup{labelfont=bf}
+\usepackage{hyperref}
+\usepackage[arrowdel]{physics}
+\usepackage[left=1.95cm, right=1.95cm, top=20mm, bottom=20mm]{geometry} 
+\usepackage{fancyhdr}
+\usepackage{braket}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{subcaption}
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{titling}
+\usepackage{etoolbox}
+\renewcommand{\labelenumi}{\textbf{\theenumi.}}
+
+%Definim el següent entorn per tal de poder posar abstracts a cada capítol.
+\newenvironment{chapterabstract}{
+	\begin{center}
+		\bfseries Abstract
+	\end{center}
+	\quotation
+}{\endquotation}
+
+\usepackage{titlesec}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\usepackage{tikz}
+
+\usepackage{longtable}
+\usepackage{adjustbox}
+
+\titleformat{\chapter}[display]{\normalfont\LARGE\bfseries}{Part  \thechapter}{0pt}{\vspace{0.1cm}\Large\bfseries\raggedright}
+
+\title{\textbf{\huge{Treball de Simulació. \\ \vspace{0.2cm} Termodinàmica i Mecànica Estadística}}}
+\date{\today}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\centering
+		{\LARGE Termodinàmica i Mecànica Estadística \par}
+		\vspace{3cm}
+		{\Huge \textbf{Treball de Simulació}  \par}
+		\vspace{4cm}
+		{\Large Grau en Física \par}
+		\vspace{1cm}
+		{\Large 1549086: Bujones Umbert, Jun Shan\\ 1672980: González Barea, Eric\\1644841: Vilarrúbias Morral, Natàlia \par} 
+		\vspace{0.5cm}
+		\vspace{3cm}
+		{\Large Maig 2026 \par}
+		\vspace{2cm}
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.3\linewidth]{logo_uab}
+			\label{fig:logouab}
+		\end{figure}
+		
+		
+
+	\end{titlepage}
+	
+	\pagenumbering{gobble}
+	\newpage
+	\thispagestyle{empty}
+
+	\tableofcontents
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+\chapter{Gas d'Esferes Dures}
+
+
+\chapter{Fluid de Lennard-Jones}
+	
+ 
+\chapter{Creació d'una simulació pròpia}
+
+
+
+
+\begin{thebibliography}{99}
+\bibitem{ref1}
+Govindjee, Govindjee \& Papageorgiou, George. (2004). Chlorophyll A Fluorescence: A Signature of Photosynthesis. 10.1007/978-1-4020-3218-9. 
+\bibitem{ref2}
+Lakowicz, J. R. Principles of Fluorescence Spectroscopy. 3rd edition, Springer, New York, 2006. Capítol 1, pàg. $1-8$. 
+\end{thebibliography}
+
+\end{document}
