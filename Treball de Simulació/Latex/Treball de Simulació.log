@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  20 APR 2026 20:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  21 APR 2026 15:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1087,7 +1087,7 @@ Package hyperref Info: Link coloring OFF on input line 71.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<logo_uab.png, id=22, 1505.625pt x 565.36218pt>
+<logo_uab.png, id=34, 1505.625pt x 565.36218pt>
 File: logo_uab.png Graphic file (type png)
 <use logo_uab.png>
 Package pdftex.def Info: logo_uab.png  used on input line 89.
@@ -1097,7 +1097,17 @@ Package pdftex.def Info: logo_uab.png  used on input line 89.
 [1
 
 {C:/Users/ericg/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo_uab.p
-ng>] (Treball de Simulació.toc)
+ng>] (Treball de Simulació.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+
+(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+
+(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write5
 \openout5 = `"Treball de Simulació.toc"'.
 
@@ -1114,74 +1124,64 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.109 \chapter
+l.150 \chapter
               {Fluid de Lennard-Jones} [1
 
 ]
+
+[2]
 Cap\'{\i }tol 2.
-
-
-[2
-
-]
-Cap\'{\i }tol 3.
 
 
 [3
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 121
-.
- (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 121
-.
+Cap\'{\i }tol 3.
 
-(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 
 [4
+
+]
+
+[5
 
 ] (Treball de Simulació.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Treball de Simulació".out' has changed.
-
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Treball de Simulació".out':
-(rerunfilecheck)             Before: 2696FB7D242E2E270E2A6FB37407A653;618
-(rerunfilecheck)             After:  7114C4A124A48D37706E7C17457C16C5;618.
+Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
+.
+(rerunfilecheck)             Checksum: CFF3AACB33FC28DCEBA5749C798F2CA8;1544.
  ) 
 Here is how much of TeX's memory you used:
- 33343 strings out of 473682
- 675441 string characters out of 5719215
- 1018570 words of memory out of 5000000
- 55929 multiletter control sequences out of 15000+600000
- 561893 words of font info for 51 fonts, out of 8000000 for 9000
+ 33390 strings out of 473682
+ 676149 string characters out of 5719215
+ 1029570 words of memory out of 5000000
+ 55961 multiletter control sequences out of 15000+600000
+ 565358 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,6n,121p,1214b,1078s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{chapter*.4} has been referenced but does not exist,
- replaced by a fixed one
-
-<C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-bx10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmr12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/ericg/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on "Treball de Simulació.pdf" (6 pages, 161683 bytes).
+ 116i,9n,121p,1214b,1078s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx
+1440.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcbx1000.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\tcrm1000.pk><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmbsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ericg/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ericg/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/ericg/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eri
+cg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/U
+sers/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.p
+fb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr17.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on "Treball de Simulació.pdf" (7 pages, 235543 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 500000)
- 50 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 163 PDF objects out of 1000 (max. 8388607)
+ 19 named destinations out of 1000 (max. 500000)
+ 74 words of extra memory for PDF output out of 10000 (max. 10000000)
 

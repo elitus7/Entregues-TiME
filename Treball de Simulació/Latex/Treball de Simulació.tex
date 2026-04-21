@@ -104,8 +104,49 @@
 	\setcounter{page}{1}
 	
 \chapter{Gas d'Esferes Dures}
+En aquesta secció estudiarem un gas d'esferes dures. En aquest model, s'assumeix que el potencial d'interacció entre les diferents partícules del gas és tal que 
+\begin{equation}
+	\Phi(r) =
+\begin{cases}
+	 0 & \text{si } r>2r_0 \\
+	 \infty & \text{si } r<2r_0
+\end{cases}
+\end{equation}
+on $r$ és la distància entre dues partícules qualsevols i $r_0$ el seu radi atòmic. En particular, en aquesta part estudiarem l'He gas modelitzat segons aquest potencial. Treballarem en tot moment amb una simulació amb $N = 500$ àtoms d'He amb una massa de $m_{He} = 6,646 \cross 10^{-27}$ kg per àtom, a una temperatura de $T = 300$ K i compresos en una caixa cúbica de volum $V = 1$ m$^3$.
 
+Els nostres objectius seran:
+\begin{itemize}
+	\item Estudiar com es veuen modificats els resultats de la simulació (la distribució de velocitats, entre d'altres), en funció del radi atòmic $r_0$ donat als àtoms d'He. A partir d'aquí seleccionar un radi òptim per a la resta de simulacions en funció dels resultats anteriors.
+	\item Modificar la simulació original per tal que treballi sota la col·lectivitat canònica, utilitzant un termostat d'Andersen, tot analitzant la distribució d'energies que en resulta.
+	\item Introduir a la simulació la presència d'un camp gravitatori en l'eix Z i veure com això afecta a la distribució de velocitats i les posicions en aquest mateix eix.
+\end{itemize}
+\textbf{COMENTAR LA COL·LECTIVITAT EN QUÈ TREBALLEM I TAL}
 
+\section{Estudi dels efectes del radi atòmic de l'He}
+
+\textbf{DO SOME BLAHBLAHBLAH ABOUT MWD}
+
+A la simulació original, es treballa amb $N=200$ àtoms i un radi atòmic de $r_0 = 0.03$ m, que és un valor molt més gran del radi atòmic conegut per a l'He, que és de 
+\begin{equation*}
+	r_{real} = 0,31 \text{ \AA} = 0,31\cross 10^{-10} \text{ m}.
+\end{equation*}
+La necessitat de treballar amb un radi atòmic tan gran està en el fet que la caixa cúbica usada té unes dimensions onze ordres de magnitud majors al radi real dels àtoms
+\begin{equation*}
+	L \gg r_{real},
+\end{equation*}
+fet que, en treballar amb tan poca quantitat d'àtoms (originalment $N=200$), implica que les interaccions entre dues partícules són pràcticament inexistents, ja que la probabilitat de col·lisió és extremadament petita. Això faria que, en absència d'interaccions, el gas presentés un comportament pròxim a la idealitat.
+
+Si treballem amb $N = 500$ àtoms d'He, la distribució de velocitats que s'obté en usar el radi real de l'heli és la que es mostra a la \textbf{FIGURA}. Tal i com podem veure, aquesta distribució de velocitats ens està indicant que no hi ha hagut pràcticament cap col·lisió, ja que totes les partícules tenen exactament la mateixa velocitat. El resultat és, tal i com hem comentat abans, exactament el mateix que podríem esperar per un gas que no presenti interaccions intermoleculars, és a dir, un gas ideal.
+
+A continuació, analitzem els següents casos: $r_0 = r_{real}$, $r_0 = 1,5$ m, $r_0 = 0.1$ m i $r = 0.01$ m. \textbf{DEIXAR AIXÒ MÉS MACO OR SMT}
+
+Si ara treballem amb un radi atòmic molt més gran, per exemple, de $r_0 = 1,5$ m, els resultats són els que es poden veure a la \textbf{FIGURA}. Podem veure com la distribució no s'adequa a una distribució de Maxwell-Boltzmann i, a més a més, en fer córrer la simulació, s'observa certa inestabilitat numèrica \textbf{REVISAR AIXÒ}. Tot plegat és degut al fet que hem seleccionat un radi atòmic que és major que el volum de la pròpia caixa; en aquestes condicions les col·lisiones entre les molècules esdevenen contínues, erràtiques i representen una situació no física en què tenim una gran quantitat de partícules compresses en un volum més petit que les mateixes molècules. 
+
+Si ara treballem treballem treballem
+
+\section{Col·lectivitat canònica i anàlisi de la distribució d'energies}
+
+\section{Addició d'un potencial gravitatori} 
 \chapter{Fluid de Lennard-Jones}
 	
  
