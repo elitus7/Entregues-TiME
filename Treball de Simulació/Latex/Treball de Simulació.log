@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  21 APR 2026 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  21 APR 2026 15:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1124,8 +1124,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.150 \chapter
-              {Fluid de Lennard-Jones} [1
+l.146 
+       [1
 
 ]
 
@@ -1157,7 +1157,7 @@ Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
 Here is how much of TeX's memory you used:
  33390 strings out of 473682
  676149 string characters out of 5719215
- 1029570 words of memory out of 5000000
+ 1030570 words of memory out of 5000000
  55961 multiletter control sequences out of 15000+600000
  565358 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1179,7 +1179,7 @@ fonts/cm/cmr17.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "Treball de Simulació.pdf" (7 pages, 235543 bytes).
+Output written on "Treball de Simulació.pdf" (7 pages, 236757 bytes).
 PDF statistics:
  163 PDF objects out of 1000 (max. 8388607)
  19 named destinations out of 1000 (max. 500000)

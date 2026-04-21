@@ -136,13 +136,15 @@ La necessitat de treballar amb un radi atòmic tan gran està en el fet que la c
 \end{equation*}
 fet que, en treballar amb tan poca quantitat d'àtoms (originalment $N=200$), implica que les interaccions entre dues partícules són pràcticament inexistents, ja que la probabilitat de col·lisió és extremadament petita. Això faria que, en absència d'interaccions, el gas presentés un comportament pròxim a la idealitat.
 
-Si treballem amb $N = 500$ àtoms d'He, la distribució de velocitats que s'obté en usar el radi real de l'heli és la que es mostra a la \textbf{FIGURA}. Tal i com podem veure, aquesta distribució de velocitats ens està indicant que no hi ha hagut pràcticament cap col·lisió, ja que totes les partícules tenen exactament la mateixa velocitat. El resultat és, tal i com hem comentat abans, exactament el mateix que podríem esperar per un gas que no presenti interaccions intermoleculars, és a dir, un gas ideal.
-
 A continuació, analitzem els següents casos: $r_0 = r_{real}$, $r_0 = 1,5$ m, $r_0 = 0.1$ m i $r = 0.01$ m. \textbf{DEIXAR AIXÒ MÉS MACO OR SMT}
+
+Si treballem amb $N = 500$ àtoms d'He, la distribució de velocitats que s'obté en usar el radi real de l'heli és la que es mostra a la \textbf{FIGURA}. Tal i com podem veure, aquesta distribució de velocitats ens està indicant que no hi ha hagut pràcticament cap col·lisió, ja que totes les partícules tenen exactament la mateixa velocitat que a l'inici. El resultat és, tal i com hem comentat abans, exactament el mateix que podríem esperar per un gas que no presenti interaccions intermoleculars, és a dir, un gas ideal (tot i que hem introduït un potencial d'interacció) i és degut al fet que el volum característic del sistema és excessivament major a l'ocupat per les partícules.
 
 Si ara treballem amb un radi atòmic molt més gran, per exemple, de $r_0 = 1,5$ m, els resultats són els que es poden veure a la \textbf{FIGURA}. Podem veure com la distribució no s'adequa a una distribució de Maxwell-Boltzmann i, a més a més, en fer córrer la simulació, s'observa certa inestabilitat numèrica \textbf{REVISAR AIXÒ}. Tot plegat és degut al fet que hem seleccionat un radi atòmic que és major que el volum de la pròpia caixa; en aquestes condicions les col·lisiones entre les molècules esdevenen contínues, erràtiques i representen una situació no física en què tenim una gran quantitat de partícules compresses en un volum més petit que les mateixes molècules. 
 
-Si ara treballem treballem treballem
+Si ara treballem amb $r_0 = 0,1$ m, obtenim els resultats de la \textbf{FIGURA}. Tot i que ara la distribució de velocitats és més similar a una distribució de Maxwell-Boltzmann que en els casos anteriors, encara podem veure una certa desviació respecte del comportament esperat. Això és degut, fonamentalment, a que, tot i que el radi de les partícules és suficientment gran com per garantir que les col·lisions es produeixin ràpidament, és encara excessivament gran comparat amb la longitud característica de la caixa, fet que provoca que, en tenir una quantitat tan gran de partícules de radi només un ordre de magnitud menor al volum de la caixa, moltes quedin sol·lapades unes amb altres, fent que hi hagi col·lisions contínues, és a dir, contacte no interromput entre dues partícules. Tot plegat fa que els resultats es desviïn respecte del que caldria esperar.
+
+Finalment, si escollim $r_0 = 0,01$ m, s'obtenen els resultats de la \textbf{FIGURA}.
 
 \section{Col·lectivitat canònica i anàlisi de la distribució d'energies}
 
