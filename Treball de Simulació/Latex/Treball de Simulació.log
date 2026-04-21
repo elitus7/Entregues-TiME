@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  21 APR 2026 15:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  21 APR 2026 20:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1087,7 +1087,7 @@ Package hyperref Info: Link coloring OFF on input line 71.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<logo_uab.png, id=34, 1505.625pt x 565.36218pt>
+<logo_uab.png, id=70, 1505.625pt x 565.36218pt>
 File: logo_uab.png Graphic file (type png)
 <use logo_uab.png>
 Package pdftex.def Info: logo_uab.png  used on input line 89.
@@ -1117,6 +1117,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Cap\'{\i }tol 1.
+<dis_vels_r_real.png, id=108, 770.88pt x 300.3722pt>
+File: dis_vels_r_real.png Graphic file (type png)
+<use dis_vels_r_real.png>
+Package pdftex.def Info: dis_vels_r_real.png  used on input line 152.
+(pdftex.def)             Requested size: 243.27116pt x 94.78731pt.
 
 
 
@@ -1124,26 +1129,62 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.146 
-       [1
+l.155 \end{figure}
+                   [1
 
 ]
+<dis_vels_r_1.5.png, id=130, 770.88pt x 300.3722pt>
+File: dis_vels_r_1.5.png Graphic file (type png)
+<use dis_vels_r_1.5.png>
+Package pdftex.def Info: dis_vels_r_1.5.png  used on input line 161.
+(pdftex.def)             Requested size: 243.27116pt x 94.78731pt.
+<dis_vels_r_0.1.png, id=132, 770.88pt x 307.1475pt>
+File: dis_vels_r_0.1.png Graphic file (type png)
+<use dis_vels_r_0.1.png>
+Package pdftex.def Info: dis_vels_r_0.1.png  used on input line 170.
+(pdftex.def)             Requested size: 243.27116pt x 96.92537pt.
+<dis_vels_r_0.01.png, id=134, 770.88pt x 307.90031pt>
+File: dis_vels_r_0.01.png Graphic file (type png)
+<use dis_vels_r_0.01.png>
+Package pdftex.def Info: dis_vels_r_0.01.png  used on input line 179.
+(pdftex.def)             Requested size: 243.27116pt x 97.16293pt.
 
-[2]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<dis_vels_r_0.03.png, id=136, 770.88pt x 301.8778pt>
+File: dis_vels_r_0.03.png Graphic file (type png)
+<use dis_vels_r_0.03.png>
+Package pdftex.def Info: dis_vels_r_0.03.png  used on input line 188.
+(pdftex.def)             Requested size: 243.27116pt x 95.26244pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<dis_vels_r_0.03_T=20min.png, id=137, 770.88pt x 301.8778pt>
+File: dis_vels_r_0.03_T=20min.png Graphic file (type png)
+<use dis_vels_r_0.03_T=20min.png>
+Package pdftex.def Info: dis_vels_r_0.03_T=20min.png  used on input line 195.
+(pdftex.def)             Requested size: 243.27116pt x 95.26244pt.
+
+
+[2 <./dis_vels_r_real.png> <./dis_vels_r_1.5.png> <./dis_vels_r_0.1.png>]
+
+[3 <./dis_vels_r_0.01.png> <./dis_vels_r_0.03.png> <./dis_vels_r_0.03_T=20min.p
+ng>]
 Cap\'{\i }tol 2.
-
-
-[3
-
-]
-Cap\'{\i }tol 3.
 
 
 [4
 
 ]
+Cap\'{\i }tol 3.
+
 
 [5
+
+]
+
+[6
 
 ] (Treball de Simulació.aux)
  ***********
@@ -1152,36 +1193,44 @@ L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
 .
-(rerunfilecheck)             Checksum: CFF3AACB33FC28DCEBA5749C798F2CA8;1544.
+(rerunfilecheck)             Checksum: B09681CC8665754E1CD7A46BB2D89F99;3820.
  ) 
 Here is how much of TeX's memory you used:
- 33390 strings out of 473682
- 676149 string characters out of 5719215
- 1030570 words of memory out of 5000000
- 55961 multiletter control sequences out of 15000+600000
- 565358 words of font info for 62 fonts, out of 8000000 for 9000
+ 33519 strings out of 473682
+ 678638 string characters out of 5719215
+ 1031217 words of memory out of 5000000
+ 56064 multiletter control sequences out of 15000+600000
+ 569786 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,9n,121p,1214b,1078s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx
-1440.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcbx1000.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\tcrm1000.pk><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmbsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ericg/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ericg/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/ericg/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eri
-cg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/U
-sers/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.p
-fb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr17.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "Treball de Simulació.pdf" (7 pages, 236757 bytes).
+ <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
+1000.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcbx1440.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\tcbx1000.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\tcrm1000.pk><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ericg/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ericg/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/ericg/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Use
+rs/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb
+><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/ericg/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/ericg/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/ericg/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/ericg/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/
+ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
+y7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmti10.pfb>
+Output written on "Treball de Simulació.pdf" (8 pages, 1245000 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 19 named destinations out of 1000 (max. 500000)
- 74 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 274 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 

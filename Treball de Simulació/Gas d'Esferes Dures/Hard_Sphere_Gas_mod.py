@@ -4,18 +4,18 @@ win = 500
 
 Natoms = 500  # Nombre d'àtoms ajustat a 500.
 
-# Typical values
-L = 1 # container is a cube L on a side
-gray = color.gray(0.7) # color of edges of container
-mass = 4E-3/6E23 # helium mass
-Ratom = 0.1 # wildly exaggerated size of helium atom I 0.31*10**-10
-k = 1.4E-23 # Boltzmann constant
-T = 300 # around room temperature
+# Paràmetres de la simulació (tots els valors estan en SI).
+L = 1 # Aresta de la caixa cúbica.
+gray = color.gray(0.7) # Color de les arestes de la caixa.
+mass = 4E-3/6E23 # Massa (en kg) d'un àtom d'He.
+Ratom = 0.03 # Radi atòmic usat a la simulació. L'original és 0.03, el radi real és 0.31*10**-10
+k = 1.4E-23 # Constant de Boltzmann.
+T = 300 # Temperatura ambient (aproximadament).
 dt = 1E-5
 
 animation = canvas( width=win, height=win, align='left')
 animation.range = L
-animation.title = 'A "hard-sphere" gas'
+animation.title = 'Hard Sphere Gas'
 s = """  Theoretical and averaged speed distributions (meters/sec).
   Initially all atoms have the same speed, but collisions
   change the speeds of the colliding atoms. One of the atoms is
@@ -70,7 +70,7 @@ for i in range(nhisto): histo.append(0.0)
 histo[barx(pavg/mass)] = Natoms
 
 gg = graph( width=win, height=0.4*win, xmax=3000, align='left',
-    xtitle='speed, m/s', ytitle='Number of atoms', ymax=Natoms*deltav/1000)
+    xtitle='Velocitat (m/s)', ytitle='N', ymax=Natoms*deltav/1000)
 
 theory = gcurve( color=color.blue, width=2 )
 dv = 10

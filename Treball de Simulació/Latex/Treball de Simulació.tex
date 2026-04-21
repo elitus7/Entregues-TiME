@@ -104,6 +104,8 @@
 	\setcounter{page}{1}
 	
 \chapter{Gas d'Esferes Dures}
+
+\section{Introducció i fonament teòric}
 En aquesta secció estudiarem un gas d'esferes dures. En aquest model, s'assumeix que el potencial d'interacció entre les diferents partícules del gas és tal que 
 \begin{equation}
 	\Phi(r) =
@@ -120,48 +122,113 @@ Els nostres objectius seran:
 	\item Modificar la simulació original per tal que treballi sota la col·lectivitat canònica, utilitzant un termostat d'Andersen, tot analitzant la distribució d'energies que en resulta.
 	\item Introduir a la simulació la presència d'un camp gravitatori en l'eix Z i veure com això afecta a la distribució de velocitats i les posicions en aquest mateix eix.
 \end{itemize}
-\textbf{COMENTAR LA COL·LECTIVITAT EN QUÈ TREBALLEM I TAL}
+
+Recordem que, en equilibri tèrmic, la distribució de velocitats (o, més rigorosament, de celeritats) per un conjunt de partícules ve determinada per la distribució de Maxwell-Boltzmann
+\begin{equation}
+	\rho(v) = 4\pi v^2\left(\frac{m}{2\pi k_B T}\right)^{3/2}e^{-\frac{mv^2}{2k_B T}}.
+\end{equation}
+
+\textbf{COMENTAR EL TIPUS DE COL·LECTIVITAT. ÉS MICROCANÒNICA, AL LORO!}
+
+\textbf{COMENTAR LES CONDICIONS INICIALS ($v_i$) DE LA SIMULACIÓ!}
 
 \section{Estudi dels efectes del radi atòmic de l'He}
-
-\textbf{DO SOME BLAHBLAHBLAH ABOUT MWD}
-
-A la simulació original, es treballa amb $N=200$ àtoms i un radi atòmic de $r_0 = 0.03$ m, que és un valor molt més gran del radi atòmic conegut per a l'He, que és de 
+A la simulació original, es treballa amb $N=200$ àtoms i un radi atòmic de $r_0 = 0,03$ m, que és un valor molt més gran del radi atòmic conegut per a l'He, que és de 
 \begin{equation*}
 	r_{real} = 0,31 \text{ \AA} = 0,31\cross 10^{-10} \text{ m}.
 \end{equation*}
-La necessitat de treballar amb un radi atòmic tan gran està en el fet que la caixa cúbica usada té unes dimensions onze ordres de magnitud majors al radi real dels àtoms
+La necessitat de treballar amb un radi atòmic tan gran està en el fet que la caixa cúbica usada té unes dimensions onze ordres de magnitud majors al radi real dels àtoms d'He
 \begin{equation*}
 	L \gg r_{real},
 \end{equation*}
-fet que, en treballar amb tan poca quantitat d'àtoms (originalment $N=200$), implica que les interaccions entre dues partícules són pràcticament inexistents, ja que la probabilitat de col·lisió és extremadament petita. Això faria que, en absència d'interaccions, el gas presentés un comportament pròxim a la idealitat.
+fet que, en treballar amb tan poca quantitat d'àtoms (originalment $N=200$), implica que les interaccions entre dues partícules són pràcticament inexistents, ja que la probabilitat de col·lisió és extremadament petita. Això fa que, en absència d'interaccions, el gas presenti un comportament pròxim a la idealitat. 
 
-A continuació, analitzem els següents casos: $r_0 = r_{real}$, $r_0 = 1,5$ m, $r_0 = 0.1$ m i $r = 0.01$ m. \textbf{DEIXAR AIXÒ MÉS MACO OR SMT}
+A continuació, analitzem, amb $N = 500$ àtoms, els següents casos: $r_0 = r_{real}$, $r_0 = 1,5$ m, $r_0 = 0,1$ m, $r = 0,01$ m i $r = 0,03$ m\footnote{Totes les simulacions es deixen funcionar durant un temps $t = 5$ minuts. En arribar a aquest $t$, les parem i analitzem els resultats obtinguts. Això ens permet determinar quina de les opcions és la que presenta un millor equilibri entre cost computacional i exactitud en els resultats.}. 
 
-Si treballem amb $N = 500$ àtoms d'He, la distribució de velocitats que s'obté en usar el radi real de l'heli és la que es mostra a la \textbf{FIGURA}. Tal i com podem veure, aquesta distribució de velocitats ens està indicant que no hi ha hagut pràcticament cap col·lisió, ja que totes les partícules tenen exactament la mateixa velocitat que a l'inici. El resultat és, tal i com hem comentat abans, exactament el mateix que podríem esperar per un gas que no presenti interaccions intermoleculars, és a dir, un gas ideal (tot i que hem introduït un potencial d'interacció) i és degut al fet que el volum característic del sistema és excessivament major a l'ocupat per les partícules.
+La distribució de velocitats que s'obté en usar el radi real $r_0 = r_{real}$ de l'heli és la que es mostra a la figura \ref{fig:1.1}. Tal i com podem veure, aquesta distribució de velocitats ens està indicant que no hi ha hagut, en essència, cap col·lisió, ja que pràcticament totes les partícules tenen exactament la mateixa velocitat que a l'inici. El resultat és, tal i com hem comentat abans, exactament el mateix que podríem esperar per un gas que no presenti interaccions intermoleculars, és a dir, un gas ideal (tot i que hem introduït un potencial d'interacció) i és degut al fet que el volum característic del sistema és excessivament major a l'ocupat per les partícules.
 
-Si ara treballem amb un radi atòmic molt més gran, per exemple, de $r_0 = 1,5$ m, els resultats són els que es poden veure a la \textbf{FIGURA}. Podem veure com la distribució no s'adequa a una distribució de Maxwell-Boltzmann i, a més a més, en fer córrer la simulació, s'observa certa inestabilitat numèrica \textbf{REVISAR AIXÒ}. Tot plegat és degut al fet que hem seleccionat un radi atòmic que és major que el volum de la pròpia caixa; en aquestes condicions les col·lisiones entre les molècules esdevenen contínues, erràtiques i representen una situació no física en què tenim una gran quantitat de partícules compresses en un volum més petit que les mateixes molècules. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{dis_vels_r_real}
+	\caption{Distribució de velocitats per $r_0 = r_{real}$ després de 5 minuts de simulació.}
+	\label{fig:1.1}
+\end{figure}
 
-Si ara treballem amb $r_0 = 0,1$ m, obtenim els resultats de la \textbf{FIGURA}. Tot i que ara la distribució de velocitats és més similar a una distribució de Maxwell-Boltzmann que en els casos anteriors, encara podem veure una certa desviació respecte del comportament esperat. Això és degut, fonamentalment, a que, tot i que el radi de les partícules és suficientment gran com per garantir que les col·lisions es produeixin ràpidament, és encara excessivament gran comparat amb la longitud característica de la caixa, fet que provoca que, en tenir una quantitat tan gran de partícules de radi només un ordre de magnitud menor al volum de la caixa, moltes quedin sol·lapades unes amb altres, fent que hi hagi col·lisions contínues, és a dir, contacte no interromput entre dues partícules. Tot plegat fa que els resultats es desviïn respecte del que caldria esperar.
+Si ara treballem amb un radi atòmic molt més gran, per exemple, de $r_0 = 1,5$ m, els resultats són els que es poden veure a la figura \ref{fig:1.2}. Podem veure com la distribució no s'adequa a una distribució de Maxwell-Boltzmann i, a més a més, en fer córrer la simulació, s'observa certa inestabilitat numèrica; fixem-nos en com, segons els resultats de la simulació, hi ha velocitats amb un $N<0$ associat, cosa que no és físicament plausible. Tot plegat és degut al fet que hem seleccionat un radi atòmic que és major que el volum de la pròpia caixa; en aquestes condicions les col·lisiones entre les molècules esdevenen contínues, erràtiques i representen una situació no física en què tenim una gran quantitat de partícules compresses en un volum més petit que les mateixes molècules. 
 
-Finalment, si escollim $r_0 = 0,01$ m, s'obtenen els resultats de la \textbf{FIGURA}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{dis_vels_r_1.5}
+	\caption{Distribució de velocitats per $r_0 = 1,5$ m després de 5 minuts de simulació.}
+	\label{fig:1.2}
+\end{figure}
 
+Si ara treballem amb $r_0 = 0,1$ m, obtenim els resultats de la figura \ref{fig:1.3}. Tot i que ara la distribució de velocitats és més similar a una distribució de Maxwell-Boltzmann que en els casos anteriors, encara podem veure una certa desviació respecte del comportament esperat. Això és degut, fonamentalment, a que, tot i que el radi de les partícules és suficientment gran com per garantir que les col·lisions es produeixin ràpidament, és encara excessivament gran comparat amb la longitud característica de la caixa, fet que provoca que, en tenir una quantitat tan gran de partícules de radi només un ordre de magnitud menor al volum de la caixa, moltes quedin sol·lapades unes amb altres, fent que hi hagi col·lisions contínues, és a dir, contacte no interromput entre dues partícules. Tot plegat fa que els resultats es desviïn respecte del que caldria esperar.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{dis_vels_r_0.1}
+	\caption{Distribució de velocitats per $r_0 = 0,1$ m després de 5 minuts de simulació.}
+	\label{fig:1.3}
+\end{figure}
+
+Si escollim $r_0 = 0,01$ m, s'obtenen els resultats de la \ref{fig:1.4}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{dis_vels_r_0.01}
+	\caption{Distribució de velocitats per $r_0 = 0,01$ m després de 5 minuts de simulació.}
+	\label{fig:1.4}
+\end{figure}
+
+Si escollim $r_0 = 0,03$ m, s'obtenen els resultats de la figura \ref{fig:1.5}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{dis_vels_r_0.03}
+	\caption{Distribució de velocitats per $r_0 = 0,03$ m després de 5 minuts de simulació}
+	\label{fig:1.5}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{dis_vels_r_0.03_T=20min}
+	\caption{Distribució de velocitats per $r_0 = 0,03$ m després de 20 minuts de simulació}
+	\label{fig:disvelsr0}
+\end{figure}
+
+\textbf{ESTARIA GUAY POSAR AQUESTES DUES FOTOS FINALS AL COSTAT JA QUE REPRESENTEN EL MATEIX}
+\textbf{FER TAULA AMB COMPARATIVA DE RESULTATS. ESTUDIAR \% DE VOLUM DE LA CAIXA OCUPAT}
 \section{Col·lectivitat canònica i anàlisi de la distribució d'energies}
 
 \section{Addició d'un potencial gravitatori} 
+
+
 \chapter{Fluid de Lennard-Jones}
+
+\section{Introducció i fonament teòric}
+
+\section{Estudi d'estats estacionaris}
+
+\section{Anàlisi del coeficient de compressibilitat isoterma}
+
 	
- 
 \chapter{Creació d'una simulació pròpia}
 
+\section{Introducció i fonament teòric}
 
+\section{Modelització i implementació de la regla de Metropolis}
 
+\section{Anàlisi dels resultats}
+
+\subsection{Ocupació mitjana en funció de la temperatura}
+
+\subsection{Estudi de les fluctuacions en l'energia}
 
 \begin{thebibliography}{99}
 \bibitem{ref1}
-Govindjee, Govindjee \& Papageorgiou, George. (2004). Chlorophyll A Fluorescence: A Signature of Photosynthesis. 10.1007/978-1-4020-3218-9. 
-\bibitem{ref2}
-Lakowicz, J. R. Principles of Fluorescence Spectroscopy. 3rd edition, Springer, New York, 2006. Capítol 1, pàg. $1-8$. 
+\textit{Col·lecció de problemes de l'assignatura Termodinàmica i Mecànica Estadística}.
+
 \end{thebibliography}
 
 \end{document}
