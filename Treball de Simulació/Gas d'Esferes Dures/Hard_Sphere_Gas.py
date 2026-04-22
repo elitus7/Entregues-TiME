@@ -7,13 +7,13 @@ from vpython import *
 
 win = 500
 
-Natoms = 500  # change this to have more or fewer atoms
+Natoms = 200  # change this to have more or fewer atoms
 
 # Typical values
 L = 1 # container is a cube L on a side
 gray = color.gray(0.7) # color of edges of container
 mass = 4E-3/6E23 # helium mass
-Ratom = 0.001 # wildly exaggerated size of helium atom INICIALMENT ESTÀ A 0.03
+Ratom = 0.05 # wildly exaggerated size of helium atom I
 k = 1.4E-23 # Boltzmann constant
 T = 300 # around room temperature
 dt = 1E-5

@@ -47,6 +47,11 @@
 \usepackage{titling}
 \usepackage{etoolbox}
 \renewcommand{\labelenumi}{\textbf{\theenumi.}}
+\usepackage{siunitx}
+\sisetup{
+	output-decimal-marker = {,},
+	exponent-product = \cross
+}
 
 %Definim el següent entorn per tal de poder posar abstracts a cada capítol.
 \newenvironment{chapterabstract}{
@@ -172,7 +177,7 @@ Si ara treballem amb $r_0 = 0,1$ m, obtenim els resultats de la figura \ref{fig:
 	\label{fig:1.3}
 \end{figure}
 
-Si escollim $r_0 = 0,01$ m, s'obtenen els resultats de la \ref{fig:1.4}.
+Si escollim $r_0 = 0,01$ m, s'obtenen els resultats de la \ref{fig:1.4}. Podem veure com la distribució de velocitats s'assembla molt més a la predita teòricament, però encara hi ha certes discrepàncies. Els àtoms d'He encara són massa petits com per garantir que, amb només 5 minuts de simulació, s'assoleixi l'equilibri tèrmic (i, per tant, la distribució obtinguda s'adapti perfectament a la de Maxwell-Boltzmann).
 
 \begin{figure}[h]
 	\centering
@@ -181,24 +186,56 @@ Si escollim $r_0 = 0,01$ m, s'obtenen els resultats de la \ref{fig:1.4}.
 	\label{fig:1.4}
 \end{figure}
 
-Si escollim $r_0 = 0,03$ m, s'obtenen els resultats de la figura \ref{fig:1.5}.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\linewidth]{dis_vels_r_0.03}
-	\caption{Distribució de velocitats per $r_0 = 0,03$ m després de 5 minuts de simulació}
-	\label{fig:1.5}
-\end{figure}
+Si escollim $r_0 = 0,03$ m, s'obtenen els resultats de la figura \ref{fig:1.5}. Veiem com ara sí que obtenim uns resultats compatibles amb la predicció teòrica. L'única diferència important és que tenim encara més partícules de les esperades amb la velocitat inicial, però aquest valor no és massa discrepant. De fet, si augmentem el temps de simulació a 20 minuts, tal i com es pot veure a la figura \ref{fig:1.5b}, els resultats són perfectament compatibles amb la distribució de Maxwell Boltzmann.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{dis_vels_r_0.03_T=20min}
-	\caption{Distribució de velocitats per $r_0 = 0,03$ m després de 20 minuts de simulació}
-	\label{fig:disvelsr0}
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{dis_vels_r_0.03}
+		\caption{Després de 5 minuts de simulació.}
+		\label{fig:1.5a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{dis_vels_r_0.03_T=20min}
+		\caption{Després de 20 minuts de simulació.}
+		\label{fig:1.5b}
+	\end{subfigure}
+	\caption{Distribució de velocitats per $r_0 = 0{,}03$ m.}
+	\label{fig:1.5}
 \end{figure}
 
-\textbf{ESTARIA GUAY POSAR AQUESTES DUES FOTOS FINALS AL COSTAT JA QUE REPRESENTEN EL MATEIX}
-\textbf{FER TAULA AMB COMPARATIVA DE RESULTATS. ESTUDIAR \% DE VOLUM DE LA CAIXA OCUPAT}
+Els resultats obtinguts es troben resumits a la \ref{tab:1.1}. Calculem la proporció de volum total ocupat pel conjunt de partícules $p_{ocup.}$ simulades segons
+\begin{equation}
+	p_{ocup.} \equiv \frac{N\cdot V_{i}}{V} = \frac{4N\pi r_0^3}{3V}.
+\end{equation}
+Aquesta quantitat ens dóna una idea de com de saturada està la nostra caixa del gas d'esferes dures i, per tant, està relacionada amb la densitat d'aquest i la probabilitat de col·lisió (interacció) entre dues partícules del gas.
+
+Per una banda, densitats altes implicaran probabilitats de col·lisió elevades, fent que s'arribi més ràpidament a la situació d'equilibri tèrmic i, per tant, a assolir una distribució de velocitats de Maxwell-Boltzmann; simultàniament, però, s'augmenta la probabilitat de que apareguin errors i inestabilitats en el càlcul numèric, associats a partícules que mantenen un contacte continu, entre d'altres. En casos extrems, en què $p_{ocup.} > 1$, els resultats no es corresponen amb una situació física.
+
+Per altra banda, densitats baixes faran que els errors i les inestabilitats del mètode numèric disminueixin, però a costa de disminuir progressivament la probabilitat de col·lisió i, per tant, d'interacció, entre els constituents del gas. Això resultarà en la necessitat de temps de simulació més elevats per garantir que les interaccions intermoleculars són suficients com per assolir l'equilibri tèrmic i, per tant, que la distribució de velocitats s'adeqüi a la predita teòricament. En casos extrems, en què $p_{ocup.} \ll 1$, pràcticament no hi ha interacció entre partícules i, per tant, tots els àtoms d'He romanen amb la mateixa velocitat que al principi de la simulació.
+
+\begin{table}[h]
+	\centering
+	\caption{Taula amb els radis usats per l'àtom d'He i les corresponents ocupacions del gas respecte del volum total del recipient.}
+	\begin{tabular}{l c}
+		\toprule
+		$r_0$ (m) & $p_{ocup.}$ \\
+		\midrule
+		$0{,}34\cross10^{-10}$ & $6{,}24\cross10^{-29}$ \\
+		$1{,}50$   & $7{,}07\cross10^3$ \\
+		$0{,}10$   & $2{,}09$ \\
+		$0{,}010$  & $2{,}09\cross10^{-3}$ \\
+		$0{,}030$  & $5{,}65\cross10^{-2}$ \\ 
+		\bottomrule
+	\end{tabular}
+	\label{tab:1.1}
+\end{table}
+ 
+\textbf{VALORAR SI VAL LA PENA POSAR $r = 0,04$. MILLORS RESULTATS EN MENYS TEMPS.}
+
 \section{Col·lectivitat canònica i anàlisi de la distribució d'energies}
 
 \section{Addició d'un potencial gravitatori} 
