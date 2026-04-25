@@ -244,8 +244,48 @@ Per altra banda, densitats baixes faran que els errors i les inestabilitats del 
 \chapter{Fluid de Lennard-Jones}
 
 \section{Introducció i fonament teòric}
+El fluid estudiat es basa en el potencial de Lennard-Jones, definit com
+\begin{equation}
+	u(r)=4\epsilon\left(\left(\frac{\sigma}{r}\right)^{12}-\left(\frac{\sigma}{r}\right)^6\right),
+\end{equation}
+el qual, per simplicitat, el podem transformar en un potencial reduït per tal de treballar amb variables adimensionals.
+
+El potencial de Lennard-Jones escrit en termes de variables reduïdes és
+\begin{equation}
+	u^*(r)=4\left(\left(\frac{1}{r^*}\right)^{12}-\left(\frac{1}{r^*}\right)^6\right)
+\end{equation}
+on veiem que clarament $u^*=u/\epsilon$ i $r^*=r/\sigma$. Amb això, les variables reduïdes amb què treballarem són les següents:
+\begin{equation*}
+	T^*=\frac{k_BT}{\epsilon} \qquad P^*=\frac{P\sigma^3}{\epsilon} \qquad \rho^*=\rho\sigma^3=\frac{\sigma^3}{v} \qquad t^*=\frac{t}{\sigma}\sqrt{\frac{\epsilon}{m}}
+\end{equation*}
+Aquest potencial és un model matemàtic que descriu partícules neutres, els quals es veuen sotmeses a forces de llarg i curt abast. A continuació en detallem cada terme:
+\begin{itemize}
+	\item \textbf{$\epsilon$:} És la profunditat del pou de potencial i representa la força atractiva entre partícules (força d'enllaç).
+	\item \textbf{$\sigma$:} És el radi de l'esfera dura, és a dir, la distància de col·lisió. En aquest punt el potencial és exactament zero, ja que per a una distància menor, la repulsió es dispara.
+	\item \textbf{$\left(\frac{1}{r^*}\right)^{12}$:} És el terme repulsiu dels núvols electrònics d'àtoms solapats descrit pel Principi d'Exclusió de Pauli.
+	\item \textbf{$-\left(\frac{1}{r^*}\right)^6$:} Aquest terme representa la força atractiva, ja que el signe negatiu implica una disminució de l'energia del sistema i, per tant, fent-lo més estable. L'atracció ve donada per forces de llarg abast com la de van der Waals o força de dispersió.
+\end{itemize}
+
+\textcolor{red}{GRÀFICA I EXPLICAR CADA ZONA??????}
+
+Per tant, tot i la simplicitat del potencial de Lennard-Jones, aquest descriu molt acuradament el comportament dels gasos nobles i altres partícules neutres, especialment combinant-ho amb el mètode de Monte Carlo. En canvi, aquest model no se sol utilitzar en molècules polars, no esfèriques i/o interaccions metàl·liques.
 
 \section{Estudi d'estats estacionaris}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{4i}
+	\caption{Estat estacionari assolit amb N = 500, $\rho$ = 0,8 i
+		T = 0,2.}
+	\label{fig:4i}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{4ii}
+	\caption{Estat estacionari assolit amb N = 500, $\rho$ = 0,8 i
+		$T_{inicial}$ = 1,5 canviant, al cap de pocs segons, a $T_{final}$ = 0,2.}
+	\label{fig:4ii}
+\end{figure}
+\textcolor{red}{FALTA COMPARACIÓ I POSAR GRÀFICA PAUSA???}
 
 \section{Anàlisi del coeficient de compressibilitat isoterma}
 

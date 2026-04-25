@@ -7,11 +7,11 @@
 \contentsline {chapter}{\numberline {2}Fluid de Lennard-Jones}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Introducció i fonament teòric}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Estudi d'estats estacionaris}{5}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Anàlisi del coeficient de compressibilitat isoterma}{5}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Creació d'una simulació pròpia}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introducció i fonament teòric}{6}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Modelització i implementació de la regla de Metropolis}{6}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Anàlisi dels resultats}{6}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Ocupació mitjana en funció de la temperatura}{6}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Estudi de les fluctuacions en l'energia}{6}{subsection.3.3.2}%
-\contentsline {chapter}{Bibliografia}{7}{chapter*.9}%
+\contentsline {section}{\numberline {2.3}Anàlisi del coeficient de compressibilitat isoterma}{6}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Creació d'una simulació pròpia}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introducció i fonament teòric}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Modelització i implementació de la regla de Metropolis}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Anàlisi dels resultats}{7}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Ocupació mitjana en funció de la temperatura}{7}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Estudi de les fluctuacions en l'energia}{7}{subsection.3.3.2}%
+\contentsline {chapter}{Bibliografia}{8}{chapter*.11}%
