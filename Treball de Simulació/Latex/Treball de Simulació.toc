@@ -14,4 +14,4 @@
 \contentsline {section}{\numberline {3.3}Anàlisi dels resultats}{7}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Ocupació mitjana en funció de la temperatura}{7}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Estudi de les fluctuacions en l'energia}{7}{subsection.3.3.2}%
-\contentsline {chapter}{Bibliografia}{8}{chapter*.11}%
+\contentsline {chapter}{Bibliografia}{8}{chapter*.12}%
