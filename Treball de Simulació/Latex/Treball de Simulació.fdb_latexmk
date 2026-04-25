@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1777126311.07197 "c:/Users/ericg/OneDrive/Documentos/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" "Treball de Simulació.pdf" "Treball de Simulació" 1777126314.39634 0
+["pdflatex"] 1777132413.77336 "c:/Users/ericg/OneDrive/Documentos/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" "Treball de Simulació.pdf" "Treball de Simulació" 1777132416.95726 0
   "4i.jpg" 1777117470 68252 9a44bb10b4e8c3e5041ae4efb5373e77 ""
   "4ii.jpg" 1777117470 64117 f2c3912d7f20f5738e482a08523c2184 ""
   "C:/Users/ericg/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775234425 82641 abcbe3180462766c4b61d6c8fe88f8e8 ""
@@ -227,11 +227,11 @@
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/varwidth/varwidth.sty" 1238469540 10894 d359a13923460b2a73d4312d613554c8 ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "Treball de Simulació.aux" 1777126314 6697 8ae9bb43fffba285257c7acbb88fef52 "pdflatex"
-  "Treball de Simulació.out" 1777126314 3821 ee5b035b5db61e8c7c8948f226894017 "pdflatex"
-  "Treball de Simulació.tex" 1777126310 19511 4761f17041262f80c37137a51e1a6153 ""
-  "Treball de Simulació.toc" 1777126314 1549 4630a115f3df59472ba8fdf01ce3df72 "pdflatex"
-  "c:/Users/ericg/OneDrive/Documentos/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" 1777126310 19511 4761f17041262f80c37137a51e1a6153 ""
+  "Treball de Simulació.aux" 1777132416 7501 b70c4d8557d860be5503e7a95f40cf55 "pdflatex"
+  "Treball de Simulació.out" 1777132416 3821 2a89d64bb973125efd14b5bc4c29433e "pdflatex"
+  "Treball de Simulació.tex" 1777132413 24487 ea9e1475fff037b465a5b1e95747893e ""
+  "Treball de Simulació.toc" 1777132416 1549 1711249cfa8ab5e59ea35d601b3d8826 "pdflatex"
+  "c:/Users/ericg/OneDrive/Documentos/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" 1777132413 24487 ea9e1475fff037b465a5b1e95747893e ""
   "dis_vels_r_0.01.png" 1776795520 158512 4e03d4fd2b0867f7410b77a376268e8a ""
   "dis_vels_r_0.03.png" 1776796873 160061 0f1c67b202215b3c794f2e3c517e1be9 ""
   "dis_vels_r_0.03_T=20min.png" 1776797814 154974 4489e13dbb220b4a90dc85b56bccfbea ""
@@ -241,6 +241,7 @@
   "dis_vels_r_1.5.png" 1776792680 185901 1f506f81e922796fc0fa74b8546a97f3 ""
   "dis_vels_r_real.png" 1776790612 121757 04987698bc684e8b9af2ed355cf85b65 ""
   "logo_uab.png" 1776709460 59931 7921e2970bebe1edaf811a06ce303676 ""
+  "screenshot001.png" 1777128492 76161 2cf1bb1a28b82c7b77be26c77dfbdbef ""
   (generated)
   "Treball de Simulació.aux"
   "Treball de Simulació.log"

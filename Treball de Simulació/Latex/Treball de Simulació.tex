@@ -7,7 +7,6 @@
 \usepackage[catalan]{babel}
 \usepackage{booktabs}
 \usepackage{gensymb}
-\usepackage{siunitx}
 \usepackage[nottoc]{tocbibind}
 \usepackage{listings}
 \lstdefinestyle{mystyle}{
@@ -31,11 +30,8 @@
 \usepackage{tcolorbox}
 \usepackage{parskip}
 \usepackage{multirow}
-\usepackage{graphicx}
-\usepackage{booktabs}
 \usepackage{caption}
 \captionsetup{labelfont=bf}
-\usepackage{hyperref}
 \usepackage[arrowdel]{physics}
 \usepackage[left=1.95cm, right=1.95cm, top=20mm, bottom=20mm]{geometry} 
 \usepackage{fancyhdr}
@@ -52,6 +48,7 @@
 	output-decimal-marker = {,},
 	exponent-product = \cross
 }
+\usepackage{hyperref}
 
 %Definim el següent entorn per tal de poder posar abstracts a cada capítol.
 \newenvironment{chapterabstract}{
@@ -119,7 +116,7 @@ En aquesta secció estudiarem un gas d'esferes dures. En aquest model, s'assumei
 	 \infty & \text{si } r<2r_0
 \end{cases}
 \end{equation}
-on $r$ és la distància entre dues partícules qualsevols i $r_0$ el seu radi atòmic. En particular, en aquesta part estudiarem l'He gas modelitzat segons aquest potencial. Treballarem en tot moment amb una simulació amb $N = 500$ àtoms d'He amb una massa de $m_{He} = 6,646 \cross 10^{-27}$ kg per àtom, a una temperatura de $T = 300$ K i compresos en una caixa cúbica de volum $V = 1$ m$^3$.
+on $r$ és la distància entre dues partícules qualsevols i $r_0$ el seu radi atòmic. Un dels gasos que millor s'adapta experimentalment a aquest tipus de potencials és l'He. Així doncs en aquesta part estudiarem l'He gas modelitzat segons aquest potencial. Treballarem en tot moment amb una simulació amb $N = 500$ àtoms d'He amb una massa de $m_{He} = 6,646 \cross 10^{-27}$ kg per àtom, a una temperatura de $T = 300$ K i compresos en una caixa cúbica de volum $V = 1$ m$^3$.
 
 Els nostres objectius seran:
 \begin{itemize}
@@ -133,10 +130,23 @@ Recordem que, en equilibri tèrmic, la distribució de velocitats (o, més rigor
 	\rho(v) = 4\pi v^2\left(\frac{m}{2\pi k_B T}\right)^{3/2}e^{-\frac{mv^2}{2k_B T}}. \label{eq:1.2}
 \end{equation}
 
-Notem que la simulació inicial, tal i com veurem, treballarà amb uns paràmetres inicials fixats. En particular, fixarem $N$ (nombre d'àtoms), $V$ (volum del recipient) i $T$ (temperatura). Teòricament, si treballem amb aquestes variables fixades, estem en una col·lectivitat tipus NVT, això és, la col·lectivitat canònica. Ara bé, en el codi (\textbf{POSAR-LO A L'ANNEX OR SOMEWHERE}), la temperatura $T$ no es fixa en el sentit en què queda fixada a la col·lectivitat canònica, sinó que simplement serveix per donar un valor a per $\langle v \rangle$.  
+Per un mateix gas, tindrem vàries distribucions de Maxwell-Boltzmann en funció de la temperatura a la que aquest estigui sotmès, tal i com es pot veure a la figura \ref{fig:intropart1.1}.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{screenshot001}
+	\caption{Distribució de velocitats per un gas de molècules d'O$_2$ a 3 temperatures diferents: $T_1 = -100$ ºC, $T_2 = 20$ ºC i $T_3 = 600$ ºC. Es representa el nombre de partícules que hi ha amb cadascuna de les velocitats.}
+	\label{fig:intropart1.1}
+\end{figure}
 
-Inicialment
+Notem que la simulació inicial, tal i com veurem, treballarà amb uns paràmetres inicials fixats. En particular, fixarem $N$ (nombre d'àtoms), $V$ (volum del recipient) i $T$ (temperatura). Teòricament, si treballem amb aquestes variables fixades, estem en una col·lectivitat tipus NVT, això és, la col·lectivitat canònica. Ara bé, en el codi (\textbf{POSAR-LO A L'ANNEX OR SOMEWHERE}), la temperatura $T$ no es fixa en el sentit en què queda fixada a la col·lectivitat canònica, sinó que simplement serveix per donar un valor a per $\langle v \rangle$. Recordem que, del teorema d'equipartició, tenim que
+\begin{equation}
+	\langle \frac{1}{2}m v^2 \rangle = \frac{f}{2}k_BT \Rightarrow T = \frac{m}{fk_BT} \langle v^2 \rangle,
+\end{equation}
+on $f$ és el nombre de graus de llibertat. Existeix, per tant, una relació entre la velocitat (variable microscòpica associada a les partícules del gas) i la temperatura (variable macroscòpica).
+
+Així doncs, en fixar el valor de la temperatura a la simulació, el que estem fent veritablement és fixar un valor per a l'energia cinètica mitjana del gas i, per tant, per a l'energia $E$. Com que les variables que queden fixes són $N$, $V$ i $E$, la col·lectivitat amb la que treballem serà, doncs, la col·lectivitat microcanònica. Al segon apartat d'aquesta secció modificarem la simulació per adaptar-la, aquesta vegada sí, a una col·lectivitat tipus canònica.
+
 
 \section{Estudi dels efectes del radi atòmic de l'He}
 A la simulació original, es treballa amb $N=200$ àtoms i un radi atòmic de $r_0 = 0,03$ m, que és un valor molt més gran del radi atòmic conegut per a l'He, que és de 
@@ -155,7 +165,7 @@ La distribució de velocitats que s'obté en usar el radi real $r_0 = r_{real}$ 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{dis_vels_r_real}
+	\includegraphics[width=0.4\linewidth]{dis_vels_r_real}
 	\caption{Distribució de velocitats per $r_0 = r_{real}$ després de 5 minuts de simulació.}
 	\label{fig:1.1}
 \end{figure}
@@ -164,7 +174,7 @@ Si ara treballem amb un radi atòmic molt més gran, per exemple, de $r_0 = 1,5$
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{dis_vels_r_1.5}
+	\includegraphics[width=0.4\linewidth]{dis_vels_r_1.5}
 	\caption{Distribució de velocitats per $r_0 = 1,5$ m després de 5 minuts de simulació.}
 	\label{fig:1.2}
 \end{figure}
@@ -173,7 +183,7 @@ Si ara treballem amb $r_0 = 0,1$ m, obtenim els resultats de la figura \ref{fig:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{dis_vels_r_0.1}
+	\includegraphics[width=0.4\linewidth]{dis_vels_r_0.1}
 	\caption{Distribució de velocitats per $r_0 = 0,1$ m després de 5 minuts de simulació.}
 	\label{fig:1.3}
 \end{figure}
@@ -182,12 +192,12 @@ Si escollim $r_0 = 0,01$ m, s'obtenen els resultats de la \ref{fig:1.4}. Podem v
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{dis_vels_r_0.01}
+	\includegraphics[width=0.4\linewidth]{dis_vels_r_0.01}
 	\caption{Distribució de velocitats per $r_0 = 0,01$ m després de 5 minuts de simulació.}
 	\label{fig:1.4}
 \end{figure}
 
-Si escollim $r_0 = 0,03$ m, s'obtenen els resultats de la figura \ref{fig:1.5}. Veiem com ara sí que obtenim uns resultats compatibles amb la predicció teòrica. L'única diferència important és que tenim encara més partícules de les esperades amb la velocitat inicial, però aquest valor no és massa discrepant. De fet, si augmentem el temps de simulació a 20 minuts, tal i com es pot veure a la figura \ref{fig:1.5b}, els resultats són perfectament compatibles amb la distribució de Maxwell Boltzmann.
+Si escollim $r_0 = 0,03$ m, s'obtenen els resultats de la figura \ref{fig:1.5}. Veiem com ara sí que obtenim uns resultats compatibles amb la predicció teòrica. L'única diferència important és que tenim encara més partícules de les esperades amb la velocitat inicial, però aquest valor no és massa discrepant. De fet, si augmentem el temps de simulació a 20 minuts, tal i com es pot veure a la figura \ref{fig:1.5b}, els resultats són molt més compatibles amb la distribució de Maxwell Boltzmann.
 
 \begin{figure}[H]
 	\centering
@@ -208,7 +218,7 @@ Si escollim $r_0 = 0,03$ m, s'obtenen els resultats de la figura \ref{fig:1.5}. 
 	\label{fig:1.5}
 \end{figure}
 
-Finalment, si escollim $r_0 = 0,04$ m, obtenim els resultats de la figura \ref{fig:1.6}. Podem veure com aquests són similars als obtinguts en el cas de $r_0 = 0,03$ m, però assolim abans la distribució de Maxwell-Boltzmann, ja que, en augmentar el radi usar per les partícules, augmenta el nombre d'interaccions, fent que s'arribi en menys temps a la situació d'equilibri tèrmic.
+Finalment, si escollim $r_0 = 0,04$ m, obtenim els resultats de la figura \ref{fig:1.6}. Podem veure com aquests són similars als obtinguts en el cas de $r_0 = 0,03$ m, però assolim abans la distribució de Maxwell-Boltzmann, ja que, en augmentar el radi de les partícules, augmenta el nombre d'interaccions, fent que s'arribi en menys temps a la situació d'equilibri tèrmic. Si fem córrer la simulació durant 20 minuts els resultats que s'obtenen són perfectament compatibles amb la predicció teòrica.
 
 \begin{figure}[H]
 	\begin{subfigure}{0.48\linewidth}
@@ -262,6 +272,30 @@ Així doncs, atenint-nos als resultats obtinguts que prèviament hem discutit, d
 en tant i en quan aquest presenta un equilibri òptim entre temps de simulació baixos i compatibilitat amb la predicció teòrica, determinada per la distribució de Maxwell-Boltzmann (vegeu l'equació \eqref{eq:1.2}).
 
 \section{Col·lectivitat canònica i anàlisi de la distribució d'energies}
+Per tal de mantenir la temperatura fixada en tot moment i, en conseqüència, treballar en la col·lectivitat NVT (canònica), cal implementar un termostat. Els termostats ens permeten regular la temperatura del sistema modelitzat reproduint la interacció d'aquest amb un bany tèrmic. Existeixen diferents tipus de termostats, però en el nostre cas ens ocuparem d'implementar el \textit{termostat d'Andersen}.
+
+En el termostat d'Andersen\cite{ref2} es simula la interacció d'un sistema amb un bany tèrmic a partir de les col·lisions aleatòries amb partícules fictícies que modificaran la velocitat dels elements del nostre sistema (en el cas que ens ocupa, dels àtoms del gas d'He). Per tal d'aconseguir-ho, en cada pas de la simulació, com ja s'ha comentat a la introducció d'aquesta part, seleccionarem una partícula del gas amb una determinada probabilitat $p$ i reassignarem la seva velocitat d'acord amb la distribució de Maxwell-Boltzmann per una determinada temperatura objectiu. Abans, però, cal seleccionar com de gran és l'acoblament entre el nostre sistema i el bany tèrmic. Això vindrà determinat per la freqüència $\nu$ de les col·lisions amb les partícules fictícies abans esmentades. Grans acoblaments implicaran interaccions importants amb les partícules fictícies i petits acoblaments implicaran interaccions poc importants amb aquestes.
+
+\textbf{POTSER AIXÒ ÚLTIM HO PUC EXPLICAR MILLOR, HELP.} 
+
+Si les col·lisions successives no estan correlacionades (les noves velocitats no tenen cap relació amb les prèvies a la col·lisió), aleshores la probabilitat de que es produeixi una col·lisió entre un temps $t$ i un temps $t+\mathrm{d}t$, ve determinada per (vegeu \cite{ref3})
+\begin{equation}
+	\rho(t) = \nu \mathrm{e}^{-\nu t}.
+\end{equation}
+La probabilitat de que una d'aquestes col·lisions amb les partícules fictícies associades al bany tèrmic es produeixi en un interval de temps $\Delta t$ serà
+\begin{equation}
+	P(\Delta t) = \int_{0}^{\Delta t} \nu \mathrm{e}^{-\nu t} \mathrm{d}t,
+\end{equation}
+i, si considerem intervals de temps petits, aleshores e$^{-\nu t} \approx 1$, de manera que
+\begin{equation}
+	P(\Delta t) \approx \nu \Delta t. \label{eq:1.7}
+\end{equation}
+Així doncs, l'algoritme que usarem per incorporar el termostat d'Andersen a la simulació anterior consistirà en:
+\begin{enumerate}
+	\item Donades unes posicions i moments inicials, integrem les equacions del moviment per a un pas de temps $\Delta t$, tal i com ja tenim a la simulació original.
+	\item Seleccionem un nombre donat de partícules per a que interaccionin amb el bany tèrmic (col·lisió amb les partícules fictícies). La probabilitat de que una partícula sigui seleccionada per un pas de temps $\Delta t$ vindrà determinada per $\nu \Delta t$ (veure equació \eqref{eq:1.7}).
+	\item Si la partícula $i$ ha estat seleccionada, la seva nova velocitat s'escollirà a partir de la distribució de Maxwell-Boltzmann associada a la temperatura $T$ del bany tèrmic. Tota la resta de partícules no es veuran afectades per això.
+\end{enumerate}
 
 \section{Addició d'un potencial gravitatori} 
 
@@ -330,7 +364,10 @@ Per tant, tot i la simplicitat del potencial de Lennard-Jones, aquest descriu mo
 \begin{thebibliography}{99}
 \bibitem{ref1}
 \textit{Col·lecció de problemes de l'assignatura Termodinàmica i Mecànica Estadística}.
-
+\bibitem{ref2}
+Arcila Pérez, J. \textit{Revisión bibliográfica sobre dinámica molecular. Modelización, algoritmos y aplicaciones}. Universidad de Granada.
+\bibitem{ref3}
+Frenkel, D. \textit{Understanding Molecular Simulation. From Algorithms to Aplications}. Academic Press. Capítol 6.
 \end{thebibliography}
 
 \end{document}
