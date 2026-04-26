@@ -1,21 +1,24 @@
 from vpython import *
 
 win = 500
-
-Natoms = 500  # Nombre d'àtoms ajustat a 500.
+Natoms = 500 # Nombre d'àtoms ajustat a 500.
 
 # Paràmetres de la simulació (tots els valors estan en SI).
 L = 1 # Aresta de la caixa cúbica.
 gray = color.gray(0.7) # Color de les arestes de la caixa.
 mass = 4E-3/6E23 # Massa (en kg) d'un àtom d'He.
-Ratom = 0.04 # Radi atòmic usat a la simulació. L'original és 0.03, el radi real és 0.31*10**-10 i el seleccionat per les simulacions és 0.04.
+Ratom = 0.04 # Radi atòmic usat a la simulació.
 k = 1.4E-23 # Constant de Boltzmann.
 T = 300 # Temperatura ambient (aproximadament).
 dt = 1E-5
 
+# --- PARÁMETRO NUEVO: TERMOSTATO DE ANDERSEN ---
+nu = 10000 # Frecuencia de colisión con el baño térmico (ajustable).
+# -----------------------------------------------
+
 animation = canvas( width=win, height=win, align='left')
 animation.range = L
-animation.title = 'Hard Sphere Gas'
+animation.title = 'Hard Sphere Gas with Andersen Thermostat'
 s = """  Theoretical and averaged speed distributions (meters/sec).
   Initially all atoms have the same speed, but collisions
   change the speeds of the colliding atoms. One of the atoms is
@@ -101,6 +104,32 @@ def checkCollisions():
             if mag2(dr) < r2: hitlist.append([i,j])
     return hitlist
 
+# --- FUNCIÓN NUEVA: GENERADOR MAXWELL-BOLTZMANN ---
+def get_MB_velocity(m, T_desired):
+    # Desviación estándar de la distribución de velocidades
+    sigma = sqrt(k * T_desired / m)
+    
+    # Transformada de Box-Muller para V_x
+    u1 = random(); 
+    while u1 == 0: u1 = random() # Evitar log(0)
+    u2 = random()
+    vx = sigma * sqrt(-2*log(u1)) * cos(2*pi*u2)
+    
+    # Transformada de Box-Muller para V_y
+    u1 = random(); 
+    while u1 == 0: u1 = random()
+    u2 = random()
+    vy = sigma * sqrt(-2*log(u1)) * cos(2*pi*u2)
+    
+    # Transformada de Box-Muller para V_z
+    u1 = random(); 
+    while u1 == 0: u1 = random()
+    u2 = random()
+    vz = sigma * sqrt(-2*log(u1)) * cos(2*pi*u2)
+    
+    return vector(vx, vy, vz)
+# --------------------------------------------------
+
 nhisto = 0 # number of histogram snapshots to average
 
 while True:
@@ -111,7 +140,7 @@ while True:
         vdist.data = accum
     nhisto += 1
 
-    # Update all positions
+    # Update all positions (Paso 1 del termostato de Andersen)
     for i in range(Natoms): Atoms[i].pos = apos[i] = apos[i] + (p[i]/mass)*dt
     
     # Check for collisions
@@ -132,26 +161,23 @@ while True:
         rrel = posi-posj
         if rrel.mag > Ratom: continue # one atom went all the way through another
     
-        # theta is the angle between vrel and rrel:
-        dx = dot(rrel, vrel.hat)       # rrel.mag*cos(theta)
-        dy = cross(rrel, vrel.hat).mag # rrel.mag*sin(theta)
-        # alpha is the angle of the triangle composed of rrel, path of atom j, and a line
-        #   from the center of atom i to the center of atom j where atome j hits atom i:
+        dx = dot(rrel, vrel.hat)       
+        dy = cross(rrel, vrel.hat).mag 
         alpha = asin(dy/(2*Ratom)) 
-        d = (2*Ratom)*cos(alpha)-dx # distance traveled into the atom from first contact
-        deltat = d/vrel.mag         # time spent moving from first contact to position inside atom
+        d = (2*Ratom)*cos(alpha)-dx 
+        deltat = d/vrel.mag         
         
-        posi = posi-vi*deltat # back up to contact configuration
+        posi = posi-vi*deltat 
         posj = posj-vj*deltat
         mtot = 2*mass
-        pcmi = p[i]-ptot*mass/mtot # transform momenta to cm frame
+        pcmi = p[i]-ptot*mass/mtot 
         pcmj = p[j]-ptot*mass/mtot
         rrel = norm(rrel)
-        pcmi = pcmi-2*pcmi.dot(rrel)*rrel # bounce in cm frame
+        pcmi = pcmi-2*pcmi.dot(rrel)*rrel 
         pcmj = pcmj-2*pcmj.dot(rrel)*rrel
-        p[i] = pcmi+ptot*mass/mtot # transform momenta back to lab frame
+        p[i] = pcmi+ptot*mass/mtot 
         p[j] = pcmj+ptot*mass/mtot
-        apos[i] = posi+(p[i]/mass)*deltat # move forward deltat in time
+        apos[i] = posi+(p[i]/mass)*deltat 
         apos[j] = posj+(p[j]/mass)*deltat
         interchange(vi.mag, p[i].mag/mass)
         interchange(vj.mag, p[j].mag/mass)
@@ -170,6 +196,27 @@ while True:
             if loc.z < 0: p[i].z =  abs(p[i].z)
             else: p[i].z =  -abs(p[i].z)
 
+    # --- IMPLEMENTACIÓN DEL TERMOSTATO DE ANDERSEN ---
+    # (Pasos 2 y 3 de tu imagen)
+    prob_colision = nu * dt 
     
-
-
+    for i in range(Natoms):
+        if random() < prob_colision:
+            v_old_mag = p[i].mag / mass
+            
+            # Obtener nueva velocidad y actualizar momento
+            v_new = get_MB_velocity(mass, T)
+            p[i] = v_new * mass
+            v_new_mag = p[i].mag / mass
+            
+            # Actualizar el histograma visual para reflejar el cambio
+            interchange(v_old_mag, v_new_mag)
+    # -------------------------------------------------
+    # Añade esto al final del bucle while True:
+    if nhisto % 100 == 0: # Imprimir cada 100 ciclos para no saturar la consola
+        K_total = 0
+        for i in range(Natoms):
+            K_total += p[i].mag2 / (2 * mass)
+        
+        T_inst = (2/3) * K_total / (Natoms * k)
+        print(f"Temperatura instantánea: {T_inst:.2f} K")

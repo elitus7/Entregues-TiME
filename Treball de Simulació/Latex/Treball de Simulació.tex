@@ -296,7 +296,32 @@ Així doncs, l'algoritme que usarem per incorporar el termostat d'Andersen a la 
 	\item Donades unes posicions i moments inicials, integrem les equacions del moviment per a un pas de temps $\Delta t$, tal i com ja tenim a la simulació original.
 	\item Seleccionem un nombre donat de partícules per a que interaccionin amb el bany tèrmic (col·lisió amb les partícules fictícies). La probabilitat de que una partícula sigui seleccionada per un pas de temps $\Delta t$ vindrà determinada per $\nu \Delta t$ (veure equació \eqref{eq:1.7}).
 	\item Si la partícula $i$ ha estat seleccionada, la seva nova velocitat s'escollirà a partir de la distribució de Maxwell-Boltzmann associada a la temperatura $T$ del bany tèrmic. Tota la resta de partícules no es veuran afectades per això.
+	
+	Hem de tenir present, però, que per escollir la nova velocitat de la partícula $i$ a partir de la distribució de Maxwell-Boltzmann és necessari fer servir una \textit{transformada de Box-Muller}, que ens permet generar una distribució gaussiana amb $\mu = 0$ i $\sigma^2 = 1$ a partir d'una distribució uniforme (entre 0 i 1)\footnote{Que és la que podem generar si usem la funció \textsf{\textbackslash random()} de \textit{Python}.} per a cada component de la velocitat $\vec{v} = (v_x, v_y, v_z)$. De forma general, donades dues variables $x_1$ i $x_2$ distribuïdes de forma uniforme entre 0 i 1, podem generar dues noves variables $z_1$ i $z_2$ amb una distribució normal centrada a l'origen i amb una variància igual a la unitat segons
+	\begin{align}
+		z_1 &= \sqrt{-2\ln x_1}\cos(2\pi x_2), \\
+		z_2 &= \sqrt{-2\ln x_1}\sin(2\pi x_2).
+	\end{align} 
+	Així, per a cada coordenada de la velocitat de $i$, generarem una distribució normal, però amb desviació estàndard 
+	\begin{equation}
+		\sigma = \sqrt{\frac{k_BT}{m}},
+	\end{equation}
+	de manera que, en cada cas, partirem de dues variables $x_1,x_2 \in [0,1]$ i generarem les noves variables $z_1,z_2$ que segueixen la distribució gaussiana desitjada. A la pràctica, però, només ens cal una de les dues\footnote{La transformada de Box-Muller genera distribucions normals bidimensionals, però a nosaltres només ens interessa una dimensió (ja que ho fem per a cada coordenada de $\vec{v}$). Existeixen metodologies més avançades que consisteixen en fer només dues transformades, per generar quatre noves variables aleatòries i aprofitar-les totes (llevat d'una que es descarta, perquè sobra), en comptes de fer tres transformades, com en el nostre cas, per generar sis variables, tot despreciant-ne tres. La diferència entre els dos casos és el cost computacional associat, però en la nostra situació hem cregut que és suficient quedar-nos amb la metodologia emprada per la seva simplicitat.} i, per tant, ens quedarem només amb $z_1$ (per exemple). 
+	
+	Un cop haguem generat la variable $z_1$ per a cada coordenada\footnote{Com ja s'ha comentat, només ens quedem amb una de les dues generades a partir de la transformada de Box-Muller.}, reescalarem aquesta variable per adaptar-la a la nostra situació física\footnote{Hem de canviar la desviació estàndard de 1 a $\sigma = \sqrt{\frac{k_B T}{m}}$.}, tot tenint en compte la temperatura $T$ a la que treballem (fixada pel termostat) i la massa $m$ de les partícules simulades, segons
+	\begin{align}
+		v_x &= \sigma \cdot z_{1x}, \\
+		v_y &= \sigma \cdot z_{1y}, \\
+		v_z &= \sigma \cdot z_{1z},
+	\end{align}
+	cosa que ens garantirà que $\vec{v} = (v_x, v_y, v_z)$ seguirà la distribució de Maxwell-Boltzmann. Finalment, la velocitat assignada a la partícula després d'interaccionar amb el bany tèrmic serà
+	\begin{equation}
+		v = \sqrt{v_x^2+v_y^2+v_z^2}.
+	\end{equation}
 \end{enumerate}
+
+
+\textbf{IMPORTANT DISCUTIR PER QUÈ LA IMPLEMENTACIÓ DEL TERMOSTAT D'ANDERSEN HA DE SER DESPRÉS DE SIMULAR EL MOVIMENT DE LES PARTÍCULES PERÒ ABANS DE CONSIDERAR LES COL·LISIONS.}
 
 \section{Addició d'un potencial gravitatori} 
 
