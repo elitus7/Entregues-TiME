@@ -373,7 +373,31 @@ Per tant, tot i la simplicitat del potencial de Lennard-Jones, aquest descriu mo
 \textcolor{red}{FALTA COMPARACIÓ I POSAR GRÀFICA PAUSA???}
 
 \section{Anàlisi del coeficient de compressibilitat isoterma}
+Bueno, avui no he avançat però diria que s'ha de representar una gràfica de V en funció de P. Hem de fer-ho amb el programa NPT perquè això ens permet tenir V en funció de P.
 
+Per un gas tindrem una temperatura alta i una pressió baixa i densitat baixa (menor a 0,1?).
+
+Els líquids tenen densitat alta (0,8 o així) i temperatures menors i pressions una mica més altes.
+Fixem una T i variem P i obtenim uns quants valors de V pels casos líquid i gas.
+
+El factor de compressibilitat per un gas ideal és 1/P perquè es deriva PV=nRT respecte la pressió. Hauríem d'obtenir un comportament similar a aquest per a pressions molt baixes i en augmentar P el fluid es fa més comprimible per les atraccions del gas real de Lennard-jones.
+
+Posar una taula amb els valors de P, V, T i densitat per gas i líquid i fer la representació gràfica dels casos.
+
+Posar també gràfic de comparació del factor ideal i del nostre?
+
+Hem d'obtenir un factor molt més baix pel líquid ja que és quasi incompressible.
+
+No sé com calcular el factor perquè segons el lloc trobo que és
+\begin{equation*}
+	\kappa_T=-\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T
+\end{equation*}
+
+però Gemini m'ha dit que ell faria:
+\begin{equation*}
+	\kappa_T = \frac{\langle V^2 \rangle - \langle V \rangle^2}{k_B T \langle V \rangle}
+\end{equation*}
+No sé tampoc on se'm donen aquests valors al programa wtf.
 	
 \chapter{Creació d'una simulació pròpia}
 
