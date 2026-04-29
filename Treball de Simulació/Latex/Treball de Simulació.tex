@@ -279,6 +279,8 @@ En el termostat d'Andersen\cite{ref2} es simula la interacció d'un sistema amb 
 
 \textbf{POTSER AIXÒ ÚLTIM HO PUC EXPLICAR MILLOR, HELP.} 
 
+\subsection{Implementació del termostat d'Andersen}
+
 Si les col·lisions successives no estan correlacionades (les noves velocitats no tenen cap relació amb les prèvies a la col·lisió), aleshores la probabilitat de que es produeixi una col·lisió entre un temps $t$ i un temps $t+\mathrm{d}t$, ve determinada per (vegeu \cite{ref3})
 \begin{equation}
 	\rho(t) = \nu \mathrm{e}^{-\nu t}.
@@ -323,6 +325,24 @@ Així doncs, l'algoritme que usarem per incorporar el termostat d'Andersen a la 
 
 \textbf{IMPORTANT DISCUTIR PER QUÈ LA IMPLEMENTACIÓ DEL TERMOSTAT D'ANDERSEN HA DE SER DESPRÉS DE SIMULAR EL MOVIMENT DE LES PARTÍCULES PERÒ ABANS DE CONSIDERAR LES COL·LISIONS.}
 
+\subsection{Anàlisi de la distribució d'energies}
+Un cop tenim implementat el termostat d'Andersen, convé estudiar quina és la distribució d'energies obtinguda i comparar-la amb l'esperada teòricament per saber així si tot plegat ha funcionat. La distribució teòrica d'energies $\rho(E)$ es pot deduir a partir de la distribució de velocitats de Maxwell-Boltzmann tot considerant que
+\begin{equation}
+	E = \frac{1}{2}mv^2,
+\end{equation}
+i que, com que $\rho(E)\mathrm{d}E = \rho(v)\mathrm{d}v$, tenim
+\begin{equation}
+	\rho(E) = \abs{\frac{\mathrm{d}v}{\mathrm{d}E}}\rho(v).
+\end{equation}
+A partir de $v = \sqrt{\frac{2E}{m}}$, obtenim que el Jacobià d'aquesta transformació és
+\begin{equation}
+	\abs{\frac{\mathrm{d}v}{\mathrm{d}E}} = \sqrt{\frac{1}{2mE}},
+\end{equation}
+de manera que, substituint a \eqref{eq:1.2}, trobem
+\begin{equation}
+	\rho(E) = \frac{2}{\sqrt{\pi}}\frac{1}{(k_B T)^{3/2}}\sqrt{E}e^{-\frac{E}{k_BT}}
+\end{equation}
+que serà la distribució d'energies teòriques. Així doncs, de forma similar al que hem vist a la secció anterior, buscarem determinar si la distribució d'energies simulada es correspon amb la predita teòricament.
 \section{Addició d'un potencial gravitatori} 
 
 

@@ -1,8 +1,11 @@
 from vpython import *
+import numpy as np
+import math
+import random
 
 win = 500
 
-Natoms = 10  # Nombre d'àtoms ajustat a 500.
+Natoms = 200  # Nombre d'àtoms ajustat a 500.
 
 # Paràmetres de la simulació (tots els valors estan en SI).
 L = 1 # Aresta de la caixa cúbica.
@@ -46,15 +49,15 @@ pavg = sqrt(2*mass*1.5*k*T) # Moment lineal associat a l'energia cinètica mitja
     
 # Aquest bucle serveix per crear els diferents àtoms de la simulació, tot donant-lis una POSICIÓ inicial, una DIRECCIÓ en la que es mouran (en coordenades esfèriques) i el MOMENT inicial (que será el mateix per tots i es correspondrà amb pavg).
 for i in range(Natoms):
-    x = L*random()-L/2
-    y = L*random()-L/2
-    z = L*random()-L/2
+    x = L*random.random()-L/2
+    y = L*random.random()-L/2
+    z = L*random.random()-L/2
     if i == 0:
         Atoms.append(sphere(pos=vector(x,y,z), radius=Ratom, color=color.cyan, make_trail=True, retain=100, trail_radius=0.3*Ratom)) #Al primer de tots els àtoms generats li posem una estela blava per poder seguir la seva posició (als altres no).
     else: Atoms.append(sphere(pos=vector(x,y,z), radius=Ratom, color=gray))
     apos.append(vec(x,y,z)) #Introduim les posicions donades a cada àtom (de forma aleatòria) a la llista de posicions [r_0, ..., r_N].
-    theta = pi*random() #Donem un vector director aletaori a cada àtom (en funció dels angles theta i phi de les coordenades esfèriques).
-    phi = 2*pi*random()
+    theta = pi*random.random() #Donem un vector director aletaori a cada àtom (en funció dels angles theta i phi de les coordenades esfèriques).
+    phi = 2*pi*random.random()
     px = pavg*sin(theta)*cos(phi) #A partir del vector director, donem les diferents components del vector moment lineal (tenint present que el seu módul és pavg).
     py = pavg*sin(theta)*sin(phi)
     pz = pavg*cos(theta)
@@ -107,6 +110,16 @@ nhisto = 0 # Nombre de cops que hem fet un histograma.
 nu = 0.04 # Freqüència de col·lisió amb les partícules fictícies associades al bany tèrmic. És una mesura de l'acoblament entre el bany i el sistema.
 prob = nu * dt # Probabilitat de que una partícula sigui seleccionada per interaccionar amb el bany tèrmic.
 
+# Transformació de Box-Muller per generar una distribució normal (\mu = 0, \sigma = 1) a partir d'una distribució uniforme entre 0 i 1.
+
+def box_muller():
+    u1 = random.random()
+    u2 = random.random()
+    r = math.sqrt(-2 * math.log(u1))
+    theta = 2 * math.pi * u2
+    return r * math.cos(theta), r * math.sin(theta)
+
+
 # BUCLE PRINCIPAL DE LA SIMULACIÓ.
 while True:
     rate(300) # Fem que s'executi 300 cops per segon. Cada iteració farà el següent.
@@ -123,20 +136,33 @@ while True:
     # --------------------------------------
     # IMPLEMENTACIÓ DEL TERMOSTAT D'ANDERSEN
     # --------------------------------------
+        
 
+    for i in range(Natoms):
 
-    for i in range (Natoms):
-        if random() < nu * dt:
-            theta = pi*random()
-            phi = 2*pi*random()
+        # Primer hem de seleccionar els àtoms que interaccionen amb el bany.
+        if random.random() < prob: #Això garanteix que se seleccionin els àtoms amb probabilitat p.
 
-            p_mag = sqrt(2*mass*1.5*k*T)
+            #Guardem la velocitat antiga per l'historial.
+            v_old = (p[i]/mass).mag 
 
-            p[i] = vector(
-                p_mag*sin(theta)*cos(phi),
-                p_mag*sin(theta)*sin(phi),
-                p_mag*cos(theta)
-            )
+            # Apliquem una transformació de Box-Muller per generar 3 distribucions Gaussianes, una per cada component de la velocitat.
+            z1, z2 = box_muller()
+            z3, _  = box_muller()
+
+            # Escalem les distribucions tenint en compte la desviació estàndard de la distribució de Maxwell-Boltzmann.
+            sigma = math.sqrt(k*T/mass)
+
+            # Generem les noves velocitats i el nou moment lineal de l'àtom seleccionat.
+            vx = sigma * z1
+            vy = sigma * z2
+            vz = sigma * z3
+
+            p[i] = vector(mass*vx, mass*vy, mass*vz)
+
+            # Actualitzem l'histograma.
+            v_new = math.sqrt(vx**2 + vy**2 + vz**2)
+            interchange(v_old, v_new)
 
 
 
@@ -195,5 +221,4 @@ while True:
         if abs(loc.z) > L/2:
             if loc.z < 0: p[i].z =  abs(p[i].z)
             else: p[i].z =  -abs(p[i].z)
-    print(Atoms)
-    
+
