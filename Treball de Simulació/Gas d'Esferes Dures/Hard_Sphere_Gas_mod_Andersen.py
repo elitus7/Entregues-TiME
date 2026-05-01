@@ -195,5 +195,5 @@ while True:
         if abs(loc.z) > L/2:
             if loc.z < 0: p[i].z =  abs(p[i].z)
             else: p[i].z =  -abs(p[i].z)
-    print(Atoms)
+
     

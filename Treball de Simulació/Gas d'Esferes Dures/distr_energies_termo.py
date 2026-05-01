@@ -43,7 +43,7 @@ vert4.append([vector(d,-d,-d), vector(d,d,-d)])
 Atoms = []
 p = [] 
 apos = [] 
-pavg = sqrt(2*mass*1.5*k*T) 
+pavg = sqrt(2*mass*1.5*k*T) # Energia cinètica promig: p**2/(2mass) = (3/2)kT.
 
 for i in range(Natoms):
     x = L*random.random()-L/2
@@ -62,27 +62,31 @@ for i in range(Natoms):
     p.append(vector(px,py,pz)) 
 
 # ---------------------------------------------------------
-# IMPLEMENTACIÓN DEL HISTOGRAMA Y LA DISTRIBUCIÓN DE ENERGÍA
+# HISTOGRAMA / DISTRIBUCIÓ D'ENERGIES.
 # ---------------------------------------------------------
-deltaE = (k*T) / 5  # Salt de energías a l'histograma
-Emax = 6.0 * k * T     # Límite máximo de energía a mostrar en la gráfica
+deltaE = (k*T) / 5 # Binning per l'histograma d'energies.
+Emax = 6.0 * k * T # Límit màxim d'energies que es mostra a la gràfica.
 
 def barE(E):
-    return int(E/deltaE) # Funció que transforma una energía en un índex de l'histograma.
+    return int(E/deltaE) # Funció que transforma una energía en un índex de l'histograma (similarment al que feia el codi original amb les velocitats).
 
 n_bins = int(Emax/deltaE)
 histo = []
 for i in range(n_bins):
     histo.append(0.0)
 
-# Introducimos la energía promedio inicial en el histograma
-Eavg_inicial = pavg**2 / (2*mass)
+Eavg_inicial = pavg**2 / (2*mass) # Introduim l'energia inicial (promig), a partir de pavg.
+
 if barE(Eavg_inicial) < n_bins:
     histo[barE(Eavg_inicial)] = Natoms
 
-gg = graph(width=win, height=0.4*win, xmax=Emax, align='left', 
-           xtitle='Energia (J)', ytitle='N')
+gg = graph(width=win, height=0.4*win, xmax=Emax/1.6E-19, align='left', 
+           xtitle='Energia (eV)', ytitle='N')
 theory = gcurve(color=color.blue, width=2)
+
+
+Etot_curve = gcurve(color=color.green)
+t_sim = 0.0
 
 # Predicció teòrica associada a la distribució de Maxwell Boltzmann per a Energies.
 dE_step = Emax / 300.0
@@ -92,16 +96,29 @@ for i in range(301):
     # Fórmula teórica: f(E) = (2/sqrt(pi)) * (1/kT)^(3/2) * sqrt(E) * exp(-E/kT)
     f_E = (2.0/sqrt(pi)) * ((1.0/(k*T))**1.5) * sqrt(E_val) * exp(-E_val/(k*T))
     # Escalamos a número de partículas y tamaño de bin
-    theory.plot(E_val, Natoms * deltaE * f_E)
+    theory.plot(E_val/1.6E-19, Natoms * deltaE * f_E)
 
 accum = []
 for i in range(n_bins):
-    accum.append([deltaE*(i+0.5), 0])
+    accum.append([(deltaE*(i+0.5))/1.6E-19, 0])
 
-Edist = gvbars(color=color.red, delta=deltaE)
+# Gràfica de l'energia total (en eV) en funció del temps.
+energy_graph = graph(width=win, height=0.4*win, align='left', 
+                     xtitle='Passos de temps', ytitle='Energia total (eV)', ymin = 17.0, ymax = 24.0)
+energy_curve = gcurve(color=color.green,width=2, graph=energy_graph)
 
-def interchange(E1, E2):
-    # Funció que actualitza l'histograma quan una partícula canvia d'energía
+# --- AÑADIDO: GRÁFICA DE FLUCTUACIONES RELATIVAS ---
+fluct_graph = graph(width=win, height=0.4*win, align='left', 
+                     xtitle='Passos de temps', ytitle='Fluctuacions rel. (%)')
+fluct_curve = gcurve(color=color.orange, width=2, graph=fluct_graph)
+
+# Calculamos la energía total esperada teórica
+E_tot_esperada = Natoms * 1.5 * k * T
+# ---------------------------------------------------
+
+Edist = gvbars(color=color.red, delta=deltaE/1.6E-19, graph = gg)
+
+def interchange(E1, E2): # Funció que actualitza l'histograma quan una partícula canvia d'energia.
     barE1 = barE(E1)
     barE2 = barE(E2)
     if barE1 == barE2: return
@@ -109,7 +126,6 @@ def interchange(E1, E2):
         histo[barE1] -= 1
     if barE2 < len(histo):
         histo[barE2] += 1
-# ---------------------------------------------------------
 
 def checkCollisions():
     hitlist = []
@@ -124,10 +140,12 @@ def checkCollisions():
                 hitlist.append([i,j])
     return hitlist
 
-n_samples = 0 # Nombre de cops que hem fet un histograma (Renombrado para no pisar variables)
-nu = 0.04 
+n_samples = 0 
+t = 0 - dt #Inicialitzem la variable temporal.
+nu = 5000 # Freqüència de col·lisió amb les partícules fictícies associades al bany tèrmic (és una mesura de l'acoblament amb el bany).
 prob = nu * dt 
 
+# Funció que genera una distribució gaussiana a partir d'una uniforme.
 def box_muller():
     u1 = random.random()
     u2 = random.random()
@@ -139,6 +157,8 @@ def box_muller():
 while True:
     rate(300) 
 
+    t += dt # Avancem en el temps.
+
     # 1) Actualitzem l'histograma.
     for i in range(len(accum)):
         accum[i][1] = (n_samples*accum[i][1] + histo[i])/(n_samples+1)
@@ -146,7 +166,16 @@ while True:
         Edist.data = accum
     n_samples += 1
 
-    # 2) Movimiento.
+    E_total_julios = sum(mag2(p_i) / (2 * mass) for p_i in p)
+    E_total_eV = E_total_julios / 1.6E-19
+    energy_curve.plot(t/dt, E_total_eV)
+
+    # --- AÑADIDO: PLOT DE LA FLUCTUACIÓN ---
+    fluctuacio_percentatge = ((E_total_julios - E_tot_esperada) / E_tot_esperada) * 100
+    fluct_curve.plot(t/dt, fluctuacio_percentatge)
+    # ---------------------------------------
+
+    # 2) Moviment de les partícules.
     for i in range(Natoms):
         Atoms[i].pos = apos[i] = apos[i] + (p[i]/mass)*dt
 
@@ -171,11 +200,11 @@ while True:
             # Actualitzem l'histograma amb l'energía nova.
             E_new = p[i].mag2 / (2*mass)
             interchange(E_old, E_new)
-
+    
     # 3) Busquem quins àtoms han xocat.
     hitlist = checkCollisions()
 
-    # 4) Col·lisions.
+    # 4) Si dos àtoms col·lisionen, acualitzem els seus moments.
     for ij in hitlist:
         i = ij[0]
         j = ij[1]
@@ -187,11 +216,10 @@ while True:
         vrel = vj-vi
         a = vrel.mag2
         if a == 0: continue; 
-        
         rrel = posi-posj
         if rrel.mag > Ratom: continue 
 
-        # Guardamos las energías iniciales antes de actualizar los momentos
+        # Guardem les energies inicials abans d'actualitzar moments.
         E_old_i = p[i].mag2 / (2*mass)
         E_old_j = p[j].mag2 / (2*mass)
 
@@ -215,7 +243,7 @@ while True:
         apos[i] = posi+(p[i]/mass)*deltat 
         apos[j] = posj+(p[j]/mass)*deltat 
 
-        # Calculamos y actualizamos usando las nuevas energías
+        # Calculem les noves energies i actualitzem l'histograma.
         E_new_i = p[i].mag2 / (2*mass)
         E_new_j = p[j].mag2 / (2*mass)
         interchange(E_old_i, E_new_i)

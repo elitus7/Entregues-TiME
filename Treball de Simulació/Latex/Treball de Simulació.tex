@@ -7,6 +7,7 @@
 \usepackage[catalan]{babel}
 \usepackage{booktabs}
 \usepackage{gensymb}
+\usepackage{graphicx}
 \usepackage[nottoc]{tocbibind}
 \usepackage{listings}
 \lstdefinestyle{mystyle}{
@@ -166,7 +167,7 @@ La distribució de velocitats que s'obté en usar el radi real $r_0 = r_{real}$ 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\linewidth]{dis_vels_r_real}
-	\caption{Distribució de velocitats per $r_0 = r_{real}$ després de 5 minuts de simulació.}
+	\caption{Distribució de velocitats per $r_0 = r_{real}$ després de 5 minuts de simulació. La corba blava representa la predicció teòrica.}
 	\label{fig:1.1}
 \end{figure}
 
@@ -175,7 +176,7 @@ Si ara treballem amb un radi atòmic molt més gran, per exemple, de $r_0 = 1,5$
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\linewidth]{dis_vels_r_1.5}
-	\caption{Distribució de velocitats per $r_0 = 1,5$ m després de 5 minuts de simulació.}
+	\caption{Distribució de velocitats per $r_0 = 1,5$ m després de 5 minuts de simulació. La corba blava representa la predicció teòrica.}
 	\label{fig:1.2}
 \end{figure}
 
@@ -184,7 +185,7 @@ Si ara treballem amb $r_0 = 0,1$ m, obtenim els resultats de la figura \ref{fig:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\linewidth]{dis_vels_r_0.1}
-	\caption{Distribució de velocitats per $r_0 = 0,1$ m després de 5 minuts de simulació.}
+	\caption{Distribució de velocitats per $r_0 = 0,1$ m després de 5 minuts de simulació. La corba blava representa la predicció teòrica.}
 	\label{fig:1.3}
 \end{figure}
 
@@ -193,7 +194,7 @@ Si escollim $r_0 = 0,01$ m, s'obtenen els resultats de la \ref{fig:1.4}. Podem v
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\linewidth]{dis_vels_r_0.01}
-	\caption{Distribució de velocitats per $r_0 = 0,01$ m després de 5 minuts de simulació.}
+	\caption{Distribució de velocitats per $r_0 = 0,01$ m després de 5 minuts de simulació. La corba blava representa la predicció teòrica.}
 	\label{fig:1.4}
 \end{figure}
 
@@ -214,7 +215,7 @@ Si escollim $r_0 = 0,03$ m, s'obtenen els resultats de la figura \ref{fig:1.5}. 
 		\caption{Després de 20 minuts de simulació.}
 		\label{fig:1.5b}
 	\end{subfigure}
-	\caption{Distribució de velocitats per $r_0 = 0,03$ m.}
+	\caption{Distribució de velocitats per $r_0 = 0,03$ m. La corba blava representa la predicció teòrica.}
 	\label{fig:1.5}
 \end{figure}
 
@@ -234,7 +235,7 @@ Finalment, si escollim $r_0 = 0,04$ m, obtenim els resultats de la figura \ref{f
 		\caption{Després de 20 minuts de simulació.}
 		\label{fig:1.6b}
 	\end{subfigure}
-	\caption{Distribució de velocitats per $r_0 = 0,04$ m.}
+	\caption{Distribució de velocitats per $r_0 = 0,04$ m. La corba blava representa la predicció teòrica.}
 	\label{fig:1.6}
 \end{figure}
 
@@ -273,7 +274,7 @@ Així doncs, atenint-nos als resultats obtinguts que prèviament hem discutit, d
 en tant i en quan aquest presenta un equilibri òptim entre temps de simulació baixos i compatibilitat amb la predicció teòrica, determinada per la distribució de Maxwell-Boltzmann (vegeu l'equació \eqref{eq:1.2}).
 
 \section{Col·lectivitat canònica i anàlisi de la distribució d'energies}
-Per tal de mantenir la temperatura fixada en tot moment i, en conseqüència, treballar en la col·lectivitat NVT (canònica), cal implementar un termostat. Els termostats ens permeten regular la temperatura del sistema modelitzat reproduint la interacció d'aquest amb un bany tèrmic. Existeixen diferents tipus de termostats, però en el nostre cas ens ocuparem d'implementar el \textit{termostat d'Andersen}.
+Per tal de mantenir la temperatura fixada en tot moment i, en conseqüència, treballar en la col·lectivitat NVT (canònica), cal implementar un termostat. Els termostats ens permeten regular la temperatura del sistema modelitzat reproduint la interacció d'aquest amb un bany tèrmic. Aquest bany s'ocuparà de donar o extreure energia al sistema per tal de mantenir la temperatura constant, de manera que apareixeran unes certes fluctuacions en l'energia total que abans no teníem. Existeixen diferents tipus de termostats, però en el nostre cas ens ocuparem d'implementar el \textit{termostat d'Andersen}.
 
 En el termostat d'Andersen\cite{ref2} es simula la interacció d'un sistema amb un bany tèrmic a partir de les col·lisions aleatòries amb partícules fictícies que modificaran la velocitat dels elements del nostre sistema (en el cas que ens ocupa, dels àtoms del gas d'He). Per tal d'aconseguir-ho, en cada pas de la simulació, com ja s'ha comentat a la introducció d'aquesta part, seleccionarem una partícula del gas amb una determinada probabilitat $p$ i reassignarem la seva velocitat d'acord amb la distribució de Maxwell-Boltzmann per una determinada temperatura objectiu. Abans, però, cal seleccionar com de gran és l'acoblament entre el nostre sistema i el bany tèrmic. Això vindrà determinat per la freqüència $\nu$ de les col·lisions amb les partícules fictícies abans esmentades. Grans acoblaments implicaran interaccions importants amb les partícules fictícies i petits acoblaments implicaran interaccions poc importants amb aquestes.
 
@@ -325,8 +326,8 @@ Així doncs, l'algoritme que usarem per incorporar el termostat d'Andersen a la 
 
 \textbf{IMPORTANT DISCUTIR PER QUÈ LA IMPLEMENTACIÓ DEL TERMOSTAT D'ANDERSEN HA DE SER DESPRÉS DE SIMULAR EL MOVIMENT DE LES PARTÍCULES PERÒ ABANS DE CONSIDERAR LES COL·LISIONS.}
 
-\subsection{Anàlisi de la distribució d'energies}
-Un cop tenim implementat el termostat d'Andersen, convé estudiar quina és la distribució d'energies obtinguda i comparar-la amb l'esperada teòricament per saber així si tot plegat ha funcionat. La distribució teòrica d'energies $\rho(E)$ es pot deduir a partir de la distribució de velocitats de Maxwell-Boltzmann tot considerant que
+\subsection{Distribució d'energies i comparació entre col·lectivitats}
+Un cop tenim implementat el termostat d'Andersen, convé estudiar quina és la distribució d'energies obtinguda i comparar-la amb l'esperada teòricament per saber així si hem procedit adequadament. La distribució teòrica d'energies $\rho(E)$ es pot deduir a partir de la distribució de velocitats de Maxwell-Boltzmann tot considerant que
 \begin{equation}
 	E = \frac{1}{2}mv^2,
 \end{equation}
@@ -343,6 +344,92 @@ de manera que, substituint a \eqref{eq:1.2}, trobem
 	\rho(E) = \frac{2}{\sqrt{\pi}}\frac{1}{(k_B T)^{3/2}}\sqrt{E}e^{-\frac{E}{k_BT}}
 \end{equation}
 que serà la distribució d'energies teòriques. Així doncs, de forma similar al que hem vist a la secció anterior, buscarem determinar si la distribució d'energies simulada es correspon amb la predita teòricament.
+
+Per altra banda, per veure si hem passat de la col·lectivitat NVE (microcanònica) a la col·lectivitat NVT (canònica), és interessant veure quin és el comportament de l'energia total del sistema en funció del temps. Els resultats que hem d'esperar, en cada cas, són els següents:
+\begin{itemize}
+	\item \textbf{Col·lectivitat NVE.} Com que l'energia total del sistema està fixada, hauríem de veure com la corba $E(t)$ és constant, de manera que l'energia del sistema és la mateixa $\forall t$.
+	\item \textbf{Col·lectivitat NVT.} Tal i com vàrem estudiar, en la col·lectivitat canònica l'energia ja no està fixada (per contrapartida $T$ sí que ho està), de manera que s'introdueixen un seguit de fluctuacions energètiques. Per veure si els nostres resultats experimentals s'adeqüen, efectivament, a la col·lectivitat canònica, és interessant estudiar com són aquestes fluctuacions. 
+	
+	Recordem que \textbf{POSAR ANNEX O CITAR DE TEORIA} les fluctuacions relatives venen donades per
+	\begin{equation}
+		\frac{\sigma_E}{\langle E \rangle} = \frac{\sqrt{\langle E^2 \rangle - \langle E \rangle^2}}{\langle E \rangle} = \frac{\sqrt{k_BT^2 C_V}}{\langle E \rangle},
+	\end{equation}
+	i, com que tant $\langle E \rangle$ com $C_V$ són proporcionals al nombre de partícules $N$, podem fer l'estimació
+	\begin{equation}
+		\frac{\sigma_E}{\langle E \rangle} \sim \frac{\sqrt{N}}{N} = \frac{1}{\sqrt{N}},
+	\end{equation}
+	de manera que, en el límit termodinàmic $N \rightarrow \infty$, hauríem d'observar com les fluctuacions relatives tendeixen a zero.
+\end{itemize}
+
+\subsection{Discussió dels resultats}
+Tot seguit mostrem i discutim quins han estat els principals resutlats de les simulacions del sistema del gas d'esferes dures sota col·lectivitat NVE (sense el termostat d'Andersen) i NVT (amb el termostat d'Andersen). Ens centrem en l'estudi de la distribució d'energies, l'energia total en funció del temps i les fluctuacions de l'energia total. Com que les energies són petites\footnote{Les simulacions són, aproximadament, a temperatura ambient, de manera que $k_BT \approx 4,1 \cross 10^{-21}$.} convé treballar en l'escala dels eV (1 eV $= 1,602\cross 10^{-19}$); cada pas de temps de la simulació equival a $\mathrm{d}t = 10^{-5}$ s. 
+
+Abans d'implementar el termostat d'Andersen es va simular el sistema sota col·lectivitat NVE per veure que l'energia en funció del era, efectivament, constant (vegeu la figura \ref{fig:1.8}).
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.44\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{notermo_distr_ener}
+		\caption{Distribució d'energies.}
+		\label{fig:1.8a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{notermo_E_t}
+		\caption{Energia total en funció del temps.}
+		\label{fig:1.8b}
+	\end{subfigure}
+	\caption{Distribució d'energies i $E(t)$ pel gas d'esferes dures sense el termostat d'Andersen (col·lectivitat NVE) després de $\approx 5300$ passos de temps. La corba blava representa la predicció teòrica, en el cas de la distribució d'energies.}
+	\label{fig:1.8}
+\end{figure}
+
+Efectivament veiem com, per una banda, la distribució d'energies es correspon amb l'esperada teòricament. Això és una conseqüència lògica dels resultats de l'anterior secció. Ja hem vist que amb el radi $r_0$ seleccionat la distribució de velocitats s'adaptava (després d'un cert temps de simulació) a la de Maxwell-Boltzmann i, com que ara només hem fet una transformació matemàtica (canvi de variable) de la darrera distribució per representar energies en comptes de velocitats, és natural pensar que els resultats seran els mateixos.
+
+Per altra banda, podem observar com, tal i com era d'esperar, l'energia total del sistema roman constant per tot $t$, fet indicatiu de que estem treballant amb la col·lectivitat microcanònica.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{termo_distr_ener}
+		\caption{Distribució d'energies.}
+		\label{fig:1.9a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{termo_E_t}
+		\caption{Energia total en funció del temps.}
+		\label{fig:1.9b}
+	\end{subfigure}
+	\caption{Distribució d'energies i $E(t)$ pel gas d'esferes dures amb el termostat d'Andersen (col·lectivitat NVT) després de $\approx 1900$ passos de temps. La corba blava representa la predicció teòrica, en el cas de la distribució d'energies.}
+	\label{fig:1.9}
+\end{figure}
+
+
+
+
+
+Els resultats experimentals obtinguts després de fer la implementació del termostat d'Andersen han estat els següents. Podem veure com la distribució d'energies (vegeu figura \ref{fig:1.9a}) segueix obeint l'estadística de Maxwell-Boltzmann un cop s'assoleix l'equilibri tèrmic, com era d'esperar. Això en cap moment canviarà, ja que la única funció del termostat és actualitzar les velocitats de les partícules que interaccionen amb el bany tèrmic de manera que adquireixin una velocitat escollida aleatòriament segons la distribució de Maxwell-Boltzmann. 
+
+Pel que fa a l'energia total, podem veure clarament (vegeu figura \ref{fig:1.9b}) com s'introdueixen un seguit de fluctuacions respecte al valor inicial. Això és degut a que, com ja s'ha discutit prèviament, per tal de garantir que en tot moment treballem a $T$ constant, el bany tèrmic introdueix o extreu energia del sistema (en el nostre cas, a través de les partícules fictícies). Les fluctuacions esmentades es poden veure a la FIGURA
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\linewidth]{termo_flucs_N500}
+	\caption{Fluctuacions relatives per $N = 500$.}
+	\label{fig:1.10}
+\end{figure}
+
+\textcolor{red}{\textbf{Coses a posar:}}
+\begin{itemize}
+	\item \textcolor{red}{\textbf{Discutir si les fluctuacions relatives estan bé (si estan bé tot okai, sinó cagada astronòmica).}}
+	\item \textcolor{red}{\textbf{Analitzar si en fer el límit TMD se satisfà que la variància se va a tomar por culo (hauria de ser així i es guay perquè demsotra que està bé).}}
+	\item \textcolor{red}{\textbf{Discutir com, en afegir el termostat d'Andersen, es convergeix més ràpidament a l'estadística de Boltzmann.}}
+\end{itemize}
+
 \section{Addició d'un potencial gravitatori} 
 
 
@@ -434,6 +521,8 @@ No sé tampoc on se'm donen aquests valors al programa wtf.
 \begin{thebibliography}{99}
 \bibitem{ref1}
 \textit{Col·lecció de problemes de l'assignatura Termodinàmica i Mecànica Estadística}.
+\bibitem{ref4}
+\textit{Apunts de l'assignatura Termodinàmica i Mecànica Estadística}.
 \bibitem{ref2}
 Arcila Pérez, J. \textit{Revisión bibliográfica sobre dinámica molecular. Modelización, algoritmos y aplicaciones}. Universidad de Granada.
 \bibitem{ref3}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  29 APR 2026 21:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  1 MAY 2026 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -86,6 +86,31 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/gensymb\gensymb.sty
 Package: gensymb 2022/10/17 v1.0.2 (KJH)
 )
+(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen159
+\Gin@req@width=\dimen160
+)
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/tocbibind\tocbibind.sty
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
 Package tocbibind Info: The document has chapter divisions on input line 50.
@@ -93,23 +118,18 @@ Package tocbibind Info: The document has chapter divisions on input line 50.
 Package tocbibind Note: Using chapter style headings, unless overridden.
 
 ) (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks17
-)
 \lst@mode=\count280
 \lst@gtempboxa=\box52
 \lst@token=\toks18
 \lst@length=\count281
-\lst@currlwidth=\dimen159
+\lst@currlwidth=\dimen161
 \lst@column=\count282
 \lst@pos=\count283
-\lst@lostspace=\dimen160
-\lst@width=\dimen161
+\lst@lostspace=\dimen162
+\lst@width=\dimen163
 \lst@newlines=\count284
 \lst@lineno=\count285
-\lst@maxwidth=\dimen162
-
+\lst@maxwidth=\dimen164
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
 File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 )
@@ -137,8 +157,8 @@ y
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -common.tex
 \pgfutil@everybye=\toks19
-\pgfutil@tempdima=\dimen163
-\pgfutil@tempdimb=\dimen164
+\pgfutil@tempdima=\dimen165
+\pgfutil@tempdimb=\dimen166
 )
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -latex.def
@@ -153,27 +173,6 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
 
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
 sty
-(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
-(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
-
-(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-)
-(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
-fg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 106.
-
-(C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen165
-\Gin@req@width=\dimen166
-)
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
 sty
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
@@ -956,53 +955,52 @@ LaTeX Warning: Unused global option(s):
 (Treball de Simulació.aux)
 \openout1 = `"Treball de Simulació.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Info: Redefining \l on input line 73.
-LaTeX Info: Redefining \L on input line 73.
-LaTeX Info: Redefining \celsius on input line 73.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 73.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Info: Redefining \l on input line 74.
+LaTeX Info: Redefining \L on input line 74.
+LaTeX Info: Redefining \celsius on input line 74.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 74.
 
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 73.
-Package gensymb Info: Using \Omega for \ohm on input line 73.
+LaTeX Info: Redefining \ohm on input line 74.
+Package gensymb Info: Using \Omega for \ohm on input line 74.
 
 Package gensymb Warning: Not defining \micro.
 
-\c@lstlisting=\count368
 
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count369
+\scratchcounter=\count368
 \scratchdimen=\dimen329
 \scratchbox=\box97
-\nofMPsegments=\count370
-\nofMParguments=\count371
+\nofMPsegments=\count369
+\nofMParguments=\count370
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count372
+\MPscratchCnt=\count371
 \MPscratchDim=\dimen330
-\MPnumerator=\count373
-\makeMPintoPDFobject=\count374
+\MPnumerator=\count372
+\makeMPintoPDFobject=\count373
 \everyMPtoPDFconversion=\toks48
 )
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -1015,6 +1013,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
+\c@lstlisting=\count374
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1078,17 +1077,17 @@ nslations-basic-dictionary')
 )
 
 Package translations Warning: file `translations-basic-dictionary-catalan.trsl'
- does not appear to be a dictionary on input line 73.
+ does not appear to be a dictionary on input line 74.
 
-Package hyperref Info: Link coloring OFF on input line 73.
+Package hyperref Info: Link coloring OFF on input line 74.
 (Treball de Simulació.out) (Treball de Simulació.out)
 \@outlinefile=\write4
 \openout4 = `"Treball de Simulació.out"'.
 
-<logo_uab.png, id=78, 1505.625pt x 565.36218pt>
+<logo_uab.png, id=82, 1505.625pt x 565.36218pt>
 File: logo_uab.png Graphic file (type png)
 <use logo_uab.png>
-Package pdftex.def Info: logo_uab.png  used on input line 91.
+Package pdftex.def Info: logo_uab.png  used on input line 92.
 (pdftex.def)             Requested size: 145.96417pt x 54.80556pt.
 
 
@@ -1115,10 +1114,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Cap\'{\i }tol 1.
-<screenshot001.png, id=117, 1129.21875pt x 790.45313pt>
+<screenshot001.png, id=122, 1129.21875pt x 790.45313pt>
 File: screenshot001.png Graphic file (type png)
 <use screenshot001.png>
-Package pdftex.def Info: screenshot001.png  used on input line 137.
+Package pdftex.def Info: screenshot001.png  used on input line 138.
 (pdftex.def)             Requested size: 243.27116pt x 170.28181pt.
 
 
@@ -1127,19 +1126,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.145 \end{equation}
+l.146 \end{equation}
                      [1
 
  <./screenshot001.png>]
-<dis_vels_r_real.png, id=136, 770.88pt x 300.3722pt>
+<dis_vels_r_real.png, id=141, 770.88pt x 300.3722pt>
 File: dis_vels_r_real.png Graphic file (type png)
 <use dis_vels_r_real.png>
-Package pdftex.def Info: dis_vels_r_real.png  used on input line 168.
+Package pdftex.def Info: dis_vels_r_real.png  used on input line 169.
 (pdftex.def)             Requested size: 194.61395pt x 75.83076pt.
-<dis_vels_r_1.5.png, id=138, 770.88pt x 300.3722pt>
+<dis_vels_r_1.5.png, id=143, 770.88pt x 300.3722pt>
 File: dis_vels_r_1.5.png Graphic file (type png)
 <use dis_vels_r_1.5.png>
-Package pdftex.def Info: dis_vels_r_1.5.png  used on input line 177.
+Package pdftex.def Info: dis_vels_r_1.5.png  used on input line 178.
 (pdftex.def)             Requested size: 194.61395pt x 75.83076pt.
 
 
@@ -1148,83 +1147,120 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 [2 <./dis_vels_r_real.png>]
-<dis_vels_r_0.1.png, id=153, 770.88pt x 307.1475pt>
+<dis_vels_r_0.1.png, id=158, 770.88pt x 307.1475pt>
 File: dis_vels_r_0.1.png Graphic file (type png)
 <use dis_vels_r_0.1.png>
-Package pdftex.def Info: dis_vels_r_0.1.png  used on input line 186.
+Package pdftex.def Info: dis_vels_r_0.1.png  used on input line 187.
 (pdftex.def)             Requested size: 194.61395pt x 77.54123pt.
-<dis_vels_r_0.01.png, id=155, 770.88pt x 307.90031pt>
+<dis_vels_r_0.01.png, id=160, 770.88pt x 307.90031pt>
 File: dis_vels_r_0.01.png Graphic file (type png)
 <use dis_vels_r_0.01.png>
-Package pdftex.def Info: dis_vels_r_0.01.png  used on input line 195.
+Package pdftex.def Info: dis_vels_r_0.01.png  used on input line 196.
 (pdftex.def)             Requested size: 194.61395pt x 77.7313pt.
-<dis_vels_r_0.03.png, id=158, 770.88pt x 301.8778pt>
+<dis_vels_r_0.03.png, id=163, 770.88pt x 301.8778pt>
 File: dis_vels_r_0.03.png Graphic file (type png)
 <use dis_vels_r_0.03.png>
-Package pdftex.def Info: dis_vels_r_0.03.png  used on input line 206.
+Package pdftex.def Info: dis_vels_r_0.03.png  used on input line 207.
 (pdftex.def)             Requested size: 233.53824pt x 91.45305pt.
-<dis_vels_r_0.03_T=20min.png, id=159, 770.88pt x 301.8778pt>
+<dis_vels_r_0.03_T=20min.png, id=164, 770.88pt x 301.8778pt>
 File: dis_vels_r_0.03_T=20min.png Graphic file (type png)
 <use dis_vels_r_0.03_T=20min.png>
-Package pdftex.def Info: dis_vels_r_0.03_T=20min.png  used on input line 213.
+Package pdftex.def Info: dis_vels_r_0.03_T=20min.png  used on input line 214.
 (pdftex.def)             Requested size: 233.53824pt x 91.45305pt.
 
 
 [3 <./dis_vels_r_1.5.png> <./dis_vels_r_0.1.png> <./dis_vels_r_0.01.png> <./dis
 _vels_r_0.03.png> <./dis_vels_r_0.03_T=20min.png>]
-<dis_vels_r_0.04.png, id=175, 770.88pt x 300.3722pt>
+<dis_vels_r_0.04.png, id=179, 770.88pt x 300.3722pt>
 File: dis_vels_r_0.04.png Graphic file (type png)
 <use dis_vels_r_0.04.png>
-Package pdftex.def Info: dis_vels_r_0.04.png  used on input line 226.
+Package pdftex.def Info: dis_vels_r_0.04.png  used on input line 227.
 (pdftex.def)             Requested size: 233.53824pt x 90.99692pt.
-<dis_vels_r_0.04_T=20min.png, id=176, 770.88pt x 306.39468pt>
+<dis_vels_r_0.04_T=20min.png, id=180, 770.88pt x 306.39468pt>
 File: dis_vels_r_0.04_T=20min.png Graphic file (type png)
 <use dis_vels_r_0.04_T=20min.png>
-Package pdftex.def Info: dis_vels_r_0.04_T=20min.png  used on input line 233.
+Package pdftex.def Info: dis_vels_r_0.04_T=20min.png  used on input line 234.
 (pdftex.def)             Requested size: 233.53824pt x 92.82143pt.
 
 
 [4 <./dis_vels_r_0.04.png> <./dis_vels_r_0.04_T=20min.png>]
 LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 
-302.
-LaTeX Font Info:    No file OMScmss.fd. on input line 302.
+303.
+LaTeX Font Info:    No file OMScmss.fd. on input line 303.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 302.
+(Font)              for symbol `textbackslash' on input line 303.
 
 
 
 [5]
 
 [6]
+<notermo_distr_ener.png, id=243, 772.38562pt x 350.81062pt>
+File: notermo_distr_ener.png Graphic file (type png)
+<use notermo_distr_ener.png>
+Package pdftex.def Info: notermo_distr_ener.png  used on input line 373.
+(pdftex.def)             Requested size: 214.0798pt x 97.23065pt.
+<notermo_E_t.png, id=244, 674.52pt x 269.50688pt>
+File: notermo_E_t.png Graphic file (type png)
+<use notermo_E_t.png>
+Package pdftex.def Info: notermo_E_t.png  used on input line 380.
+(pdftex.def)             Requested size: 233.53824pt x 93.30894pt.
+<termo_distr_ener.png, id=245, 435.87843pt x 252.945pt>
+File: termo_distr_ener.png Graphic file (type png)
+<use termo_distr_ener.png>
+Package pdftex.def Info: termo_distr_ener.png  used on input line 396.
+(pdftex.def)             Requested size: 218.94255pt x 127.055pt.
+<termo_E_t.png, id=246, 429.10312pt x 254.45062pt>
+File: termo_E_t.png Graphic file (type png)
+<use termo_E_t.png>
+Package pdftex.def Info: termo_E_t.png  used on input line 403.
+(pdftex.def)             Requested size: 218.94255pt x 129.83022pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<termo_flucs_N500.png, id=249, 441.14813pt x 254.45062pt>
+File: termo_flucs_N500.png Graphic file (type png)
+<use termo_flucs_N500.png>
+Package pdftex.def Info: termo_flucs_N500.png  used on input line 421.
+(pdftex.def)             Requested size: 194.61395pt x 112.2498pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[7 <./notermo_distr_ener.png> <./notermo_E_t.png>]
+
+[8 <./termo_distr_ener.png> <./termo_E_t.png> <./termo_flucs_N500.png>]
 Cap\'{\i }tol 2.
-<4i.jpg, id=235, 1211.52625pt x 596.2275pt>
+<4i.jpg, id=271, 1211.52625pt x 596.2275pt>
 File: 4i.jpg Graphic file (type jpg)
 <use 4i.jpg>
-Package pdftex.def Info: 4i.jpg  used on input line 381.
+Package pdftex.def Info: 4i.jpg  used on input line 468.
 (pdftex.def)             Requested size: 291.92836pt x 143.66158pt.
-<4ii.jpg, id=236, 1208.515pt x 596.2275pt>
+<4ii.jpg, id=272, 1208.515pt x 596.2275pt>
 File: 4ii.jpg Graphic file (type jpg)
 <use 4ii.jpg>
-Package pdftex.def Info: 4ii.jpg  used on input line 388.
+Package pdftex.def Info: 4ii.jpg  used on input line 475.
 (pdftex.def)             Requested size: 291.92836pt x 144.02548pt.
-
-
-[7
-
- <./4i.jpg>]
-
-[8 <./4ii.jpg>]
-Cap\'{\i }tol 3.
 
 
 [9
 
+ <./4i.jpg>]
+
+[10 <./4ii.jpg>]
+Cap\'{\i }tol 3.
+
+
+[11
+
 ]
 
-[10
+[12
 
 ] (Treball de Simulació.aux)
  ***********
@@ -1237,53 +1273,56 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
 .
-(rerunfilecheck)             Checksum: E4DABD25BC6B6AACE6F2451DC0877E20;4345.
+(rerunfilecheck)             Checksum: F65F9583761C97C172F49588F2DDF08C;4647.
  ) 
 Here is how much of TeX's memory you used:
- 33679 strings out of 473682
- 681128 string characters out of 5719215
- 1031252 words of memory out of 5000000
- 56182 multiletter control sequences out of 15000+600000
- 571045 words of font info for 82 fonts, out of 8000000 for 9000
+ 33771 strings out of 473682
+ 682854 string characters out of 5719215
+ 1032670 words of memory out of 5000000
+ 56257 multiletter control sequences out of 15000+600000
+ 573235 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,14n,121p,1214b,1151s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,14n,107p,1214b,1134s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
 1000.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcbx1000.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\tcbx1440.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\tcrm1000.pk><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ericg/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ericg/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/ericg/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/User
-s/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8
-.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmmi10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmmi5.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmmi6.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ericg/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/ericg/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ericg/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ericg/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users
-/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C
-:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6
-.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmr8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmr9.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmss8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ericg/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/ericg/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ericg/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/er
-icg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:
-/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8
-.pfb>
-Output written on "Treball de Simulació.pdf" (12 pages, 1881615 bytes).
+0\tcbx1200.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\tcbx1000.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\tcbx1440.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/ericg/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/ericg/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:/Users/ericg/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eric
+g/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/U
+sers/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.p
+fb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmex10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cmextra/cmex8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ericg/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ericg/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ericg/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eri
+cg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/U
+sers/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.p
+fb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr17.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr5.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr6.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/ericg/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/ericg/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/ericg/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ericg/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/User
+s/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
+<C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmsy8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmti10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmti8.pfb>
+Output written on "Treball de Simulació.pdf" (14 pages, 3007307 bytes).
 PDF statistics:
- 403 PDF objects out of 1000 (max. 8388607)
- 73 named destinations out of 1000 (max. 500000)
- 217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 454 PDF objects out of 1000 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
+ 250 words of extra memory for PDF output out of 10000 (max. 10000000)
 
