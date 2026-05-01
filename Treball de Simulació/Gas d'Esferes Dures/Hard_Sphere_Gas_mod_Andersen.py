@@ -120,26 +120,6 @@ while True:
     # 2) Fem que totes les partícules es moguin segons r_i = r_i(inicial) + v_i * dt = r_i(inicial) + p_i/m * dt.
     for i in range(Natoms): Atoms[i].pos = apos[i] = apos[i] + (p[i]/mass)*dt
     
-    # --------------------------------------
-    # IMPLEMENTACIÓ DEL TERMOSTAT D'ANDERSEN
-    # --------------------------------------
-
-
-    for i in range (Natoms):
-        if random() < nu * dt:
-            theta = pi*random()
-            phi = 2*pi*random()
-
-            p_mag = sqrt(2*mass*1.5*k*T)
-
-            p[i] = vector(
-                p_mag*sin(theta)*cos(phi),
-                p_mag*sin(theta)*sin(phi),
-                p_mag*cos(theta)
-            )
-
-
-
     # 3) Busquem quins àtoms han xocat.
     hitlist = checkCollisions()
 
@@ -196,4 +176,21 @@ while True:
             if loc.z < 0: p[i].z =  abs(p[i].z)
             else: p[i].z =  -abs(p[i].z)
 
+    # --------------------------------------
+    # IMPLEMENTACIÓ DEL TERMOSTAT D'ANDERSEN
+    # --------------------------------------
+
+
+    for i in range (Natoms):
+        if random() < nu * dt:
+            theta = pi*random()
+            phi = 2*pi*random()
+
+            p_mag = sqrt(2*mass*1.5*k*T)
+
+            p[i] = vector(
+                p_mag*sin(theta)*cos(phi),
+                p_mag*sin(theta)*sin(phi),
+                p_mag*cos(theta)
+            )
     

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  1 MAY 2026 22:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  2 MAY 2026 01:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1208,16 +1208,16 @@ File: notermo_E_t.png Graphic file (type png)
 <use notermo_E_t.png>
 Package pdftex.def Info: notermo_E_t.png  used on input line 380.
 (pdftex.def)             Requested size: 233.53824pt x 93.30894pt.
-<termo_distr_ener.png, id=250, 435.87843pt x 252.945pt>
+<termo_distr_ener.png, id=250, 474.27188pt x 194.22563pt>
 File: termo_distr_ener.png Graphic file (type png)
 <use termo_distr_ener.png>
 Package pdftex.def Info: termo_distr_ener.png  used on input line 396.
-(pdftex.def)             Requested size: 218.94255pt x 127.055pt.
-<termo_E_t.png, id=251, 429.10312pt x 254.45062pt>
+(pdftex.def)             Requested size: 218.94255pt x 89.66197pt.
+<termo_E_t.png, id=251, 453.19313pt x 194.22563pt>
 File: termo_E_t.png Graphic file (type png)
 <use termo_E_t.png>
 Package pdftex.def Info: termo_E_t.png  used on input line 403.
-(pdftex.def)             Requested size: 218.94255pt x 129.83022pt.
+(pdftex.def)             Requested size: 214.0798pt x 91.74837pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1225,40 +1225,53 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 [7 <./notermo_distr_ener.png> <./notermo_E_t.png>]
-<termo_flucs_N500.png, id=267, 441.14813pt x 254.45062pt>
+<termo_flucs_N500.png, id=269, 473.51906pt x 191.9672pt>
 File: termo_flucs_N500.png Graphic file (type png)
 <use termo_flucs_N500.png>
-Package pdftex.def Info: termo_flucs_N500.png  used on input line 421.
-(pdftex.def)             Requested size: 194.61395pt x 112.2498pt.
+Package pdftex.def Info: termo_flucs_N500.png  used on input line 423.
+(pdftex.def)             Requested size: 194.61395pt x 78.89745pt.
+<termo_flucs_N100.png, id=270, 1417.54594pt x 572.89032pt>
+File: termo_flucs_N100.png Graphic file (type png)
+<use termo_flucs_N100.png>
+Package pdftex.def Info: termo_flucs_N100.png  used on input line 432.
+(pdftex.def)             Requested size: 218.94255pt x 88.48238pt.
+<termo_flucs_N1000.png, id=271, 753.5653pt x 298.86656pt>
+File: termo_flucs_N1000.png Graphic file (type png)
+<use termo_flucs_N1000.png>
+Package pdftex.def Info: termo_flucs_N1000.png  used on input line 439.
+(pdftex.def)             Requested size: 218.94255pt x 86.83324pt.
 
 
-[8 <./termo_distr_ener.png> <./termo_E_t.png> <./termo_flucs_N500.png>]
+[8 <./termo_distr_ener.png> <./termo_E_t.png> <./termo_flucs_N500.png> <./termo
+_flucs_N100.png> <./termo_flucs_N1000.png>]
+
+[9]
 Cap\'{\i }tol 2.
-<4i.jpg, id=277, 1211.52625pt x 596.2275pt>
+<4i.jpg, id=290, 1211.52625pt x 596.2275pt>
 File: 4i.jpg Graphic file (type jpg)
 <use 4i.jpg>
-Package pdftex.def Info: 4i.jpg  used on input line 472.
+Package pdftex.def Info: 4i.jpg  used on input line 498.
 (pdftex.def)             Requested size: 291.92836pt x 143.66158pt.
-<4ii.jpg, id=278, 1208.515pt x 596.2275pt>
+<4ii.jpg, id=291, 1208.515pt x 596.2275pt>
 File: 4ii.jpg Graphic file (type jpg)
 <use 4ii.jpg>
-Package pdftex.def Info: 4ii.jpg  used on input line 479.
+Package pdftex.def Info: 4ii.jpg  used on input line 505.
 (pdftex.def)             Requested size: 291.92836pt x 144.02548pt.
 
 
-[9
+[10
 
  <./4i.jpg>]
 
-[10 <./4ii.jpg>]
+[11 <./4ii.jpg>]
 Cap\'{\i }tol 3.
 
 
-[11
+[12
 
 ]
 
-[12
+[13
 
 ] (Treball de Simulació.aux)
  ***********
@@ -1271,14 +1284,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
 .
-(rerunfilecheck)             Checksum: A6AC5E90E8B895ED93B8A377E0C2E065;4764.
+(rerunfilecheck)             Checksum: BAFFFB23E0D6B4F4E1F70ECFDF4DD5FF;4754.
  ) 
 Here is how much of TeX's memory you used:
- 33770 strings out of 473682
- 682864 string characters out of 5719215
- 1032670 words of memory out of 5000000
- 56255 multiletter control sequences out of 15000+600000
- 573235 words of font info for 89 fonts, out of 8000000 for 9000
+ 33808 strings out of 473682
+ 683616 string characters out of 5719215
+ 1033168 words of memory out of 5000000
+ 56288 multiletter control sequences out of 15000+600000
+ 574481 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,14n,107p,1214b,1151s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
@@ -1300,27 +1313,28 @@ pe1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ericg/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ericg/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eri
-cg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/U
-sers/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.p
+cg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/U
+sers/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.p
 fb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr17.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr5.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr6.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/ericg/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/ericg/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/ericg/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ericg/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/User
-s/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
+/cmr12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr17.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr5.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmr6.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/ericg/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/ericg/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/ericg/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/User
+s/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
 <C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmsy8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmti10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmti8.pfb>
-Output written on "Treball de Simulació.pdf" (14 pages, 3008751 bytes).
+sy6.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmsy7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmti10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on "Treball de Simulació.pdf" (15 pages, 4149164 bytes).
 PDF statistics:
- 460 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 258 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 478 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 500000)
+ 268 words of extra memory for PDF output out of 10000 (max. 10000000)
 

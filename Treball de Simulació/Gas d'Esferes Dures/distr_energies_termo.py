@@ -4,7 +4,7 @@ import math
 import random
 
 win = 500
-Natoms = 500 # Nombre d'àtoms ajustat a 200 para rendimiento.
+Natoms = 1000 # Nombre d'àtoms ajustat a 200 para rendimiento.
 
 # Paràmetres de la simulació (tots els valors estan en SI).
 L = 1 
@@ -179,8 +179,6 @@ while True:
     for i in range(Natoms):
         Atoms[i].pos = apos[i] = apos[i] + (p[i]/mass)*dt
 
-    
-    
     # 3) Busquem quins àtoms han xocat.
     hitlist = checkCollisions()
 
