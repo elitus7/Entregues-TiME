@@ -274,11 +274,9 @@ Així doncs, atenint-nos als resultats obtinguts que prèviament hem discutit, d
 en tant i en quan aquest presenta un equilibri òptim entre temps de simulació baixos i compatibilitat amb la predicció teòrica, determinada per la distribució de Maxwell-Boltzmann (vegeu l'equació \eqref{eq:1.2}).
 
 \section{Col·lectivitat canònica i anàlisi de la distribució d'energies}
-Per tal de mantenir la temperatura fixada en tot moment i, en conseqüència, treballar en la col·lectivitat NVT (canònica), cal implementar un termostat. Els termostats ens permeten regular la temperatura del sistema modelitzat reproduint la interacció d'aquest amb un bany tèrmic. Aquest bany s'ocuparà de donar o extreure energia al sistema per tal de mantenir la temperatura constant, de manera que apareixeran unes certes fluctuacions en l'energia total que abans no teníem. Existeixen diferents tipus de termostats, però en el nostre cas ens ocuparem d'implementar el \textit{termostat d'Andersen}.
+Per tal de mantenir la temperatura fixada en tot moment i, en conseqüència, treballar en la col·lectivitat NVT (canònica), cal implementar un termostat. Els termostats ens permeten regular la temperatura del sistema modelitzat reproduint la interacció d'aquest amb un bany tèrmic. Aquest bany s'ocuparà de donar o extreure energia al sistema per tal de mantenir la temperatura constant, fent que apareixien unes certes fluctuacions en l'energia total que abans no teníem. Existeixen diferents tipus de termostats, però en el nostre cas ens ocuparem d'implementar el més simple de tots: \textit{termostat d'Andersen}.
 
-En el termostat d'Andersen\cite{ref2} es simula la interacció d'un sistema amb un bany tèrmic a partir de les col·lisions aleatòries amb partícules fictícies que modificaran la velocitat dels elements del nostre sistema (en el cas que ens ocupa, dels àtoms del gas d'He). Per tal d'aconseguir-ho, en cada pas de la simulació, com ja s'ha comentat a la introducció d'aquesta part, seleccionarem una partícula del gas amb una determinada probabilitat $p$ i reassignarem la seva velocitat d'acord amb la distribució de Maxwell-Boltzmann per una determinada temperatura objectiu. Abans, però, cal seleccionar com de gran és l'acoblament entre el nostre sistema i el bany tèrmic. Això vindrà determinat per la freqüència $\nu$ de les col·lisions amb les partícules fictícies abans esmentades. Grans acoblaments implicaran interaccions importants amb les partícules fictícies i petits acoblaments implicaran interaccions poc importants amb aquestes.
-
-\textbf{POTSER AIXÒ ÚLTIM HO PUC EXPLICAR MILLOR, HELP.} 
+En el termostat d'Andersen\cite{ref2} es simula la interacció d'un sistema amb un bany tèrmic a partir de les col·lisions aleatòries amb partícules fictícies que modificaran la velocitat dels elements del nostre sistema (en el cas que ens ocupa, dels àtoms del gas d'He). Per tal d'aconseguir-ho, en cada pas de la simulació, seleccionarem una partícula del gas amb una determinada probabilitat $p$ i reassignarem la seva velocitat d'acord amb la distribució de Maxwell-Boltzmann per una determinada temperatura objectiu. Abans, però, caldrà escollir com de gran és l'acoblament entre el nostre sistema i el bany tèrmic. Això vindrà determinat per la freqüència $\nu$ de les col·lisions amb les partícules fictícies abans esmentades. Grans acoblaments implicaran interaccions importants amb les partícules fictícies i petits acoblaments implicaran interaccions poc importants amb aquestes.
 
 \subsection{Implementació del termostat d'Andersen}
 
@@ -323,8 +321,10 @@ Així doncs, l'algoritme que usarem per incorporar el termostat d'Andersen a la 
 	\end{equation}
 \end{enumerate}
 
+Notem però, que l'algoritme proposat per Andersen té un seguit de limitacions. És un procés estocàstic en el que assignem unes noves velocitats a les partícules seleccionades, sense atenir-nos a arguments físics (només imposem que les noves velocitats segueixin la distribució de Maxwell-Boltzmann). Això provoca que, en aquesta implementació, ni el moment lineal ni l'energia es conservin, fet que pot alterar dràsticament l'evolució de les propietats dinàmiques del sistema estudiat. Existeixen altres models més refinats, però, que permeten introduir els efectes d'un bany tèrmic sense comprometre tant la realitat física de l'objecte d'estudi. Un exemple d'això n'és el termostat de Nosé-Hoover (vegeu D. Frenkel\cite{ref3}).
 
-\textbf{IMPORTANT DISCUTIR PER QUÈ LA IMPLEMENTACIÓ DEL TERMOSTAT D'ANDERSEN HA DE SER DESPRÉS DE SIMULAR EL MOVIMENT DE LES PARTÍCULES PERÒ ABANS DE CONSIDERAR LES COL·LISIONS.}
+Convé destacar, a més a més, que la implementació de l'algoritme que simula les interaccions entre els àtoms del gas d'esferes dures i les partícules fictícies associades al bany tèrmic la fem després d'actualitzar les posicions i els moments de les partícules reals que interaccionen per tal de garantir que les col·lisions es produeixen sempre un cop el bany ja ha `termalitzat' el sistema, tot seguint el model d'Andersen. Si ho féssim al revés, és a dir, si primer fem la termalització del sistema i després el deixem evolucionar lliurement, fent que les molècules interaccionin entre elles, estarem introduint una sèrie d'errors associats a les limitacions del termostat d'Andersen (principalment, la no conservació del moment lineal ni de l'energia) abans de que les col·lisions reals s'arribin a produir. En general, és recomanable, per tant, fer primer la part física de la simulació i, tot seguit, introduir la part associada al procés estocàstic, per tal de no desviar-nos tant de la realitat.
+
 
 \subsection{Distribució d'energies i comparació entre col·lectivitats}
 Un cop tenim implementat el termostat d'Andersen, convé estudiar quina és la distribució d'energies obtinguda i comparar-la amb l'esperada teòricament per saber així si hem procedit adequadament. La distribució teòrica d'energies $\rho(E)$ es pot deduir a partir de la distribució de velocitats de Maxwell-Boltzmann tot considerant que
@@ -425,10 +425,14 @@ Pel que fa a l'energia total, podem veure clarament (vegeu figura \ref{fig:1.9b}
 
 \textcolor{red}{\textbf{Coses a posar:}}
 \begin{itemize}
+	\item \textcolor{red}{\textbf{Modificar les gràfiques (la simulació estava al revés :(. )}}
 	\item \textcolor{red}{\textbf{Discutir si les fluctuacions relatives estan bé (si estan bé tot okai, sinó cagada astronòmica).}}
 	\item \textcolor{red}{\textbf{Analitzar si en fer el límit TMD se satisfà que la variància se va a tomar por culo (hauria de ser així i es guay perquè demsotra que està bé).}}
 	\item \textcolor{red}{\textbf{Discutir com, en afegir el termostat d'Andersen, es convergeix més ràpidament a l'estadística de Boltzmann.}}
+	\item \textcolor{red}{\textbf{Problemàtica del termostat d'Andersen. No conservació del moment lineal i de l'energia.}}
 \end{itemize}
+
+\subsection{Conclusions}
 
 \section{Addició d'un potencial gravitatori} 
 

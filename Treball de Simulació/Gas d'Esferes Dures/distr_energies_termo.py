@@ -179,27 +179,7 @@ while True:
     for i in range(Natoms):
         Atoms[i].pos = apos[i] = apos[i] + (p[i]/mass)*dt
 
-    # --------------------------------------
-    # IMPLEMENTACIÓ DEL TERMOSTAT D'ANDERSEN
-    # --------------------------------------
-    for i in range(Natoms):
-        if random.random() < prob: 
-            # Guardem l'energía antiga per l'historial.
-            E_old = p[i].mag2 / (2*mass)
-
-            z1, z2 = box_muller()
-            z3, _ = box_muller()
-            
-            sigma = math.sqrt(k*T/mass)
-            
-            vx = sigma * z1
-            vy = sigma * z2
-            vz = sigma * z3
-            p[i] = vector(mass*vx, mass*vy, mass*vz)
-
-            # Actualitzem l'histograma amb l'energía nova.
-            E_new = p[i].mag2 / (2*mass)
-            interchange(E_old, E_new)
+    
     
     # 3) Busquem quins àtoms han xocat.
     hitlist = checkCollisions()
@@ -260,3 +240,25 @@ while True:
         if abs(loc.z) > L/2:
             if loc.z < 0: p[i].z = abs(p[i].z)
             else: p[i].z = -abs(p[i].z)
+
+    # --------------------------------------
+    # IMPLEMENTACIÓ DEL TERMOSTAT D'ANDERSEN
+    # --------------------------------------
+    for i in range(Natoms):
+        if random.random() < prob: 
+            # Guardem l'energía antiga per l'historial.
+            E_old = p[i].mag2 / (2*mass)
+
+            z1, z2 = box_muller()
+            z3, _ = box_muller()
+            
+            sigma = math.sqrt(k*T/mass)
+            
+            vx = sigma * z1
+            vy = sigma * z2
+            vz = sigma * z3
+            p[i] = vector(mass*vx, mass*vy, mass*vz)
+
+            # Actualitzem l'histograma amb l'energía nova.
+            E_new = p[i].mag2 / (2*mass)
+            interchange(E_old, E_new)
