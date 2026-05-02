@@ -3,10 +3,10 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 
-''' Apartat Q6 '''
+''' Apartat Q6. '''
 
 N = 1000 # Nombre de partícules del sistema.
-T = 200 # Temperatura (en K).
+T = 20 # Temperatura (en K).
 
 kb = 1.38e-23 # Constant de Boltzmann.
 eps = 1e-21 # Valor d'epsilon que apareix a l'exercici 35 (en J).
@@ -48,30 +48,111 @@ plt.xlim(-0.5 * eps, 11 * eps)
 plt.show()
 
 
-''' Apartat Q7 '''
+''' Apartat Q7. Estudi de l'ocupació mitjana de cada un dels tres nivells d'energia en l'equilibri en funció de la temperatura.'''
 
-Z = math.exp(-beta*0) + math.exp(-beta*eps) + math.exp(-beta*10*eps) # Funció de partició 
+# Atenció: Usant la funció de OcupacioCodi, els valors donats NO seran els mateixos que els obtinguts fora de la funció en cada executació, tot i ser el mateix codi (degut a l'aleatorietat). Nomes la usem per a estudiar l'ocupació en funcio de la Temperatura i comparació amb el valor teòric. 
 
-# AIXÒ SEGURAMENT HO BORRARÉ PERQUÈ HO HE ACABAT FENT MÉS GENERALMENT. 
-# Per contestar l'apartat de l'estudi de l'ocupació mitajana de cada un dels tres nivells. Aquest és un cas particular (per a la T fixada al principi del codi). 
+# Funció que ens retorna l'ocupació de cada nivell per a una certa temperatura basat en la distribució de Boltzmann.
+def OcupacioTeorica(T): 
 
-# Nombre de partícules al nivell 1 (E1 = 0 J), nivell 2 (E2 = 1*eps J) i nivell 3 (E3 = 10*eps J) respectivament que genera el codi. 
-NP_Nivell1 = PN.count(0)
-NP_Nivell2 = PN.count(1*eps)
-NP_Nivell3 = PN.count(10*eps)
+    beta = 1/(T*kb)
+    Z = math.exp(-beta*0) + math.exp(-beta*eps) + math.exp(-beta*10*eps) # Funció de partició 
 
-# Nombre de partícules al nivell 1 (E1 = 0 J), nivell 2 (E2 = 1*eps J) i nivell 3 (E3 = 10*eps J) respectivament que ens diu la teoria en l'estat d'equilibri tèrmic. 
-NPT_Nivell1 = N*math.exp(-beta*0)/Z
-NPT_Nivell2 = N*math.exp(-beta*eps)/Z
-NPT_Nivell3 = N*math.exp(-beta*10*eps)/Z
+    OcupacioT = [N*math.exp(-beta*0)/Z, N*math.exp(-beta*eps)/Z, N*math.exp(-beta*10*eps)/Z]
 
-# Comparació dels dos valors per cada nivell més l'error relatiu. 
-print('Nivell 1: Numero de particules Codi= ', NP_Nivell1, 'Ocupacio teorica =', NPT_Nivell1, 'Error(%) =', abs(NP_Nivell1 - NPT_Nivell1)/NPT_Nivell1 )
-print('NIvell 2: Numero de particules = ', NP_Nivell2, 'Ocupacio teorica =', NPT_Nivell2, 'Error(%) =', abs(NP_Nivell2 - NPT_Nivell2)/NPT_Nivell2 )
-print('Nivell 3: Numero de particules = ', NP_Nivell3, 'Ocupacio teorica =', NPT_Nivell3, 'Error(%) =', abs(NP_Nivell3 - NPT_Nivell3)/NPT_Nivell3 )
+    return OcupacioT
+
+# Funció que ens retorna l'ocupació de cada nivell per a una certa temperatura generat per la regla de Metropolis (és exactament el codi del principi). 
+def OcupacioCodi(T):
+    beta = 1/(kb*T)
+
+    PN = list(random.choice(Nivells) for _ in range(N)) # Posició de cada partícula a l'inici de la simulació (probabilitat de cada nivell de 1/3).
+
+    for i in range(200000): 
+        i = random.randint(0,N-1)  # Selecciona de manera aleatoria una partícula.
+        E_in = PN[i] # Definim E_in com l'energia inicial de la partícula escollida.
+        E_nov = random.choice(Nivells) # Definim E_nov com l'energia en el nou nivell, que és escollit de manera aleatoria també.
+
+        Dif_E = E_nov - E_in # Diferència d'energia en el canvi de nivell de la partícula.
+
+    # Definim la condició següent: Si aquesta diferència d'energia és inferior a 0, s'accepta el canvi de nivell. Si és superior a 0, es genera un número aleatori de 0,0 a 1,0. Si aquest és inferior al exp(-beta*Dif_E), s'accepta el canvi de nivell. Si no compleix cap de les condicions anteriors, la partícula es queda en el nivell inicial. 
+        if Dif_E <= 0: 
+            PN[i] = E_nov
+        else:
+            if random.random() < math.exp(-beta*Dif_E):
+                PN[i] = E_nov
+    
+    OcupacioC = [PN.count(0), PN.count(1*eps), PN.count(10*eps)]
+
+    return OcupacioC    
+
+# DEFINICIÓ EIXOS X (Temperatura (K))
+
+Valors_T = [20*x for x in range(1, 51)] # Valors de temperatura de 1 K a 1000 K amb intervals de 20 K (per a la simulació).
+Valors_TT = np.linspace(1, 1000, 500) # Valors de temperatura de 1 K a 1000 K (per al càlcul analític).
+
+# DEFINICIÓ EIXOS Y (Ocupacions (partícules))
+
+# VALORS SIMULACIÓ
+# Creem tres llistes buides per a calcular les ocupacions de cada nivell per a diferents temperatures (Valors_T).
+Ocupacio_C_1 = [] 
+Ocupacio_C_2 = [] 
+Ocupacio_C_3 = [] 
+
+for w in Valors_T:
+    resultat_simulacio = OcupacioCodi(w)
+    Ocupacio_C_1.append(resultat_simulacio[0]) # Ocupació en funció de la temperatura per al nivell 1 
+    Ocupacio_C_2.append(resultat_simulacio[1]) # Ocupació en funció de la temperatura per al nivell 2
+    Ocupacio_C_3.append(resultat_simulacio[2]) # Ocupació en funció de la temperatura per al nivell 3
+
+# VALORS ANALÍTICS 
+Ocupacio_T_1 = [OcupacioTeorica(x)[0] for x in Valors_TT] # Ocupació en funció de la temperatura per al nivell 1
+Ocupacio_T_2 = [OcupacioTeorica(x)[1] for x in Valors_TT] # Ocupació en funció de la temperatura per al nivell 2
+Ocupacio_T_3 = [OcupacioTeorica(x)[2] for x in Valors_TT] # Ocupació en funció de la temperatura per al nivell 3
 
 
-''' Apartat Q7. Garantir que ens trobem en una situació d'equilibri. '''
+# Gràfic comparatiu entre els resultats analítics (línia interlineada) i els resultats de la simulació (línia contínua) per als tres nivells d'energia. 
+
+plt.plot(Valors_T, Ocupacio_C_1, color='blue', label = "Resultat Simulació, Nivell 1")
+plt.plot(Valors_T, Ocupacio_C_2, color='red', label = "Resultat Simulació, Nivell 2")
+plt.plot(Valors_T, Ocupacio_C_3, color='black', label = "Resultat Simulació, Nivell 3")
+
+plt.plot(Valors_TT, Ocupacio_T_1 ,'--', color='blue', label = "Resultat Analític, Nivell 1")
+plt.plot(Valors_TT, Ocupacio_T_2, '--', color='red', label = "Resultat Analític, Nivell 2")
+plt.plot(Valors_TT, Ocupacio_T_3, '--', color='black', label = "Resultat Analític, Nivell 3")
+
+plt.title("Comparativa resultats simulació amb resultats analítics.")
+plt.ylabel("Ocupació (partícules)")
+plt.xlabel("Temperatura (K)")
+plt.legend()
+
+plt.show()
+
+''' Per un cas particular (a T fixada) '''
+
+# Aquest és un cas particular (per a la T fixada al principi del codi). Trobem l'error relatiu entre el resultat de la simulació i el resultat analític. Per a diferents resultats de T, només cal canviar el valor de l'inici i executar.
+
+# Usem les funcions definides anteriorment. 
+OcupC = OcupacioCodi(T)
+OcupT = OcupacioTeorica(T)
+
+# Nombre de partícules al nivell 1 (E1 = 0 J), nivell 2 (E2 = 1*eps J) i nivell 3 (E3 = 10*eps J) respectivament que genera la simulació.
+NP_Niv1 = OcupC[0]
+NP_Niv2 = OcupC[1]
+NP_Niv3 = OcupC[2]
+
+# Nombre de partícules al nivell 1 (E1 = 0 J), nivell 2 (E2 = 1*eps J) i nivell 3 (E3 = 10*eps J) respectivament basat en la distribució de Boltzmann.
+NPT_Niv1 = OcupT[0]
+NPT_Niv2 = OcupT[1]
+NPT_Niv3 = OcupT[2]
+
+# Comparació dels dos resultats per cada nivell més l'error relatiu. 
+print('Nivell 1: Numero de particules Codi= ', NP_Niv1, 'Ocupacio teorica =', NPT_Niv1, 'Error(%) =', abs(NP_Niv1 - NPT_Niv1)*100/NPT_Niv1 )
+print('NIvell 2: Numero de particules = ', NP_Niv2, 'Ocupacio teorica =', NPT_Niv2, 'Error(%) =', abs(NP_Niv2 - NPT_Niv2)*100/NPT_Niv2 )
+print('Nivell 3: Numero de particules = ', NP_Niv3, 'Ocupacio teorica =', NPT_Niv3, 'Error(%) =', abs(NP_Niv3 - NPT_Niv3)*100/NPT_Niv3 )
+
+
+''' Apartat Q7. Garantir que ens trobem en una situació d'equilibri (Cas particular, a T fixada). '''
 
 # Dividim els valors obtinguts cada 3000 iteracions en dos. La primera part (2/3) la deixem com està. La segona part (1/3) li apliquem una regressió lineal i trobem el pendent d'aquesta. Ho fem per als tres nivells d'energia.
 tall_1 = round((2/3*len(Valors_E1)))
@@ -151,81 +232,12 @@ plt.ylabel("Ocupació (partícules)")
 plt.legend()
 plt.show()
 
-''' Q7. Estudi de l'ocupació mitjana de cada un dels tres nivells d'energia en l'equilibri en funció de la temperatura.'''
 
-# Usant la funció de OcupacioCodi, els valors donats NO seran els mateixos que els obtinguts fora de la funció en cada ejecutació, tot i ser el mateix codi (degut a l'aleatorietat). Nomes la usem per a estudiar l'ocupació en funcio de la Temperatura i comparació amb el valor teòric. 
-
-# Funció que ens retorna l'ocupació de cada nivell per a una certa temperatura basat en la distribució de Boltzmann.
-def OcupacioTeorica(T): 
-    beta = 1/(T*kb)
-    Z = math.exp(-beta*0) + math.exp(-beta*eps) + math.exp(-beta*10*eps)
-
-    OcupacioT = [N*math.exp(-beta*0)/Z, N*math.exp(-beta*eps)/Z, N*math.exp(-beta*10*eps)/Z]
-
-    return OcupacioT
-
-# Funció que ens retorna l'ocupació de cada nivell per a una certa temperatura generat per la regla de Metropolis (és exactament el codi del principi). 
-def OcupacioCodi(T):
-    beta = 1/(kb*T)
-
-    PN = list(random.choice(Nivells) for _ in range(N)) # Posició de cada partícula a l'inici de la simulació (probabilitat de cada nivell de 1/3).
-
-    for i in range(200000): 
-        i = random.randint(0,N-1)  # Selecciona de manera aleatoria una partícula.
-        E_in = PN[i] # Definim E_in com l'energia inicial de la partícula escollida.
-        E_nov = random.choice(Nivells) # Definim E_nov com l'energia en el nou nivell, que és escollit de manera aleatoria també.
-
-        Dif_E = E_nov - E_in # Diferència d'energia en el canvi de nivell de la partícula.
-
-    # Definim la condició següent: Si aquesta diferència d'energia és inferior a 0, s'accepta el canvi de nivell. Si és superior a 0, es genera un número aleatori de 0,0 a 1,0. Si aquest és inferior al exp(-beta*Dif_E), s'accepta el canvi de nivell. Si no compleix cap de les condicions anteriors, la partícula es queda en el nivell inicial. 
-        if Dif_E <= 0: 
-            PN[i] = E_nov
-        else:
-            if random.random() < math.exp(-beta*Dif_E):
-                PN[i] = E_nov
-    
-    OcupacioC = [PN.count(0), PN.count(1*eps), PN.count(10*eps)]
-
-    return OcupacioC    
-
-# DEFINICIÓ EIXOS X (Temperatura (K))
-
-Valors_T = [20*x for x in range(1, 51)] # Valors de temperatura de 1 K a 1000 K amb intervals de 20 K (per a la simulació).
-Valors_TT = np.linspace(1, 1000, 500) # Valors de temperatura de 1 K a 1000 K (per al càlcul analític).
-
-# DEFINICIÓ EIXOS Y (Ocupacions (partícules))
-
-# VALORS SIMULACIÓ
-# Creem tres llistes buides per a calcular les ocupacions de cada nivell per a diferents temperatures (Valors_T).
-Ocupacio_C_1 = [] 
-Ocupacio_C_2 = [] 
-Ocupacio_C_3 = [] 
-
-for w in Valors_T:
-    resultat_simulacio = OcupacioCodi(w)
-    Ocupacio_C_1.append(resultat_simulacio[0]) # Ocupació en funció de la temperatura per al nivell 1 
-    Ocupacio_C_2.append(resultat_simulacio[1]) # Ocupació en funció de la temperatura per al nivell 2
-    Ocupacio_C_3.append(resultat_simulacio[2]) # Ocupació en funció de la temperatura per al nivell 3
-
-# VALORS ANALÍTICS 
-Ocupacio_T_1 = [OcupacioTeorica(x)[0] for x in Valors_TT] # Ocupació en funció de la temperatura per al nivell 1
-Ocupacio_T_2 = [OcupacioTeorica(x)[1] for x in Valors_TT] # Ocupació en funció de la temperatura per al nivell 2
-Ocupacio_T_3 = [OcupacioTeorica(x)[2] for x in Valors_TT] # Ocupació en funció de la temperatura per al nivell 3
+''' Apartat Q7. Valor de Tc '''
 
 
-# Gràfic comparatiu entre els resultats analítics (línia interlineada) i els resultats de la simulació (línia contínua) per als tres nivells d'energia. 
 
-plt.plot(Valors_T, Ocupacio_C_1, color='blue', label = "Resultat Simulació, Nivell 1")
-plt.plot(Valors_T, Ocupacio_C_2, color='red', label = "Resultat Simulació, Nivell 2")
-plt.plot(Valors_T, Ocupacio_C_3, color='black', label = "Resultat Simulació, Nivell 3")
 
-plt.plot(Valors_TT, Ocupacio_T_1 ,'--', color='blue', label = "Resultat Analític, Nivell 1")
-plt.plot(Valors_TT, Ocupacio_T_2, '--', color='red', label = "Resultat Analític, Nivell 2")
-plt.plot(Valors_TT, Ocupacio_T_3, '--', color='black', label = "Resultat Analític, Nivell 3")
 
-plt.title("Comparativa resultats simulació amb resultats analítics.")
-plt.ylabel("Ocupació (partícules)")
-plt.xlabel("Temperatura (K)")
-plt.legend()
 
-plt.show()
+
