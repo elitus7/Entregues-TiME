@@ -114,7 +114,9 @@ print('Pendent recta 3 = ', m3)
 if abs(m1) < 0.0005 and abs(m2) < 0.0005 and abs(m3) < 0.0005:
     print("S'ha arribat a l'equilibri termic")
 
-''' HE DE POSAR TÍTOLS ALS GRÀFICSSSSSSSS'''
+else: 
+    print("Cal augmentar el nombre d'iteracions.")
+
 
 # Gràfic Ocupació nivell 1 respecte cada iteració. A l'últim 1/3 de les dades s'aplica una regressió lineal. 
 plt.plot(x1_NE, y1_NE, '.', color='blue')
@@ -143,7 +145,7 @@ plt.plot(x3_NE, y3_NE, '.', color='blue')
 plt.plot(x3_E, recta3, color='black', linewidth=2, label = 'Regressió lineal')
 plt.plot(x3_E, y3_E, '.', color='red')
 plt.ylim(min(Valors_E3) -20 , max(Valors_E3) + 20)
-plt.title("Gràfic d'ocupació al Nivell 1 (10*eps J) respecte cada iteració ")
+plt.title("Gràfic d'ocupació al Nivell 3 (10*eps J) respecte cada iteració ")
 plt.xlabel("Iteracions")
 plt.ylabel("Ocupació (partícules)")
 plt.legend()
