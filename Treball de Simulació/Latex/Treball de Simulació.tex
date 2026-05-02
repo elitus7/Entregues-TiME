@@ -444,6 +444,10 @@ Les fluctuacions relatives per l'energia total es poden veure a la figura \ref{f
 	\label{fig:1.11}
 \end{figure}
 
+\subsection{Conclusions}
+En aquesta secció hem implementat un termostat d'Andersen per tal de poder mantenir la temperatura $T$ constant en el nostre sistema, tot passant d'una simulació d'un gas d'esferes dures en col·lectivitat NVE (microcanònica) a col·lectivitat NVT (canònica). Hem observat com, efectivament, en implementar el model d'Andersen apareixen les característiques típiques del col·lectiu canònic, això és, en essència, fluctuacions en l'energia. Hem constatat com, efectivament, aquestes fluctuacions en l'energia són coherents amb el que cabria esperar experimentalment i s'adeqüen a la predicció teòrica que assegura que han de disminuir conforme augmenta el nombre de partícules $N$ del sistema. 
+
+Així doncs, tot i les limitacions discutides associades a aquest tipus de termostat, essent la més destacable la no conservació de l'energia i el moment lineal com a conseqüència del procés estocàstic en el que aquest model es fonamental, hem pogut simular una molt bona primera aproximació del comportament de l'He gas, modelitzat segons el potencial d'esferes dures (vegeu l'equació \eqref{eq:1.1}), a temperatura $T$ constant. En cas de voler obtenir uns resultats més fiables i pròxims a la realitat, evitant les no conservacions de les constants del moviment, caldria escollir millors algoritmes per modelitzar la interacció del sistema amb un bany tèrmic, com ara bé el termostat de Nosé-Hoover o altres.
 
 \textcolor{red}{\textbf{Coses a posar:}}
 \begin{itemize}
@@ -453,12 +457,9 @@ Les fluctuacions relatives per l'energia total es poden veure a la figura \ref{f
 	\item \textcolor{red}{\textbf{Discutir com, en afegir el termostat d'Andersen, es convergeix més ràpidament a l'estadística de Boltzmann.}}
 	\item \textcolor{red}{\textbf{Problemàtica del termostat d'Andersen. No conservació del moment lineal i de l'energia.}}
 	\item \textcolor{red}{\textbf{Potser és interessant posar gràfics de T abans i després d'Andersen.}}
+	\item \textcolor{red}{\textbf{Fer comparativa de les fluctuacions amb les reals calculant $\langle E \rangle$ i $C_V$ com si fos un gas ideal i, per les $C_V$, comparar també amb dades experimentals de la web del NIST.}}
 \end{itemize}
 
-\subsection{Conclusions}
-En aquesta secció hem implementat un termostat d'Andersen per tal de poder mantenir la temperatura $T$ constant en el nostre sistema, tot passant d'una simulació d'un gas d'esferes dures en col·lectivitat NVE (microcanònica) a col·lectivitat NVT (canònica). Hem observat com, efectivament, en implementar el model d'Andersen apareixen les característiques típiques del col·lectiu canònic, això és, en essència, fluctuacions en l'energia. Hem constatat com, efectivament, aquestes fluctuacions en l'energia són coherents amb el que cabria esperar experimentalment i s'adeqüen a la predicció teòrica que assegura que han de disminuir conforme augmenta el nombre de partícules $N$ del sistema. 
-
-Així doncs, tot i les limitacions discutides associades a aquest tipus de termostat, essent la més destacable la no conservació de l'energia i el moment lineal com a conseqüència del procés estocàstic en el que aquest model es fonamental, hem pogut simular una molt bona primera aproximació del comportament de l'He gas, modelitzat segons el potencial d'esferes dures (vegeu l'equació \eqref{eq:1.1}), a temperatura $T$ constant. En cas de voler obtenir uns resultats més fiables i pròxims a la realitat, evitant les no conservacions de les constants del moviment, caldria escollir millors algoritmes per modelitzar la interacció del sistema amb un bany tèrmic, com ara bé el termostat de Nosé-Hoover o altres.
 
 \section{Addició d'un potencial gravitatori} 
 ajuda

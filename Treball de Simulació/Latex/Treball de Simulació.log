@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  2 MAY 2026 01:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  2 MAY 2026 10:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1250,12 +1250,12 @@ Cap\'{\i }tol 2.
 <4i.jpg, id=290, 1211.52625pt x 596.2275pt>
 File: 4i.jpg Graphic file (type jpg)
 <use 4i.jpg>
-Package pdftex.def Info: 4i.jpg  used on input line 498.
+Package pdftex.def Info: 4i.jpg  used on input line 499.
 (pdftex.def)             Requested size: 291.92836pt x 143.66158pt.
 <4ii.jpg, id=291, 1208.515pt x 596.2275pt>
 File: 4ii.jpg Graphic file (type jpg)
 <use 4ii.jpg>
-Package pdftex.def Info: 4ii.jpg  used on input line 505.
+Package pdftex.def Info: 4ii.jpg  used on input line 506.
 (pdftex.def)             Requested size: 291.92836pt x 144.02548pt.
 
 
@@ -1289,7 +1289,7 @@ Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
 Here is how much of TeX's memory you used:
  33808 strings out of 473682
  683616 string characters out of 5719215
- 1033168 words of memory out of 5000000
+ 1033169 words of memory out of 5000000
  56288 multiletter control sequences out of 15000+600000
  574481 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1332,7 +1332,7 @@ ts/cm/cmsy7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmti10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on "Treball de Simulació.pdf" (15 pages, 4149179 bytes).
+Output written on "Treball de Simulació.pdf" (15 pages, 4149732 bytes).
 PDF statistics:
  478 PDF objects out of 1000 (max. 8388607)
  86 named destinations out of 1000 (max. 500000)
