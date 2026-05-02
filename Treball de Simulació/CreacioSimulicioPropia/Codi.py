@@ -6,7 +6,7 @@ import numpy as np
 ''' Apartat Q6. '''
 
 N = 1000 # Nombre de partícules del sistema.
-T = 20 # Temperatura (en K).
+T = 200 # Temperatura (en K).
 
 kb = 1.38e-23 # Constant de Boltzmann.
 eps = 1e-21 # Valor d'epsilon que apareix a l'exercici 35 (en J).
@@ -233,9 +233,35 @@ plt.legend()
 plt.show()
 
 
-''' Apartat Q7. Valor de Tc '''
+''' Apartat Q8. '''
 
+def Energia(N):
+    PN = list(random.choice(Nivells) for _ in range(N)) # Posició de cada partícula a l'inici de la simulació (probabilitat de cada nivell de 1/3).
 
+    for i in range(20000): 
+        i = random.randint(0,N-1)  # Selecciona de manera aleatoria una partícula.
+        E_in = PN[i] # Definim E_in com l'energia inicial de la partícula escollida.
+        E_nov = random.choice(Nivells) # Definim E_nov com l'energia en el nou nivell, que és escollit de manera aleatoria també.
+
+        Dif_E = E_nov - E_in # Diferència d'energia en el canvi de nivell de la partícula.
+
+    # Definim la condició següent: Si aquesta diferència d'energia és inferior a 0, s'accepta el canvi de nivell. Si és superior a 0, es genera un número aleatori de 0,0 a 1,0. Si aquest és inferior al exp(-beta*Dif_E), s'accepta el canvi de nivell. Si no compleix cap de les condicions anteriors, la partícula es queda en el nivell inicial. 
+        if Dif_E <= 0: 
+            PN[i] = E_nov
+        else:
+            if random.random() < math.exp(-beta*Dif_E):
+                PN[i] = E_nov
+    
+    EnergiaEq = PN.count(0)*0 + PN.count(1*eps)*eps + PN.count(10*eps)*10*eps
+
+    return EnergiaEq
+
+Part = [10*x for x in range(1,500)]
+
+Energy = [Energia(x) for x in Part]
+
+plt.plot(Part, Energy, color='blue') # NO ESTÀ BÉ HELP
+plt.show()
 
 
 
