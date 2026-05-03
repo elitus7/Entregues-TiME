@@ -256,12 +256,12 @@ Per altra banda, densitats baixes faran que els errors i les inestabilitats del 
 		\toprule
 		$r_0$ (m) & $p_{ocup.}$ & \% ocupat \\
 		\midrule
-		$0,34\cross10^{-10}$ & $6,24\cross10^{-29}$ & $\approx 0 \%$ \\
-		$1,50$   & $7,07\cross10^3$ & $\gg 100 \%$\\
-		$0,10$   & $2,09$ & $> 100 \%$\\
-		$0,010$  & $2,09\cross10^{-3}$ & $0,2 \%$\\
-		$0,030$  & $5,65\cross10^{-2}$ & $5,7 \%$ \\ 
-		$0,040$  & $0,13$ & $13,4 \%$ \\
+		$0,34\cross10^{-10}$ & $6,24\cross10^{-29}$ & $\approx 0$ \% \\
+		$1,50$   & $7,07\cross10^3$ & $\gg 100$ \%\\
+		$0,10$   & $2,09$ & $> 100 $ \%\\
+		$0,010$  & $2,09\cross10^{-3}$ & $0,2$ \%\\
+		$0,030$  & $5,65\cross10^{-2}$ & $5,7$ \% \\ 
+		$0,040$  & $0,13$ & $13,4$ \% \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:1.1}
@@ -324,7 +324,7 @@ Així doncs, l'algoritme que usarem per incorporar el termostat d'Andersen a la 
 
 Notem però, que l'algoritme proposat per Andersen té un seguit de limitacions. És un procés estocàstic en el que assignem unes noves velocitats a les partícules seleccionades, sense atenir-nos a arguments físics (només imposem que les noves velocitats segueixin la distribució de Maxwell-Boltzmann). Això provoca que, en aquesta implementació, ni el moment lineal ni l'energia es conservin, fet que pot alterar dràsticament l'evolució de les propietats dinàmiques del sistema estudiat. Existeixen altres models més refinats, però, que permeten introduir els efectes d'un bany tèrmic sense comprometre tant la realitat física de l'objecte d'estudi. Un exemple d'això n'és el termostat de Nosé-Hoover (vegeu D. Frenkel\cite{ref3}).
 
-Convé destacar, a més a més, que la implementació de l'algoritme que simula les interaccions entre els àtoms del gas d'esferes dures i les partícules fictícies associades al bany tèrmic la fem després d'actualitzar les posicions i els moments de les partícules reals que interaccionen per tal de garantir que les col·lisions es produeixen sempre un cop el bany ja ha `termalitzat' el sistema, tot seguint el model d'Andersen. Si ho féssim al revés, és a dir, si primer fem la termalització del sistema i després el deixem evolucionar lliurement, fent que les molècules interaccionin entre elles, estarem introduint una sèrie d'errors associats a les limitacions del termostat d'Andersen (principalment, la no conservació del moment lineal ni de l'energia) abans de que les col·lisions reals s'arribin a produir. En general, és recomanable, per tant, fer primer la part física de la simulació i, tot seguit, introduir la part associada al procés estocàstic, per tal de no desviar-nos tant de la realitat.
+Convé destacar, a més a més, que la implementació de l'algoritme que simula les interaccions entre els àtoms del gas d'esferes dures i les partícules fictícies associades al bany tèrmic la fem després d'actualitzar les posicions i els moments de les partícules reals que interaccionen per tal de garantir que les col·lisions es produeixen sempre abans de que el bany `termalitzi' el sistema. Si ho féssim al revés, és a dir, si primer fem la termalització del sistema i després el deixem evolucionar lliurement, fent que les molècules interaccionin entre elles, estarem introduint una sèrie d'errors associats a les limitacions del termostat d'Andersen (principalment, les no conservacions del moment lineal i de l'energia, produïdes per l'aleatorietat en la selecció de les noves velocitats imposada pel mètode) abans de que les col·lisions reals s'arribin a produir. En general, és recomanable, per tant, executar primer la part associada amb les interaccions reals de la simulació i, tot seguit, introduir el termostat d'Andersen (procés estocàstic), per tal de no destruir la informació física del sistema abans d'hora.
 
 
 \subsection{Distribució d'energies i comparació entre col·lectivitats}
@@ -353,7 +353,7 @@ Per altra banda, per veure si hem passat de la col·lectivitat NVE (microcanòni
 	
 	Recordem que \textbf{POSAR ANNEX O CITAR DE TEORIA} les fluctuacions relatives en l'energia total del sistema venen donades per
 	\begin{equation}
-		\frac{\sigma_E}{\langle E \rangle} = \frac{\sqrt{\langle E^2 \rangle - \langle E \rangle^2}}{\langle E \rangle} = \frac{\sqrt{k_BT^2 C_V}}{\langle E \rangle},
+		\frac{\sigma_E}{\langle E \rangle} = \frac{\sqrt{\langle E^2 \rangle - \langle E \rangle^2}}{\langle E \rangle} = \frac{\sqrt{k_BT^2 C_V}}{\langle E \rangle}, \label{eq:1.19}
 	\end{equation}
 	i, com que tant $\langle E \rangle$ com $C_V$ són proporcionals al nombre de partícules $N$, podem fer l'estimació
 	\begin{equation}
@@ -363,9 +363,9 @@ Per altra banda, per veure si hem passat de la col·lectivitat NVE (microcanòni
 \end{itemize}
 
 \subsection{Anàlisi dels resultats}
-Tot seguit mostrem i discutim quins han estat els principals resutlats de les simulacions del sistema del gas d'esferes dures sota col·lectivitat NVE (sense el termostat d'Andersen) i NVT (amb el termostat d'Andersen). Ens centrem en l'estudi de la distribució d'energies, l'energia total en funció del temps i les fluctuacions de l'energia total. Com que les energies són petites\footnote{Les simulacions són, aproximadament, a temperatura ambient, de manera que $k_BT \approx 4,1 \cross 10^{-21}$.} convé treballar en l'escala dels eV (1 eV $= 1,602\cross 10^{-19}$ J); cada pas de temps de la simulació equival a $\mathrm{d}t = 10^{-5}$ s. 
+Tot seguit mostrem i discutim quins han estat els principals resutlats de les simulacions del sistema del gas d'esferes dures sota col·lectivitat NVE (sense el termostat d'Andersen) i NVT (amb el termostat d'Andersen). Ens centrem en l'estudi de la distribució d'energies, l'energia total en funció del temps i les fluctuacions de l'energia total. Com que les energies són petites\footnote{Les simulacions són, aproximadament, a temperatura ambient, de manera que $k_BT \approx 4,1 \cross 10^{-21}$ J.} convé treballar en l'escala dels eV (1 eV $= 1,602\cross 10^{-19}$ J). Cada pas de temps de la simulació equival a $\mathrm{d}t = 10^{-5}$ s. 
 
-Abans d'implementar el termostat d'Andersen es va simular el sistema sota col·lectivitat NVE per veure que l'energia en funció del era, efectivament, constant (vegeu la figura \ref{fig:1.8}).
+Abans d'implementar el termostat d'Andersen es va simular el sistema sota col·lectivitat NVE per veure que l'energia en funció del temps era constant (vegeu la figura \ref{fig:1.8}).
 
 \begin{figure}[h]
 	\centering
@@ -413,9 +413,9 @@ Per altra banda, podem observar com, tal i com era d'esperar, l'energia total de
 
 
 
-Els resultats experimentals obtinguts després de fer la implementació del termostat d'Andersen han estat els següents. Podem veure com la distribució d'energies (vegeu figura \ref{fig:1.9a}) segueix obeint l'estadística de Maxwell-Boltzmann un cop s'assoleix l'equilibri tèrmic, com era d'esperar. Això en cap moment canviarà, ja que la única funció del termostat és actualitzar les velocitats de les partícules que interaccionen amb el bany tèrmic de manera que adquireixin una velocitat escollida aleatòriament segons la distribució de Maxwell-Boltzmann. Sí que observem, però, com s'assoleix l'equilibri tèrmic i, per tant, la distribució d'energies simulada esdevé més propera a la teòrica, més ràpidament que en el cas anterior, en el que no havíem implementat el model d'Andersen. Això és, naturalment, una conseqüència lògica de que, en la implementació del termostat, fem que les partícules seleccionades adquireixin, per força, una velocitat segons la distribució teòrica. 
+Els resultats experimentals obtinguts després de fer la implementació del termostat d'Andersen han estat els que es mostren a la figura \ref{fig:1.9}. Podem veure com la distribució d'energies (vegeu figura \ref{fig:1.9a}) segueix obeint l'estadística de Maxwell-Boltzmann un cop s'assoleix l'equilibri tèrmic, com era d'esperar. Això en cap moment canviarà, ja que la única funció del termostat és actualitzar les velocitats de les partícules que interaccionen amb el bany tèrmic de manera que adquireixin una velocitat escollida aleatòriament segons la distribució de Maxwell-Boltzmann. Sí que observem, però, com s'assoleix l'equilibri tèrmic i, per tant, la distribució d'energies simulada esdevé més propera a la teòrica, més ràpidament que en el cas anterior, en el que no havíem implementat el model d'Andersen. Això és conseqüència de que, en la implementació del termostat, fem que les partícules seleccionades adquireixin, per força, una velocitat segons la distribució teòrica objectiu. 
 
-Pel que fa a l'energia total, podem veure clarament (vegeu figura \ref{fig:1.9b}) com s'introdueixen un seguit de fluctuacions respecte al valor inicial. Això és degut a que, com ja s'ha discutit prèviament, per tal de garantir que en tot moment treballem a $T$ constant, el bany tèrmic introdueix o extreu energia del sistema (en el nostre cas, a través de les partícules fictícies). 
+Pel que fa a l'energia total, podem veure clarament (vegeu figura \ref{fig:1.9b}) com apareixen un seguit de fluctuacions respecte al valor inicial. Això és degut a que, com ja s'ha discutit prèviament, per tal de garantir que en tot moment treballem a $T$ constant, el bany tèrmic introdueix o extreu energia del sistema (en el nostre cas, a través de les partícules fictícies). 
 
 Les fluctuacions relatives per l'energia total es poden veure a la figura \ref{fig:1.10}. Podem veure que són consistents amb el que cabria esperar: l'energia fluctua al voltant del valor inicial com a conseqüència de la interacció entre el sistema i el bany tèrmic. Si repetim la mateixa simulació però alterant el nombre de partícules $N$ i representem les corresponents fluctuacions relatives, obtenim els resultats que es poden veure a la figura \ref{fig:1.11}. Podem veure que, tal i com hem comentat prèviament, conforme $N$ augmenta, les fluctuacions relatives disminueixen, és a dir, per $N$ majors, les fluctuacions en l'energia estan més confinades al voltant del valor inicial i, en el límit termodinàmic $N\rightarrow \infty$, hauríem d'esperar veure com aquestes fluctuacions es redueixen a zero, cosa que ens permetria identificar $\langle E \rangle$, el valor esperat de l'energia, amb $U$, l'energia interna del sistema (des del punt de vista termodinàmic).
 
@@ -444,6 +444,37 @@ Les fluctuacions relatives per l'energia total es poden veure a la figura \ref{f
 	\caption{Fluctuacions relatives per $N = 100$ i $N=1000$. Podem observar com, conforme $N$ augmenta, les fluctuacions relatives disminueixen.}
 	\label{fig:1.11}
 \end{figure}
+
+Finalment, una forma de veure si aquestes fluctuacions són coherents amb els resultats experimentals és veure si s'ajusten als valors que se n'obtenen si utilitzem els valors tabulats per la capacitat calorífica específica a volum constant $c_V$. Segons R. D. McCarty\cite{ref5}
+\begin{equation*}
+	c_{V} = 3,118 \text{ }\frac{\text{kJ}}{\text{kg}\cdot \text{K}},
+\end{equation*}
+a $T = 300$ K i $p = 10,0 \cross 10^5$ Pa. Si tenim present que el valor de la massa de l'He és $m_{He} = 6,646 \cross 10^{-27}$ kg per àtom i que $N_A = 6,022\cross 10^{23}$ mol$^{-1}$ (el nombre d'Avogadro), trobem que
+\begin{equation*}
+	C_V = 12,479 \text{ }\frac{\text{J}}{\text{mol}\cdot \text{K}}.
+\end{equation*} 
+Fixem-nos en què aquest valor és pròxim al del gas ideal, $C_V = \frac{3}{2}R \approx 12,5$ J/mol $\cdot$ K. Amb això veiem que podem aproximar el comportament de l'He a la idealitat, fet que ens permet calcular ràpidament el valor de $\langle E \rangle$ usant que, pel gas ideal
+\begin{equation}
+	\langle E \rangle = \frac{3}{2}Nk_BT.
+\end{equation} 
+Així doncs, fent ús de l'anterior aproximació i les dades experimentals, podem calcular les fluctuacions relatives esperades emprant l'equació \eqref{eq:1.19} en funció de $N$ i a $T = 300$ K. Els resultats es poden veure a la taula \ref{tab:1.2} i podem veure com aquests són compatibles amb els que es poden veure a les figures \ref{fig:1.10} i \ref{fig:1.11}. 
+
+\begin{table}[h]
+	\centering
+	\caption{Taula amb les fluctuacions relatives calculades a partir de les dades termodinàmiques de l'He gas per diferents valors de N. Notem com, en augmentar $N$, les fluctuacions relatives disminueixen (segons $\frac{1}{\sqrt{N}}$).}
+	\begin{tabular}{l c c}
+		\toprule
+		 & $\sigma_E / \langle E \rangle$ & fluctuacions rel. (\%) \\
+		\midrule
+		$N = 100$ 	& $0,0817$ & $8,17$ \% \\
+		$N = 500$   & $0,0365$ & $3,65$ \% \\
+		$N = 1000$  & $0,0258$ & $2,58$ \% \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:1.2}
+\end{table}
+
+\textbf{POTSER HAURIA DE FER UN PROMIG SOBRE TOTS ELS TEMPS PER A LES FLUCTUACIONS RELATIVES I COMPARAR AMB AIXÒ?}
 
 \subsection{Conclusions}
 En aquesta secció hem implementat un termostat d'Andersen per tal de poder mantenir la temperatura $T$ constant en el nostre sistema, tot passant d'una simulació d'un gas d'esferes dures en col·lectivitat NVE (microcanònica) a col·lectivitat NVT (canònica). Hem observat com, efectivament, en implementar el model d'Andersen apareixen les característiques típiques del col·lectiu canònic, això és, en essència, fluctuacions en l'energia. Hem constatat com, efectivament, aquestes fluctuacions en l'energia són coherents amb el que cabria esperar experimentalment i s'adeqüen a la predicció teòrica que assegura que han de disminuir conforme augmenta el nombre de partícules $N$ del sistema. 
@@ -611,6 +642,8 @@ HE DE MILLORAR LEXPLICACIOOOOOOOO
 Arcila Pérez, J. \textit{Revisión bibliográfica sobre dinámica molecular. Modelización, algoritmos y aplicaciones}. Universidad de Granada.
 \bibitem{ref3}
 Frenkel, D. \textit{Understanding Molecular Simulation. From Algorithms to Aplications}. 3a Edició. Academic Press. Capítol 7.
+\bibitem{ref5}
+McCarty, R. D. (1973). \textit{Thermodynamic Properties of Helium-4 from 2 to 1500 K at Pressures to 10$^3$ Pa}. Journal of Physical and Chemical Reference Data, 2(4), 923–1042. \url{https://doi.org/10.1063/1.3253133}. Consultat el: 03/05/2026.
 \end{thebibliography}
 
 \end{document}
