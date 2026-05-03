@@ -288,6 +288,7 @@ La probabilitat de que una d'aquestes col·lisions amb les partícules fictície
 \begin{equation}
 	P(\Delta t) = \int_{0}^{\Delta t} \nu \mathrm{e}^{-\nu t} \mathrm{d}t,
 \end{equation}
+
 i, si considerem intervals de temps petits, aleshores e$^{-\nu t} \approx 1$, de manera que
 \begin{equation}
 	P(\Delta t) \approx \nu \Delta t. \label{eq:1.7}
@@ -539,7 +540,30 @@ No sé tampoc on se'm donen aquests valors al programa wtf.
 	
 \chapter{Creació d'una simulació pròpia}
 
+Vale soc inútil i nose guardar les gràfiques. Per tant, ja ho  faré :)
+
 \section{Introducció i fonament teòric}
+
+L’objectiu d’aquest apartat és estudiar el comportament d’un sistema de $N$ partícules independents distribuïdes en tres nivells d’energia: $\epsilon_0 = 0$, $\epsilon_1 = \epsilon$ i $\epsilon_2 = 10\epsilon$. El sistema no es resoldrà analíticament, sinó que se’n simularà l’evolució cap a l’equilibri tèrmic implementant una regla de Metropolis. Aquest mètode permet generar una seqüència d’estats on la probabilitat de trobar el sistema en una configuració concreta acaba convergint cap a la distribució de Boltzmann. La implementació d'aquesta regla és la següent. 
+
+La simulació comença amb les partícules distribuïdes uniformement entre els tres nivells energètics possibles. A partir d'aquí s'apliquen els següents passos:  
+
+\begin{enumerate}
+	\item Es selecciona una partícula a l'atzar i se li proposa un canvi d'estat, un nivell d'energia nou escollit també de manera aleatòria.
+	
+	\item Es calcula la diferència d'energies entre l'estat inicial, $E_{inicial}$, i l'estat final, $E_{final}$, mitjançant l'expressió $\Delta E = E_{final} - E_{inicial}$.
+	
+	\item Si $\Delta E \leq 0$, el canvi d'estat s'accepta sempre, ja que el sistema evoluciona cap a un estat d'igual o menor energia.
+	
+	\item Si $\Delta E > 0$, es genera un número aleatori entre $0,0$ i $1,0$ i s'accepta el salt només si aquest número és inferior al factor de Boltzmann corresponent a aquest canvi d'estat, $e^{-\beta \Delta E}$.
+	
+	\item Si el canvi d'estat no compleix les condicions anteriors, la partícula seleccionada es manté en el seu nivell d'energia inicial.
+\end{enumerate}
+ 
+Aquest procés es repeteix iterativament fins arribar a l'estat d'equilibri tèrmic.  
+
+HE DE MILLORAR LEXPLICACIOOOOOOOO
+
 
 \section{Modelització i implementació de la regla de Metropolis}
 
