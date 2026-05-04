@@ -4,17 +4,18 @@ import math
 import random
 
 win = 500
-Natoms = 1000 # Nombre d'àtoms ajustat a 200 para rendimiento.
+Natoms = 500 # Nombre d'àtoms ajustat a 500.
 
 # Paràmetres de la simulació (tots els valors estan en SI).
-L = 1 
-gray = color.gray(0.7) 
-mass = 4E-3/6E23 
-Ratom = 0.04 
-k = 1.4E-23 
-T = 300 
-dt = 1E-5
+L = 1 # Aresta de la caixa cúbica.
+gray = color.gray(0.7) # Color de les arestes de la caixa.
+mass = 4E-3/6E23 # Massa (en kg) d'un àtom d'He.
+Ratom = 0.04 # Radi atòmic usat a la simulació.
+k = 1.4E-23 # Constant de Boltzmann.
+T = 300 # Temperatura ambient (aproximadament).
+dt = 1E-5 # Pas de temps.
 
+# Animació del sistema.
 animation = canvas(width=win, height=win, align='left')
 animation.range = L
 animation.title = 'Hard Sphere Gas (Energy Distribution)'
@@ -40,9 +41,9 @@ vert2.append([vector(-d,-d,d), vector(-d,d,d)])
 vert3.append([vector(d,-d,d), vector(d,d,d)])
 vert4.append([vector(d,-d,-d), vector(d,d,-d)])
 
-Atoms = []
-p = [] 
-apos = [] 
+Atoms = [] # Llista amb tots els àtoms.
+p = [] # Llista de tots els moments dels àtoms.
+apos = [] # Llista de totes les velocitats dels àtoms.
 pavg = sqrt(2*mass*1.5*k*T) # Energia cinètica promig: p**2/(2mass) = (3/2)kT.
 
 for i in range(Natoms):
@@ -88,14 +89,12 @@ theory = gcurve(color=color.blue, width=2)
 Etot_curve = gcurve(color=color.green)
 t_sim = 0.0
 
-# Predicció teòrica associada a la distribució de Maxwell Boltzmann per a Energies.
+# Predicció teòrica associada a la distribució de Maxwell-Boltzmann per energies.
 dE_step = Emax / 300.0
 for i in range(301):
     E_val = i * dE_step
-    if E_val == 0: E_val = 1e-30 # Evitamos división por 0
     # Fórmula teórica: f(E) = (2/sqrt(pi)) * (1/kT)^(3/2) * sqrt(E) * exp(-E/kT)
     f_E = (2.0/sqrt(pi)) * ((1.0/(k*T))**1.5) * sqrt(E_val) * exp(-E_val/(k*T))
-    # Escalamos a número de partículas y tamaño de bin
     theory.plot(E_val/1.6E-19, Natoms * deltaE * f_E)
 
 accum = []
@@ -107,7 +106,7 @@ energy_graph = graph(width=win, height=0.4*win, align='left',
                      xtitle='Passos de temps', ytitle='Energia total (eV)', ymin = 17.0, ymax = 24.0)
 energy_curve = gcurve(color=color.green,width=2, graph=energy_graph)
 
-# --- AÑADIDO: GRÁFICA DE FLUCTUACIONES RELATIVAS ---
+# Gràfica de les fluctuacions relatives.
 fluct_graph = graph(width=win, height=0.4*win, align='left', 
                      xtitle='Passos de temps', ytitle='Fluctuacions rel. (%)')
 fluct_curve = gcurve(color=color.orange, width=2, graph=fluct_graph)
@@ -127,7 +126,7 @@ def interchange(E1, E2): # Funció que actualitza l'histograma quan una partícu
     if barE2 < len(histo):
         histo[barE2] += 1
 
-def checkCollisions():
+def checkCollisions(): # Funció que comprova si dues partícules han col·lisionat.
     hitlist = []
     r2 = 2*Ratom
     r2 *= r2
@@ -143,7 +142,7 @@ def checkCollisions():
 n_samples = 0 
 t = 0 - dt #Inicialitzem la variable temporal.
 nu = 5000 # Freqüència de col·lisió amb les partícules fictícies associades al bany tèrmic (és una mesura de l'acoblament amb el bany).
-prob = nu * dt 
+prob = nu * dt # Probabilitat de col·lisió amb partícula fictícia.
 
 # Funció que genera una distribució gaussiana a partir d'una uniforme.
 def box_muller():
@@ -153,27 +152,27 @@ def box_muller():
     theta = 2 * math.pi * u2
     return r * math.cos(theta), r * math.sin(theta)
 
-# BUCLE PRINCIPAL DE LA SIMULACIÓ.
+# -------------------------------
+# BUCLE PRINCIPAL DE LA SIMULACIÓ
+# -------------------------------
 while True:
     rate(300) 
 
     t += dt # Avancem en el temps.
 
-    # 1) Actualitzem l'histograma.
+    # 1) Actualitzem l'histograma i calculem l'energia total (en eV). Fem els plots corresponents als gràfics E(t) i de fluc. rel.
     for i in range(len(accum)):
         accum[i][1] = (n_samples*accum[i][1] + histo[i])/(n_samples+1)
     if n_samples % 10 == 0:
         Edist.data = accum
     n_samples += 1
 
-    E_total_julios = sum(mag2(p_i) / (2 * mass) for p_i in p)
-    E_total_eV = E_total_julios / 1.6E-19
+    E_total_jules = sum(mag2(p_i) / (2 * mass) for p_i in p)
+    E_total_eV = E_total_jules / 1.6E-19
     energy_curve.plot(t/dt, E_total_eV)
 
-    # --- AÑADIDO: PLOT DE LA FLUCTUACIÓN ---
-    fluctuacio_percentatge = ((E_total_julios - E_tot_esperada) / E_tot_esperada) * 100
+    fluctuacio_percentatge = ((E_total_jules - E_tot_esperada) / E_tot_esperada) * 100
     fluct_curve.plot(t/dt, fluctuacio_percentatge)
-    # ---------------------------------------
 
     # 2) Moviment de les partícules.
     for i in range(Natoms):
@@ -201,6 +200,7 @@ while True:
         E_old_i = p[i].mag2 / (2*mass)
         E_old_j = p[j].mag2 / (2*mass)
 
+        # Calculem les noves posicions i moments després de la col·lisió.
         dx = dot(rrel, vrel.hat) 
         dy = cross(rrel, vrel.hat).mag 
         
@@ -239,24 +239,35 @@ while True:
             if loc.z < 0: p[i].z = abs(p[i].z)
             else: p[i].z = -abs(p[i].z)
 
-    # --------------------------------------
-    # IMPLEMENTACIÓ DEL TERMOSTAT D'ANDERSEN
-    # --------------------------------------
+    # --------------------
+    # TERMOSTAT D'ANDERSEN
+    # --------------------
+    dt = dt = 1E-5
+    nu = 5000 # Acoblament amb el bany tèrmic.
+    prob = nu * dt # Probabilitat de que una partícula xoqui amb una fictícia.
+        
+    # Bucle que passa per totes les partícules del gas i les selecciona amb una certa probab.
     for i in range(Natoms):
-        if random.random() < prob: 
-            # Guardem l'energía antiga per l'historial.
+        if random.random() < prob: # Aquesta condició selecciona amb probabilitat prob. la partícula i.
+                
+            # Guardem l'energía antiga per l'histograma.
             E_old = p[i].mag2 / (2*mass)
-
+                
+            # Generem tres variables distribuïdes segons una gaussiana.
             z1, z2 = box_muller()
             z3, _ = box_muller()
-            
+                    
+            # Definim la desviació estàndard (de la distribució M-B).
             sigma = math.sqrt(k*T/mass)
-            
+                    
+            # Reescalem les variables generades per tal que es corresponguin amb les velocitats.
             vx = sigma * z1
             vy = sigma * z2
             vz = sigma * z3
+                    
+            # Reassignem el moment de la partícula seleccionada usant les velocitats generades aleatòriament.
             p[i] = vector(mass*vx, mass*vy, mass*vz)
-
+                
             # Actualitzem l'histograma amb l'energía nova.
             E_new = p[i].mag2 / (2*mass)
             interchange(E_old, E_new)

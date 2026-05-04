@@ -42,9 +42,49 @@
 \usepackage{cancel}
 \usepackage{float}
 \usepackage{titling}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codebg}{rgb}{0.95,0.95,0.92}
+\definecolor{codekw}{rgb}{0.2,0.2,0.7}
+\definecolor{codecom}{rgb}{0.0,0.5,0.0}
+\definecolor{codestr}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{pythonstyle}{
+	language=Python,
+	backgroundcolor=\color{codebg},
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\color{codekw}\bfseries,
+	commentstyle=\color{codecom}\itshape,
+	stringstyle=\color{codestr},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=10pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=single,
+	tabsize=4,
+	captionpos=b
+}
+
+\lstset{style=pythonstyle}
+\renewcommand{\lstlistingname}{Codi}
 \usepackage{etoolbox}
+\usepackage{caption}
+\captionsetup[lstlisting]{font=normal}
 \renewcommand{\labelenumi}{\textbf{\theenumi.}}
 \usepackage{siunitx}
+\lstset{
+	inputencoding=utf8,
+	extendedchars=true,
+	literate=
+	{à}{{\'a}}1 {é}{{\'e}}1 {è}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ò}{{\'o}}1 {ú}{{\'u}}1
+	{À}{{\'A}}1 {É}{{\'E}}1 {È}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ò}{{\'O}}1 {Ú}{{\'U}}1
+	{ñ}{{\~n}}1 {Ñ}{{\~N}}1
+	{ü}{{\"u}}1 {Ü}{{\"U}}1
+	{ï}{{\"i}}1 {Ï}{{\"I}}1
+}
 \sisetup{
 	output-decimal-marker = {,},
 	exponent-product = \cross
@@ -106,7 +146,7 @@
 	\pagenumbering{arabic}
 	\setcounter{page}{1}
 	
-\chapter{Gas d'Esferes Dures}
+\chapter{Gas d'esferes dures}
 
 \section{Introducció i fonament teòric}
 En aquesta secció estudiarem un gas d'esferes dures. En aquest model, s'assumeix que el potencial d'interacció entre les diferents partícules del gas és tal que 
@@ -140,7 +180,7 @@ Per un mateix gas, tindrem vàries distribucions de Maxwell-Boltzmann en funció
 	\label{fig:intropart1.1}
 \end{figure}
 
-Notem que la simulació inicial, tal i com veurem, treballarà amb uns paràmetres inicials fixats. En particular, fixarem $N$ (nombre d'àtoms), $V$ (volum del recipient) i $T$ (temperatura). Teòricament, si treballem amb aquestes variables fixades, estem en una col·lectivitat tipus NVT, això és, la col·lectivitat canònica. Ara bé, en el codi (\textbf{POSAR-LO A L'ANNEX OR SOMEWHERE}), la temperatura $T$ no es fixa en el sentit en què queda fixada a la col·lectivitat canònica, sinó que simplement serveix per donar un valor a per $\langle v \rangle$. Recordem que, del teorema d'equipartició, tenim que
+Notem que la simulació inicial, tal i com veurem, treballarà amb uns paràmetres inicials fixats. En particular, fixarem $N$ (nombre d'àtoms), $V$ (volum del recipient) i $T$ (temperatura). Teòricament, si treballem amb aquestes variables fixades, estem en una col·lectivitat tipus NVT, això és, la col·lectivitat canònica. Ara bé, en el codi, que podeu trobar a l'annex \ref{annex:1}, la temperatura $T$ no es fixa en el sentit en què queda fixada a la col·lectivitat canònica, sinó que simplement serveix per donar un valor a per $\langle v \rangle$. Recordem que, del teorema d'equipartició, tenim que
 \begin{equation}
 	\langle \frac{1}{2}m v^2 \rangle = \frac{f}{2}k_BT \Rightarrow T = \frac{m}{fk_BT} \langle v^2 \rangle,
 \end{equation}
@@ -301,8 +341,8 @@ Així doncs, l'algoritme que usarem per incorporar el termostat d'Andersen a la 
 	
 	Hem de tenir present, però, que per escollir la nova velocitat de la partícula $i$ a partir de la distribució de Maxwell-Boltzmann és necessari fer servir una \textit{transformada de Box-Muller}, que ens permet generar una distribució gaussiana amb $\mu = 0$ i $\sigma^2 = 1$ a partir d'una distribució uniforme (entre 0 i 1)\footnote{Que és la que podem generar si usem la funció \textsf{\textbackslash random()} de \textit{Python}.} per a cada component de la velocitat $\vec{v} = (v_x, v_y, v_z)$. De forma general, donades dues variables $x_1$ i $x_2$ distribuïdes de forma uniforme entre 0 i 1, podem generar dues noves variables $z_1$ i $z_2$ amb una distribució normal centrada a l'origen i amb una variància igual a la unitat segons
 	\begin{align}
-		z_1 &= \sqrt{-2\ln x_1}\cos(2\pi x_2), \\
-		z_2 &= \sqrt{-2\ln x_1}\sin(2\pi x_2).
+		z_1 &= \sqrt{-2\ln x_1}\cos(2\pi x_2), \label{eq:1.8}\\
+		z_2 &= \sqrt{-2\ln x_1}\sin(2\pi x_2). \label{eq:1.9}
 	\end{align} 
 	Així, per a cada coordenada de la velocitat de $i$, generarem una distribució normal, però amb desviació estàndard 
 	\begin{equation}
@@ -326,6 +366,61 @@ Notem però, que l'algoritme proposat per Andersen té un seguit de limitacions.
 
 Convé destacar, a més a més, que la implementació de l'algoritme que simula les interaccions entre els àtoms del gas d'esferes dures i les partícules fictícies associades al bany tèrmic la fem després d'actualitzar les posicions i els moments de les partícules reals que interaccionen per tal de garantir que les col·lisions es produeixen sempre abans de que el bany `termalitzi' el sistema. Si ho féssim al revés, és a dir, si primer fem la termalització del sistema i després el deixem evolucionar lliurement, fent que les molècules interaccionin entre elles, estarem introduint una sèrie d'errors associats a les limitacions del termostat d'Andersen (principalment, les no conservacions del moment lineal i de l'energia, produïdes per l'aleatorietat en la selecció de les noves velocitats imposada pel mètode) abans de que les col·lisions reals s'arribin a produir. En general, és recomanable, per tant, executar primer la part associada amb les interaccions reals de la simulació i, tot seguit, introduir el termostat d'Andersen (procés estocàstic), per tal de no destruir la informació física del sistema abans d'hora.
 
+A continuació mostrem la part del codi en \textit{Python} responsable de la implementació del termostat d'Andersen. Està dividida en dues parts, la corresponent a la transformada de Box-Muller per generar velocitats distribuïdes segons la distribució de Maxwell-Boltzmann a partir d'una distribució uniforme de $x \in [0,1]$, i la corresponent al termostat com a tal. Els codis globals, els comentaris relacionats amb al generació de gràfiques, i altres, es poden trobar a l'annex \ref{annex:1}, aquí només n'especifiquem les parts més rellevants.
+
+\begin{lstlisting}[caption={Transformada de Box-Muller.}]
+# --------------------------
+# TRANSFORMADA DE BOX-MULLER
+# --------------------------
+	
+def box_muller():
+	u1 = random.random() # Variable aleatòria distribuïda entre 0 i 1.
+	u2 = random.random() # Variable aleatòria distribuïda entre 0 i 1.
+	r = math.sqrt(-2 * math.log(u1))
+	theta = 2 * math.pi * u2
+	return r * math.cos(theta), r * math.sin(theta) # Variables d'una distribució gaussiana centrada a 0 i amb desviació estàndard igual 1.	
+\end{lstlisting}
+
+La funció definida genera, cada cop que la cridem, un parell de variables distribuïdes segons una distribució normal amb $\mu = 0$ i $\sigma^2 = 1$, seguint el procediment descrit per les equacions \eqref{eq:1.8} i \eqref{eq:1.9}. Tal i com hem explicat prèviament, aquesta part és clau per poder reassignar les velocitats de les partícules que interaccionen amb les partícules fictícies associades al bany tèrmic de manera que se segueixi la distribució de Maxwell-Boltzmann.
+
+\begin{lstlisting}[caption={Termostat d'Andersen.}]
+# --------------------
+# TERMOSTAT D'ANDERSEN
+# --------------------
+
+dt = dt = 1E-5
+nu = 5000 # Acoblament amb el bany tèrmic.
+prob = nu * dt # Probabilitat de que una partícula xoqui amb una fictícia.
+	
+# Bucle que passa per totes les partícules del gas i les selecciona amb una certa probab.
+for i in range(Natoms):
+	if random.random() < prob: # Aquesta condició selecciona amb probabilitat prob. la partícula i.
+			
+		# Guardem l'energía antiga per l'histograma.
+		E_old = p[i].mag2 / (2*mass)
+			
+		# Generem tres variables distribuïdes segons una gaussiana.
+		z1, z2 = box_muller()
+		z3, _ = box_muller()
+				
+		# Definim la desviació estàndard (de la distribució M-B).
+		sigma = math.sqrt(k*T/mass)
+				
+		# Reescalem les variables generades per tal que es corresponguin amb les velocitats.
+		vx = sigma * z1
+		vy = sigma * z2
+		vz = sigma * z3
+				
+		# Reassignem el moment de la partícula seleccionada usant les velocitats generades aleatòriament.
+		p[i] = vector(mass*vx, mass*vy, mass*vz)
+			
+		# Actualitzem l'histograma amb l'energía nova.
+		E_new = p[i].mag2 / (2*mass)
+		interchange(E_old, E_new)
+				
+\end{lstlisting}
+
+En aquest codi comencem definim el paràmetre $\nu$ que representa l'acoblament amb el bany tèrmic (és una freqüència de col·lisió). La probabilitat de que una partícula sigui seleccionada per interaccionar amb el bany tèrmic ve determinada per l'equació \eqref{eq:1.7}, donat el pas de temps $\mathrm{d}t = 1 \cross 10^{-5}$ s i l'acoblament $\nu = 5000 \text{s}^{-1}$ seleccionats, tenim que $P = 0,05$. Fixem-nos en què, com major sigui $\nu$ (per un mateix pas de temps), més gran serà la probabilitat de selecció i, per tant, més ràpid forçarem la distribució de M-B.  Acte seguit imposem un bucle que ens selecciona, amb probabilitat $P$, cadascuna de les partícules del gas i, per les seleccionades, introdueix el canvi de velocitat que hem discutit al principi d'aquest apartat. 
 
 \subsection{Distribució d'energies i comparació entre col·lectivitats}
 Un cop tenim implementat el termostat d'Andersen, convé estudiar quina és la distribució d'energies obtinguda i comparar-la amb l'esperada teòricament per saber així si hem procedit adequadament. La distribució teòrica d'energies $\rho(E)$ es pot deduir a partir de la distribució de velocitats de Maxwell-Boltzmann tot considerant que
@@ -457,11 +552,11 @@ Fixem-nos en què aquest valor és pròxim al del gas ideal, $C_V = \frac{3}{2}R
 \begin{equation}
 	\langle E \rangle = \frac{3}{2}Nk_BT.
 \end{equation} 
-Així doncs, fent ús de l'anterior aproximació i les dades experimentals, podem calcular les fluctuacions relatives esperades emprant l'equació \eqref{eq:1.19} en funció de $N$ i a $T = 300$ K. Els resultats es poden veure a la taula \ref{tab:1.2} i podem veure com aquests són compatibles amb els que es poden veure a les figures \ref{fig:1.10} i \ref{fig:1.11}. 
+Així doncs, fent ús de l'anterior aproximació i les dades experimentals, podem calcular les fluctuacions relatives esperades emprant l'equació \eqref{eq:1.19} en funció de $N$ i a $T = 300$ K. Els resultats estan a la taula \ref{tab:1.2} i podem veure com aquests són compatibles amb els que es poden veure a les figures \ref{fig:1.10} i \ref{fig:1.11}. 
 
 \begin{table}[h]
 	\centering
-	\caption{Taula amb les fluctuacions relatives calculades a partir de les dades termodinàmiques de l'He gas per diferents valors de N. Notem com, en augmentar $N$, les fluctuacions relatives disminueixen (segons $\frac{1}{\sqrt{N}}$).}
+	\caption{Taula amb les fluctuacions relatives calculades a partir de les dades termodinàmiques de l'He gas per diferents valors de $N$. Notem com, en augmentar $N$, les fluctuacions relatives disminueixen (segons $\frac{1}{\sqrt{N}}$).}
 	\begin{tabular}{l c c}
 		\toprule
 		 & $\sigma_E / \langle E \rangle$ & fluctuacions rel. (\%) \\
@@ -474,8 +569,6 @@ Així doncs, fent ús de l'anterior aproximació i les dades experimentals, pode
 	\label{tab:1.2}
 \end{table}
 
-\textbf{POTSER HAURIA DE FER UN PROMIG SOBRE TOTS ELS TEMPS PER A LES FLUCTUACIONS RELATIVES I COMPARAR AMB AIXÒ?}
-
 \subsection{Conclusions}
 En aquesta secció hem implementat un termostat d'Andersen per tal de poder mantenir la temperatura $T$ constant en el nostre sistema, tot passant d'una simulació d'un gas d'esferes dures en col·lectivitat NVE (microcanònica) a col·lectivitat NVT (canònica). Hem observat com, efectivament, en implementar el model d'Andersen apareixen les característiques típiques del col·lectiu canònic, això és, en essència, fluctuacions en l'energia. Hem constatat com, efectivament, aquestes fluctuacions en l'energia són coherents amb el que cabria esperar experimentalment i s'adeqüen a la predicció teòrica que assegura que han de disminuir conforme augmenta el nombre de partícules $N$ del sistema. 
 
@@ -483,13 +576,7 @@ Així doncs, tot i les limitacions discutides associades a aquest tipus de termo
 
 \textcolor{red}{\textbf{Coses a posar:}}
 \begin{itemize}
-	\item \textcolor{red}{\textbf{Modificar les gràfiques (la simulació estava al revés :( ).}}
-	\item \textcolor{red}{\textbf{Discutir si les fluctuacions relatives estan bé (si estan bé tot okai, sinó cagada astronòmica).}}
-	\item \textcolor{red}{\textbf{Analitzar si en fer el límit TMD se satisfà que la variància se va a tomar por culo (hauria de ser així i es guay perquè demsotra que està bé).}}
-	\item \textcolor{red}{\textbf{Discutir com, en afegir el termostat d'Andersen, es convergeix més ràpidament a l'estadística de Boltzmann.}}
-	\item \textcolor{red}{\textbf{Problemàtica del termostat d'Andersen. No conservació del moment lineal i de l'energia.}}
 	\item \textcolor{red}{\textbf{Potser és interessant posar gràfics de T abans i després d'Andersen.}}
-	\item \textcolor{red}{\textbf{Fer comparativa de les fluctuacions amb les reals calculant $\langle E \rangle$ i $C_V$ com si fos un gas ideal i, per les $C_V$, comparar també amb dades experimentals de la web del NIST.}}
 \end{itemize}
 
 
@@ -645,5 +732,711 @@ Frenkel, D. \textit{Understanding Molecular Simulation. From Algorithms to Aplic
 \bibitem{ref5}
 McCarty, R. D. (1973). \textit{Thermodynamic Properties of Helium-4 from 2 to 1500 K at Pressures to 10$^3$ Pa}. Journal of Physical and Chemical Reference Data, 2(4), 923–1042. \url{https://doi.org/10.1063/1.3253133}. Consultat el: 03/05/2026.
 \end{thebibliography}
+
+\newpage
+
+\begin{appendices}
+	%SI TOQUEU AIXÒ ELS ANNEXOS PETEN.
+	
+	\textbf{\Huge{Annexos}}
+	\renewcommand{\thesection}{\Alph{section}} % Cambia la numeración de capítulos a letras
+	\renewcommand{\theequation}{\thesection.\arabic{equation}} % Cambia numeración de ecuaciones
+	\setcounter{equation}{0} % Reinicia contador de ecuaciones en cada sección
+	
+	\section{Gas d'Esferes Dures}
+	\label{annex:1}
+	En aquest annex mostrem els codis relacionats amb la primera part d'aquest treball sobre el model d'esferes dures aplicat a l'He gas. En cadascun dels codis adjuntats es comenten els procediments més importants (llevat dels de la simulació original). Els podeu trobar també en el següent repositori de \textit{GitHub}: \textbf{POSAR REPOSITORI}.
+	
+	\subsection{Codi original i distribució de velocitats}
+	Tot seguit mostrem el codi original de la simulació modificat per $N = 500$ i $r_0 = 0,04$ m.
+	
+	\begin{lstlisting}[caption={Simulació de la distribució de velocitats per $N = 500$ i $r_0 = 0,04$ m.}]
+		from vpython import *
+		
+		win = 500
+		
+		Natoms = 500  # Nombre d'àtoms ajustat a 500.
+		
+		# Paràmetres de la simulació (tots els valors estan en SI).
+		L = 1 # Aresta de la caixa cúbica.
+		gray = color.gray(0.7) # Color de les arestes de la caixa.
+		mass = 4E-3/6E23 # Massa (en kg) d'un àtom d'He.
+		Ratom = 0.04 # Radi atòmic usat a la simulació. L'original és 0.03, el radi real és 0.31*10**-10 i el seleccionat per les simulacions és 0.04.
+		k = 1.4E-23 # Constant de Boltzmann.
+		T = 300 # Temperatura ambient (aproximadament).
+		dt = 1E-5
+		
+		animation = canvas( width=win, height=win, align='left')
+		animation.range = L
+		animation.title = 'Hard Sphere Gas'
+		s = """  Theoretical and averaged speed distributions (meters/sec).
+		Initially all atoms have the same speed, but collisions
+		change the speeds of the colliding atoms. One of the atoms is
+		marked and leaves a trail so you can follow its path.
+		
+		"""
+		animation.caption = s
+		
+		d = L/2+Ratom
+		r = 0.005
+		boxbottom = curve(color=gray, radius=r)
+		boxbottom.append([vector(-d,-d,-d), vector(-d,-d,d), vector(d,-d,d), vector(d,-d,-d), vector(-d,-d,-d)])
+		boxtop = curve(color=gray, radius=r)
+		boxtop.append([vector(-d,d,-d), vector(-d,d,d), vector(d,d,d), vector(d,d,-d), vector(-d,d,-d)])
+		vert1 = curve(color=gray, radius=r)
+		vert2 = curve(color=gray, radius=r)
+		vert3 = curve(color=gray, radius=r)
+		vert4 = curve(color=gray, radius=r)
+		vert1.append([vector(-d,-d,-d), vector(-d,d,-d)])
+		vert2.append([vector(-d,-d,d), vector(-d,d,d)])
+		vert3.append([vector(d,-d,d), vector(d,d,d)])
+		vert4.append([vector(d,-d,-d), vector(d,d,-d)])
+		
+		Atoms = []
+		p = []
+		apos = []
+		pavg = sqrt(2*mass*1.5*k*T) # average kinetic energy p**2/(2mass) = (3/2)kT
+		
+		for i in range(Natoms):
+		x = L*random()-L/2
+		y = L*random()-L/2
+		z = L*random()-L/2
+		if i == 0:
+		Atoms.append(sphere(pos=vector(x,y,z), radius=Ratom, color=color.cyan, make_trail=True, retain=100, trail_radius=0.3*Ratom))
+		else: Atoms.append(sphere(pos=vector(x,y,z), radius=Ratom, color=gray))
+		apos.append(vec(x,y,z))
+		theta = pi*random()
+		phi = 2*pi*random()
+		px = pavg*sin(theta)*cos(phi)
+		py = pavg*sin(theta)*sin(phi)
+		pz = pavg*cos(theta)
+		p.append(vector(px,py,pz))
+		
+		deltav = 100 # binning for v histogram
+		
+		def barx(v):
+		return int(v/deltav) # index into bars array
+		
+		nhisto = int(4500/deltav)
+		histo = []
+		for i in range(nhisto): histo.append(0.0)
+		histo[barx(pavg/mass)] = Natoms
+		
+		gg = graph( width=win, height=0.4*win, xmax=3000, align='left',
+		xtitle='Velocitat (m/s)', ytitle='N', ymax=Natoms*deltav/1000)
+		
+		theory = gcurve( color=color.blue, width=2 )
+		dv = 10
+		for v in range(0,3001+dv,dv):  # theoretical prediction
+		theory.plot( v, (deltav/dv)*Natoms*4*pi*((mass/(2*pi*k*T))**1.5) *exp(-0.5*mass*(v**2)/(k*T))*(v**2)*dv )
+		
+		accum = []
+		for i in range(int(3000/deltav)): accum.append([deltav*(i+.5),0])
+		vdist = gvbars(color=color.red, delta=deltav )
+		
+		def interchange(v1, v2):  # remove from v1 bar, add to v2 bar
+		barx1 = barx(v1)
+		barx2 = barx(v2)
+		if barx1 == barx2:  return
+		if barx1 >= len(histo) or barx2 >= len(histo): return
+		histo[barx1] -= 1
+		histo[barx2] += 1
+		
+		def checkCollisions():
+		hitlist = []
+		r2 = 2*Ratom
+		r2 *= r2
+		for i in range(Natoms):
+		ai = apos[i]
+		for j in range(i) :
+		aj = apos[j]
+		dr = ai - aj
+		if mag2(dr) < r2: hitlist.append([i,j])
+		return hitlist
+		
+		nhisto = 0 # number of histogram snapshots to average
+		
+		while True:
+		rate(300)
+		# Accumulate and average histogram snapshots
+		for i in range(len(accum)): accum[i][1] = (nhisto*accum[i][1] + histo[i])/(nhisto+1)
+		if nhisto % 10 == 0:
+		vdist.data = accum
+		nhisto += 1
+		
+		# Update all positions
+		for i in range(Natoms): Atoms[i].pos = apos[i] = apos[i] + (p[i]/mass)*dt
+		
+		# Check for collisions
+		hitlist = checkCollisions()
+		
+		# If any collisions took place, update momenta of the two atoms
+		for ij in hitlist:
+		i = ij[0]
+		j = ij[1]
+		ptot = p[i]+p[j]
+		posi = apos[i]
+		posj = apos[j]
+		vi = p[i]/mass
+		vj = p[j]/mass
+		vrel = vj-vi
+		a = vrel.mag2
+		if a == 0: continue;  # exactly same velocities
+		rrel = posi-posj
+		if rrel.mag > Ratom: continue # one atom went all the way through another
+		
+		# theta is the angle between vrel and rrel:
+		dx = dot(rrel, vrel.hat)       # rrel.mag*cos(theta)
+		dy = cross(rrel, vrel.hat).mag # rrel.mag*sin(theta)
+		# alpha is the angle of the triangle composed of rrel, path of atom j, and a line
+		#   from the center of atom i to the center of atom j where atome j hits atom i:
+		alpha = asin(dy/(2*Ratom)) 
+		d = (2*Ratom)*cos(alpha)-dx # distance traveled into the atom from first contact
+		deltat = d/vrel.mag         # time spent moving from first contact to position inside atom
+		
+		posi = posi-vi*deltat # back up to contact configuration
+		posj = posj-vj*deltat
+		mtot = 2*mass
+		pcmi = p[i]-ptot*mass/mtot # transform momenta to cm frame
+		pcmj = p[j]-ptot*mass/mtot
+		rrel = norm(rrel)
+		pcmi = pcmi-2*pcmi.dot(rrel)*rrel # bounce in cm frame
+		pcmj = pcmj-2*pcmj.dot(rrel)*rrel
+		p[i] = pcmi+ptot*mass/mtot # transform momenta back to lab frame
+		p[j] = pcmj+ptot*mass/mtot
+		apos[i] = posi+(p[i]/mass)*deltat # move forward deltat in time
+		apos[j] = posj+(p[j]/mass)*deltat
+		interchange(vi.mag, p[i].mag/mass)
+		interchange(vj.mag, p[j].mag/mass)
+		
+		for i in range(Natoms):
+		loc = apos[i]
+		if abs(loc.x) > L/2:
+		if loc.x < 0: p[i].x =  abs(p[i].x)
+		else: p[i].x =  -abs(p[i].x)
+		
+		if abs(loc.y) > L/2:
+		if loc.y < 0: p[i].y = abs(p[i].y)
+		else: p[i].y =  -abs(p[i].y)
+		
+		if abs(loc.z) > L/2:
+		if loc.z < 0: p[i].z =  abs(p[i].z)
+		else: p[i].z =  -abs(p[i].z)
+	\end{lstlisting}
+	
+	\subsection{Implementació del termostat d'Andersen i anàlisi de la distribució d'energies}
+	En els següents codis podem veure:
+	\begin{enumerate}
+		\item Codi per trobar la distribució d'energies i l'energia total del sistema en funció del temps $E(t)$ sense implementar el termostat d'Andersen (col·lectivitat NVE, microcanònica).
+		\item Codi per trobar la distribució d'energies, l'energia total del sistema en funció del temps $E(t)$ i les fluctuacions relatives en l'energia total un cop hem introduït el termostat d'Andersen (col·lectivitat NVT, canònica).
+	\end{enumerate}
+	
+	\begin{lstlisting}[caption={Simulació de la distribució d'energies i energia total del sistema en funció del temps sense implementar el termostat d'Andersen (col·lectivitat NVE, microcanònica).}]
+		from vpython import *
+		import numpy as np
+		import math
+		import random
+		
+		win = 500
+		
+		Natoms = 500  # Nombre d'àtoms ajustat a 500.
+		
+		# Paràmetres de la simulació (tots els valors estan en SI).
+		L = 1 # Aresta de la caixa cúbica.
+		gray = color.gray(0.7) # Color de les arestes de la caixa.
+		mass = 4E-3/6E23 # Massa (en kg) d'un àtom d'He.
+		Ratom = 0.04 # Radi atòmic usat a la simulació.
+		k = 1.4E-23 # Constant de Boltzmann.
+		T = 300 # Temperatura ambient (aproximadament).
+		dt = 1E-5 # Pas de temps.
+		
+		# Animació del sistema.
+		animation = canvas( width=win, height=win, align='left')
+		animation.range = L
+		animation.title = 'Hard Sphere Gas'
+		s = """  Theoretical and averaged speed distributions (meters/sec).
+		Initially all atoms have the same speed, but collisions
+		change the speeds of the colliding atoms. One of the atoms is
+		marked and leaves a trail so you can follow its path.
+		
+		"""
+		animation.caption = s
+		
+		d = L/2+Ratom
+		r = 0.005
+		boxbottom = curve(color=gray, radius=r)
+		boxbottom.append([vector(-d,-d,-d), vector(-d,-d,d), vector(d,-d,d), vector(d,-d,-d), vector(-d,-d,-d)])
+		boxtop = curve(color=gray, radius=r)
+		boxtop.append([vector(-d,d,-d), vector(-d,d,d), vector(d,d,d), vector(d,d,-d), vector(-d,d,-d)])
+		vert1 = curve(color=gray, radius=r)
+		vert2 = curve(color=gray, radius=r)
+		vert3 = curve(color=gray, radius=r)
+		vert4 = curve(color=gray, radius=r)
+		vert1.append([vector(-d,-d,-d), vector(-d,d,-d)])
+		vert2.append([vector(-d,-d,d), vector(-d,d,d)])
+		vert3.append([vector(d,-d,d), vector(d,d,d)])
+		vert4.append([vector(d,-d,-d), vector(d,d,-d)])
+		
+		Atoms = [] # Llista amb tots els àtoms.
+		p = [] # Llista de tots els moments dels àtoms.
+		apos = [] # Llista de totes les velocitats dels àtoms.
+		pavg = sqrt(2*mass*1.5*k*T) # Energia cinètica promig: p**2/(2mass) = (3/2)kT.
+		
+		for i in range(Natoms):
+		x = L*random.random()-L/2
+		y = L*random.random()-L/2
+		z = L*random.random()-L/2
+		if i == 0:
+		Atoms.append(sphere(pos=vector(x,y,z), radius=Ratom, color=color.cyan, make_trail=True, retain=100, trail_radius=0.3*Ratom))
+		else: Atoms.append(sphere(pos=vector(x,y,z), radius=Ratom, color=gray))
+		apos.append(vec(x,y,z))
+		theta = pi*random.random()
+		phi = 2*pi*random.random()
+		px = pavg*sin(theta)*cos(phi)
+		py = pavg*sin(theta)*sin(phi)
+		pz = pavg*cos(theta)
+		p.append(vector(px,py,pz))
+		
+		# ---------------------------------------------------------
+		# HISTOGRAMA / DISTRIBUCIÓ D'ENERGIES.
+		# ---------------------------------------------------------
+		deltaE = (k*T) / 5 # Binning per l'histograma d'energies.
+		Emax = 6.0 * k * T # Límit màxim d'energies que es mostra a la gràfica.
+		
+		def barE(E):
+		return int(E/deltaE) # Funció que transforma una energía en un índex de l'histograma (similarment al que feia el codi original amb les velocitats).
+		
+		n_bins = int(Emax/deltaE)
+		histo = []
+		for i in range(n_bins):
+		histo.append(0.0)
+		
+		Eavg_inicial = pavg**2 / (2*mass) # Introduim l'energia inicial (promig), a partir de pavg.
+		
+		if barE(Eavg_inicial) < n_bins:
+		histo[barE(Eavg_inicial)] = Natoms
+		
+		gg = graph(width=win, height=0.4*win, xmax=Emax/1.6E-19, align='left', 
+		xtitle='Energia (eV)', ytitle='N')
+		theory = gcurve(color=color.blue, width=2)
+		
+		
+		Etot_curve = gcurve(color=color.green)
+		t_sim = 0.0
+		
+		# Predicció teòrica associada a la distribució de Maxwell-Boltzmann per energies.
+		dE_step = Emax / 300.0
+		for i in range(301):
+		E_val = i * dE_step
+		# Fórmula teórica: f(E) = (2/sqrt(pi)) * (1/kT)^(3/2) * sqrt(E) * exp(-E/kT)
+		f_E = (2.0/sqrt(pi)) * ((1.0/(k*T))**1.5) * sqrt(E_val) * exp(-E_val/(k*T))
+		theory.plot(E_val/1.6E-19, Natoms * deltaE * f_E)
+		
+		accum = []
+		for i in range(n_bins):
+		accum.append([(deltaE*(i+0.5))/1.6E-19, 0])
+		
+		# Gràfica de l'energia total (en eV) en funció del temps.
+		energy_graph = graph(width=win, height=0.4*win, align='left', 
+		xtitle='Passos de temps', ytitle='Energia total (eV)', ymin = 19.5, ymax = 19.8)
+		energy_curve = gcurve(color=color.green, width=2, graph=energy_graph)
+		
+		Edist = gvbars(color=color.red, delta=deltaE/1.6E-19, graph = gg)
+		
+		
+		def interchange(E1, E2): # Funció que actualitza l'histograma quan una partícula canvia d'energia.
+		barE1 = barE(E1)
+		barE2 = barE(E2)
+		if barE1 == barE2: return
+		if barE1 < len(histo):
+		histo[barE1] -= 1
+		if barE2 < len(histo):
+		histo[barE2] += 1
+		
+		def checkCollisions(): # Funció que comprova si dues partícules han col.lisionat.
+		hitlist = []
+		r2 = 2*Ratom
+		r2 *= r2
+		for i in range(Natoms):
+		ai = apos[i]
+		for j in range(i) :
+		aj = apos[j]
+		dr = ai - aj
+		if mag2(dr) < r2: hitlist.append([i,j])
+		return hitlist
+		
+		n_samples = 0 
+		t = 0 - dt # Inicialitzem la variable temporal.
+		
+		# -------------------------------
+		# BUCLE PRINCIPAL DE LA SIMULACIÓ
+		# -------------------------------
+		while True:
+		rate(300)
+		
+		t += dt # Avancem en el temps un pas.
+		
+		# 1) Actualitzem l'histograma i calculem l'energia total (en eV). Fem plot al gràfic E(t)
+		for i in range(len(accum)):
+		accum[i][1] = (n_samples*accum[i][1] + histo[i])/(n_samples+1)
+		if n_samples % 10 == 0:
+		Edist.data = accum
+		n_samples += 1
+		
+		E_total_jules = sum(mag2(p_i) / (2 * mass) for p_i in p)
+		E_total_eV = E_total_jules / 1.6E-19
+		energy_curve.plot(t/dt, E_total_eV)
+		
+		# 2) Moviment de les partícules.
+		for i in range(Natoms):
+		Atoms[i].pos = apos[i] = apos[i] + (p[i]/mass)*dt
+		
+		# 3) Busquem quins àtoms han xocat.
+		hitlist = checkCollisions()
+		
+		# 4) Si dos àtoms col.lisionen, acualitzem els seus moments.
+		for ij in hitlist:
+		i = ij[0]
+		j = ij[1]
+		ptot = p[i]+p[j]
+		posi = apos[i]
+		posj = apos[j]
+		vi = p[i]/mass
+		vj = p[j]/mass
+		vrel = vj-vi
+		a = vrel.mag2
+		if a == 0: continue;  # exactly same velocities
+		rrel = posi-posj
+		if rrel.mag > Ratom: continue # one atom went all the way through another
+		
+		# Guardem les energies inicials abans d'actualitzar moments.
+		E_old_i = p[i].mag2 / (2*mass)
+		E_old_j = p[j].mag2 / (2*mass)
+		
+		# Calculem les noves posicions i moments després de la col.lisió.
+		
+		dx = dot(rrel, vrel.hat)       
+		dy = cross(rrel, vrel.hat).mag 
+		
+		alpha = asin(dy/(2*Ratom)) 
+		d = (2*Ratom)*cos(alpha)-dx 
+		deltat = d/vrel.mag         
+		
+		posi = posi-vi*deltat 
+		posj = posj-vj*deltat
+		mtot = 2*mass
+		pcmi = p[i]-ptot*mass/mtot 
+		pcmj = p[j]-ptot*mass/mtot
+		rrel = norm(rrel)
+		pcmi = pcmi-2*pcmi.dot(rrel)*rrel 
+		pcmj = pcmj-2*pcmj.dot(rrel)*rrel
+		p[i] = pcmi+ptot*mass/mtot 
+		p[j] = pcmj+ptot*mass/mtot
+		apos[i] = posi+(p[i]/mass)*deltat 
+		apos[j] = posj+(p[j]/mass)*deltat
+		
+		# Calculem les noves energies i actualitzem l'histograma.
+		E_new_i = p[i].mag2 / (2*mass)
+		E_new_j = p[j].mag2 / (2*mass)
+		interchange(E_old_i, E_new_i)
+		interchange(E_old_j, E_new_j)
+		
+		for i in range(Natoms):
+		loc = apos[i]
+		if abs(loc.x) > L/2:
+		if loc.x < 0: p[i].x =  abs(p[i].x)
+		else: p[i].x =  -abs(p[i].x)
+		
+		if abs(loc.y) > L/2:
+		if loc.y < 0: p[i].y = abs(p[i].y)
+		else: p[i].y =  -abs(p[i].y)
+		
+		if abs(loc.z) > L/2:
+		if loc.z < 0: p[i].z =  abs(p[i].z)
+		else: p[i].z =  -abs(p[i].z)
+		
+	\end{lstlisting}
+	
+	\begin{lstlisting}[caption={Distribució d'energies, energia total del sistema en funció del temps i fluctuacions relatives en l'energia total amb el termostat d'Andersen implementat (col·lectivitat NVT, canònica).}]
+		from vpython import *
+		import numpy as np
+		import math
+		import random
+		
+		win = 500
+		Natoms = 500 # Nombre d'àtoms ajustat a 500.
+		
+		# Paràmetres de la simulació (tots els valors estan en SI).
+		L = 1 # Aresta de la caixa cúbica.
+		gray = color.gray(0.7) # Color de les arestes de la caixa.
+		mass = 4E-3/6E23 # Massa (en kg) d'un àtom d'He.
+		Ratom = 0.04 # Radi atòmic usat a la simulació.
+		k = 1.4E-23 # Constant de Boltzmann.
+		T = 300 # Temperatura ambient (aproximadament).
+		dt = 1E-5 # Pas de temps.
+		
+		# Animació del sistema.
+		animation = canvas(width=win, height=win, align='left')
+		animation.range = L
+		animation.title = 'Hard Sphere Gas (Energy Distribution)'
+		s = """
+		Theoretical and averaged energy distributions (Joules).
+		Initially all atoms have the same energy, but collisions change them.
+		One of the atoms is marked and leaves a trail.
+		"""
+		animation.caption = s
+		
+		d = L/2+Ratom
+		r = 0.005
+		boxbottom = curve(color=gray, radius=r)
+		boxbottom.append([vector(-d,-d,-d), vector(-d,-d,d), vector(d,-d,d), vector(d,-d,-d), vector(-d,-d,-d)])
+		boxtop = curve(color=gray, radius=r)
+		boxtop.append([vector(-d,d,-d), vector(-d,d,d), vector(d,d,d), vector(d,d,-d), vector(-d,d,-d)])
+		vert1 = curve(color=gray, radius=r)
+		vert2 = curve(color=gray, radius=r)
+		vert3 = curve(color=gray, radius=r)
+		vert4 = curve(color=gray, radius=r)
+		vert1.append([vector(-d,-d,-d), vector(-d,d,-d)])
+		vert2.append([vector(-d,-d,d), vector(-d,d,d)])
+		vert3.append([vector(d,-d,d), vector(d,d,d)])
+		vert4.append([vector(d,-d,-d), vector(d,d,-d)])
+		
+		Atoms = [] # Llista amb tots els àtoms.
+		p = [] # Llista de tots els moments dels àtoms.
+		apos = [] # Llista de totes les velocitats dels àtoms.
+		pavg = sqrt(2*mass*1.5*k*T) # Energia cinètica promig: p**2/(2mass) = (3/2)kT.
+		
+		for i in range(Natoms):
+		x = L*random.random()-L/2
+		y = L*random.random()-L/2
+		z = L*random.random()-L/2
+		if i == 0:
+		Atoms.append(sphere(pos=vector(x,y,z), radius=Ratom, color=color.cyan, make_trail=True, retain=100, trail_radius=0.3*Ratom))
+		else:
+		Atoms.append(sphere(pos=vector(x,y,z), radius=Ratom, color=gray))
+		apos.append(vec(x,y,z)) 
+		theta = pi*random.random() 
+		phi = 2*pi*random.random()
+		px = pavg*sin(theta)*cos(phi) 
+		py = pavg*sin(theta)*sin(phi)
+		pz = pavg*cos(theta)
+		p.append(vector(px,py,pz)) 
+		
+		# ---------------------------------------------------------
+		# HISTOGRAMA / DISTRIBUCIÓ D'ENERGIES.
+		# ---------------------------------------------------------
+		deltaE = (k*T) / 5 # Binning per l'histograma d'energies.
+		Emax = 6.0 * k * T # Límit màxim d'energies que es mostra a la gràfica.
+		
+		def barE(E):
+		return int(E/deltaE) # Funció que transforma una energía en un índex de l'histograma (similarment al que feia el codi original amb les velocitats).
+		
+		n_bins = int(Emax/deltaE)
+		histo = []
+		for i in range(n_bins):
+		histo.append(0.0)
+		
+		Eavg_inicial = pavg**2 / (2*mass) # Introduim l'energia inicial (promig), a partir de pavg.
+		
+		if barE(Eavg_inicial) < n_bins:
+		histo[barE(Eavg_inicial)] = Natoms
+		
+		gg = graph(width=win, height=0.4*win, xmax=Emax/1.6E-19, align='left', 
+		xtitle='Energia (eV)', ytitle='N')
+		theory = gcurve(color=color.blue, width=2)
+		
+		
+		Etot_curve = gcurve(color=color.green)
+		t_sim = 0.0
+		
+		# Predicció teòrica associada a la distribució de Maxwell-Boltzmann per energies.
+		dE_step = Emax / 300.0
+		for i in range(301):
+		E_val = i * dE_step
+		# Fórmula teórica: f(E) = (2/sqrt(pi)) * (1/kT)^(3/2) * sqrt(E) * exp(-E/kT)
+		f_E = (2.0/sqrt(pi)) * ((1.0/(k*T))**1.5) * sqrt(E_val) * exp(-E_val/(k*T))
+		theory.plot(E_val/1.6E-19, Natoms * deltaE * f_E)
+		
+		accum = []
+		for i in range(n_bins):
+		accum.append([(deltaE*(i+0.5))/1.6E-19, 0])
+		
+		# Gràfica de l'energia total (en eV) en funció del temps.
+		energy_graph = graph(width=win, height=0.4*win, align='left', 
+		xtitle='Passos de temps', ytitle='Energia total (eV)', ymin = 17.0, ymax = 24.0)
+		energy_curve = gcurve(color=color.green,width=2, graph=energy_graph)
+		
+		# Gràfica de les fluctuacions relatives.
+		fluct_graph = graph(width=win, height=0.4*win, align='left', 
+		xtitle='Passos de temps', ytitle='Fluctuacions rel. (%)')
+		fluct_curve = gcurve(color=color.orange, width=2, graph=fluct_graph)
+		
+		# Calculamos la energía total esperada teórica
+		E_tot_esperada = Natoms * 1.5 * k * T
+		# ---------------------------------------------------
+		
+		Edist = gvbars(color=color.red, delta=deltaE/1.6E-19, graph = gg)
+		
+		def interchange(E1, E2): # Funció que actualitza l'histograma quan una partícula canvia d'energia.
+		barE1 = barE(E1)
+		barE2 = barE(E2)
+		if barE1 == barE2: return
+		if barE1 < len(histo):
+		histo[barE1] -= 1
+		if barE2 < len(histo):
+		histo[barE2] += 1
+		
+		def checkCollisions(): # Funció que comprova si dues partícules han col.lisionat.
+		hitlist = []
+		r2 = 2*Ratom
+		r2 *= r2
+		for i in range(Natoms):
+		ai = apos[i]
+		for j in range(i) :
+		aj = apos[j]
+		dr = ai - aj
+		if mag2(dr) < r2:
+		hitlist.append([i,j])
+		return hitlist
+		
+		n_samples = 0 
+		t = 0 - dt #Inicialitzem la variable temporal.
+		nu = 5000 # Freqüència de col.lisió amb les partícules fictícies associades al bany tèrmic (és una mesura de l'acoblament amb el bany).
+		prob = nu * dt # Probabilitat de col.lisió amb partícula fictícia.
+		
+		# Funció que genera una distribució gaussiana a partir d'una uniforme.
+		def box_muller():
+		u1 = random.random()
+		u2 = random.random()
+		r = math.sqrt(-2 * math.log(u1))
+		theta = 2 * math.pi * u2
+		return r * math.cos(theta), r * math.sin(theta)
+		
+		# -------------------------------
+		# BUCLE PRINCIPAL DE LA SIMULACIÓ
+		# -------------------------------
+		while True:
+		rate(300) 
+		
+		t += dt # Avancem en el temps.
+		
+		# 1) Actualitzem l'histograma i calculem l'energia total (en eV). Fem els plots corresponents als gràfics E(t) i de fluc. rel.
+		for i in range(len(accum)):
+		accum[i][1] = (n_samples*accum[i][1] + histo[i])/(n_samples+1)
+		if n_samples % 10 == 0:
+		Edist.data = accum
+		n_samples += 1
+		
+		E_total_jules = sum(mag2(p_i) / (2 * mass) for p_i in p)
+		E_total_eV = E_total_jules / 1.6E-19
+		energy_curve.plot(t/dt, E_total_eV)
+		
+		fluctuacio_percentatge = ((E_total_jules - E_tot_esperada) / E_tot_esperada) * 100
+		fluct_curve.plot(t/dt, fluctuacio_percentatge)
+		
+		# 2) Moviment de les partícules.
+		for i in range(Natoms):
+		Atoms[i].pos = apos[i] = apos[i] + (p[i]/mass)*dt
+		
+		# 3) Busquem quins àtoms han xocat.
+		hitlist = checkCollisions()
+		
+		# 4) Si dos àtoms col.lisionen, acualitzem els seus moments.
+		for ij in hitlist:
+		i = ij[0]
+		j = ij[1]
+		ptot = p[i]+p[j]
+		posi = apos[i]
+		posj = apos[j]
+		vi = p[i]/mass
+		vj = p[j]/mass
+		vrel = vj-vi
+		a = vrel.mag2
+		if a == 0: continue; 
+		rrel = posi-posj
+		if rrel.mag > Ratom: continue 
+		
+		# Guardem les energies inicials abans d'actualitzar moments.
+		E_old_i = p[i].mag2 / (2*mass)
+		E_old_j = p[j].mag2 / (2*mass)
+		
+		# Calculem les noves posicions i moments després de la col.lisió.
+		dx = dot(rrel, vrel.hat) 
+		dy = cross(rrel, vrel.hat).mag 
+		
+		alpha = asin(dy/(2*Ratom)) 
+		d = (2*Ratom)*cos(alpha)-dx 
+		deltat = d/vrel.mag 
+		
+		posi = posi-vi*deltat 
+		posj = posj-vj*deltat 
+		mtot = 2*mass
+		pcmi = p[i]-ptot*mass/mtot 
+		pcmj = p[j]-ptot*mass/mtot 
+		rrel = norm(rrel)
+		pcmi = pcmi-2*pcmi.dot(rrel)*rrel 
+		pcmj = pcmj-2*pcmj.dot(rrel)*rrel 
+		p[i] = pcmi+ptot*mass/mtot 
+		p[j] = pcmj+ptot*mass/mtot 
+		apos[i] = posi+(p[i]/mass)*deltat 
+		apos[j] = posj+(p[j]/mass)*deltat 
+		
+		# Calculem les noves energies i actualitzem l'histograma.
+		E_new_i = p[i].mag2 / (2*mass)
+		E_new_j = p[j].mag2 / (2*mass)
+		interchange(E_old_i, E_new_i)
+		interchange(E_old_j, E_new_j)
+		
+		for i in range(Natoms):
+		loc = apos[i]
+		if abs(loc.x) > L/2:
+		if loc.x < 0: p[i].x = abs(p[i].x)
+		else: p[i].x = -abs(p[i].x)
+		if abs(loc.y) > L/2:
+		if loc.y < 0: p[i].y = abs(p[i].y)
+		else: p[i].y = -abs(p[i].y)
+		if abs(loc.z) > L/2:
+		if loc.z < 0: p[i].z = abs(p[i].z)
+		else: p[i].z = -abs(p[i].z)
+		
+		# --------------------
+		# TERMOSTAT D'ANDERSEN
+		# --------------------
+		dt = dt = 1E-5
+		nu = 5000 # Acoblament amb el bany tèrmic.
+		prob = nu * dt # Probabilitat de que una partícula xoqui amb una fictícia.
+		
+		# Bucle que passa per totes les partícules del gas i les selecciona amb una certa probab.
+		for i in range(Natoms):
+		if random.random() < prob: # Aquesta condició selecciona amb probabilitat prob. la partícula i.
+		
+		# Guardem l'energía antiga per l'histograma.
+		E_old = p[i].mag2 / (2*mass)
+		
+		# Generem tres variables distribuïdes segons una gaussiana.
+		z1, z2 = box_muller()
+		z3, _ = box_muller()
+		
+		# Definim la desviació estàndard (de la distribució M-B).
+		sigma = math.sqrt(k*T/mass)
+		
+		# Reescalem les variables generades per tal que es corresponguin amb les velocitats.
+		vx = sigma * z1
+		vy = sigma * z2
+		vz = sigma * z3
+		
+		# Reassignem el moment de la partícula seleccionada usant les velocitats generades aleatòriament.
+		p[i] = vector(mass*vx, mass*vy, mass*vz)
+		
+		# Actualitzem l'histograma amb l'energía nova.
+		E_new = p[i].mag2 / (2*mass)
+		interchange(E_old, E_new)
+		
+	\end{lstlisting}
+	
+	\section{Creació d'una simulació pròpia}
+	
+	\subsection{NAT TUS CÓDIGOS AQUÍ}
+\end{appendices}
 
 \end{document}
