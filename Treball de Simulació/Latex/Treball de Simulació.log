@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  4 MAY 2026 21:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  6 MAY 2026 17:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -955,35 +955,35 @@ LaTeX Warning: Unused global option(s):
 (Treball de Simulació.aux)
 \openout1 = `"Treball de Simulació.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Info: Redefining \l on input line 114.
-LaTeX Info: Redefining \L on input line 114.
-LaTeX Info: Redefining \celsius on input line 114.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 114
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Info: Redefining \l on input line 113.
+LaTeX Info: Redefining \L on input line 113.
+LaTeX Info: Redefining \celsius on input line 113.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 113
 .
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 114.
-Package gensymb Info: Using \Omega for \ohm on input line 114.
+LaTeX Info: Redefining \ohm on input line 113.
+Package gensymb Info: Using \Omega for \ohm on input line 113.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -1077,17 +1077,17 @@ nslations-basic-dictionary')
 )
 
 Package translations Warning: file `translations-basic-dictionary-catalan.trsl'
- does not appear to be a dictionary on input line 114.
+ does not appear to be a dictionary on input line 113.
 
-Package hyperref Info: Link coloring OFF on input line 114.
+Package hyperref Info: Link coloring OFF on input line 113.
 (Treball de Simulació.out) (Treball de Simulació.out)
 \@outlinefile=\write4
 \openout4 = `"Treball de Simulació.out"'.
 
-<logo_uab.png, id=110, 1505.625pt x 565.36218pt>
+<logo_uab.png, id=130, 1505.625pt x 565.36218pt>
 File: logo_uab.png Graphic file (type png)
 <use logo_uab.png>
-Package pdftex.def Info: logo_uab.png  used on input line 132.
+Package pdftex.def Info: logo_uab.png  used on input line 131.
 (pdftex.def)             Requested size: 145.96417pt x 54.80556pt.
 
 
@@ -1114,10 +1114,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Cap\'{\i }tol 1.
-<screenshot001.png, id=157, 1129.21875pt x 790.45313pt>
+<screenshot001.png, id=183, 1129.21875pt x 790.45313pt>
 File: screenshot001.png Graphic file (type png)
 <use screenshot001.png>
-Package pdftex.def Info: screenshot001.png  used on input line 178.
+Package pdftex.def Info: screenshot001.png  used on input line 177.
 (pdftex.def)             Requested size: 243.27116pt x 170.28181pt.
 
 
@@ -1126,19 +1126,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.186 \end{equation}
+l.185 \end{equation}
                      [1
 
  <./screenshot001.png>]
-<dis_vels_r_real.png, id=177, 770.88pt x 300.3722pt>
+<dis_vels_r_real.png, id=204, 770.88pt x 300.3722pt>
 File: dis_vels_r_real.png Graphic file (type png)
 <use dis_vels_r_real.png>
-Package pdftex.def Info: dis_vels_r_real.png  used on input line 209.
+Package pdftex.def Info: dis_vels_r_real.png  used on input line 208.
 (pdftex.def)             Requested size: 194.61395pt x 75.83076pt.
-<dis_vels_r_1.5.png, id=179, 770.88pt x 300.3722pt>
+<dis_vels_r_1.5.png, id=206, 770.88pt x 300.3722pt>
 File: dis_vels_r_1.5.png Graphic file (type png)
 <use dis_vels_r_1.5.png>
-Package pdftex.def Info: dis_vels_r_1.5.png  used on input line 218.
+Package pdftex.def Info: dis_vels_r_1.5.png  used on input line 217.
 (pdftex.def)             Requested size: 194.61395pt x 75.83076pt.
 
 
@@ -1147,83 +1147,83 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 [2 <./dis_vels_r_real.png>]
-<dis_vels_r_0.1.png, id=194, 770.88pt x 307.1475pt>
+<dis_vels_r_0.1.png, id=221, 770.88pt x 307.1475pt>
 File: dis_vels_r_0.1.png Graphic file (type png)
 <use dis_vels_r_0.1.png>
-Package pdftex.def Info: dis_vels_r_0.1.png  used on input line 227.
+Package pdftex.def Info: dis_vels_r_0.1.png  used on input line 226.
 (pdftex.def)             Requested size: 194.61395pt x 77.54123pt.
-<dis_vels_r_0.01.png, id=196, 770.88pt x 307.90031pt>
+<dis_vels_r_0.01.png, id=223, 770.88pt x 307.90031pt>
 File: dis_vels_r_0.01.png Graphic file (type png)
 <use dis_vels_r_0.01.png>
-Package pdftex.def Info: dis_vels_r_0.01.png  used on input line 236.
+Package pdftex.def Info: dis_vels_r_0.01.png  used on input line 235.
 (pdftex.def)             Requested size: 194.61395pt x 77.7313pt.
-<dis_vels_r_0.03.png, id=199, 770.88pt x 301.8778pt>
+<dis_vels_r_0.03.png, id=226, 770.88pt x 301.8778pt>
 File: dis_vels_r_0.03.png Graphic file (type png)
 <use dis_vels_r_0.03.png>
-Package pdftex.def Info: dis_vels_r_0.03.png  used on input line 247.
+Package pdftex.def Info: dis_vels_r_0.03.png  used on input line 246.
 (pdftex.def)             Requested size: 233.53824pt x 91.45305pt.
-<dis_vels_r_0.03_T=20min.png, id=200, 770.88pt x 301.8778pt>
+<dis_vels_r_0.03_T=20min.png, id=227, 770.88pt x 301.8778pt>
 File: dis_vels_r_0.03_T=20min.png Graphic file (type png)
 <use dis_vels_r_0.03_T=20min.png>
-Package pdftex.def Info: dis_vels_r_0.03_T=20min.png  used on input line 254.
+Package pdftex.def Info: dis_vels_r_0.03_T=20min.png  used on input line 253.
 (pdftex.def)             Requested size: 233.53824pt x 91.45305pt.
 
 
 [3 <./dis_vels_r_1.5.png> <./dis_vels_r_0.1.png> <./dis_vels_r_0.01.png> <./dis
 _vels_r_0.03.png> <./dis_vels_r_0.03_T=20min.png>]
-<dis_vels_r_0.04.png, id=215, 770.88pt x 300.3722pt>
+<dis_vels_r_0.04.png, id=242, 770.88pt x 300.3722pt>
 File: dis_vels_r_0.04.png Graphic file (type png)
 <use dis_vels_r_0.04.png>
-Package pdftex.def Info: dis_vels_r_0.04.png  used on input line 267.
+Package pdftex.def Info: dis_vels_r_0.04.png  used on input line 266.
 (pdftex.def)             Requested size: 233.53824pt x 90.99692pt.
-<dis_vels_r_0.04_T=20min.png, id=216, 770.88pt x 306.39468pt>
+<dis_vels_r_0.04_T=20min.png, id=243, 770.88pt x 306.39468pt>
 File: dis_vels_r_0.04_T=20min.png Graphic file (type png)
 <use dis_vels_r_0.04_T=20min.png>
-Package pdftex.def Info: dis_vels_r_0.04_T=20min.png  used on input line 274.
+Package pdftex.def Info: dis_vels_r_0.04_T=20min.png  used on input line 273.
 (pdftex.def)             Requested size: 233.53824pt x 92.82143pt.
 
 
 [4 <./dis_vels_r_0.04.png> <./dis_vels_r_0.04_T=20min.png>]
 LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 
-342.
-LaTeX Font Info:    No file OMScmss.fd. on input line 342.
+341.
+LaTeX Font Info:    No file OMScmss.fd. on input line 341.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 342.
+(Font)              for symbol `textbackslash' on input line 341.
 
 
 
 [5]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 371.
+nput line 370.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 376.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 375.
 
 
 [6]
 
 [7]
-<notermo_distr_ener.png, id=334, 772.38562pt x 350.81062pt>
+<notermo_distr_ener.png, id=362, 772.38562pt x 350.81062pt>
 File: notermo_distr_ener.png Graphic file (type png)
 <use notermo_distr_ener.png>
-Package pdftex.def Info: notermo_distr_ener.png  used on input line 469.
+Package pdftex.def Info: notermo_distr_ener.png  used on input line 468.
 (pdftex.def)             Requested size: 214.0798pt x 97.23065pt.
-<notermo_E_t.png, id=335, 674.52pt x 269.50688pt>
+<notermo_E_t.png, id=363, 674.52pt x 269.50688pt>
 File: notermo_E_t.png Graphic file (type png)
 <use notermo_E_t.png>
-Package pdftex.def Info: notermo_E_t.png  used on input line 476.
+Package pdftex.def Info: notermo_E_t.png  used on input line 475.
 (pdftex.def)             Requested size: 233.53824pt x 93.30894pt.
-<termo_distr_ener.png, id=336, 474.27188pt x 194.22563pt>
+<termo_distr_ener.png, id=364, 474.27188pt x 194.22563pt>
 File: termo_distr_ener.png Graphic file (type png)
 <use termo_distr_ener.png>
-Package pdftex.def Info: termo_distr_ener.png  used on input line 492.
+Package pdftex.def Info: termo_distr_ener.png  used on input line 491.
 (pdftex.def)             Requested size: 218.94255pt x 89.66197pt.
-<termo_E_t.png, id=337, 453.19313pt x 194.22563pt>
+<termo_E_t.png, id=365, 453.19313pt x 194.22563pt>
 File: termo_E_t.png Graphic file (type png)
 <use termo_E_t.png>
-Package pdftex.def Info: termo_E_t.png  used on input line 499.
+Package pdftex.def Info: termo_E_t.png  used on input line 498.
 (pdftex.def)             Requested size: 214.0798pt x 91.74837pt.
 
 
@@ -1232,20 +1232,20 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 [8 <./notermo_distr_ener.png> <./notermo_E_t.png>]
-<termo_flucs_N500.png, id=356, 473.51906pt x 191.9672pt>
+<termo_flucs_N500.png, id=384, 473.51906pt x 191.9672pt>
 File: termo_flucs_N500.png Graphic file (type png)
 <use termo_flucs_N500.png>
-Package pdftex.def Info: termo_flucs_N500.png  used on input line 519.
+Package pdftex.def Info: termo_flucs_N500.png  used on input line 518.
 (pdftex.def)             Requested size: 194.61395pt x 78.89745pt.
-<termo_flucs_N100.png, id=357, 1417.54594pt x 572.89032pt>
+<termo_flucs_N100.png, id=385, 1417.54594pt x 572.89032pt>
 File: termo_flucs_N100.png Graphic file (type png)
 <use termo_flucs_N100.png>
-Package pdftex.def Info: termo_flucs_N100.png  used on input line 528.
+Package pdftex.def Info: termo_flucs_N100.png  used on input line 527.
 (pdftex.def)             Requested size: 218.94255pt x 88.48238pt.
-<termo_flucs_N1000.png, id=358, 753.5653pt x 298.86656pt>
+<termo_flucs_N1000.png, id=386, 753.5653pt x 298.86656pt>
 File: termo_flucs_N1000.png Graphic file (type png)
 <use termo_flucs_N1000.png>
-Package pdftex.def Info: termo_flucs_N1000.png  used on input line 535.
+Package pdftex.def Info: termo_flucs_N1000.png  used on input line 534.
 (pdftex.def)             Requested size: 218.94255pt x 86.83324pt.
 
 
@@ -1253,38 +1253,47 @@ Package pdftex.def Info: termo_flucs_N1000.png  used on input line 535.
 _flucs_N100.png> <./termo_flucs_N1000.png>]
 
 [10]
+<no_grav_distr_velz.png, id=416, 635.37375pt x 249.93375pt>
+File: no_grav_distr_velz.png Graphic file (type png)
+<use no_grav_distr_velz.png>
+Package pdftex.def Info: no_grav_distr_velz.png  used on input line 598.
+(pdftex.def)             Requested size: 218.94255pt x 86.12427pt.
+<no_grav_distr_posz.png, id=417, 561.59813pt x 213.04594pt>
+File: no_grav_distr_posz.png Graphic file (type png)
+<use no_grav_distr_posz.png>
+Package pdftex.def Info: no_grav_distr_posz.png  used on input line 605.
+(pdftex.def)             Requested size: 218.94255pt x 83.05507pt.
+
+
+[11 <./no_grav_distr_velz.png> <./no_grav_distr_posz.png>]
 Cap\'{\i }tol 2.
-<4i.jpg, id=386, 1927.2pt x 971.63pt>
+<4i.jpg, id=430, 1927.2pt x 971.63pt>
 File: 4i.jpg Graphic file (type jpg)
 <use 4i.jpg>
-Package pdftex.def Info: 4i.jpg  used on input line 622.
+Package pdftex.def Info: 4i.jpg  used on input line 663.
 (pdftex.def)             Requested size: 291.92836pt x 147.17632pt.
 
 
-[11
+[12
 
 ]
-<4iip.jpg, id=398, 1831.84375pt x 967.615pt>
+<4iip.jpg, id=441, 1831.84375pt x 967.615pt>
 File: 4iip.jpg Graphic file (type jpg)
 <use 4iip.jpg>
-Package pdftex.def Info: 4iip.jpg  used on input line 634.
+Package pdftex.def Info: 4iip.jpg  used on input line 675.
 (pdftex.def)             Requested size: 218.94255pt x 115.63632pt.
-<4ii.jpg, id=399, 1831.84375pt x 967.615pt>
+<4ii.jpg, id=442, 1831.84375pt x 967.615pt>
 File: 4ii.jpg Graphic file (type jpg)
 <use 4ii.jpg>
-Package pdftex.def Info: 4ii.jpg  used on input line 642.
+Package pdftex.def Info: 4ii.jpg  used on input line 683.
 (pdftex.def)             Requested size: 218.94255pt x 115.63632pt.
 
 
-[12 <./4i.jpg> <./4iip.jpg> <./4ii.jpg>]
+[13 <./4i.jpg> <./4iip.jpg> <./4ii.jpg>]
 
-[13]
+[14]
 Cap\'{\i }tol 3.
 
-
-[14
-
-]
 
 [15
 
@@ -1294,7 +1303,9 @@ Cap\'{\i }tol 3.
 
 ]
 
-[17]
+[17
+
+]
 
 [18]
 
@@ -1310,7 +1321,9 @@ Cap\'{\i }tol 3.
 
 [24]
 
-[25] (Treball de Simulació.aux)
+[25]
+
+[26] (Treball de Simulació.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
@@ -1321,16 +1334,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
 .
-(rerunfilecheck)             Checksum: E4EC3FA066443901A04A4311EDF6EC40;6171.
+(rerunfilecheck)             Checksum: BC3CC3618D243D52B5AB76F6164D4762;7205.
  ) 
 Here is how much of TeX's memory you used:
- 35175 strings out of 473682
- 702035 string characters out of 5719215
- 1739357 words of memory out of 5000000
- 56910 multiletter control sequences out of 15000+600000
+ 35219 strings out of 473682
+ 702950 string characters out of 5719215
+ 1739961 words of memory out of 5000000
+ 56946 multiletter control sequences out of 15000+600000
  574985 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,14n,107p,1214b,2747s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,14n,107p,1214b,2751s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
 1000.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcbx1000.pk> <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -1372,9 +1385,9 @@ ype1/public/amsfonts/cm/cmsy8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX
 ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/ericg/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/ericg/App
 Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on "Treball de Simulació.pdf" (27 pages, 4795641 bytes).
+Output written on "Treball de Simulació.pdf" (28 pages, 5169610 bytes).
 PDF statistics:
- 1461 PDF objects out of 1728 (max. 8388607)
- 828 named destinations out of 1000 (max. 500000)
- 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1507 PDF objects out of 1728 (max. 8388607)
+ 836 named destinations out of 1000 (max. 500000)
+ 371 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -79,16 +79,15 @@
 	inputencoding=utf8,
 	extendedchars=true,
 	literate=
-	{à}{{\'a}}1 {é}{{\'e}}1 {è}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ò}{{\'o}}1 {ú}{{\'u}}1
-	{À}{{\'A}}1 {É}{{\'E}}1 {È}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ò}{{\'O}}1 {Ú}{{\'U}}1
-	{ñ}{{\~n}}1 {Ñ}{{\~N}}1
-	{ü}{{\"u}}1 {Ü}{{\"U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\`E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{ç}{{\c{c}}}1 {Ç}{{\c{C}}}1
 	{ï}{{\"i}}1 {Ï}{{\"I}}1
+	{ü}{{\"u}}1 {Ü}{{\"U}}1
 }
-\sisetup{
-	output-decimal-marker = {,},
-	exponent-product = \cross
-}
+
 \usepackage{hyperref}
 
 %Definim el següent entorn per tal de poder posar abstracts a cada capítol.
@@ -166,9 +165,9 @@ Els nostres objectius seran:
 	\item Introduir a la simulació la presència d'un camp gravitatori en l'eix Z i veure com això afecta a la distribució de velocitats i les posicions en aquest mateix eix de coordenades.
 \end{itemize}
 
-Recordem que, en equilibri tèrmic, la distribució de velocitats (o, més rigorosament, de celeritats) per un conjunt de partícules ve determinada per la distribució de Maxwell-Boltzmann
+Recordem que (vegeu el capítol 4 de les notes de teoria de l'assignatura\cite{ref4}), en equilibri tèrmic, la distribució de velocitats (o, més rigorosament, de celeritats) per un conjunt de partícules ve determinada per la distribució de Maxwell-Boltzmann
 \begin{equation}
-	\rho(v) = 4\pi v^2\left(\frac{m}{2\pi k_B T}\right)^{3/2}e^{-\frac{mv^2}{2k_B T}}. \label{eq:1.2}
+	\rho(v) = 4\pi v^2\left(\frac{m}{2\pi k_B T}\right)^{3/2}\mathrm{e}^{-\frac{mv^2}{2k_B T}}. \label{eq:1.2}
 \end{equation}
 
 Per un mateix gas, tindrem vàries distribucions de Maxwell-Boltzmann en funció de la temperatura a la que aquest estigui sotmès, tal i com es pot veure a la figura \ref{fig:intropart1.1}.
@@ -314,7 +313,7 @@ Així doncs, atenint-nos als resultats obtinguts que prèviament hem discutit, d
 en tant i en quan aquest presenta un equilibri òptim entre temps de simulació baixos i compatibilitat amb la predicció teòrica, determinada per la distribució de Maxwell-Boltzmann (vegeu l'equació \eqref{eq:1.2}).
 
 \section{Col·lectivitat canònica i anàlisi de la distribució d'energies}
-Per tal de mantenir la temperatura fixada en tot moment i, en conseqüència, treballar en la col·lectivitat NVT (canònica), cal implementar un termostat. Els termostats ens permeten regular la temperatura del sistema modelitzat reproduint la interacció d'aquest amb un bany tèrmic. Aquest bany s'ocuparà de donar o extreure energia al sistema per tal de mantenir la temperatura constant, fent que apareixien unes certes fluctuacions en l'energia total que abans no teníem. Existeixen diferents tipus de termostats, però en el nostre cas ens ocuparem d'implementar el més simple de tots: \textit{termostat d'Andersen}.
+Per tal de mantenir la temperatura fixada en tot moment i, en conseqüència, treballar en la col·lectivitat NVT (canònica), cal implementar un termostat. Els termostats ens permeten regular la temperatura del sistema modelitzat reproduint la interacció d'aquest amb un bany tèrmic. Aquest bany s'ocuparà de donar o extreure energia al sistema per tal de mantenir la temperatura constant, fent que apareixien unes certes fluctuacions en l'energia total que abans no teníem. Existeixen diferents tipus de termostats, però en el nostre cas ens ocuparem d'implementar el més simple de tots: el \textit{termostat d'Andersen}.
 
 En el termostat d'Andersen\cite{ref2} es simula la interacció d'un sistema amb un bany tèrmic a partir de les col·lisions aleatòries amb partícules fictícies que modificaran la velocitat dels elements del nostre sistema (en el cas que ens ocupa, dels àtoms del gas d'He). Per tal d'aconseguir-ho, en cada pas de la simulació, seleccionarem una partícula del gas amb una determinada probabilitat $p$ i reassignarem la seva velocitat d'acord amb la distribució de Maxwell-Boltzmann per una determinada temperatura objectiu. Abans, però, caldrà escollir com de gran és l'acoblament entre el nostre sistema i el bany tèrmic. Això vindrà determinat per la freqüència $\nu$ de les col·lisions amb les partícules fictícies abans esmentades. Grans acoblaments implicaran interaccions importants amb les partícules fictícies i petits acoblaments implicaran interaccions poc importants amb aquestes. 
 
@@ -446,7 +445,7 @@ Per altra banda, per veure si hem passat de la col·lectivitat NVE (microcanòni
 	\item \textbf{Col·lectivitat NVE.} Com que l'energia total del sistema està fixada, hauríem de veure com la corba $E(t)$ és constant, de manera que l'energia del sistema és la mateixa $\forall t$.
 	\item \textbf{Col·lectivitat NVT.} Tal i com vàrem estudiar, en la col·lectivitat canònica l'energia ja no està fixada (per contrapartida $T$ sí que ho està), de manera que s'introdueixen un seguit de fluctuacions energètiques. Per veure si els nostres resultats experimentals s'adeqüen a la col·lectivitat canònica, és interessant estudiar quina és la seva naturalesa. 
 	
-	Recordem que \textbf{POSAR ANNEX O CITAR DE TEORIA} les fluctuacions relatives en l'energia total del sistema venen donades per
+	Recordem que (vegeu el capítol 5 de les notes de teoria de l'assignatura\cite{ref4}) les fluctuacions relatives en l'energia total del sistema venen donades per
 	\begin{equation}
 		\frac{\sigma_E}{\langle E \rangle} = \frac{\sqrt{\langle E^2 \rangle - \langle E \rangle^2}}{\langle E \rangle} = \frac{\sqrt{k_BT^2 C_V}}{\langle E \rangle}, \label{eq:1.19}
 	\end{equation}
@@ -581,7 +580,49 @@ Així doncs, tot i les limitacions discutides associades a aquest tipus de termo
 
 
 \section{Addició d'un potencial gravitatori} 
-ajuda
+En aquesta darrera secció estudiarem quines són les conseqüències d'afegir un camp gravitatori en l'eix Z pel sistema estudiat. Analitzarem, principalment, què succeeix amb la distribució de velocitats i de posicions en aquest mateix eix i farem la comparació amb el que s'obté en absència de camp gravitatori. En tot moment treballarem en el context de la col·lectivitat NVE i, per tant, sense el termostat d'Andersen.
+
+La distribució de velocitats en l'eix Z es pot calcular segons 
+\begin{equation}
+	\rho(v_z) = \sqrt{\frac{m \beta}{2\pi}} \mathrm{e}^{-\frac{m\beta v_z^2}{2}},
+\end{equation}
+que es una distribució gaussiana centrada al 0, de manera que $\langle v_z \rangle = 0$.
+
+\subsection{Resultats sense camp gravitatori}
+Abans de res, modifiquem el codi original per a que ens doni, en comptes de distribucions de celeritat, distribucions de la velocitat i la posició en la component Z. El codi modificat el podeu trobar a l'annex \ref{annex:1}. Els resultats es poden veure a la figura \ref{fig:1.12}.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{no_grav_distr_velz}
+		\caption{Distribució de velocitats en l'eix Z.}
+		\label{fig:1.12a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{no_grav_distr_posz}
+		\caption{Distribució de posicions en l'eix Z.}
+		\label{fig:1.12b}
+	\end{subfigure}
+	\caption{Distribucions de velocitat i posició en l'eix Z per $N = 500$ partícules sense camp gravitatori. Notem que prenem l'origen de coordenades per les posicions al centre de la caixa.}
+	\label{fig:1.12}
+\end{figure}
+
+Tal i com podem veure, la distribució de velocitats simulada s'adapta perfectament, un cop assolit l'equilibri tèrmic, a la teòrica. Per altra banda, pel que fa a la distribució de posicions, podem veure clarament com, en absència de camp gravitatori, obtenim una distribució uniforme, és a dir, la probabilitat de trobar una partícula en un punt (de l'eix Z) concret és la mateixa per tots els punts de la caixa.
+
+Notem que les barres de més a la dreta de l'histograma de la figura \ref{fig:1.12a} amb un nombre de partícules $N<0$ no reflecteixen una situació física. Aquest nombre negatiu aparent de partícules és únicament degut a un error de càlcul durant el transcurs de la simulació, associat a les limitacions de la simulació.
+
+Aquests resultats també es poden extrapolar als eixos X i Y. Com que no tenim cap grau de llibertat afavorit, és d'esperar que s'obtinguin unes distribucions per $x, y$ i $v_x, v_y$ idèntiques a les de les figures \ref{fig:1.12a} i \ref{fig:1.12b}.
+
+
+
+\subsection{Implementació del camp gravitatori}
+
+\subsection{Resultats amb camp gravitatori}
+
+\subsection{Conclusions}
 
 \chapter{Fluid de Lennard-Jones}
 
@@ -721,8 +762,6 @@ HE DE MILLORAR LEXPLICACIOOOOOOOO
 \subsection{Estudi de les fluctuacions en l'energia}
 
 \begin{thebibliography}{99}
-\bibitem{ref1}
-\textit{Col·lecció de problemes de l'assignatura Termodinàmica i Mecànica Estadística}.
 \bibitem{ref4}
 \textit{Apunts de l'assignatura Termodinàmica i Mecànica Estadística}.
 \bibitem{ref2}
@@ -730,7 +769,9 @@ Arcila Pérez, J. \textit{Revisión bibliográfica sobre dinámica molecular. Mo
 \bibitem{ref3}
 Frenkel, D. \textit{Understanding Molecular Simulation. From Algorithms to Aplications}. 3a Edició. Academic Press. Capítol 7.
 \bibitem{ref5}
-McCarty, R. D. (1973). \textit{Thermodynamic Properties of Helium-4 from 2 to 1500 K at Pressures to 10$^3$ Pa}. Journal of Physical and Chemical Reference Data, 2(4), 923–1042. \url{https://doi.org/10.1063/1.3253133}. Consultat el: 03/05/2026.
+McCarty, R. D. (1973). \textit{Thermodynamic Properties of Helium-4 from 2 to 1500 K at Pressures to 10$^3$ Pa}. Journal of Physical and Chemical Reference Data, 2(4), 923–1042. \url{https://srd.nist.gov/jpcrdreprint/1.3253133.pdf}. Consultat el: 03/05/2026.
+\bibitem{ref1}
+\textit{Col·lecció de problemes de l'assignatura Termodinàmica i Mecànica Estadística}.
 \end{thebibliography}
 
 \newpage
@@ -1433,6 +1474,8 @@ McCarty, R. D. (1973). \textit{Thermodynamic Properties of Helium-4 from 2 to 15
 		interchange(E_old, E_new)
 		
 	\end{lstlisting}
+	
+	\subsection{Addició d'un camp gravitatori}
 	
 	\section{Creació d'una simulació pròpia}
 	
