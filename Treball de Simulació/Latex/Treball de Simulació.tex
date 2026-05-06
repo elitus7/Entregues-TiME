@@ -725,6 +725,15 @@ però Gemini m'ha dit que ell faria:
 	\kappa_T = \frac{\langle V^2 \rangle - \langle V \rangle^2}{k_B T \langle V \rangle}
 \end{equation*}
 No sé tampoc on se'm donen aquests valors al programa wtf.
+
+El coeficient de compressibilitat isoterma es pot calcular, d'entre moltes altres maneres, seguint la fórmula \eqref{kT} següent:
+\begin{equation}
+	\kappa_T=-\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T.
+\label{kT}
+\end{equation}
+Per tant, podem fer un estudi de la variació del volum en funció de la pressió del sistema per tal de trobar el pendent de la recta obtinguda. Així, tindrem el terme de la derivada paricial calculat.
+
+Per tal de fer-ho, treballarem en la col·lectivitat NPT, la qual ens permet tenir un volum variable en funció de la pressió. Així, podem simular la variació del volum respecte la pressió tant per un gas com per un líquid, en els quals caldrà variar la densitat del sistema.
 	
 \chapter{Creació d'una simulació pròpia}
 
