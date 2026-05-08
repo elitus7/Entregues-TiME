@@ -174,10 +174,12 @@ Per un mateix gas, tindrem vàries distribucions de Maxwell-Boltzmann en funció
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{screenshot001}
-	\caption{Distribució de velocitats per un gas de molècules d'O$_2$ a 3 temperatures diferents: $T_1 = -100$ ºC, $T_2 = 20$ ºC i $T_3 = 600$ ºC. Es representa el nombre de partícules que hi ha amb cadascuna de les velocitats.}
+	\includegraphics[width=0.6\linewidth]{screenshot001}
+	\caption{Distribució de velocitats per diferents gasos nobles a temperatura ambient ($T = 298$ K)\cite{ref6}. Es representa el nombre de partícules que hi ha amb cadascuna de les velocitats. }
 	\label{fig:intropart1.1}
 \end{figure}
+
+
 
 Notem que la simulació inicial, tal i com veurem, treballarà amb uns paràmetres inicials fixats. En particular, fixarem $N$ (nombre d'àtoms), $V$ (volum del recipient) i $T$ (temperatura). Teòricament, si treballem amb aquestes variables fixades, estem en una col·lectivitat tipus NVT, això és, la col·lectivitat canònica. Ara bé, en el codi, que podeu trobar a l'annex \ref{annex:1}, la temperatura $T$ no es fixa en el sentit en què queda fixada a la col·lectivitat canònica, sinó que simplement serveix per donar un valor a per $\langle v \rangle$. Recordem que, del teorema d'equipartició, tenim que
 \begin{equation}
@@ -199,13 +201,14 @@ La necessitat de treballar amb un radi atòmic tan gran està en el fet que la c
 \end{equation*}
 fet que, en treballar amb tan poca quantitat d'àtoms (originalment $N=200$), implica que les interaccions entre dues partícules són pràcticament inexistents, ja que la probabilitat de col·lisió és extremadament petita. Això fa que, en absència d'interaccions, el gas presenti un comportament pròxim a la idealitat. 
 
+\subsection{Dependència de la distribució de velocitats en el radi}
 A continuació, analitzem, amb $N = 500$ àtoms, els següents casos: $r_0 = r_{real}$, $r_0 = 1,5$ m, $r_0 = 0,1$ m, $r = 0,01$ m, $r = 0,03$ m i $r_0 = 0,04$ m\footnote{Totes les simulacions es deixen funcionar durant un temps $t = 5$ minuts (llevat que s'indiqui el contrari). En arribar a aquest $t$, les parem i analitzem els resultats obtinguts. Això ens permet determinar quina de les opcions és la que presenta un millor equilibri entre cost computacional i exactitud en els resultats.}. 
 
 La distribució de velocitats que s'obté en usar el radi real $r_0 = r_{real}$ de l'heli és la que es mostra a la figura \ref{fig:1.1}. Tal i com podem veure, aquesta distribució de velocitats ens està indicant que no hi ha hagut, en essència, cap col·lisió, ja que pràcticament totes les partícules tenen exactament la mateixa velocitat que a l'inici. El resultat és, tal i com hem comentat abans, exactament el mateix que podríem esperar per un gas que no presenti interaccions intermoleculars, és a dir, un gas ideal (tot i que hem introduït un potencial d'interacció) i és degut al fet que el volum característic del sistema és excessivament major a l'ocupat per les partícules.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.4\linewidth]{dis_vels_r_real}
+	\includegraphics[width=0.5\linewidth]{dis_vels_r_real}
 	\caption{Distribució de velocitats per $r_0 = r_{real}$ després de 5 minuts de simulació. La corba blava representa la predicció teòrica.}
 	\label{fig:1.1}
 \end{figure}
@@ -214,7 +217,7 @@ Si ara treballem amb un radi atòmic molt més gran, per exemple, de $r_0 = 1,5$
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.4\linewidth]{dis_vels_r_1.5}
+	\includegraphics[width=0.5\linewidth]{dis_vels_r_1.5}
 	\caption{Distribució de velocitats per $r_0 = 1,5$ m després de 5 minuts de simulació. La corba blava representa la predicció teòrica.}
 	\label{fig:1.2}
 \end{figure}
@@ -223,7 +226,7 @@ Si ara treballem amb $r_0 = 0,1$ m, obtenim els resultats de la figura \ref{fig:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\linewidth]{dis_vels_r_0.1}
+	\includegraphics[width=0.5\linewidth]{dis_vels_r_0.1}
 	\caption{Distribució de velocitats per $r_0 = 0,1$ m després de 5 minuts de simulació. La corba blava representa la predicció teòrica.}
 	\label{fig:1.3}
 \end{figure}
@@ -232,7 +235,7 @@ Si escollim $r_0 = 0,01$ m, s'obtenen els resultats de la \ref{fig:1.4}. Podem v
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.4\linewidth]{dis_vels_r_0.01}
+	\includegraphics[width=0.5\linewidth]{dis_vels_r_0.01}
 	\caption{Distribució de velocitats per $r_0 = 0,01$ m després de 5 minuts de simulació. La corba blava representa la predicció teòrica.}
 	\label{fig:1.4}
 \end{figure}
@@ -241,14 +244,14 @@ Si escollim $r_0 = 0,03$ m, s'obtenen els resultats de la figura \ref{fig:1.5}. 
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}{0.48\linewidth}
+	\begin{subfigure}{0.45\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{dis_vels_r_0.03}
 		\caption{Després de 5 minuts de simulació.}
 		\label{fig:1.5a}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.48\linewidth}
+	\begin{subfigure}{0.45\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{dis_vels_r_0.03_T=20min}
 		\caption{Després de 20 minuts de simulació.}
@@ -261,14 +264,14 @@ Si escollim $r_0 = 0,03$ m, s'obtenen els resultats de la figura \ref{fig:1.5}. 
 Finalment, si escollim $r_0 = 0,04$ m, obtenim els resultats de la figura \ref{fig:1.6}. Podem veure com aquests són similars als obtinguts en el cas de $r_0 = 0,03$ m, però assolim abans la distribució de Maxwell-Boltzmann, ja que, en augmentar el radi de les partícules, augmenta el nombre d'interaccions, fent que s'arribi en menys temps a la situació d'equilibri tèrmic. Si fem córrer la simulació durant 20 minuts els resultats que s'obtenen són perfectament compatibles amb la predicció teòrica.
 
 \begin{figure}[H]
-	\begin{subfigure}{0.48\linewidth}
+	\begin{subfigure}{0.45\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{dis_vels_r_0.04}
 		\caption{Després de 5 minuts de simulació.}
 		\label{fig:1.6a}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.48\linewidth}
+	\begin{subfigure}{0.45\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{dis_vels_r_0.04_T=20min}
 		\caption{Després de 20 minuts de simulació.}
@@ -311,6 +314,14 @@ Així doncs, atenint-nos als resultats obtinguts que prèviament hem discutit, d
 	\boxed{r_0 = 0,04 \text{ m}},
 \end{equation*}
 en tant i en quan aquest presenta un equilibri òptim entre temps de simulació baixos i compatibilitat amb la predicció teòrica, determinada per la distribució de Maxwell-Boltzmann (vegeu l'equació \eqref{eq:1.2}).
+
+\subsection{Conclusions}
+En aquests apartat hem estudiat en detall els efectes que té sobre la distribució de velocitats l'elecció de diferents radis atòmics per les partícules del gas d'esferes dures. Hem constatat que, si usem el radi real (radi atòmic de l'He), no s'assolia en cap moment la distribució de Maxwell-Boltzmann per falta d'interacció entre partícules.
+
+Atenint-nos a un criteri bastat en l'adaptació a la distribució teòrica i el temps de simulació necessari per assolir-la, hem estudiat diferents radis, arribant a la conclusió que el cas que presenta el millor equilibri entre temps de simulació i compatibilitat amb la distribució de Maxwell-Boltzmann és el de $r_0 = 0,04$ m.
+
+\textcolor{red}{\textbf{Potser puc explicar això millor i tal.}}
+
 
 \section{Col·lectivitat canònica i anàlisi de la distribució d'energies}
 Per tal de mantenir la temperatura fixada en tot moment i, en conseqüència, treballar en la col·lectivitat NVT (canònica), cal implementar un termostat. Els termostats ens permeten regular la temperatura del sistema modelitzat reproduint la interacció d'aquest amb un bany tèrmic. Aquest bany s'ocuparà de donar o extreure energia al sistema per tal de mantenir la temperatura constant, fent que apareixien unes certes fluctuacions en l'energia total que abans no teníem. Existeixen diferents tipus de termostats, però en el nostre cas ens ocuparem d'implementar el més simple de tots: el \textit{termostat d'Andersen}.
@@ -436,7 +447,7 @@ A partir de $v = \sqrt{\frac{2E}{m}}$, obtenim que el Jacobià d'aquesta transfo
 \end{equation}
 de manera que, substituint a \eqref{eq:1.2}, trobem
 \begin{equation}
-	\rho(E) = \frac{2}{\sqrt{\pi}}\frac{1}{(k_B T)^{3/2}}\sqrt{E}e^{-\frac{E}{k_BT}}
+	\rho(E) = \frac{2}{\sqrt{\pi}}\frac{1}{(k_B T)^{3/2}}\sqrt{E}e^{-\frac{E}{k_BT}},
 \end{equation}
 que serà la distribució d'energies teòriques. Així doncs, de forma similar al que hem vist a la secció anterior, buscarem determinar si la distribució d'energies simulada es correspon amb la predita teòricament.
 
@@ -616,13 +627,132 @@ Notem que les barres de més a la dreta de l'histograma de la figura \ref{fig:1.
 
 Aquests resultats també es poden extrapolar als eixos X i Y. Com que no tenim cap grau de llibertat afavorit, és d'esperar que s'obtinguin unes distribucions per $x, y$ i $v_x, v_y$ idèntiques a les de les figures \ref{fig:1.12a} i \ref{fig:1.12b}.
 
-
-
 \subsection{Implementació del camp gravitatori}
+Per tal d'introduir els efectes d'un camp gravitatori en la nostra simulació cal que modifiquem les equacions del moviment tot afegint una força constant en el sentit negatiu de l'eix Z, és a dir
+\begin{equation}
+	F = \derivative{p_z}{t} = -m g,
+\end{equation}
+per tant, donat un pas de temps $\mathrm{d}t$ definit, el canvi en la component Z del moment serà $\mathrm{d}p_z = -mg\mathrm{d}t$.
+
+Ara bé, hem de tenir present el següent. En les condicions en les que estem fent la simulació, tenim que l'energia tèrmica és molt més gran que l'energia potencial gravitatòria
+\begin{equation}
+	k_BT \gg m_{He}gz,
+\end{equation}
+ja que $k_B \approx 1,381\cross 10^{-23}$ J/K, $T = 300$ K, $m_{He} = 6,646\cross 10^{-27}$ kg, $g = 9,81$ m/s$^2$ $z \sim 1$ m (tots els costats de la caixa mesuren això). Tot plegat farà que els efectes associats al camp gravitatori quedin, a priori, emmascarats per culpa de l'energia tèrmica de les partícules. 
+
+Per tal de corregir aquest fenomen podem fer alguna de les següents modificacions:
+\begin{itemize}
+	\item Alterar el valor de la temperatura de la simulació $T$, fent que es redueixi a $T \approx 0$ K. Només quan $T \sim 10^{-5}$ K l'energia tèrmica i l'energia potencial gravitatòria comencen a ser comparables.
+	\item Alterar la massa de les partícules d'He, fent que sigui més gran a la real.
+	\item Exagerar el camp gravitatori al que sotmetem les partícules.
+\end{itemize}
+De les tres opcions hem escollit la tercera, per tal de seguir usant els mateixos valors per $T$ i $m_{He}$ que a les anteriors simulacions. Així doncs, la intensitat de camp gravitatori usada serà molt més gran de l'habitual (al planeta Terra). En particular, per tal de fer comparables les dues energies, hem seleccionat el valor
+\begin{equation*}
+	g' = 2\cross 10^6 \text{ m/s$^2$}.
+\end{equation*}
+
+El codi corresponent a aquesta simulació el podeu trobar a l'annex \ref{annex:1}. A continuació en mostrem la part més important, corresponent a la introducció del camp gravitatori dins de la dinàmica de les partícules. 
+
+\begin{lstlisting}[caption={Introducció del camp gravitatori.}]
+# ----------------------------------
+# IMPLEMENTACIÓ DEL CAMP GRAVITATORI
+# ----------------------------------
+
+# 2) Introduïm el moviment de les partícules i la gravetat.
+for i in range(Natoms): 
+# Guardem la component Z de la velocitat anterior per tal de posar-la a l'histograma.
+old_vz = p[i].z / mass  
+	
+# Modifiquem la component Z del moment lineal de les partícules per introduir els efectes del camp gravitatori.
+p[i].z -= mass * g * dt 
+	
+# Usant el nou moment, actualitzem les posicions.
+apos[i] = apos[i] + (p[i]/mass)*dt
+Atoms[i].pos = apos[i]
+	
+# Actualitzem l'histograma.
+interchange(old_vz, p[i].z / mass)	
+\end{lstlisting}
+
+Tal i com es pot veure, l'únic canvi destacable\footnote{Recordem que $\mathrm{d}t = 10^{-5}$ s.} és que, en comptes d'usar l'equació del moviment per les partícules
+\begin{equation}
+	\textbf{r}_i = \textbf{r}_{i,0} + \frac{\textbf{p}_i}{m}\mathrm{d}t
+\end{equation}
+usada a totes les altres simulacions, tenim que
+\begin{equation}
+	\textbf{r}_i = \textbf{r}_{i,0} + \frac{\textbf{p'}_i}{m}\mathrm{d}t,
+\end{equation}
+on $\textbf{p'} = (p_x, p_y, p'_z)$, amb
+\begin{equation}
+	p'_z = p_z - mg\mathrm{d}t,
+\end{equation}
+és a dir, simplement hem introduït els efectes de la força constant en el sentit negatiu de l'eix Z.
 
 \subsection{Resultats amb camp gravitatori}
+A continuació discutim els resultats obtinguts en afegir un camp gravitatori a la simulació del gas d'esferes dures mantenint $N$, $V$ i $E$ constants (col·lectivitat microcanònica), comparant les situacions en què utilitzem $g = 9,81$ m/s$^2$ (la intensitat de camp gravitatori a la superfície de la Terra) i $g' = 2 \cross 10^6$ m/s$^2$.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{grav_distr_velzgterra}
+		\caption{Distribució de velocitats en l'eix Z.}
+		\label{fig:1.14a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{grav_distr_poszgterra}
+		\caption{Distribució de posicions en l'eix Z.}
+		\label{fig:1.14b}
+	\end{subfigure}
+	\caption{Distribucions de velocitat i posició en l'eix Z per $N = 500$ partícules amb un camp gravitatori $g = 9,81$ m/s$^2$. Notem que prenem l'origen de coordenades per les posicions al centre de la caixa.}
+	\label{fig:1.14}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{grav_distr_vel_z}
+		\caption{Distribució de velocitats en l'eix Z.}
+		\label{fig:1.13a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{grav_distr_posz}
+		\caption{Distribució de posicions en l'eix Z.}
+		\label{fig:1.13b}
+	\end{subfigure}
+	\caption{Distribucions de velocitat i posició en l'eix Z per $N = 500$ partícules amb un camp gravitatori $g' = 2\cross 10^6$ m/s$^2$. Notem que prenem l'origen de coordenades per les posicions al centre de la caixa.}
+	\label{fig:1.13}
+\end{figure}
+
+D'entrada, comparant les figures \ref{fig:1.13} i \ref{fig:1.14}, podem veure clarament com, si usem el camp gravitatori terrestre ($g = 9,81$ m/s$^2$), no es veu cap diferència amb el hem discutit per la figura \ref{fig:1.12}, on no teníem $g$.
+
+Si analitzem els resultats associats a la figura \ref{fig:1.13b} podem veure com la distribució de posicions en l'eix Z per les partícules està clarament desplaçada cap a l'esquerra. Això és d'esperar ja que, en presència d'un camp gravitatori suficientment fort, és natural pensar que la majoria de les partícules s'acabaran acumulant al fons de la caixa. De la figura \ref{fig:1.13a} podem veure com ara la distribució de velocitats en l'eix Z ja no s'adapta adequadament a la de Maxwell-Boltzmann. Això és conseqüència directa de que aquesta distribució teòrica no té en compte els possibles efectes associats a un camp extern. Si ens hi fixem, el que obtenim és una distribució que també és gaussiana i que està centrada a l'origen, però amb una desviació estàndard més gran.
+
+Recordem que, la desviació estàndard de la distribució de velocitats de Maxwell-Boltzmann ve donada per
+\begin{equation}
+	\sigma = \sqrt{\frac{k_BT}{m}},
+\end{equation}
+de manera que podem entendre que l'addició del camp gravitatori té uns efectes similars a augmentar la massa de les partícules o disminuir la temperatura sota la que estem operant. Notem, però, que això és únicament vàlid per la distribució de velocitats en l'eix Z i, en cap cas, per la de posicions en aquest mateix eix.
 
 \subsection{Conclusions}
+En aquesta secció hem estudiat en detall els efectes d'implementar un camp gravitatori en el sentit negatiu de l'eix Z sobre les distribucions de velocitat i posició en aquesta mateixa direcció. La simulació s'ha efectuat en les mateixes condicions que al codi original, és a dir, en col·lectivitat microcanònica.
+
+Primer, per tal de tenir quelcom per comparar els resultats obtinguts, hem fet la simulació en absència de camp gravitatori, tot observant com s'obté una distribució de velocitats en l'eix Z que s'adapta perfectament a la de Maxwell-Boltzmann i una distribució de posicions uniforme, compatible amb el fet que no hi ha cap direcció ni sentit privilegiat.
+
+Seguidament, hem introduït el camp gravitatori modificant les equacions del moviment, però tenint en compte que, si s'usava una $g$ similar a la que tenim a la superfície de la Terra, els efectes del camp eren pràcticament nuls degut a la dominància de l'energia tèrmica respecte de la potencial gravitatòria. Per solucionar això hem utilitzat un altre $g'$ suficientment gran com per donar a lloc a un canvi apreciable en la dinàmica del sistema. 
+
+Per una banda, els resultats obtinguts usant la $g$ real de la Terra han estat pràcticament iguals als que s'obtenen en absència de camp, tal i com havíem previst. Per altra banda, en utilitzar $g'$ (la intensitat de camp gravitatori modificada), hem pogut veure com els resultats són perfectament compatibles amb el que cabria esperar: l'addició d'una força constant ha fet que les partícules s'acumulessin en la direcció i sentit de la força, fent que la distribució de posicions deixés de ser uniforme i, pel que fa a la distribució de velocitats, hem pogut constatar com aquesta deixa d'adaptar-se a la de Maxwell-Boltzmann, ja que la darrera no té en compte els efectes associats a un camp extern.
+
+\textbf{\textcolor{red}{Coses a afegir:}}
+\begin{itemize}
+	\item \textcolor{red}{\textbf{Posar foto del cubo amb les partícules de gas per tal que es vegi efectivament com les partícules s'acumulen al fons.}}
+	\item \textcolor{red}{\textbf{Revisar lo de la desviació estàndard del final (aporta algo això?)}}
+\end{itemize}
 
 \chapter{Fluid de Lennard-Jones}
 
@@ -773,6 +903,8 @@ HE DE MILLORAR LEXPLICACIOOOOOOOO
 \begin{thebibliography}{99}
 \bibitem{ref4}
 \textit{Apunts de l'assignatura Termodinàmica i Mecànica Estadística}.
+\bibitem{ref6}
+\textit{Maxwell-Boltzmann distribution}. Wikipedia. \url{https://en.wikipedia.org/wiki/Maxwell%E2%80%93Boltzmann_distribution}. Consultat el: 08/05/2026.
 \bibitem{ref2}
 Arcila Pérez, J. \textit{Revisión bibliográfica sobre dinámica molecular. Modelización, algoritmos y aplicaciones}. Universidad de Granada.
 \bibitem{ref3}

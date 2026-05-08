@@ -14,8 +14,9 @@ mass = 4E-3/6E23 # Massa (en kg) d'un àtom d'He.
 Ratom = 0.04 # Radi atòmic usat a la simulació.
 k = 1.4E-23 # Constant de Boltzmann.
 T = 300 # Temperatura ambient (aproximadament).
-dt = 1E-5
+dt = 1E-5 # Pas de temps.
 
+# Animació del sistema.
 animation = canvas( width=win, height=win, align='left')
 animation.range = L
 animation.title = 'Hard Sphere Gas'
@@ -42,11 +43,11 @@ vert2.append([vector(-d,-d,d), vector(-d,d,d)])
 vert3.append([vector(d,-d,d), vector(d,d,d)])
 vert4.append([vector(d,-d,-d), vector(d,d,-d)])
 
-Atoms = []
-p = []
-apos = []
-pavg = sqrt(2*mass*1.5*k*T) # average kinetic energy p**2/(2mass) = (3/2)kT
-    
+Atoms = [] # Llista amb tots els àtoms.
+p = [] # Llista de tots els moments dels àtoms.
+apos = [] # Llista de totes les velocitats dels àtoms.
+pavg = sqrt(2*mass*1.5*k*T) # Energia cinètica promig: p**2/(2mass) = (3/2)kT.
+
 for i in range(Natoms):
     x = L*random.random()-L/2
     y = L*random.random()-L/2
@@ -89,14 +90,12 @@ theory = gcurve(color=color.blue, width=2)
 Etot_curve = gcurve(color=color.green)
 t_sim = 0.0
 
-# Predicció teòrica associada a la distribució de Maxwell Boltzmann per a Energies.
+# Predicció teòrica associada a la distribució de Maxwell-Boltzmann per energies.
 dE_step = Emax / 300.0
 for i in range(301):
     E_val = i * dE_step
-    if E_val == 0: E_val = 1e-30 # Evitamos división por 0
     # Fórmula teórica: f(E) = (2/sqrt(pi)) * (1/kT)^(3/2) * sqrt(E) * exp(-E/kT)
     f_E = (2.0/sqrt(pi)) * ((1.0/(k*T))**1.5) * sqrt(E_val) * exp(-E_val/(k*T))
-    # Escalamos a número de partículas y tamaño de bin
     theory.plot(E_val/1.6E-19, Natoms * deltaE * f_E)
 
 accum = []
@@ -110,8 +109,8 @@ energy_curve = gcurve(color=color.green, width=2, graph=energy_graph)
 
 Edist = gvbars(color=color.red, delta=deltaE/1.6E-19, graph = gg)
 
-
-def interchange(E1, E2): # Funció que actualitza l'histograma quan una partícula canvia d'energia.
+# Funció que actualitza l'histograma quan una partícula canvia d'energia.
+def interchange(E1, E2): 
     barE1 = barE(E1)
     barE2 = barE(E2)
     if barE1 == barE2: return
@@ -119,8 +118,9 @@ def interchange(E1, E2): # Funció que actualitza l'histograma quan una partícu
         histo[barE1] -= 1
     if barE2 < len(histo):
         histo[barE2] += 1
-    
-def checkCollisions():
+
+# Funció que comprova si dues partícules han col·lisionat.
+def checkCollisions(): 
     hitlist = []
     r2 = 2*Ratom
     r2 *= r2
@@ -135,22 +135,24 @@ def checkCollisions():
 n_samples = 0 
 t = 0 - dt # Inicialitzem la variable temporal.
 
+# -------------------------------
+# BUCLE PRINCIPAL DE LA SIMULACIÓ
+# -------------------------------
 while True:
     rate(300)
     
-    t += dt # Avanzar el tiempo
+    t += dt # Avancem en el temps un pas.
     
-    # 1) Actualitzem l'histograma i calculem l'energia total (en eV).
+    # 1) Actualitzem l'histograma i calculem l'energia total (en eV). Fem plot al gràfic E(t)
     for i in range(len(accum)):
         accum[i][1] = (n_samples*accum[i][1] + histo[i])/(n_samples+1)
     if n_samples % 10 == 0:
         Edist.data = accum
     n_samples += 1
     
-    E_total_julios = sum(mag2(p_i) / (2 * mass) for p_i in p)
-    E_total_eV = E_total_julios / 1.6E-19
+    E_total_jules = sum(mag2(p_i) / (2 * mass) for p_i in p)
+    E_total_eV = E_total_jules / 1.6E-19
     energy_curve.plot(t/dt, E_total_eV)
-
 
     # 2) Moviment de les partícules.
     for i in range(Natoms):
@@ -178,26 +180,26 @@ while True:
         E_old_i = p[i].mag2 / (2*mass)
         E_old_j = p[j].mag2 / (2*mass)
 
-        # theta is the angle between vrel and rrel:
-        dx = dot(rrel, vrel.hat)       # rrel.mag*cos(theta)
-        dy = cross(rrel, vrel.hat).mag # rrel.mag*sin(theta)
-        # alpha is the angle of the triangle composed of rrel, path of atom j, and a line
-        #   from the center of atom i to the center of atom j where atome j hits atom i:
-        alpha = asin(dy/(2*Ratom)) 
-        d = (2*Ratom)*cos(alpha)-dx # distance traveled into the atom from first contact
-        deltat = d/vrel.mag         # time spent moving from first contact to position inside atom
+        # Calculem les noves posicions i moments després de la col·lisió.
+
+        dx = dot(rrel, vrel.hat)       
+        dy = cross(rrel, vrel.hat).mag 
         
-        posi = posi-vi*deltat # back up to contact configuration
+        alpha = asin(dy/(2*Ratom)) 
+        d = (2*Ratom)*cos(alpha)-dx 
+        deltat = d/vrel.mag         
+        
+        posi = posi-vi*deltat 
         posj = posj-vj*deltat
         mtot = 2*mass
-        pcmi = p[i]-ptot*mass/mtot # transform momenta to cm frame
+        pcmi = p[i]-ptot*mass/mtot 
         pcmj = p[j]-ptot*mass/mtot
         rrel = norm(rrel)
-        pcmi = pcmi-2*pcmi.dot(rrel)*rrel # bounce in cm frame
+        pcmi = pcmi-2*pcmi.dot(rrel)*rrel 
         pcmj = pcmj-2*pcmj.dot(rrel)*rrel
-        p[i] = pcmi+ptot*mass/mtot # transform momenta back to lab frame
+        p[i] = pcmi+ptot*mass/mtot 
         p[j] = pcmj+ptot*mass/mtot
-        apos[i] = posi+(p[i]/mass)*deltat # move forward deltat in time
+        apos[i] = posi+(p[i]/mass)*deltat 
         apos[j] = posj+(p[j]/mass)*deltat
         
         # Calculem les noves energies i actualitzem l'histograma.
