@@ -11,16 +11,17 @@ mass = 4E-3/6E23 # Massa (en kg) d'un àtom d'He.
 Ratom = 0.04 # Radi atòmic usat a la simulació. L'original és 0.03, el radi real és 0.31*10**-10 i el seleccionat per les simulacions és 0.04.
 k = 1.4E-23 # Constant de Boltzmann.
 T = 300 # Temperatura ambient (aproximadament).
-dt = 1E-5
+dt = 1E-5 # Pas de temps.
 
 animation = canvas( width=win, height=win, align='left')
 animation.range = L
 animation.title = 'Hard Sphere Gas'
-s = """  Theoretical and averaged speed distributions (meters/sec).
-  Initially all atoms have the same speed, but collisions
-  change the speeds of the colliding atoms. One of the atoms is
-  marked and leaves a trail so you can follow its path.
-  
+s = """  Distribució teòrica i simulada per les velocitats
+  (en m/s). Inicialment tots els àtoms tenen la mateixa
+  velocitat, però les col·lisions fan que canviïn. Un dels àtoms
+  està marcat per tal de poder seguir la seva trajectòria.
+
+  Col·lectivitat NVE.
 """
 animation.caption = s
 
@@ -39,10 +40,10 @@ vert2.append([vector(-d,-d,d), vector(-d,d,d)])
 vert3.append([vector(d,-d,d), vector(d,d,d)])
 vert4.append([vector(d,-d,-d), vector(d,d,-d)])
 
-Atoms = []
-p = []
-apos = []
-pavg = sqrt(2*mass*1.5*k*T) # average kinetic energy p**2/(2mass) = (3/2)kT
+Atoms = [] # Llista amb tots els àtoms.
+p = [] # Llista de tots els moments dels àtoms.
+apos = [] # Llista de totes les velocitats dels àtoms.
+pavg = sqrt(2*mass*1.5*k*T) # Energia cinètica promig: p**2/(2mass) = (3/2)kT.
     
 for i in range(Natoms):
     x = L*random()-L/2
@@ -59,10 +60,10 @@ for i in range(Natoms):
     pz = pavg*cos(theta)
     p.append(vector(px,py,pz))
 
-deltav = 100 # binning for v histogram
+deltav = 100 # Binning per l'histograma d'energies.
 
 def barx(v):
-    return int(v/deltav) # index into bars array
+    return int(v/deltav) # Funció que transforma una velocitat en un índex de l'histograma.
 
 nhisto = int(4500/deltav)
 histo = []
@@ -74,14 +75,14 @@ gg = graph( width=win, height=0.4*win, xmax=3000, align='left',
 
 theory = gcurve( color=color.blue, width=2 )
 dv = 10
-for v in range(0,3001+dv,dv):  # theoretical prediction
+for v in range(0,3001+dv,dv):  # Predicció teòrica.
     theory.plot( v, (deltav/dv)*Natoms*4*pi*((mass/(2*pi*k*T))**1.5) *exp(-0.5*mass*(v**2)/(k*T))*(v**2)*dv )
 
 accum = []
 for i in range(int(3000/deltav)): accum.append([deltav*(i+.5),0])
 vdist = gvbars(color=color.red, delta=deltav )
 
-def interchange(v1, v2):  # remove from v1 bar, add to v2 bar
+def interchange(v1, v2):  # # Funció que actualitza l'histograma quan una partícula canvia d'energia.
     barx1 = barx(v1)
     barx2 = barx(v2)
     if barx1 == barx2:  return
@@ -89,7 +90,7 @@ def interchange(v1, v2):  # remove from v1 bar, add to v2 bar
     histo[barx1] -= 1
     histo[barx2] += 1
     
-def checkCollisions():
+def checkCollisions(): # Funció que comprova si dues partícules han col·lisionat.
     hitlist = []
     r2 = 2*Ratom
     r2 *= r2
@@ -101,23 +102,26 @@ def checkCollisions():
             if mag2(dr) < r2: hitlist.append([i,j])
     return hitlist
 
-nhisto = 0 # number of histogram snapshots to average
+nhisto = 0 
 
+# -------------------------------
+# BUCLE PRINCIPAL DE LA SIMULACIÓ
+# -------------------------------
 while True:
     rate(300)
-    # Accumulate and average histogram snapshots
+    # # 1) Actualitzem l'histograma i calculem l'energia total (en eV). Fem els plots corresponents als gràfics.
     for i in range(len(accum)): accum[i][1] = (nhisto*accum[i][1] + histo[i])/(nhisto+1)
     if nhisto % 10 == 0:
         vdist.data = accum
     nhisto += 1
 
-    # Update all positions
+    # 2) Moviment de les partícules.
     for i in range(Natoms): Atoms[i].pos = apos[i] = apos[i] + (p[i]/mass)*dt
     
-    # Check for collisions
+    # 3) Busquem quins àtoms han xocat.
     hitlist = checkCollisions()
 
-    # If any collisions took place, update momenta of the two atoms
+    # 4) Si dos àtoms col·lisionen, acualitzem els seus moments.
     for ij in hitlist:
         i = ij[0]
         j = ij[1]
@@ -155,6 +159,7 @@ while True:
         apos[j] = posj+(p[j]/mass)*deltat
         interchange(vi.mag, p[i].mag/mass)
         interchange(vj.mag, p[j].mag/mass)
+    
     
     for i in range(Natoms):
         loc = apos[i]

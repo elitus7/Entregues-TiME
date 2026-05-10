@@ -24,11 +24,9 @@
 \contentsline {section}{\numberline {3.3}Anàlisi dels resultats}{18}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Ocupació mitjana en funció de la temperatura}{18}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Estudi de les fluctuacions en l'energia}{18}{subsection.3.3.2}%
-\contentsline {chapter}{Bibliografia}{19}{chapter*.21}%
-\contentsline {chapter}{Annexos}{20}{section*.22}%
+\contentsline {chapter}{Bibliografia}{19}{chapter*.22}%
+\contentsline {chapter}{Annexos}{20}{section*.23}%
 \contentsline {section}{\numberline {A}Gas d'Esferes Dures}{20}{section.1..1}%
 \contentsline {subsection}{\numberline {A.1}Codi original i distribució de velocitats}{20}{subsection.1..1.1}%
 \contentsline {subsection}{\numberline {A.2}Implementació del termostat d'Andersen i anàlisi de la distribució d'energies}{22}{subsection.1..1.2}%
 \contentsline {subsection}{\numberline {A.3}Addició d'un camp gravitatori}{29}{subsection.1..1.3}%
-\contentsline {section}{\numberline {B}Creació d'una simulació pròpia}{29}{section.1..2}%
-\contentsline {subsection}{\numberline {B.1}NAT TUS CÓDIGOS AQUÍ}{29}{subsection.1..2.1}%

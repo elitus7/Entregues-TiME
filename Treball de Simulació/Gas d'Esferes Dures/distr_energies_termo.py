@@ -18,11 +18,14 @@ dt = 1E-5 # Pas de temps.
 # Animació del sistema.
 animation = canvas(width=win, height=win, align='left')
 animation.range = L
-animation.title = 'Hard Sphere Gas (Energy Distribution)'
-s = """
-Theoretical and averaged energy distributions (Joules).
-Initially all atoms have the same energy, but collisions change them.
-One of the atoms is marked and leaves a trail.
+animation.title = 'Hard Sphere Gas'
+s = """  Distribució teòrica i simulada per les energies
+  (en eV), energia en funció del temps i fluctiacions relatives 
+  en funció del temps. Inicialment tots els àtoms tenen la mateixa
+  velocitat, però les col·lisions fan que canviïn. Un dels àtoms
+  està marcat per tal de poder seguir la seva trajectòria.
+
+  Col·lectivitat NVT.
 """
 animation.caption = s
 
@@ -93,7 +96,6 @@ t_sim = 0.0
 dE_step = Emax / 300.0
 for i in range(301):
     E_val = i * dE_step
-    # Fórmula teórica: f(E) = (2/sqrt(pi)) * (1/kT)^(3/2) * sqrt(E) * exp(-E/kT)
     f_E = (2.0/sqrt(pi)) * ((1.0/(k*T))**1.5) * sqrt(E_val) * exp(-E_val/(k*T))
     theory.plot(E_val/1.6E-19, Natoms * deltaE * f_E)
 
@@ -111,7 +113,7 @@ fluct_graph = graph(width=win, height=0.4*win, align='left',
                      xtitle='Passos de temps', ytitle='Fluctuacions rel. (%)')
 fluct_curve = gcurve(color=color.orange, width=2, graph=fluct_graph)
 
-# Calculamos la energía total esperada teórica
+# Energia esperada teòricament.
 E_tot_esperada = Natoms * 1.5 * k * T
 # ---------------------------------------------------
 
@@ -227,6 +229,7 @@ while True:
         interchange(E_old_i, E_new_i)
         interchange(E_old_j, E_new_j)
 
+    # 5) Si un àtom col·lisiona contra les parets, es reflecteix totalment.
     for i in range(Natoms):
         loc = apos[i]
         if abs(loc.x) > L/2:
@@ -242,10 +245,7 @@ while True:
     # --------------------
     # TERMOSTAT D'ANDERSEN
     # --------------------
-    dt = dt = 1E-5
-    nu = 5000 # Acoblament amb el bany tèrmic.
-    prob = nu * dt # Probabilitat de que una partícula xoqui amb una fictícia.
-        
+    #   
     # Bucle que passa per totes les partícules del gas i les selecciona amb una certa probab.
     for i in range(Natoms):
         if random.random() < prob: # Aquesta condició selecciona amb probabilitat prob. la partícula i.
@@ -254,7 +254,8 @@ while True:
             E_old = p[i].mag2 / (2*mass)
                 
             # Generem tres variables distribuïdes segons una gaussiana.
-            z1, z2 = box_muller()
+            z1, _ = box_muller()
+            z2, _ = box_muller()
             z3, _ = box_muller()
                     
             # Definim la desviació estàndard (de la distribució M-B).

@@ -11,7 +11,7 @@ mass = 4E-3/6E23 # Massa (en kg) d'un àtom d'He.
 Ratom = 0.04 # Radi atòmic usat a la simulació.
 k = 1.4E-23 # Constant de Boltzmann.
 T = 300 # Temperatura ambient (aproximadament).
-g = 9.81 # Camp gravitatori (exagerat).
+g = 2000000 # Camp gravitatori (exagerat).
 dt = 1E-5
 
 
@@ -104,7 +104,7 @@ def barz(z):
 
 # Creem l'entorn en el que es generarà l'histograma de posicions en Z.
 gg_pos = graph(width=win, height=0.4*win, xmax=0.5, xmin=-0.5, align='left',
-    xtitle='Posició eix Z (m)', ytitle='N', ymax=35, background=color.white) 
+    xtitle='Posició eix Z (m)', ytitle='N', ymax=50, background=color.white) 
 
 accum_pos = []
 for i in range(nhisto_z): accum_pos.append([-0.5 + deltaz*(i+.5), 0])

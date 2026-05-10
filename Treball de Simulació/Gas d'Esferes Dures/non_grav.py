@@ -114,11 +114,9 @@ def interchange(v1, v2):
     barx2 = barx(v2)
     if barx1 == barx2:  return
     if barx1 >= len(histo) or barx2 >= len(histo): return
+    if barx1 >= 0: histo[barx1] -= 1
+    if barx2 >= 0: histo[barx2] += 1
 
-    if 0 <= barx1 < len(histo): 
-        histo[barx1] -= 1
-    if 0 <= barx2 < len(histo): 
-        histo[barx2] += 1
 # Funció que comprova si dues partícules han col·lisionat.
 def checkCollisions():
     hitlist = []
@@ -140,17 +138,14 @@ while True:
     
     t += dt # Avancem en el temps un pas.
 
-    # --- NUEVO: Contar las posiciones actuales en cada ciclo ---
+    # 1) Actualitzem histogrames.
     histo_pos = [0.0] * nhisto_z
     for loc in apos:
         histo_pos[barz(loc.z)] += 1
-    # -----------------------------------------------------------
 
-    # Accumulate and average histogram snapshots
     for i in range(len(accum)): 
         accum[i][1] = (nhisto*accum[i][1] + histo[i])/(nhisto+1)
         
-    # --- NUEVO: Promediar también las posiciones ---
     for i in range(len(accum_pos)): 
         accum_pos[i][1] = (nhisto*accum_pos[i][1] + histo_pos[i])/(nhisto+1)
     # -----------------------------------------------
@@ -160,13 +155,13 @@ while True:
         posdist.data = accum_pos # <-- NUEVO: Dibujar el gráfico verde
     nhisto += 1
 
-    # Update all positions
+    # 2) Introduïm el moviment de les partícules.
     for i in range(Natoms): Atoms[i].pos = apos[i] = apos[i] + (p[i]/mass)*dt
     
-    # Check for collisions
+    # 3) Busquem quines partícules col·lisionen.
     hitlist = checkCollisions()
 
-    # If any collisions took place, update momenta of the two atoms
+    # 4) Si dos àtoms col·lisionen, actualitzem les seves posicions i moments.
     for ij in hitlist:
         i = ij[0]
         j = ij[1]
@@ -203,7 +198,7 @@ while True:
         interchange(vi.z, p[i].z/mass)
         interchange(vj.z, p[j].z/mass)
     
-    # Reemplaza el bloque final de comprobación de paredes por este:
+    # 5) Col·lisions amb les parets.
     for i in range(Natoms):
         loc = apos[i]
         
@@ -211,20 +206,20 @@ while True:
         if abs(loc.x) > L/2:
             if loc.x < 0: 
                 p[i].x = abs(p[i].x)
-                apos[i].x = -L - loc.x # Refleja la posición hacia adentro
+                apos[i].x = -L - loc.x 
             else: 
                 p[i].x = -abs(p[i].x)
-                apos[i].x = L - loc.x  # Refleja la posición hacia adentro
+                apos[i].x = L - loc.x  
             Atoms[i].pos.x = apos[i].x
         
         # Rebote en Y
         if abs(loc.y) > L/2:
             if loc.y < 0: 
                 p[i].y = abs(p[i].y)
-                apos[i].y = -L - loc.y # Refleja la posición hacia adentro
+                apos[i].y = -L - loc.y 
             else: 
                 p[i].y = -abs(p[i].y)
-                apos[i].y = L - loc.y  # Refleja la posición hacia adentro
+                apos[i].y = L - loc.y  
             Atoms[i].pos.y = apos[i].y
         
         # Rebote en Z (incluye la actualización del histograma)
@@ -232,10 +227,10 @@ while True:
             old_vz = p[i].z / mass
             if loc.z < 0: 
                 p[i].z = abs(p[i].z)
-                apos[i].z = -L - loc.z # Refleja la posición hacia adentro
+                apos[i].z = -L - loc.z 
             else: 
                 p[i].z = -abs(p[i].z)
-                apos[i].z = L - loc.z  # Refleja la posición hacia adentro
+                apos[i].z = L - loc.z  
             Atoms[i].pos.z = apos[i].z
             
             interchange(old_vz, p[i].z / mass)
