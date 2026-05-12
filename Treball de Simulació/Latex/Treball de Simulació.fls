@@ -326,10 +326,10 @@ INPUT .\Treball de Simulació.out
 INPUT .\Treball de Simulació.out
 INPUT Treball de Simulació.out
 INPUT Treball de Simulació.out
-OUTPUT Treball de Simulació.pdf
 INPUT .\Treball de Simulació.out
 INPUT .\Treball de Simulació.out
 OUTPUT Treball de Simulació.out
+OUTPUT Treball de Simulació.pdf
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
@@ -346,7 +346,7 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tf
 INPUT .\Treball de Simulació.toc
 INPUT .\Treball de Simulació.toc
 INPUT Treball de Simulació.toc
-INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+OUTPUT Treball de Simulació.toc
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
@@ -361,8 +361,7 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
-OUTPUT Treball de Simulació.toc
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx5.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmib10.tfm
@@ -371,12 +370,15 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cme
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy5.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT .\screenshot001.png
 INPUT .\screenshot001.png
 INPUT .\screenshot001.png
 INPUT .\screenshot001.png
 INPUT .\screenshot001.png
 INPUT .\screenshot001.png
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi8.tfm
@@ -441,11 +443,13 @@ INPUT .\dis_vels_r_0.04_T=20min.png
 INPUT .\dis_vels_r_0.04_T=20min.png
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcbx1440.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
-INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
-INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti8.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt8.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmitt10.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcbx1200.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm0800.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcbx1000.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm
@@ -500,24 +504,91 @@ INPUT .\termo_flucs_N1000.png
 INPUT .\termo_flucs_N1000.png
 INPUT .\termo_flucs_N1000.png
 INPUT .\termo_flucs_N1000.png
+INPUT .\no_grav_distr_velz.png
+INPUT .\no_grav_distr_velz.png
+INPUT .\no_grav_distr_velz.png
+INPUT .\no_grav_distr_velz.png
+INPUT .\no_grav_distr_velz.png
+INPUT .\no_grav_distr_velz.png
+INPUT .\no_grav_distr_posz.png
+INPUT .\no_grav_distr_posz.png
+INPUT .\no_grav_distr_posz.png
+INPUT .\no_grav_distr_posz.png
+INPUT .\no_grav_distr_posz.png
+INPUT .\no_grav_distr_posz.png
+INPUT .\grav_distr_velzgterra.png
+INPUT .\grav_distr_velzgterra.png
+INPUT .\grav_distr_velzgterra.png
+INPUT .\grav_distr_velzgterra.png
+INPUT .\grav_distr_velzgterra.png
+INPUT .\grav_distr_velzgterra.png
+INPUT .\grav_distr_poszgterra.png
+INPUT .\grav_distr_poszgterra.png
+INPUT .\grav_distr_poszgterra.png
+INPUT .\grav_distr_poszgterra.png
+INPUT .\grav_distr_poszgterra.png
+INPUT .\grav_distr_poszgterra.png
+INPUT .\grav_distr_vel_z.png
+INPUT .\grav_distr_vel_z.png
+INPUT .\grav_distr_vel_z.png
+INPUT .\grav_distr_vel_z.png
+INPUT .\grav_distr_vel_z.png
+INPUT .\grav_distr_vel_z.png
+INPUT .\grav_distr_posz.png
+INPUT .\grav_distr_posz.png
+INPUT .\grav_distr_posz.png
+INPUT .\grav_distr_posz.png
+INPUT .\grav_distr_posz.png
+INPUT .\grav_distr_posz.png
+INPUT .\simu_nongrav.png
+INPUT .\simu_nongrav.png
+INPUT .\simu_nongrav.png
+INPUT .\simu_nongrav.png
+INPUT .\simu_nongrav.png
+INPUT .\simu_nongrav.png
+INPUT .\simu_grav.png
+INPUT .\simu_grav.png
+INPUT .\simu_grav.png
+INPUT .\simu_grav.png
+INPUT .\simu_grav.png
+INPUT .\simu_grav.png
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmmib9.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy9.tfm
 INPUT .\4i.jpg
 INPUT .\4i.jpg
 INPUT .\4i.jpg
 INPUT .\4i.jpg
 INPUT .\4i.jpg
 INPUT .\4i.jpg
+INPUT .\4iip.jpg
+INPUT .\4iip.jpg
+INPUT .\4iip.jpg
+INPUT .\4iip.jpg
+INPUT .\4iip.jpg
+INPUT .\4iip.jpg
 INPUT .\4ii.jpg
 INPUT .\4ii.jpg
 INPUT .\4ii.jpg
 INPUT .\4ii.jpg
 INPUT .\4ii.jpg
 INPUT .\4ii.jpg
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\base\ts1cmtt.fd
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\base\ts1cmtt.fd
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\base\ts1cmtt.fd
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tctt0800.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcti1000.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcit0800.tfm
 INPUT Treball de Simulació.aux
 INPUT .\Treball de Simulació.out
 INPUT .\Treball de Simulació.out
+INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcit0800.pk
+INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcit0800.pk
 INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcti1000.pk
 INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcti1000.pk
+INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tctt0800.pk
+INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tctt0800.pk
+INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm0800.pk
+INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm0800.pk
 INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcbx1000.pk
 INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcbx1000.pk
 INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcbx1200.pk
@@ -530,6 +601,8 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbsy10.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cmextra\cmbsy8.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cmextra\cmbsy8.pfb
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cmextra\cmbsy9.pfb
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cmextra\cmbsy9.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
@@ -540,6 +613,8 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cmextra\cmex8.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cmextra\cmex8.pfb
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmitt10.pfb
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmitt10.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb
@@ -584,3 +659,7 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti8.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti8.pfb
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt8.pfb
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt8.pfb

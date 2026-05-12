@@ -42,7 +42,7 @@ for _ in range(It):
         Valors_E2.append(PN.count(1*eps))
         Valors_E3.append(PN.count(10*eps))
 
-# Repetim el procés descrit - vegades per arribar a l'estat d'equilibri tèrmic.
+# Repetim el procés descrit (It) vegades per arribar a l'estat d'equilibri tèrmic.
 
 
 # Histograma d'ocupació a l'equilibri tèrmic.
