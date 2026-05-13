@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1778589625.00548 "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" "Treball de Simulació.pdf" "Treball de Simulació" 1778589637.19556 0
+["pdflatex"] 1778691604.02655 "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" "Treball de Simulació.pdf" "Treball de Simulació" 1778691616.39368 0
   "4i.jpg" 1777901426 196079 4fa61ca18d03b52257d483df51b52034 ""
   "4ii.jpg" 1777901426 169612 66a82388598ae09132fd61251df077e2 ""
   "4iip.jpg" 1777901426 166778 ecafc65be643b539d28c1e49141896f3 ""
@@ -267,11 +267,11 @@
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/tex/latex/varwidth/varwidth.sty" 1238469540 10894 d359a13923460b2a73d4312d613554c8 ""
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/natvi/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "Treball de Simulació.aux" 1778589636 21873 e8d0aa1d9ace3fa34ab573d94cf32aa0 "pdflatex"
-  "Treball de Simulació.out" 1778589636 7279 ae642e803694161bccf826df34b58510 "pdflatex"
-  "Treball de Simulació.tex" 1778589612 125440 7ab3b128e40c330e306453494d6660be ""
-  "Treball de Simulació.toc" 1778589636 3066 82936d82706d3a0b2c2173ce43e80681 "pdflatex"
-  "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" 1778589612 125440 7ab3b128e40c330e306453494d6660be ""
+  "Treball de Simulació.aux" 1778691615 22144 292c4b3f6a442d818bde1142be91af67 "pdflatex"
+  "Treball de Simulació.out" 1778691615 7279 ae642e803694161bccf826df34b58510 "pdflatex"
+  "Treball de Simulació.tex" 1778691577 120645 77f0aba4db7624486e1e03cb3cd68473 ""
+  "Treball de Simulació.toc" 1778691615 3066 9c2fec26adde315d3deef5fbe7307ba1 "pdflatex"
+  "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" 1778691577 120645 77f0aba4db7624486e1e03cb3cd68473 ""
   "dis_vels_r_0.01.png" 1777111924 158512 4e03d4fd2b0867f7410b77a376268e8a ""
   "dis_vels_r_0.03.png" 1777111924 160061 0f1c67b202215b3c794f2e3c517e1be9 ""
   "dis_vels_r_0.03_T=20min.png" 1777111924 154974 4489e13dbb220b4a90dc85b56bccfbea ""
