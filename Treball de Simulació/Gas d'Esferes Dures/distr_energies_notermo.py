@@ -20,11 +20,13 @@ dt = 1E-5 # Pas de temps.
 animation = canvas( width=win, height=win, align='left')
 animation.range = L
 animation.title = 'Hard Sphere Gas'
-s = """  Theoretical and averaged speed distributions (meters/sec).
-  Initially all atoms have the same speed, but collisions
-  change the speeds of the colliding atoms. One of the atoms is
-  marked and leaves a trail so you can follow its path.
-  
+s = """  Distribució teòrica i simulada per les energies
+  (en eV), energia en funció del temps i fluctiacions relatives 
+  en funció del temps. Inicialment tots els àtoms tenen la mateixa
+  velocitat, però les col·lisions fan que canviïn. Un dels àtoms
+  està marcat per tal de poder seguir la seva trajectòria.
+
+  Col·lectivitat NVE.
 """
 animation.caption = s
 
@@ -94,7 +96,6 @@ t_sim = 0.0
 dE_step = Emax / 300.0
 for i in range(301):
     E_val = i * dE_step
-    # Fórmula teórica: f(E) = (2/sqrt(pi)) * (1/kT)^(3/2) * sqrt(E) * exp(-E/kT)
     f_E = (2.0/sqrt(pi)) * ((1.0/(k*T))**1.5) * sqrt(E_val) * exp(-E_val/(k*T))
     theory.plot(E_val/1.6E-19, Natoms * deltaE * f_E)
 
@@ -181,7 +182,6 @@ while True:
         E_old_j = p[j].mag2 / (2*mass)
 
         # Calculem les noves posicions i moments després de la col·lisió.
-
         dx = dot(rrel, vrel.hat)       
         dy = cross(rrel, vrel.hat).mag 
         

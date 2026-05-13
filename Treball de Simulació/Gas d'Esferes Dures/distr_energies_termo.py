@@ -245,7 +245,7 @@ while True:
     # --------------------
     # TERMOSTAT D'ANDERSEN
     # --------------------
-    #   
+    
     # Bucle que passa per totes les partícules del gas i les selecciona amb una certa probab.
     for i in range(Natoms):
         if random.random() < prob: # Aquesta condició selecciona amb probabilitat prob. la partícula i.

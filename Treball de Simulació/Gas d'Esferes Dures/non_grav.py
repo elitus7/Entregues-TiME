@@ -11,17 +11,19 @@ mass = 4E-3/6E23 # Massa (en kg) d'un àtom d'He.
 Ratom = 0.04 # Radi atòmic usat a la simulació.
 k = 1.4E-23 # Constant de Boltzmann.
 T = 300 # Temperatura ambient (aproximadament).
-dt = 1E-5
+dt = 1E-5 # Pas de temps.
 
 # Animació del sistema.
 animation = canvas( width=win, height=win, align='left')
 animation.range = L
 animation.title = 'Hard Sphere Gas'
-s = """  Theoretical and averaged speed distributions (meters/sec).
-  Initially all atoms have the same speed, but collisions
-  change the speeds of the colliding atoms. One of the atoms is
-  marked and leaves a trail so you can follow its path.
-  
+s = """  Distribució teòrica i simulada per les velocitats
+  (en m/s) i posicions (en m) en l'eix Z sense camp gravitatori. 
+  en funció del temps. Inicialment tots els àtoms tenen la mateixa
+  velocitat, però les col·lisions fan que canviïn. Un dels àtoms
+  està marcat per tal de poder seguir la seva trajectòria.
+
+  Col·lectivitat NVE.
 """
 animation.caption = s
 
@@ -148,11 +150,10 @@ while True:
         
     for i in range(len(accum_pos)): 
         accum_pos[i][1] = (nhisto*accum_pos[i][1] + histo_pos[i])/(nhisto+1)
-    # -----------------------------------------------
 
     if nhisto % 10 == 0:
         vdist.data = accum
-        posdist.data = accum_pos # <-- NUEVO: Dibujar el gráfico verde
+        posdist.data = accum_pos 
     nhisto += 1
 
     # 2) Introduïm el moviment de les partícules.
@@ -198,11 +199,11 @@ while True:
         interchange(vi.z, p[i].z/mass)
         interchange(vj.z, p[j].z/mass)
     
-    # 5) Col·lisions amb les parets.
+    # 5) Col·lisions amb les parets (part modificada per garantir millor estabilitat numèrica en implementar el camp gravitatori).
     for i in range(Natoms):
         loc = apos[i]
         
-        # Rebote en X
+        # Rebot en X.
         if abs(loc.x) > L/2:
             if loc.x < 0: 
                 p[i].x = abs(p[i].x)
@@ -212,7 +213,7 @@ while True:
                 apos[i].x = L - loc.x  
             Atoms[i].pos.x = apos[i].x
         
-        # Rebote en Y
+        # Rebot Y.
         if abs(loc.y) > L/2:
             if loc.y < 0: 
                 p[i].y = abs(p[i].y)
@@ -222,7 +223,7 @@ while True:
                 apos[i].y = L - loc.y  
             Atoms[i].pos.y = apos[i].y
         
-        # Rebote en Z (incluye la actualización del histograma)
+        # Rebot en Z + actualització a l'histograma.
         if abs(loc.z) > L/2:
             old_vz = p[i].z / mass
             if loc.z < 0: 

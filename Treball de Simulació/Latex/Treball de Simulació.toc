@@ -26,7 +26,7 @@
 \contentsline {subsection}{\numberline {3.3.2}Estudi de les fluctuacions en l'energia}{22}{subsection.3.3.2}%
 \contentsline {chapter}{Bibliografia}{23}{chapter*.22}%
 \contentsline {chapter}{Annexos}{24}{section*.23}%
-\contentsline {section}{\numberline {A}Gas d'Esferes Dures}{24}{section.a..1}%
-\contentsline {subsection}{\numberline {A.1}Codi original i distribució de velocitats}{24}{subsection.a..1.1}%
-\contentsline {subsection}{\numberline {A.2}Implementació del termostat d'Andersen i anàlisi de la distribució d'energies}{26}{subsection.a..1.2}%
-\contentsline {subsection}{\numberline {A.3}Addició d'un camp gravitatori}{33}{subsection.a..1.3}%
+\contentsline {section}{\numberline {A}Gas d'Esferes Dures}{24}{section.1..1}%
+\contentsline {subsection}{\numberline {A.1}Codi original i distribució de velocitats}{24}{subsection.1..1.1}%
+\contentsline {subsection}{\numberline {A.2}Implementació del termostat d'Andersen i anàlisi de la distribució d'energies}{27}{subsection.1..1.2}%
+\contentsline {subsection}{\numberline {A.3}Addició d'un camp gravitatori}{34}{subsection.1..1.3}%
