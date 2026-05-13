@@ -975,7 +975,12 @@ Per a temperatures prou elevades, s'observa una distribució molt més homogèni
 
 \subsection{Ocupació mitjana en funció de la temperatura}
 
-A continuació trobem el codi que descriu l'ocupació mitjana en funció de la temperatura, i aquesta es compara amb els resultats teòrics basats en la distribució de Boltzmann. També s'ha afegit la comparació dels resultats de la simulació amb els analítics a una temperatura fixada, juntament amb l'error relatiu. (potser caldria dir q aquest codi es la continuacioi del anterior, aixi q si alguna cosa no esta definida aqui, ho esta a dalt...)
+A continuació trobem el codi que descriu l'ocupació mitjana en funció de la temperatura, i aquesta es compara amb els resultats teòrics basats en la distribució de Boltzmann. També s'ha afegit la comparació dels resultats de la simulació amb els analítics a una temperatura fixada, juntament amb l'error relatiu. 
+
+Només mostrem la part important del codi, les gràfiques es troben a l'annex (REF).
+
+
+(potser caldria dir q aquest codi es la continuacioi del anterior, aixi q si alguna cosa no esta definida aqui, ho esta a dalt...)
 
 (després d'això, i parlar dels resutlats, dir que tot i veure que els resultats de la simulació son practicament identics als teòrics (per tant, estem en l'estat d'equilibri tèrmic), sha fet regressions lineals a les ulimes dades de cada iteracio de cada nivell, per veure si els valors variaven o no)
 
@@ -1023,57 +1028,11 @@ A continuació trobem el codi que descriu l'ocupació mitjana en funció de la t
 		
 		return [m_n0/100, m_n1/100, m_n2/100] # Ens retorna l'ocupació mitjana a 	l'equilibri dels tres nivells d'energia. 
 	
-	# DEFINICIÓ EIXOS X (Temperatura (K))
-	
-	Valors_T = [20*x for x in range(1, 151)] # Valors de temperatura de 1 K a 1000 K amb intervals de 20 K (per a la simulació).
-	Valors_TT = np.linspace(1, 3000, 500) # Valors de temperatura de 1 K a 1000 K (per al càlcul analític).
-	
-	# DEFINICIÓ EIXOS Y (Ocupacions (partícules))
-	
-	# VALORS SIMULACIÓ
-	# Creem tres llistes buides per a calcular les ocupacions de cada nivell per a diferents temperatures (Valors_T).
-	Ocupacio_C_1 = [] 
-	Ocupacio_C_2 = [] 
-	Ocupacio_C_3 = [] 
-	
-	for w in Valors_T:
-		resultat_simulacio = OcupacioCodi(w)
-		Ocupacio_C_1.append(resultat_simulacio[0]) # Ocupació en funció de la temperatura per al nivell 1 
-		Ocupacio_C_2.append(resultat_simulacio[1]) # Ocupació en funció de la temperatura per al nivell 2
-		Ocupacio_C_3.append(resultat_simulacio[2]) # Ocupació en funció de la temperatura per al nivell 3
-	
-	
-	
-	# VALORS ANALÍTICS 
-	Ocupacio_T_1 = [OcupacioTeorica(x)[0] for x in Valors_TT] # Ocupació en funció de la temperatura per al nivell 1
-	Ocupacio_T_2 = [OcupacioTeorica(x)[1] for x in Valors_TT] # Ocupació en funció de la temperatura per al nivell 2
-	Ocupacio_T_3 = [OcupacioTeorica(x)[2]for x in Valors_TT] # Ocupació en funció de la temperatura per al nivell 3
-	
-	
-	# Gràfic comparatiu entre els resultats analítics (línia interlineada) i els resultats de la simulació (línia contínua) per als tres nivells d'energia. 
-	
-	plt.figure(figsize=(10, 6))
-	
-	plt.plot(Valors_T, Ocupacio_C_1, '.', color='blue', label = "Resultat Simulació, Nivell 1")
-	plt.plot(Valors_T, Ocupacio_C_2, '.',color='red', label = "Resultat Simulació, Nivell 2")
-	plt.plot(Valors_T, Ocupacio_C_3, '.',color='black', label = "Resultat Simulació, Nivell 3")
-	
-	plt.plot(Valors_TT, Ocupacio_T_1 ,'--', color='blue', label = "Resultat Analític, Nivell 1")
-	plt.plot(Valors_TT, Ocupacio_T_2, '--', color='red', label = "Resultat Analític, Nivell 2")
-	plt.plot(Valors_TT, Ocupacio_T_3, '--', color='black', label = "Resultat Analític, Nivell 3")
-	
-	plt.title("Comparativa resultats simulació amb resultats analítics.")
-	plt.ylabel("Ocupació (%) (partícules)")
-	plt.xlabel("Temperatura (K)")
-	plt.legend()
-	
-	plt.show()
-	
-	
+
 	
 \end{lstlisting}
 
-
+(CAL POSAR EL CODI AQUI??????????????? MILLOR ANNEX OPINOO)
 \begin{lstlisting}[caption={Error relatiu entre l'ocupació mitjana de la simulació i l'analítica per a una temperatura concreta.}]
 	
 	''' Per un cas particular (a T fixada) '''
@@ -1106,11 +1065,10 @@ A continuació trobem el codi que descriu l'ocupació mitjana en funció de la t
 \subsection{Estudi de les fluctuacions en l'energia}
 
 \begin{lstlisting}[caption={Estudi de les fluctuacions en l'energia.}]
-	a
+	
 	
 \end{lstlisting}
 
-\Huge{\textbf{NAT NO TE CARGUES EL CODIGO POR DIOS}}
 
 \begin{thebibliography}{99}
 \bibitem{ref4}
