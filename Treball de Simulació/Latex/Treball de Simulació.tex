@@ -786,55 +786,83 @@ Aquest potencial és un model matemàtic que descriu partícules neutres, els qu
 	\item \textbf{$-\left(\frac{1}{r^*}\right)^6$:} Aquest terme representa la força atractiva, ja que el signe negatiu implica una disminució de l'energia del sistema i, per tant, fent-lo més estable. L'atracció ve donada per forces de llarg abast com la de van der Waals o força de dispersió.
 \end{itemize}
 
-\textcolor{red}{GRÀFICA I EXPLICAR CADA ZONA??????}
-
 Per tant, tot i la simplicitat del potencial de Lennard-Jones, aquest descriu molt acuradament el comportament dels gasos nobles i altres partícules neutres, especialment combinant-ho amb el mètode de Monte Carlo. En canvi, aquest model no se sol utilitzar en molècules polars, no esfèriques i/o interaccions metàl·liques.
 
 \section{Estudi d'estats estacionaris}
-Tal i com ens demana l'enunciat, en aquest apartat es treballa amb la col·lectivitat NVT. En aquest cas, doncs, la temperatura es manté constant com si tinguéssim el sistema en un bany tèrmic, de manera que l'energia interna $U$ no pot variar. A més, en tenir $N$ i $V$ també constants, la densitat ($\rho=\frac{N}{V}$) també es mantidrà invariant durant tot el procés.
+Tal i com ens demana l'enunciat, en aquest apartat es treballa amb la col·lectivitat NVT. En aquest cas, doncs, la temperatura es manté constant com si tinguéssim el sistema en un bany tèrmic. A més, en tenir $N$ i $V$ també constants, la densitat ($\rho=\frac{N}{V}$) també es mantidrà invariant durant tot el procés.
 
 Inicialment, es fa córrer una simulació amb $N$ = 500, $\rho$ = 0,8 i
 T = 0,2 fins arribar a l'estat estacionari mostrat a la figura $\ref{4i}$.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{4i}
+	\begin{subfigure}{0.6\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{4i}
+		\caption{Representació de la distribució radial $g(r)$ en funció de la distància entre el centre d'una partícula i qualsevol altra $r$ per l'estat estacionari assolit. Nombre de cicles: 6150.}
+		\label{4ia}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{solid}
+		\caption{Visualització de la cara superior del cub que conté les partícules en l'estat estacionari assolit. Nombre de cicles: 6150.}
+		\label{4ib}
+	\end{subfigure}
 	\caption{Estat estacionari assolit amb $N$ = 500, $\rho$ = 0,8 i
-		$T$ = 0,2. Es representa la funció radial $g(r)$ en funció de la distància entre el centre d'una partícula i qualsevol altra ($r$). Nombre de cicles: 6150.}
+		$T$ = 0,2.}
 	\label{4i}
 \end{figure}
 
 A continuació, es fa una segona simulació amb amb $N$ = 500, $\rho$ = 0,8 i
-$T$ = 1,5 durant uns segons i es pausa. L'estat en què es troba el sistema es mostra a la figura $\ref{4iia}$. Seguidament, es canvia $T$ = 0,2 i, mantenint tots els altres paràmetres, es torna a reprendre el programa. En aquest segon cas, l'estat estacionari assolit es mostra a la figura $\ref{4iib}$.
-\begin{figure}[h]
+$T$ = 1,5 durant uns segons i es pausa. L'estat en què es troba el sistema es mostra a la figura $\ref{4iip}$. Seguidament, es canvia $T$ = 0,2 i, mantenint tots els altres paràmetres, es torna a reprendre el programa. En aquest segon cas, l'estat estacionari assolit es mostra a la figura $\ref{4ii}$.
+\begin{figure}[H]
 	\centering
-	\begin{subfigure}{0.45\textwidth}
+	\begin{subfigure}{0.6\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{4iip}
 		\caption{Simulació pausada amb $N$ = 500, $\rho$ = 0,8 i
 			$T_{inicial}$ = 1,5. Nombre de cicles: 1200.}
+		\label{4iipa}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{parat}
+		\caption{Visualització de la cara superior del cub que conté les partícules amb el sistema pausat amb $N$ = 500, $\rho$ = 0,8 i
+			$T_{inicial}$ = 1,5. Nombre de cicles: 1200.}
+		\label{4iipb}
+	\end{subfigure}
+	\caption{Diferents representacions del sistema pausat amb els paràmetres $N$ = 500, $\rho$ = 0,8 i $T_{inicial}$ = 1,5. Nombre de cicles: 1200.}
+	\label{4iip}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.6\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{4ii}
+		\caption{Representació de la distribució radial $g(r)$ en funció de la distància entre el centre d'una partícula i qualsevol altra $r$ per l'estat estacionari assolit amb xoc tèrmic. Nombre de cicles: 6200.}
 		\label{4iia}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.45\textwidth}
+	\begin{subfigure}{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{4ii}
-		\caption{Estat estacionari assolit amb $N$ = 500, $\rho$ = 0,8 i
-			$T_{inicial}$ = 1,5 canviant, al cap de pocs segons, a $T_{final}$ = 0,2. Nombre de cicles: 6200.}
+		\includegraphics[width=\linewidth]{amorf}
+		\caption{Visualització de la cara superior del cub que conté les partícules en l'estat estacionari assolit amb xoc tèrmic. Nombre de cicles: 6200.}
 		\label{4iib}
 	\end{subfigure}
-	\caption{En ambdós casos es representa la funció radial $g(r)$ en funció de la distància entre el centre d'una partícula i qualsevol altra ($r$).}
+	\caption{En ambdós casos es representa la funció radial $g(r)$ en funció de la distància entre el centre d'una partícula i qualsevol altra ($r$) amb xoc tèrmic.}
+	\label{4ii}
 \end{figure}
-Si comparem els dos estats estacionaris assolits per les dues simulacions anteriors, notem que, tot i tenir un pic molt intens i marcat a $r\approx 1,15$ , la funció radial presenta pics molt més suavitzats en el segon cas. Aquest primer pic tan intens s'anomena primera capa de coordinació marca la mínima distància a la que poden trobar-se dues partícules. En aquest punt les forces d'atracció i de repulsió es troben compensades. Per aquest motiu, no podem trobar partícules per sota d'aquest valor.
+Si comparem els dos estats estacionaris assolits en les dues simulacions anteriors, notem que, tot i tenir un pic molt intens i marcat a $r\approx 1,15$ , la funció radial presenta pics molt més suavitzats en el segon cas. Aquest primer pic tan intens s'anomena primera capa de coordinació i marca la mínima distància a la que poden trobar-se dues partícules, és a dir, el primer mínim de potencial. En aquest punt les forces d'atracció i de repulsió es troben compensades i per això no podem trobar partícules per sota d'aquest valor.
 
-Per tal d'explicar la diferència en el perfil dels pics, hem de pensar en el significat físic de les gràfiques. Per això, tenint en compte que la funció representada denota la probabilitat relativa de trobar una partícula a una distància $r$, comparant-ho amb el valor del gas ideal $g(r)=1$. Sabent això, concloem que uns pics més perfilats impliquen una estructura molt més ordenada i, per tant, una energia total menor.
+Per tal d'explicar la diferència en el perfil dels pics, hem de pensar en el significat físic de les gràfiques. Per això, tenint en compte que la funció representada és una distribució radial de les partícules segons la distància $r$ i comparant-ho amb el valor del gas ideal que tindria $g(r)=1$ constant, concloem que uns pics més perfilats impliquen una estructura molt més ordenada. Això últim té sentit perquè els pics marcaríen els valors de $r$ on hi hauria situades la majoria de partícules, creant així una estructura cristal·lina. Com que en aquest cas la posició tan definida es traduiria en una repulsió serà menor, l'energia total serà també més baixa.
 
-Pel que acabem d'exposar, deduïm que la figura $\ref{4i}$ representa un estat estacionari corresponent a una estructura cristal·lina que es correspon a un mínim global del sistema. Per això, deixar evolucionar el sistema directament des de l'estat inicial ens porta a una funció radial amb pics més ben definits, fet que ens indica que el sistema ha assolit una estructura periòdica en què les partícules vibren poc al voltant de la seva posició a la xarxa.
+Pel que acabem d'exposar, deduïm que la figura $\ref{4i}$ representa un estat estacionari corresponent a una estructura sòlida cristal·lina que es correspon a un mínim global del sistema. Per això, deixar evolucionar el sistema directament des de l'estat inicial ens porta a una distribució radial amb pics més ben definits, fet que ens indica que el sistema ha assolit una estructura periòdica en què les partícules vibren poc al voltant de la seva posició a la xarxa. Això es veu clarament a la figura $\ref{4ib}$, on observem que la posició de cada partícula segueix un ordre molt marcat.
 
-Per contra, en la segona simulació, la funció radial presenta un perfil similar però amb els pics més suaus, comportament que s'accentura a mesura que augmenta $r$. Això ens porta a concloure que ens trobem davant d'un estat metaestable, és a dir, el sistema es troba atrapat en un mínim d'energia local i no té suficient energia per poder sortir-ne. Així, veiem que en refredar el model de manera brusca (xoc tèrmic) obtenim una estructura amorfa que es correspondria amb un vidre. En aquesta situació, veiem una clara absència d'ordre de llarg abast, és a dir, les partícules perden ordre a mesura que $r$ augmenta i, consegüentment, els pics se suavitzen perquè la posició de les molècules està menys definida.
+Per contra, en la segona simulació, la distribució radial presenta un perfil similar però amb els pics més suaus, comportament que s'accentura a mesura que augmenta $r$. Això ens porta a concloure que ens trobem davant d'un estat metaestable, és a dir, el sistema es troba atrapat en un mínim d'energia local i no té suficient energia per poder sortir-ne. Així, veiem que en refredar el model de manera brusca (xoc tèrmic) obtenim una estructura amorfa que podria correspondre's amb la d'un vidre. En aquesta situació, veiem una clara absència d'ordre de llarg abast, és a dir, les partícules perden ordre a mesura que $r$ augmenta i, consegüentment, els pics se suavitzen perquè la posició de les molècules està menys definida. Això es visualitza a la figura $\ref{4iib}$ on, comparant amb el cas del sòlid cristal·lí, veiem una manca d'ordre definit.
 
-Notem que la funció radial $g(r)$ per un $r$ molt gran tendirà a ser 1. Aquest és el comportament del gas ideal, el qual representa el màxim desordre possible, ja que no es considera la interacció entre partícules. Notem com, en les dues simulacions anteriors, la funció tendeix cap a 1 a mesura que $r$ augmenta, especialment pel cas del xoc tèrmic (sistema amorf i per tant més similar al desordre del gas ideal).
-
-\textcolor{red}{Posar només l'estat final? Crec q millor que no pq hauria de canviar les refs del text.}
+\textcolor{red}{Notem que la funció radial $g(r)$ per un $r$ molt gran tendirà a ser 1. Aquest és el comportament del gas ideal, el qual representa el màxim desordre possible, ja que no es considera la interacció entre partícules. Notem com, en les dues simulacions anteriors, la funció tendeix cap a 1 a mesura que $r$ augmenta, especialment pel cas del xoc tèrmic (sistema amorf i per tant més similar al desordre del gas ideal). NO SÉ SI ÉS VERITAT!}
 
 \section{Anàlisi del coeficient de compressibilitat isoterma}
 Bueno, avui no he avançat però diria que s'ha de representar una gràfica de V en funció de P. Hem de fer-ho amb el programa NPT perquè això ens permet tenir V en funció de P.
@@ -1770,7 +1798,6 @@ else: p[i].z = -abs(p[i].z)
 # Bucle que passa per totes les partícules del gas i les selecciona amb una certa probab.
 for i in range(Natoms):
 if random.random() < prob: # Aquesta condició selecciona amb probabilitat prob. la partícula i.
-
 # Guardem l'energía antiga per l'histograma.
 E_old = p[i].mag2 / (2*mass)
 
