@@ -789,7 +789,7 @@ Aquest potencial és un model matemàtic que descriu partícules neutres, els qu
 Per tant, tot i la simplicitat del potencial de Lennard-Jones, aquest descriu molt acuradament el comportament dels gasos nobles i altres partícules neutres, especialment combinant-ho amb el mètode de Monte Carlo. En canvi, aquest model no se sol utilitzar en molècules polars, no esfèriques i/o interaccions metàl·liques.
 
 \section{Estudi d'estats estacionaris}
-Tal i com ens demana l'enunciat, en aquest apartat es treballa amb la col·lectivitat NVT. En aquest cas, doncs, la temperatura es manté constant com si tinguéssim el sistema en un bany tèrmic. A més, en tenir $N$ i $V$ també constants, la densitat ($\rho=\frac{N}{V}$) també es mantidrà invariant durant tot el procés.
+Tal i com ens demana l'enunciat, en aquest apartat es treballa amb la col·lectivitat canònica (NVT). En aquest cas, doncs, la temperatura es manté constant com si tinguéssim el sistema en un bany tèrmic. A més, en tenir $N$ i $V$ també constants, la densitat ($\rho=\frac{N}{V}$) també es mantidrà invariant durant tot el procés.
 
 Inicialment, es fa córrer una simulació amb $N$ = 500, $\rho$ = 0,8 i
 T = 0,2 fins arribar a l'estat estacionari mostrat a la figura $\ref{4i}$.
@@ -865,41 +865,82 @@ Per contra, en la segona simulació, la distribució radial presenta un perfil s
 \textcolor{red}{Notem que la funció radial $g(r)$ per un $r$ molt gran tendirà a ser 1. Aquest és el comportament del gas ideal, el qual representa el màxim desordre possible, ja que no es considera la interacció entre partícules. Notem com, en les dues simulacions anteriors, la funció tendeix cap a 1 a mesura que $r$ augmenta, especialment pel cas del xoc tèrmic (sistema amorf i per tant més similar al desordre del gas ideal). NO SÉ SI ÉS VERITAT!}
 
 \section{Anàlisi del coeficient de compressibilitat isoterma}
-Bueno, avui no he avançat però diria que s'ha de representar una gràfica de V en funció de P. Hem de fer-ho amb el programa NPT perquè això ens permet tenir V en funció de P.
-
-Per un gas tindrem una temperatura alta i una pressió baixa i densitat baixa (menor a 0,1?).
-
-Els líquids tenen densitat alta (0,8 o així) i temperatures menors i pressions una mica més altes.
-Fixem una T i variem P i obtenim uns quants valors de V pels casos líquid i gas.
-
-El factor de compressibilitat per un gas ideal és 1/P perquè es deriva PV=nRT respecte la pressió. Hauríem d'obtenir un comportament similar a aquest per a pressions molt baixes i en augmentar P el fluid es fa més comprimible per les atraccions del gas real de Lennard-jones.
-
-Posar una taula amb els valors de P, V, T i densitat per gas i líquid i fer la representació gràfica dels casos.
-
-Posar també gràfic de comparació del factor ideal i del nostre?
-
-Hem d'obtenir un factor molt més baix pel líquid ja que és quasi incompressible.
-
-No sé com calcular el factor perquè segons el lloc trobo que és
-\begin{equation*}
-	\kappa_T=-\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T
-\end{equation*}
-
-però Gemini m'ha dit que ell faria:
-\begin{equation*}
-	\kappa_T = \frac{\langle V^2 \rangle - \langle V \rangle^2}{k_B T \langle V \rangle}
-\end{equation*}
-No sé tampoc on se'm donen aquests valors al programa wtf.
+\textcolor{red}{
+	El factor de compressibilitat per un gas ideal és 1/P perquè es deriva PV=nRT respecte la pressió. Hauríem d'obtenir un comportament similar a aquest per a pressions molt baixes i en augmentar P el fluid es fa més comprimible per les atraccions del gas real de Lennard-jones.\\
+	Hem d'obtenir un factor molt més baix pel líquid ja que és quasi incompressible.}
 
 El coeficient de compressibilitat isoterma es pot calcular, d'entre moltes altres maneres, seguint la fórmula \eqref{kT} següent:
 \begin{equation}
 	\kappa_T=-\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T.
 \label{kT}
 \end{equation}
-Per tant, podem fer un estudi de la variació del volum en funció de la pressió del sistema per tal de trobar el pendent de la recta obtinguda. Així, tindrem el terme de la derivada paricial calculat.
+Com que treballarem en la col·lectivitat NPT, el volum serà una variable aleatòria i com a tal estarà sotmès a fluctuacions. Per això, necessitem treballar amb el seu valor mitjà $\langle V \rangle$.
 
-Per tal de fer-ho, treballarem en la col·lectivitat NPT, la qual ens permet tenir un volum variable en funció de la pressió. Així, podem simular la variació del volum respecte la pressió tant per un gas com per un líquid, en els quals caldrà variar la densitat del sistema.
-	
+Així, necessitem el valor de $\left( \frac{\partial \langle V \rangle}{\partial P} \right)_T$. Per fer-ho, com que treballem en un sistema isobàric-isoterm, definim la seva funció de partició com
+\begin{equation}
+	\Delta(N, P, T) = \int_0^\infty e^{-\beta P V} Z(N, V, T) \, dV
+\label{fpnpt}
+\end{equation}
+on $Z(N,V,T)$ és la funció de partició de la col·lectivitat canònica. Per tant, l'expressió $\eqref{fpnpt}$ és una extensió de  $Z(N,V,T)$. Així, per definició estadística, el valor mitjà del volum vindrà donat per
+\begin{equation}
+	\langle V \rangle = \frac{\int V e^{-\beta P V} Z(V) \, dV}{\Delta}.
+\label{vmigv}
+\end{equation}
+Com que en volem la derivada parcial respecte la pressió
+\begin{equation}
+	\left( \frac{\partial \langle V \rangle}{\partial P} \right)_T = \frac{\partial}{\partial P} \left[ \frac{\int V e^{-\beta PV} Z(V) \, dV}{\Delta} \right] = \frac{(-\beta \Delta \langle V^2 \rangle) \cdot \Delta - (\Delta \langle V \rangle) \cdot (-\beta \Delta \langle V \rangle)}{\Delta^2} = -\beta \left( \langle V^2 \rangle - \langle V \rangle^2 \right).
+\end{equation}
+Ara, sabent que la variança del volum serà $\sigma_V^2 = \langle V^2 \rangle - \langle V \rangle^2$ i substituint que $\beta = \frac{1}{k_B T}$, arribem fàcilment a l'expressió següent:
+\begin{equation}
+	\sigma_V^2 = -k_B T \left( \frac{\partial \langle V \rangle}{\partial P} \right)_T.
+\label{varv}
+\end{equation}
+Cal comentar que aquesta expressió posa de manifest el Teorema de Fluctuació-Dissipació, el qual relaciona la resposta d'un sistema a una pertorbació externa, en aquest cas la pressió, amb les seves fluctuacions internes espontànies en estat d'equilibri.
+
+Per tant, recuperant l'expressió $\eqref{kT}$ i substituint la derivada parcial pel que hem obtingut a l'equació$\eqref{varv}$, obtenim una relació entre el coeficient de compressibilitat isoterma i la variança del volum. Aquests dos paràmetres es relacionen segons
+\begin{equation}
+	\kappa_T = \frac{\sigma_V^2}{\langle V \rangle k_B T}.
+\label{eq2.8}
+\end{equation}
+Malauradament, el programa que s'utilitza per a aquest apartat no ens permet visualitzar $\sigma_V^2$, de manera que ens és més convenient tenir expressat $\kappa_T$ en funció de $\sigma_{\rho}^2$, valor que sí que se'ns dóna.
+
+Sabem que la densitat del sistema ve definida segons $\rho=N/V$. Per tant, per propagació d'incerteses tindrem que
+\begin{equation}
+	\delta \rho = \left| \frac{d\rho}{dV} \right| \delta V = \frac{N}{V^2} \delta V = \frac{\rho}{V}\delta V.
+\end{equation}
+Aillant la variança del volum obtenim que
+\begin{equation}
+	\sigma_V = \langle V \rangle \frac{\sigma_\rho}{\langle \rho \rangle},
+\end{equation}
+relació que podem incloure dins de l'equació $\eqref{eq2.8}$:
+\begin{equation}
+	\kappa_T = \frac{(\langle V \rangle \frac{\sigma_\rho}{\langle \rho \rangle})^2}{\langle V \rangle k_B T} = \frac{\langle V \rangle^2 \sigma_\rho^2}{\langle \rho \rangle^2 \langle V \rangle k_B T} = \frac{\langle V \rangle \sigma_\rho^2}{\langle \rho \rangle^2 k_B T}.
+\end{equation}
+Com que treballem amb variables normalitzades, considerem $k_B=1$, de manera que arribem a l'expressió final
+\begin{equation}
+	\boxed{\kappa_T =\frac{\langle V \rangle \sigma_\rho^2}{\langle \rho \rangle^2 T}}
+\label{calculkt}
+\end{equation}
+on $\sigma_{\rho}$ seran les fluctuacions de la densitat i $\langle V \rangle$ i $\langle \rho \rangle$ són el valor mig del volum i la densitat, respectivament.
+
+Per tal d'assegurar-nos que estem treballant en fase líquida o gasosa, ens és útil tenir les dades de pressió i temperatura del punt crític per un fluid de Lennard-Jones:
+\begin{itemize}
+	\item $T_c = 1,321 \pm 0,007\, \varepsilon k_B^{-1}$.
+	\item $p_c = 0,129 \pm 0,005\, \varepsilon \sigma^{-3}$.
+\end{itemize}
+Veiem que aquests valors determinen, efectivament, el punt crític del diagrama de fases per un fluid de Lennard-Jones mostrat a la figura $\ref{diagrama_lj}$.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\linewidth]{diagrama_lj}
+	\caption{Diagrama de fases en el pla pressió-temperatura per un fluid de Lennard-Jones.}
+	\label{diagrama_lj}
+\end{figure}
+Tenint en compte aquest diagrama, concloem que per treballar de manera segura dins de les dues fases estudiades ens haurem de moure entre els valors aproximats següents:
+\begin{itemize}
+	\item \textbf{Líquid:} $T\approx0,8-1,2$ i $P\approx 10^{-2}-10^{-1}$.
+	\item \textbf{Gas:} $T\approx0,8-1,2$ i $P<10^{-3}$.
+\end{itemize}
+
 \chapter{Creació d'una simulació pròpia}
 
 \section{Introducció i fonament teòric}
