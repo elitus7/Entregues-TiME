@@ -7,7 +7,7 @@ import numpy as np
 ''' Apartat Q6. '''
 
 N = 1000 # Nombre de partícules del sistema.
-T = 200 # Temperatura (en K).
+T = 10 # Temperatura (en K).
 It = 200000 # Nombre d'iteracions. Si al executar salta un missatge 'Cal augmentar el nombre d'iteracions', cal augmentar aquest valor. 
 
 kb = 1.38e-23 # Constant de Boltzmann.
@@ -49,13 +49,15 @@ for _ in range(It):
 Nhist= [PN.count(0),PN.count(1*eps), PN.count(10*eps)]
 Etiq = [0,1,10]
 
+'''
+
 plt.bar(Etiq, Nhist, color='skyblue', edgecolor='black')
 plt.xticks(Etiq) # Només mostra els números 0, 1 i 10
 plt.xlabel(r"Nivell energètic ($\epsilon$ J)")
-plt.title("Histograma d'ocupació a l'equilibri tèrmic")
+plt.title(f"Histograma d'ocupació a l'equilibri tèrmic a {T} K")
 plt.ylabel("Ocupació (partícules)")
 plt.show()
-
+'''
 
 ''' Apartat Q7. Estudi de l'ocupació mitjana de cada un dels tres nivells d'energia en l'equilibri en funció de la temperatura.'''
 
@@ -101,7 +103,7 @@ def OcupacioCodi(T):
     return [m_n0/100, m_n1/100, m_n2/100] # Ens retorna l'ocupació mitjana a l'equilibri dels tres nivells d'energia. 
 
 # DEFINICIÓ EIXOS X (Temperatura (K))
-
+'''
 Valors_T = [20*x for x in range(1, 151)] # Valors de temperatura de 1 K a 1000 K amb intervals de 20 K (per a la simulació).
 Valors_TT = np.linspace(1, 3000, 500) # Valors de temperatura de 1 K a 1000 K (per al càlcul analític).
 
@@ -140,13 +142,13 @@ plt.plot(Valors_TT, Ocupacio_T_2, '--', color='red', label = "Resultat Analític
 plt.plot(Valors_TT, Ocupacio_T_3, '--', color='black', label = "Resultat Analític, Nivell 3")
 
 plt.title("Comparativa resultats simulació amb resultats analítics.")
-plt.ylabel("Ocupació (%) (partícules)")
+plt.ylabel("Ocupació (partícules)")
 plt.xlabel("Temperatura (K)")
 plt.legend()
 
 plt.show()
 
-
+'''
 ''' Per un cas particular (a T fixada) '''
 
 # Aquest és un cas particular (per a la T fixada al principi del codi). Trobem l'error relatiu entre el resultat de la simulació i el resultat analític. Per a diferents resultats de T, només cal canviar el valor de l'inici i executar.

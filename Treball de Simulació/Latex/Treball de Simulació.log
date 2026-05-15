@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  15 MAY 2026 18:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  16 MAY 2026 00:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -853,22 +853,14 @@ Package hyperref Info: Link coloring OFF on input line 114.
 \@outlinefile=\write4
 \openout4 = `"Treball de Simulació.out"'.
 
-<logo_uab.png, id=146, 1505.625pt x 565.36218pt>
+<logo_uab.png, id=6, 1505.625pt x 565.36218pt>
 File: logo_uab.png Graphic file (type png)
 <use logo_uab.png>
 Package pdftex.def Info: logo_uab.png  used on input line 132.
 (pdftex.def)             Requested size: 145.96417pt x 54.80556pt.
  [1
 
-{C:/Users/natvi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo_uab.png>] (Treball de Simulació.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
- (C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
- (C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+{C:/Users/natvi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo_uab.png>] (Treball de Simulació.toc)
 \tf@toc=\write5
 \openout5 = `"Treball de Simulació.toc"'.
 
@@ -876,11 +868,34 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Cap\'{\i }tol 1.
-<screenshot001.png, id=203, 1445.4pt x 963.6pt>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 153.
+(C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 153.
+ (C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Warning: Citation `ref4' on page 1 undefined on input line 169.
+
+
+LaTeX Warning: Reference `fig:intropart1.1' on page 1 undefined on input line 174.
+
+<screenshot001.png, id=23, 1445.4pt x 963.6pt>
 File: screenshot001.png Graphic file (type png)
 <use screenshot001.png>
 Package pdftex.def Info: screenshot001.png  used on input line 178.
 (pdftex.def)             Requested size: 291.92836pt x 194.61331pt.
+
+LaTeX Warning: Citation `ref6' on page 1 undefined on input line 179.
+
+
+LaTeX Warning: Citation `ref6' on page 1 undefined on input line 179.
+
+
+LaTeX Warning: Reference `annex:1' on page 1 undefined on input line 185.
+
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
@@ -889,53 +904,89 @@ l.186 \begin{equation}
                        [1
 
  <./screenshot001.png>]
-<dis_vels_r_real.png, id=227, 770.88pt x 300.3722pt>
+
+LaTeX Warning: Reference `fig:1.1' on page 2 undefined on input line 208.
+
+<dis_vels_r_real.png, id=46, 770.88pt x 300.3722pt>
 File: dis_vels_r_real.png Graphic file (type png)
 <use dis_vels_r_real.png>
 Package pdftex.def Info: dis_vels_r_real.png  used on input line 212.
 (pdftex.def)             Requested size: 243.27116pt x 94.78731pt.
-<dis_vels_r_1.5.png, id=229, 770.88pt x 300.3722pt>
+
+LaTeX Warning: Reference `fig:1.2' on page 2 undefined on input line 217.
+
+<dis_vels_r_1.5.png, id=47, 770.88pt x 300.3722pt>
 File: dis_vels_r_1.5.png Graphic file (type png)
 <use dis_vels_r_1.5.png>
 Package pdftex.def Info: dis_vels_r_1.5.png  used on input line 221.
 (pdftex.def)             Requested size: 243.27116pt x 94.78731pt.
- [2 <./dis_vels_r_real.png>]
-<dis_vels_r_0.1.png, id=243, 770.88pt x 307.1475pt>
+[2 <./dis_vels_r_real.png>]
+
+LaTeX Warning: Reference `fig:1.3' on page 3 undefined on input line 226.
+
+<dis_vels_r_0.1.png, id=61, 770.88pt x 307.1475pt>
 File: dis_vels_r_0.1.png Graphic file (type png)
 <use dis_vels_r_0.1.png>
 Package pdftex.def Info: dis_vels_r_0.1.png  used on input line 230.
 (pdftex.def)             Requested size: 243.27116pt x 96.92537pt.
-<dis_vels_r_0.01.png, id=245, 770.88pt x 307.90031pt>
+
+LaTeX Warning: Reference `fig:1.4' on page 3 undefined on input line 235.
+
+<dis_vels_r_0.01.png, id=62, 770.88pt x 307.90031pt>
 File: dis_vels_r_0.01.png Graphic file (type png)
 <use dis_vels_r_0.01.png>
 Package pdftex.def Info: dis_vels_r_0.01.png  used on input line 239.
 (pdftex.def)             Requested size: 243.27116pt x 97.16293pt.
-<dis_vels_r_0.03.png, id=248, 770.88pt x 301.8778pt>
+
+LaTeX Warning: Reference `fig:1.5' on page 3 undefined on input line 244.
+
+
+LaTeX Warning: Reference `fig:1.5b' on page 3 undefined on input line 244.
+
+<dis_vels_r_0.03.png, id=63, 770.88pt x 301.8778pt>
 File: dis_vels_r_0.03.png Graphic file (type png)
 <use dis_vels_r_0.03.png>
 Package pdftex.def Info: dis_vels_r_0.03.png  used on input line 250.
 (pdftex.def)             Requested size: 218.94255pt x 85.73665pt.
-<dis_vels_r_0.03_T=20min.png, id=249, 770.88pt x 301.8778pt>
+<dis_vels_r_0.03_T=20min.png, id=64, 770.88pt x 301.8778pt>
 File: dis_vels_r_0.03_T=20min.png Graphic file (type png)
 <use dis_vels_r_0.03_T=20min.png>
 Package pdftex.def Info: dis_vels_r_0.03_T=20min.png  used on input line 257.
 (pdftex.def)             Requested size: 218.94255pt x 85.73665pt.
- [3 <./dis_vels_r_1.5.png> <./dis_vels_r_0.1.png> <./dis_vels_r_0.01.png>]
-<dis_vels_r_0.04.png, id=261, 770.88pt x 300.3722pt>
+[3 <./dis_vels_r_1.5.png> <./dis_vels_r_0.1.png> <./dis_vels_r_0.01.png>]
+
+LaTeX Warning: Reference `fig:1.6' on page 4 undefined on input line 265.
+
+<dis_vels_r_0.04.png, id=75, 770.88pt x 300.3722pt>
 File: dis_vels_r_0.04.png Graphic file (type png)
 <use dis_vels_r_0.04.png>
 Package pdftex.def Info: dis_vels_r_0.04.png  used on input line 270.
 (pdftex.def)             Requested size: 218.94255pt x 85.30904pt.
-<dis_vels_r_0.04_T=20min.png, id=262, 770.88pt x 306.39468pt>
+<dis_vels_r_0.04_T=20min.png, id=76, 770.88pt x 306.39468pt>
 File: dis_vels_r_0.04_T=20min.png Graphic file (type png)
 <use dis_vels_r_0.04_T=20min.png>
 Package pdftex.def Info: dis_vels_r_0.04_T=20min.png  used on input line 277.
 (pdftex.def)             Requested size: 218.94255pt x 87.0195pt.
 
+LaTeX Warning: Reference `tab:1.1' on page 4 undefined on input line 285.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4 <./dis_vels_r_0.03.png> <./dis_vels_r_0.03_T=20min.png> <./dis_vels_r_0.04.png> <./dis_vels_r_0.04_T=20min.png>] [5]
+
+LaTeX Warning: Reference `eq:1.2' on page 4 undefined on input line 317.
+
+[4 <./dis_vels_r_0.03.png> <./dis_vels_r_0.03_T=20min.png> <./dis_vels_r_0.04.png> <./dis_vels_r_0.04_T=20min.png>]
+
+LaTeX Warning: Citation `ref2' on page 5 undefined on input line 327.
+
+
+LaTeX Warning: Citation `ref3' on page 5 undefined on input line 331.
+
+
+LaTeX Warning: Reference `eq:1.7' on page 5 undefined on input line 347.
+
+[5]
 LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 350.
 LaTeX Font Info:    No file OMScmss.fd. on input line 350.
 
@@ -944,37 +995,8 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
 (Font)              for symbol `textbackslash' on input line 350.
 
-[6]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 379.
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 384.
- [7]
-<notermo_distr_ener.png, id=382, 772.38562pt x 350.81062pt>
-File: notermo_distr_ener.png Graphic file (type png)
-<use notermo_distr_ener.png>
-Package pdftex.def Info: notermo_distr_ener.png  used on input line 478.
-(pdftex.def)             Requested size: 214.0798pt x 97.23065pt.
-<notermo_E_t.png, id=383, 674.52pt x 269.50688pt>
-File: notermo_E_t.png Graphic file (type png)
-<use notermo_E_t.png>
-Package pdftex.def Info: notermo_E_t.png  used on input line 485.
-(pdftex.def)             Requested size: 233.53824pt x 93.30894pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[8]
-<termo_distr_ener.png, id=402, 474.27188pt x 194.22563pt>
-File: termo_distr_ener.png Graphic file (type png)
-<use termo_distr_ener.png>
-Package pdftex.def Info: termo_distr_ener.png  used on input line 501.
-(pdftex.def)             Requested size: 218.94255pt x 89.66197pt.
-<termo_E_t.png, id=403, 453.19313pt x 194.22563pt>
-File: termo_E_t.png Graphic file (type png)
-<use termo_E_t.png>
-Package pdftex.def Info: termo_E_t.png  used on input line 508.
-(pdftex.def)             Requested size: 214.0798pt x 91.74837pt.
-<termo_flucs_N500.png, id=409, 473.51906pt x 191.9672pt>
+LaTeX Warning: Cit51906pt x 191.9672pt>
 File: termo_flucs_N500.png Graphic file (type png)
 <use termo_flucs_N500.png>
 Package pdftex.def Info: termo_flucs_N500.png  used on input line 528.
@@ -996,7 +1018,9 @@ Package pdftex.def Info: termo_flucs_N1000.png  used on input line 544.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9 <./notermo_distr_ener.png> <./notermo_E_t.png> <./termo_distr_ener.png> <./termo_E_t.png>] [10 <./termo_flucs_N500.png> <./termo_flucs_N100.png> <./termo_flucs_N1000.png>]
+[9 <./notermo_distr_ener.png> <./notermo_E_t.png> <./termo_distr_ener.png> <./t
+ermo_E_t.png>] [10 <./termo_flucs_N500.png> <./termo_flucs_N100.png> <./termo_f
+lucs_N1000.png>]
 <no_grav_distr_velz.png, id=443, 635.37375pt x 249.93375pt>
 File: no_grav_distr_velz.png Graphic file (type png)
 <use no_grav_distr_velz.png>
@@ -1050,7 +1074,8 @@ Package pdftex.def Info: simu_grav.png  used on input line 747.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[13 <./grav_distr_velzgterra.png> <./grav_distr_poszgterra.png> <./grav_distr_vel_z.png> <./grav_distr_posz.png>] [14 <./simu_nongrav.png> <./simu_grav.png>]
+[13 <./grav_distr_velzgterra.png> <./grav_distr_poszgterra.png> <./grav_distr_v
+el_z.png> <./grav_distr_posz.png>] [14 <./simu_nongrav.png> <./simu_grav.png>]
 Cap\'{\i }tol 2.
 <4i.jpg, id=520, 1927.2pt x 971.63pt>
 File: 4i.jpg Graphic file (type jpg)
@@ -1061,54 +1086,224 @@ Package pdftex.def Info: 4i.jpg  used on input line 801.
 File: solid.jpg Graphic file (type jpg)
 <use solid.jpg>
 Package pdftex.def Info: solid.jpg  used on input line 808.
+(pdftex.def)             Requested size: 1ined on input line 596.
+
+<no_grav_distr_velz.png, id=234, 635.37375pt x 249.93375pt>
+File: no_grav_distr_velz.png Graphic file (type png)
+<use no_grav_distr_velz.png>
+Package pdftex.def Info: no_grav_distr_velz.png  used on input line 602.
+(pdftex.def)             Requested size: 218.94255pt x 86.12427pt.
+<no_grav_distr_posz.png, id=235, 561.59813pt x 213.04594pt>
+File: no_grav_distr_posz.png Graphic file (type png)
+<use no_grav_distr_posz.png>
+Package pdftex.def Info: no_grav_distr_posz.png  used on input line 609.
+(pdftex.def)             Requested size: 218.94255pt x 83.05507pt.
+
+LaTeX Warning: Reference `fig:1.12a' on page 11 undefined on input line 619.
+
+
+LaTeX Warning: Reference `fig:1.12a' on page 11 undefined on input line 621.
+
+
+LaTeX Warning: Reference `fig:1.12b' on page 11 undefined on input line 621.
+
+[11 <./no_grav_distr_velz.png> <./no_grav_distr_posz.png>]
+
+LaTeX Warning: Reference `annex:a3' on page 12 undefined on input line 646.
+
+<grav_distr_velzgterra.png, id=250, 679.78969pt x 329.73187pt>
+File: grav_distr_velzgterra.png Graphic file (type png)
+<use grav_distr_velzgterra.png>
+Package pdftex.def Info: grav_distr_velzgterra.png  used on input line 690.
+(pdftex.def)             Requested size: 233.53824pt x 113.2746pt.
+<grav_distr_poszgterra.png, id=251, 674.52pt x 325.215pt>
+File: grav_distr_poszgterra.png Graphic file (type png)
+<use grav_distr_poszgterra.png>
+Package pdftex.def Info: grav_distr_poszgterra.png  used on input line 697.
+(pdftex.def)             Requested size: 233.53824pt x 112.59628pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<grav_distr_vel_z.png, id=252, 770.12718pt x 357.58594pt>
+File: grav_distr_vel_z.png Graphic file (type png)
+<use grav_distr_vel_z.png>
+Package pdftex.def Info: grav_distr_vel_z.png  used on input line 709.
+(pdftex.def)             Requested size: 233.53824pt x 108.43333pt.
+<grav_distr_posz.png, id=253, 653.44125pt x 300.3722pt>
+File: grav_distr_posz.png Graphic file (type png)
+<use grav_distr_posz.png>
+Package pdftex.def Info: grav_distr_posz.png  used on input line 716.
+(pdftex.def)             Requested size: 233.53824pt x 107.35014pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:1.13' on page 12 undefined on input line 724.
+
+
+LaTeX Warning: Reference `fig:1.14' on page 12 undefined on input line 724.
+
+
+LaTeX Warning: Reference `fig:1.12' on page 12 undefined on input line 724.
+
+
+LaTeX Warning: Reference `fig:1.13b' on page 12 undefined on input line 726.
+
+
+LaTeX Warning: Reference `fig:1.13a' on page 12 undefined on input line 726.
+
+[12]
+
+LaTeX Warning: Reference `fig:1.15' on page 13 undefined on input line 734.
+
+<simu_nongrav.png, id=283, 449.42906pt x 439.6425pt>
+File: simu_nongrav.png Graphic file (type png)
+<use simu_nongrav.png>
+Package pdftex.def Info: simu_nongrav.png  used on input line 740.
+(pdftex.def)             Requested size: 211.64471pt x 207.0345pt.
+<simu_grav.png, id=284, 502.87875pt x 447.17062pt>
+File: simu_grav.png Graphic file (type png)
+<use simu_grav.png>
+Package pdftex.def Info: simu_grav.png  used on input line 747.
+(pdftex.def)             Requested size: 233.53824pt x 207.66608pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[13 <./grav_distr_velzgterra.png> <./grav_distr_poszgterra.png> <./grav_distr_vel_z.png> <./grav_distr_posz.png>] [14 <./simu_nongrav.png> <./simu_grav.png>]
+Cap\'{\i }tol 2.
+
+LaTeX Warning: Reference `4i' on page 15 undefined on input line 795.
+
+<4i.jpg, id=305, 1927.2pt x 971.63pt>
+File: 4i.jpg Graphic file (type jpg)
+<use 4i.jpg>
+Package pdftex.def Info: 4i.jpg  used on input line 801.
+(pdftex.def)             Requested size: 291.92836pt x 147.17632pt.
+<solid.jpg, id=306, 332.74312pt x 330.48468pt>
+File: solid.jpg Graphic file (type jpg)
+<use solid.jpg>
+Package pdftex.def Info: solid.jpg  used on input line 808.
 (pdftex.def)             Requested size: 145.96417pt x 144.97498pt.
 [15
 
 ]
-<4iip.jpg, id=532, 1831.84375pt x 967.615pt>
+
+LaTeX Warning: Reference `4iip' on page 16 undefined on input line 818.
+
+
+LaTeX Warning: Reference `4ii' on page 16 undefined on input line 818.
+
+<4iip.jpg, id=317, 1831.84375pt x 967.615pt>
 File: 4iip.jpg Graphic file (type jpg)
 <use 4iip.jpg>
 Package pdftex.def Info: 4iip.jpg  used on input line 823.
 (pdftex.def)             Requested size: 291.92836pt x 154.20145pt.
-<parat.jpg, id=533, 328.22626pt x 326.72063pt>
+<parat.jpg, id=318, 328.22626pt x 326.72063pt>
 File: parat.jpg Graphic file (type jpg)
 <use parat.jpg>
 Package pdftex.def Info: parat.jpg  used on input line 831.
 (pdftex.def)             Requested size: 145.96417pt x 145.293pt.
-<4ii.jpg, id=534, 1831.84375pt x 967.615pt>
+<4ii.jpg, id=319, 1831.84375pt x 967.615pt>
 File: 4ii.jpg Graphic file (type jpg)
 <use 4ii.jpg>
 Package pdftex.def Info: 4ii.jpg  used on input line 843.
 (pdftex.def)             Requested size: 291.92836pt x 154.20145pt.
-<amorf.jpg, id=535, 335.00156pt x 332.74312pt>
+<amorf.jpg, id=320, 335.00156pt x 332.74312pt>
 File: amorf.jpg Graphic file (type jpg)
 <use amorf.jpg>
 Package pdftex.def Info: amorf.jpg  used on input line 850.
 (pdftex.def)             Requested size: 145.96417pt x 144.97563pt.
- [16 <./4i.jpg> <./solid.jpg> <./4iip.jpg> <./parat.jpg>] [17 <./4ii.jpg> <./amorf.jpg>]
-<diagrama_lj.png, id=568, 363.60844pt x 240.14719pt>
+[16 <./4i.jpg> <./solid.jpg> <./4iip.jpg> <./parat.jpg>]
+
+LaTeX Warning: Reference `4i' on page 17 undefined on input line 861.
+
+
+LaTeX Warning: Reference `4ib' on page 17 undefined on input line 861.
+
+
+LaTeX Warning: Reference `4iib' on page 17 undefined on input line 863.
+
+
+LaTeX Warning: Reference `kT' on page 17 undefined on input line 872.
+
+[17 <./4ii.jpg> <./amorf.jpg>]
+
+LaTeX Warning: Reference `fpnpt' on page 18 undefined on input line 884.
+
+
+LaTeX Warning: Reference `kT' on page 18 undefined on input line 900.
+
+
+LaTeX Warning: Reference `varv' on page 18 undefined on input line 900.
+
+
+LaTeX Warning: Reference `eq2.8' on page 18 undefined on input line 915.
+
+
+LaTeX Warning: Reference `diagrama_lj' on page 18 undefined on input line 931.
+
+<diagrama_lj.png, id=334, 363.60844pt x 240.14719pt>
 File: diagrama_lj.png Graphic file (type png)
 <use diagrama_lj.png>
 Package pdftex.def Info: diagrama_lj.png  used on input line 934.
 (pdftex.def)             Requested size: 218.94255pt x 144.60608pt.
- [18] [19 <./diagrama_lj.png>]
+[18] [19 <./diagrama_lj.png>]
 Cap\'{\i }tol 3.
 [20
 
-] [21] [22] [23]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 1196.
+]
+<Hist10.png, id=392, 462.528pt x 346.896pt>
+File: Hist10.png Graphic file (type png)
+<use Hist10.png>
+Package pdftex.def Info: Hist10.png  used on input line 1023.
+(pdftex.def)             Requested size: 155.6971pt x 116.77327pt.
+<Hist500.png, id=393, 462.528pt x 346.896pt>
+File: Hist500.png Graphic file (type png)
+<use Hist500.png>
+Package pdftex.def Info: Hist500.png  used on input line 1031.
+(pdftex.def)             Requested size: 155.6971pt x 116.77327pt.
+<Hist5000.png, id=394, 462.528pt x 346.896pt>
+File: Hist5000.png Graphic file (type png)
+<use Hist5000.png>
+Package pdftex.def Info: Hist5000.png  used on input line 1039.
+(pdftex.def)             Requested size: 155.6971pt x 116.77327pt.
+
+
+LaTeX Warning: Reference `fig:3.2' on page 21 undefined on input line 1048.
+
+
+LaTeX Warning: Reference `fig:hist1' on page 21 undefined on input line 1050.
+
+
+LaTeX Warning: Reference `fig:hist3' on page 21 undefined on input line 1052.
+
+
+LaTeX Warning: Reference `fig:hist2' on page 21 undefined on input line 1054.
+
+[21 <./Hist10.png> <./Hist500.png> <./Hist5000.png>] [22]
+<ocupacio.png, id=472, 722.7pt x 433.62pt>
+File: ocupacio.png Graphic file (type png)
+<use ocupacio.png>
+Package pdftex.def Info: ocupacio.png  used on input line 1142.
+(pdftex.def)             Requested size: 437.88512pt x 262.73459pt.
+
+
+LaTeX Warning: Reference `fig:3.1' on page 23 undefined on input line 1147.
+
+[23 <./ocupacio.png>] [24]
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 1266.
  (C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [24]
-Underfull \hbox (badness 10000) in paragraph at lines 1221--1222
+) [25]
+Underfull \hbox (badness 10000) in paragraph at lines 1291--1292
 []\OT1/cmr/m/it/10 Maxwell-Boltzmann dis-tri-bu-ti-on\OT1/cmr/m/n/10 . Wiki-pe-dia. []$\OT1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Maxwell % E2 % 80 %
  []
 
-[25
+[26
 
-] [26
+] [27
 
-] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] (Treball de Simulació.aux)
+] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] (Treball de Simulació.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1117,21 +1312,33 @@ L3 programming layer <2024-01-04>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed.
-(rerunfilecheck)             Checksum: DBA55E20CD215D6A622C3B405A00AEE6;8137.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `"Treball de Simulació".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Treball de Simulació".out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  FF97A563F62BC2A5F1D597BAD1913FA0;8137.
  ) 
 Here is how much of TeX's memory you used:
- 36323 strings out of 474486
- 721346 string characters out of 5743756
+ 36328 strings out of 474486
+ 721471 string characters out of 5743756
  2679542 words of memory out of 5000000
- 56496 multiletter control sequences out of 15000+600000
+ 56497 multiletter control sequences out of 15000+600000
  576233 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,14n,93p,1296b,2845s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1000.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcit0800.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1000.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1200.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1440.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on "Treball de Simulació.pdf" (44 pages, 7214942 bytes).
+ <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1000.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcit0800.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1000.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1200.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1440.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on "Treball de Simulació.pdf" (45 pages, 7282822 bytes).
 PDF statistics:
- 2537 PDF objects out of 2984 (max. 8388607)
- 1582 named destinations out of 1728 (max. 500000)
- 453 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2345 PDF objects out of 2487 (max. 8388607)
+ 1586 named destinations out of 1728 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 

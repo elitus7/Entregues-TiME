@@ -326,10 +326,10 @@ INPUT .\Treball de Simulació.out
 INPUT .\Treball de Simulació.out
 INPUT Treball de Simulació.out
 INPUT Treball de Simulació.out
-OUTPUT Treball de Simulació.pdf
 INPUT .\Treball de Simulació.out
 INPUT .\Treball de Simulació.out
 OUTPUT Treball de Simulació.out
+OUTPUT Treball de Simulació.pdf
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
@@ -346,7 +346,7 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tf
 INPUT .\Treball de Simulació.toc
 INPUT .\Treball de Simulació.toc
 INPUT Treball de Simulació.toc
-INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+OUTPUT Treball de Simulació.toc
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
@@ -361,8 +361,7 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
-OUTPUT Treball de Simulació.toc
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx5.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmib10.tfm
@@ -371,6 +370,7 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cme
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy5.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT .\screenshot001.png
 INPUT .\screenshot001.png
 INPUT .\screenshot001.png
@@ -596,6 +596,34 @@ INPUT .\diagrama_lj.png
 INPUT .\diagrama_lj.png
 INPUT .\diagrama_lj.png
 INPUT .\diagrama_lj.png
+INPUT .\Hist10.png
+INPUT .\Hist10.png
+INPUT .\Hist10.png
+INPUT .\Hist10.png
+INPUT .\Hist10.png
+INPUT .\Hist10.png
+INPUT .\Hist10.png
+INPUT .\Hist500.png
+INPUT .\Hist500.png
+INPUT .\Hist500.png
+INPUT .\Hist500.png
+INPUT .\Hist500.png
+INPUT .\Hist500.png
+INPUT .\Hist500.png
+INPUT .\Hist5000.png
+INPUT .\Hist5000.png
+INPUT .\Hist5000.png
+INPUT .\Hist5000.png
+INPUT .\Hist5000.png
+INPUT .\Hist5000.png
+INPUT .\Hist5000.png
+INPUT .\ocupacio.png
+INPUT .\ocupacio.png
+INPUT .\ocupacio.png
+INPUT .\ocupacio.png
+INPUT .\ocupacio.png
+INPUT .\ocupacio.png
+INPUT .\ocupacio.png
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\base\ts1cmtt.fd
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\base\ts1cmtt.fd
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\base\ts1cmtt.fd
@@ -676,6 +704,8 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy9.pfb
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy9.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti8.pfb
