@@ -13,13 +13,15 @@ y_constant = [81.0930216] * len(x)
 plt.figure(figsize=(10, 6))
 
 # Pintem els punts blaus (variables) i els taronja (constants)
-plt.scatter(x, y_variable, color='#1f77b4', label='Variable')
-plt.scatter(x, y_constant, color='#ff7f0e', label='Constant')
+plt.scatter(x, y_variable, color='#1f77b4', label='Gas de Lennard-Jones')
+plt.scatter(x, y_constant, color="#fa0000", label='Gas ideal')
 
 # 3. Configuració d'eixos i títols
-plt.xlabel('$T$ normalitzada')
-plt.ylabel('$k_T$ normalitzada')
+plt.title('Compressibilitat isotèrmica $k_T$ en funció de la temperatura $T$')
+plt.xlabel('$T$ normalitzada (adimensional)')
+plt.ylabel('$k_T$ normalitzada (adimensional)')
 plt.grid(True, linestyle='-', alpha=0.3)
+plt.legend(loc='upper right')
 
 # Ajustem els límits perquè es vegi semblant a la teva imatge
 plt.ylim(80, 92)
