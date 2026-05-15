@@ -266,27 +266,29 @@ plt.show()
 ''' Q7. Valor de Tc '''
 
 Tc = 10*eps/(kb*math.log(N)) # Temperatura crítica trobada al exercici 35. 
-Tc_m = []
+Tc_m = [] # Llista on s'afegiràn els valors de temperatura crítica trobats. S'ha optat per fer una mitjana de varis valors perquè la Tc trobava sigui exacta. 
 
 # Per trobar Tc, s'ha optat per separar el càlcul del bloc principal per tal de disminuir l'interval entre els valors de temperatura, 
 # així obtenint una major presició sense que el temps d'executació agumenti considerablement (ja que per estudiar l'ocupació en funció de la temperatura no ens fa falta un interval tan precís).
 
 Valors_T2 = [0.5*x for x in range(120,300)] # Rang de temperatures més petit i més precís (+- 0,5) (ja que la Tc teòrica és d'uns 105) comparat amb el bloc principal (que va de 1 K a 3000 K(intervals de 20 K)).
 
-for _ in range(10):
-    
+for _ in range(10): # Trobem 10 vegades la temperatura crítica. Es farà una mitjana dels valors. 
+
     Tc_sim = None # Definim Tc que es calcularà amb la simulació.
     for k in Valors_T2:
         ResultatsSim = OcupacioCodi(k)
 
-        if ResultatsSim[2] >= 1 and Tc_sim is None: 
-            Tc_sim = k
-            Tc_m.append(Tc_sim)
-            break
+    if ResultatsSim[2] >= 1 and Tc_sim is None: 
+        Tc_sim = k
+        Tc_m.append(Tc_sim)
+        break  # Un cop s'ha trobat la temperatura crítica, el bucle s'anul·la. 
 
 print("Temperatura crítica simulació = ", sum(Tc_m)/10)
 print("Temperatura crítica teòrica = ", Tc)
-print("Error relatiu (%) = ", abs(Tc_sim - Tc)*100/Tc)
+print("Error relatiu (%) = ", abs(sum(Tc_m)/10 - Tc)*100/Tc)
+
+	
 
 ''' Apartat Q8. '''
 

@@ -963,20 +963,14 @@ La simulació comença amb les partícules distribuïdes uniformement entre els 
  
 Aquest procés es repeteix iterativament fins arribar a l'estat d'equilibri tèrmic.  
 
-HE DE MILLORAR LEXPLICACIOOOOOOOO
-
-
 \section{Modelització i implementació de la regla de Metropolis}
 
+A continuació es troba la modelització i implementació de la regla de Metropolis al sistema descrit a la introducció. 
+
+Tots els blocs de codi que es presenten a continuació recullen únicament les parts importants, ometent les línies de codi més trivials o de disseny de gràfiques (es poden trobar sencers a l'annex (REF)). També cal recalcar que tots els fragments formen part d'un mateix codi, per tant, les variables o funcions que es facin servir sense estar definides, ho han estat en fragments anteriors. AAAAAAAAAAAA
+
 \begin{lstlisting}[caption={Modelització i implementació de la regla de Metropolis.}]
-	import random
-	import math
-	import matplotlib.pyplot as plt
-	import numpy as np
-	
-	
-	''' Apartat Q6. '''
-	
+
 	N = 1000 # Nombre de partícules del sistema.
 	T = 200 # Temperatura (en K).
 	It = 200000 # Nombre d'iteracions. Si al executar salta un missatge 'Cal augmentar el nombre d'iteracions', cal augmentar aquest valor. 
@@ -1015,25 +1009,13 @@ HE DE MILLORAR LEXPLICACIOOOOOOOO
 	
 	# Repetim el procés descrit (It) vegades per arribar a l'estat d'equilibri tèrmic.
 	
-	
-	# Histograma d'ocupació a l'equilibri tèrmic.
-	Nhist= [PN.count(0),PN.count(1*eps), PN.count(10*eps)]
-	Etiq = [0,1,10]
-	
-	plt.bar(Etiq, Nhist, color='skyblue', edgecolor='black')
-	plt.xticks(Etiq) # Només mostra els números 0, 1 i 10
-	plt.xlabel(r"Nivell energètic ($\epsilon$ J)")
-	plt.title("Histograma d'ocupació a l'equilibri tèrmic")
-	plt.ylabel("Ocupació (partícules)")
-	plt.show()
 		
 \end{lstlisting}
 
-No se si cal comentar algo aquí (ja q només demana el codi amb totes les anotacions de q fa cada cosa). Puc dir q he fet un histograma de l'ocupació a l'equilibri per a T escollida. 
 
-\section{Anàlisi dels resultats}
+\subsection{Anàlisi dels resultats}
 
-(posar dos exemples de temperatures extremes per l'hisograma, un a t molt baixa, un a t molt alta).
+(posar dos exemples de temperatures extremes per l'histograma, un a t molt baixa, un a t molt alta).
 
 A partir dels histogrames obtinguts a diferents temperatures, s'observa com la simulació basada en la regla de Metropolis convergeix cap als resultats predits per la distribució de Boltzmann. Aquest comportament es pot analitzar en dos règims extrems.
 
@@ -1042,19 +1024,13 @@ A temperatures baixes, l'energia tèrmica del sistema és insuficient per excita
 Per a temperatures prou elevades, s'observa una distribució molt més homogènia entre els tres nivells. En aquest règim, l'energia tèrmica és molt superior a les diferències d'energia entre nivells ($\Delta E \ll k_B T$). En termes de l'algoritme, quan $T$ és molt gran, $\beta$ tendeix a zero. Això fa que l'exponencial $e^{-\beta \Delta E}$ s'aproximi a $1$. En aquesta situació, la condició d'acceptació es compleix gairebé sempre. Com a conseqüència, el sistema perd la preferència pels estats de baixa energia i les partícules es reparteixen de manera pràcticament equiprobable entre els nivells disponibles, ja que gairebé qualsevol moviment és acceptat.
 
 
-\subsection{Ocupació mitjana en funció de la temperatura}
+\section{Ocupació mitjana en funció de la temperatura}
 
 A continuació trobem el codi que descriu l'ocupació mitjana en funció de la temperatura, i aquesta es compara amb els resultats teòrics basats en la distribució de Boltzmann. També s'ha afegit la comparació dels resultats de la simulació amb els analítics a una temperatura fixada, juntament amb l'error relatiu. 
 
-Només mostrem la part important del codi, les gràfiques es troben a l'annex (REF).
-
-
-(potser caldria dir q aquest codi es la continuacioi del anterior, aixi q si alguna cosa no esta definida aqui, ho esta a dalt...)
-
 (després d'això, i parlar dels resutlats, dir que tot i veure que els resultats de la simulació son practicament identics als teòrics (per tant, estem en l'estat d'equilibri tèrmic), sha fet regressions lineals a les ulimes dades de cada iteracio de cada nivell, per veure si els valors variaven o no)
 
-\begin{lstlisting}[caption={Ocupació mitjana en funció de la temperatura.}]
-	''' Apartat Q7. Estudi de l'ocupació mitjana de cada un dels tres nivells d'energia en l'equilibri en funció de la temperatura.'''
+\begin{lstlisting}[caption={Estudi de l'ocupació mitjana de cada un dels tres nivells d'energia en l'equilibri en funció de la temperatura.}]
 	
 	# Atenció: Usant la funció de OcupacioCodi, els valors donats NO seran els mateixos que els obtinguts fora de la funció en cada executació, tot i ser el mateix codi (degut a l'aleatorietat). Nomes la usem per a estudiar l'ocupació en funcio de la Temperatura i comparació amb el valor teòric. 
 	
@@ -1097,14 +1073,12 @@ Només mostrem la part important del codi, les gràfiques es troben a l'annex (R
 		
 		return [m_n0/100, m_n1/100, m_n2/100] # Ens retorna l'ocupació mitjana a 	l'equilibri dels tres nivells d'energia. 
 	
-
 	
 \end{lstlisting}
 
-(CAL POSAR EL CODI AQUI??????????????? MILLOR ANNEX OPINOO)
+
+
 \begin{lstlisting}[caption={Error relatiu entre l'ocupació mitjana de la simulació i l'analítica per a una temperatura concreta.}]
-	
-	''' Per un cas particular (a T fixada) '''
 	
 	# Aquest és un cas particular (per a la T fixada al principi del codi). Trobem l'error relatiu entre el resultat de la simulació i el resultat analític. Per a diferents resultats de T, només cal canviar el valor de l'inici i executar.
 	
@@ -1130,8 +1104,108 @@ Només mostrem la part important del codi, les gràfiques es troben a l'annex (R
 	
 \end{lstlisting}
 
+\subsection{Anàlisi dels resultats}
 
-\subsection{Estudi de les fluctuacions en l'energia}
+(POSEM GRÀFICA COMPARATIVA)
+
+Com es pot observar a la gràfica (REF), les corbes d'ocupació mitjana obtingudes mitjançant la simulació reprodueixen amb gran exactitud el comportament teòric de la distribució de Boltzmann en tot el rang de temperatures. Analitzem les corbes per a cada nivell d'energia.
+
+Podem veure com a temperatures baixes el nivell fonamental està saturat de partícules, mentre que els altres dos nivells estan pràcticament buits. A mesura que la temperatura del bany augmenta, les partícules comencen a tenir prou energia per saltar als estats més alts. Com a conseqüència, l'ocupació dels nivells superiors comença a pujar i la del nivell fonamental a descendir. Es pot observar com les tres corbes acaben convergint en el mateix valor a mesura que $T \to \infty$. En aquest punt, el sistema arriba a l'equidistribució, on les partícules es reparteixen de manera homogènia i l'ocupació de cada nivell és, exactament, d'un terç ($1/3$) del total. 
+
+Amb l'objectiu de quantificar la precisió de la simulació, s'ha optat per fer una comparativa numèrica a diferents temperatures fixades. La taula següent mostra els valors d'ocupació mitjana (simulats i teòrics) obtinguts per a diferents valors de temperatura, juntament amb el seu error relatiu associat.
+
+(TAULAAAAAAAAAAAAAAAAA -- la taula s'ha fet executant el codi per a diferents valors de T (variable) la info ens la dona el frament del codi 3.3.)
+
+
+\subsection{Garantia d'assoliment de l'estat d'equilibri tèrmic.}
+
+\begin{lstlisting}[caption={}]
+	# Per comprovar que s'ha arribat a l'estat d'equilibri tèrmic, previament s'ha guardat les dades de l'ocupació cada unes certes iteracions. 
+	# Fem una regressió lineal a una part final d'aquestes dades. Si el pendent d'aquesta regressió compleix el criteri de convergència establert, considerarem que s'ha arribat a l'equilibri (idealment, caldria que el pendent fos de 0, ja que les dades no haurien de variar a l'equilibri). 
+	
+	# Dividim els valors obtinguts en dos. La primera part (2/3) la deixem com està. La segona part (1/3) fem una regressió lineal i trobem el pendent d'aquesta. Ho fem per als tres nivells d'energia.
+	tall_1 = round((2/3*len(Valors_E1))) # Fem que el tall es situi a 2/3 dels valors (per als tres nivells).
+	tall_2 = round((2/3*len(Valors_E2)))
+	tall_3 = round((2/3*len(Valors_E3)))
+	
+	eix_x = [1000*j for j in range(len(Valors_E1))] # Definim eix de les x per crear el gràfic. Serà igual per als tres nivells ja que tenim el mateix nombre de valors a les tres llistes Valors_Ei. 
+	
+	# Definim els valors de x i y per als tres nivells per a la primera part (2/3).
+	x1_NE = eix_x[:tall_1]
+	y1_NE = Valors_E1[:tall_1]
+	x2_NE = eix_x[:tall_2]
+	y2_NE = Valors_E2[:tall_2]
+	x3_NE = eix_x[:tall_3]
+	y3_NE = Valors_E3[:tall_3]
+	
+	# Definim els valors de x i y per als tres nivells per a la segona part (1/3).
+	x1_E = eix_x[tall_1:]
+	y1_E = Valors_E1[tall_1:]
+	x2_E = eix_x[tall_2:]
+	y2_E = Valors_E2[tall_2:]
+	x3_E = eix_x[tall_3:]
+	y3_E = Valors_E3[tall_3:]
+	
+	# Regressions lineals per als tres nivells. m1, m2 i m3 son els pendents de les regressions lineals que volem calcular per als tres nivells energètics respectivament. 
+	m1, n1 = np.polyfit(x1_E, y1_E, 1)
+	recta1 = [m1 * x + n1 for x in x1_E]
+	print('Pendent recta 1 = ', m1)
+	
+	m2, n2 = np.polyfit(x2_E, y2_E, 1)
+	recta2 = [m2 * x + n2 for x in x1_E]
+	print('Pendent recta 2 = ',m2)
+	
+	m3, n3 = np.polyfit(x3_E, y3_E, 1)
+	recta3 = [m3 * x + n3 for x in x3_E]
+	print('Pendent recta 3 = ', m3)
+	
+	# Considerem equilibri tèrmic quan el pendent de l'ocupació (m) és inferior al llindar de tolerància (epsilon = 0.0005). És necessari que els tres pendents compleixin la condició. 
+	if abs(m1) < 0.0005 and abs(m2) < 0.0005 and abs(m3) < 0.0005:
+		print("S'ha arribat a l'equilibri tèrmic")
+	
+	else: 
+		print("Cal augmentar el nombre d'iteracions.")
+	
+	# Escrivim les tres equacions de la recta per incloure-les a les gràfiques 
+	eq1 = f"y = {m1:.5f}x + {n1:.5f}"
+	eq2 = f"y = {m2:.5f}x + {n2:.5f}"
+	eq3 = f"y = {m3:.5f}x + {n3:.5f}"
+	
+\end{lstlisting}
+
+\subsection{Temperatura crítica}
+
+\begin{lstlisting}[caption={Temperatura crítica}]
+	Tc = 10*eps/(kb*math.log(N)) # Temperatura crítica trobada al exercici 35. 
+	Tc_m = [] # Llista on s'afegiràn els valors de temperatura crítica trobats. S'ha optat per fer una mitjana de varis valors perquè la Tc trobava sigui exacta. 
+	
+	# Per trobar Tc, s'ha optat per separar el càlcul del bloc principal per tal de disminuir l'interval entre els valors de temperatura, 
+	# així obtenint una major presició sense que el temps d'executació agumenti considerablement (ja que per estudiar l'ocupació en funció de la temperatura no ens fa falta un interval tan precís).
+	
+	Valors_T2 = [0.5*x for x in range(120,300)] # Rang de temperatures més petit i més precís (+- 0,5) (ja que la Tc teòrica és d'uns 105) comparat amb el bloc principal (que va de 1 K a 3000 K(intervals de 20 K)).
+	
+	for _ in range(10): # Trobem 10 vegades la temperatura crítica. Es farà una mitjana dels valors. 
+	
+		Tc_sim = None # Definim Tc que es calcularà amb la simulació.
+		for k in Valors_T2:
+			ResultatsSim = OcupacioCodi(k)
+
+		if ResultatsSim[2] >= 1 and Tc_sim is None: 
+			Tc_sim = k
+			Tc_m.append(Tc_sim)
+			break  # Un cop s'ha trobat la temperatura crítica, el bucle s'anul·la. 
+	
+	print("Temperatura crítica simulació = ", sum(Tc_m)/10)
+	print("Temperatura crítica teòrica = ", Tc)
+	print("Error relatiu (%) = ", abs(sum(Tc_m)/10 - Tc)*100/Tc)
+	
+	
+	
+\end{lstlisting}
+
+\section{Estudi de les fluctuacions en l'energia}
+
+\subsection{Anàlisi dels resultats}
 
 \begin{lstlisting}[caption={Estudi de les fluctuacions en l'energia.}]
 	
