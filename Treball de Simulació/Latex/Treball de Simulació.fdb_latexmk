@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1778882723.56559 "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" "Treball de Simulació.pdf" "Treball de Simulació" 1778882736.75852 0
+["pdflatex"] 1778923743.47496 "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" "Treball de Simulació.pdf" "Treball de Simulació" 1778923755.50722 0
   "4i.jpg" 1777901426 196079 4fa61ca18d03b52257d483df51b52034 ""
   "4ii.jpg" 1777901426 169612 66a82388598ae09132fd61251df077e2 ""
   "4iip.jpg" 1777901426 166778 ecafc65be643b539d28c1e49141896f3 ""
@@ -269,12 +269,12 @@
   "Hist10.png" 1778878589 19964 23aee1689de62843722c35df629862d5 ""
   "Hist500.png" 1778878614 20161 cc71aa130b115fdbbcd82ec21cdd6ad8 ""
   "Hist5000.png" 1778878661 21221 d2adf49598041610996c22b3ccff279a ""
-  "Treball de Simulació.aux" 1778882736 27030 c1b4db48282ba230d524832373462228 "pdflatex"
-  "Treball de Simulació.out" 1778882736 8137 ff97a563f62bc2a5f1d597bad1913fa0 "pdflatex"
-  "Treball de Simulació.tex" 1778882722 131081 785f4d3e6d345f180095811cf5e96661 ""
-  "Treball de Simulació.toc" 1778882736 3459 63d172d9cc087d6300fe396cbe693fbf "pdflatex"
+  "Treball de Simulació.aux" 1778923754 27348 55508404c2c40fdd16907796f3d4d1fe "pdflatex"
+  "Treball de Simulació.out" 1778923754 8137 ff97a563f62bc2a5f1d597bad1913fa0 "pdflatex"
+  "Treball de Simulació.tex" 1778923730 133246 35e6319d3898aee5ce5c9e29f24381aa ""
+  "Treball de Simulació.toc" 1778923754 3459 8110f2105de31b00dcaf96d9fc477bd9 "pdflatex"
   "amorf.jpg" 1778856508 97014 3fb79a51b248ec3e85ab79ad16100d55 ""
-  "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" 1778882722 131081 785f4d3e6d345f180095811cf5e96661 ""
+  "c:/Users/natvi/OneDrive/Documents/GitHub/Entregues-TiME/Treball de Simulació/Latex/Treball de Simulació.tex" 1778923730 133246 35e6319d3898aee5ce5c9e29f24381aa ""
   "diagrama_lj.png" 1778856508 56776 6e230f60a8914ec7f4fde2714e800ee8 ""
   "dis_vels_r_0.01.png" 1777111924 158512 4e03d4fd2b0867f7410b77a376268e8a ""
   "dis_vels_r_0.03.png" 1777111924 160061 0f1c67b202215b3c794f2e3c517e1be9 ""

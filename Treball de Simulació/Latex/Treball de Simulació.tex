@@ -1060,7 +1060,7 @@ A continuació trobem el codi que descriu l'ocupació mitjana en funció de la t
 
 (després d'això, i parlar dels resutlats, dir que tot i veure que els resultats de la simulació son practicament identics als teòrics (per tant, estem en l'estat d'equilibri tèrmic), sha fet regressions lineals a les ulimes dades de cada iteracio de cada nivell, per veure si els valors variaven o no)
 
-\begin{lstlisting}[caption={Estudi de l'ocupació mitjana de cada un dels tres nivells d'energia en l'equilibri en funció de la temperatura.}]
+\begin{lstlisting}[caption={Estudi de l'ocupació mitjana de cada un dels tres nivells d'energia en l'equilibri en funció de la temperatura.},{label={lst:Ocupacio}}]
 	
 	# Atenció: Usant la funció de OcupacioCodi, els valors donats NO seran els mateixos que els obtinguts fora de la funció en cada executació, tot i ser el mateix codi (degut a l'aleatorietat). Nomes la usem per a estudiar l'ocupació en funcio de la Temperatura i comparació amb el valor teòric. 
 	
@@ -1108,7 +1108,7 @@ A continuació trobem el codi que descriu l'ocupació mitjana en funció de la t
 
 
 
-\begin{lstlisting}[caption={Error relatiu entre l'ocupació mitjana de la simulació i l'analítica per a una temperatura concreta.}]
+\begin{lstlisting}[caption={Error relatiu entre l'ocupació mitjana de la simulació i l'analítica per a una temperatura concreta.},{label={lst:Tc}}]
 	
 	# Aquest és un cas particular (per a la T fixada al principi del codi). Trobem l'error relatiu entre el resultat de la simulació i el resultat analític. Per a diferents resultats de T, només cal canviar el valor de l'inici i executar.
 	
@@ -1148,11 +1148,7 @@ Com es pot observar a la gràfica $\ref{fig:3.1}$, les corbes d'ocupació mitjan
 
 Podem veure com a temperatures baixes el nivell fonamental està saturat de partícules, mentre que els altres dos nivells estan pràcticament buits. A mesura que la temperatura del bany augmenta, les partícules comencen a tenir prou energia per saltar als estats més alts. Com a conseqüència, l'ocupació dels nivells superiors comença a pujar i la del nivell fonamental a descendir. Es pot observar com les tres corbes acaben convergint en el mateix valor a mesura que $T \to \infty$. En aquest punt, el sistema arriba a l'equidistribució, on les partícules es reparteixen de manera homogènia i l'ocupació de cada nivell és, exactament, d'un terç ($1/3$) del total. 
 
-Amb l'objectiu de quantificar la precisió de la simulació, s'ha optat per fer una comparativa numèrica a diferents temperatures fixades. La taula següent mostra els valors d'ocupació mitjana (simulats i teòrics) obtinguts per a diferents valors de temperatura, juntament amb el seu error relatiu associat.
-
-(TAULAAAAAAAAAAAAAAAAA -- la taula s'ha fet executant el codi per a diferents valors de T (variable) la info ens la dona el frament del codi 3.3.)
-
-(hauria de dir q aquesta taula no es lo mes exacte possible perq no shan fet mitjanes dels valors trobats amb la simulacio... pero q es per ferse a la idea q es molt precis. de fet ho podria fer com he fet a la Tc pero q perezooon )
+Amb l'objectiu de quantificar la precisió de la simulació, s'ha optat per fer una comparativa numèrica a diferents temperatures fixades. La taula següent $\ref{tab:3.1}$ mostra els valors d'ocupació mitjana (simulats i teòrics) obtinguts per a diferents valors de temperatura, juntament amb el seu error relatiu associat. Els valors exposats s'han trobat executant el fragment del codi $\ref{lst:Tc}$ per a les diferents temperatures mostrades. 
 
 \begin{table}[H]
 	\centering
@@ -1165,29 +1161,42 @@ Amb l'objectiu de quantificar la precisió de la simulació, s'ha optat per fer 
 		\midrule
 		  &  10  & 999,29 & 999,28 & 0,001 \\
 		  &  200   & 580,464 & 581,93 & 0,252 \\
-		 0 $\epsilon $ &  400 & 500.577 &  497.13 & 0.689 \\
+		 0$\epsilon $ &  400 & 500.577 &  497.13 & 0.689 \\
 		 &  1000   & 414,147 & 414,26 & 0,027\\
 		  &  5000 & 350.791 & 350.06 &  0.209 \\
 		\midrule
 		  & 10  & 0,71 & 0,72  & 1,089 \\
 		  &  200   & 404,038 & 402,16 & 0,464  \\
-		1 $\epsilon $ &  400 & 417,632  & 421,93 & 1,029 \\
+		1$\epsilon $ &  400 & 417,632  & 421,93 & 1,029 \\
 		&  1000   & 385,198 & 383,11 & 0,542 \\
 		 &  5000 & 345,744 &  345,06 & 0,198 \\
 		\midrule
 		 & 10 & 3,38 & 0,00  & 100,000 \\
 		 &  200   & 15,497 & 15,91 & 2,666 \\
-		10 $\epsilon $& 400 & 81,791 & 80,94  & 1,040 \\
+		10$\epsilon $& 400 & 81,791 & 80,94  & 1,040 \\
 		&  1000   & 200,654 & 202,63 & 0,984 \\
 		 & 5000 & 303,464 & 304,88  &  0,466 \\
 		\bottomrule
 	\end{tabular}
-	\label{tab:4.1}
+	\label{tab:3.1}
 \end{table}
 
-HE DE COMENTARLA, Q ESTA MU BIEN (ERROR MES ALT ES DE QUASI 3). Q CAL TENIR EN COMPTE Q TENIM UN ERROR DEL 100 PERO PERQ TENIM 0 PART I TEORICAMENT SERIEN 3, POR ESO DA 100... PERO Q CHILL ESTA BE )
+Amb aquesta comparativa podem veure de manera qualitativa l'exactitud de la nostra simulació respecte al model teòric, on l'error està gairebé sempre per sota del 1$\%$ d'error relatiu tret d'algun cas. 
+
+L'única excepció destacable és al nivell de major energia ($10\epsilon$) per a una temperatura del bany de 10 K, on tenim un error del 100 $\%$. Això és degut a que teòricament, l'ocupació mitjana hauria de ser tan sols d'uns 3,38 partícules, però en la nostra simulació en tenim 0. Això fa que l'error relatiu doni un valor del 100 $\%$, tot i nomes tenir una diferència de 3 partícules. (MILLORAR)
+
+També s'ha de tenir en compte que la simulació es basa en un procés aleatori. Per això, la funció OcupacioCodi(T), que és la que ens dona els valors de l'ocupació per a cada temperatura (es pot trobar explicada en el fragment del codi $\ref{lst:Ocupacio}$ ), calcula la mitjana de molts valors un cop s'ha arribat a l'equilibri. Això permet netejar l'efecte de l'atzar i les fluctuacions del programa, fent que els resultats finals siguin molt més estables i fiables. 
+
 
 \subsection{Garantia d'assoliment de l'estat d'equilibri tèrmic.}
+
+Per garantir l'assoliment de l'estat d'equilibri tèrmic, s'ha seguit el procediment següent.
+
+En aquest cas no s'ha utilitzat la funció OcupacioCodi(T) ja que, com s'ha comentat, aquesta elimina el soroll estadístic. En el seu lloc, s'ha fet servir el bloc de codi principal (REF), modificant-lo perquè guardi l'ocupació de cada nivell en unes llistes predeterminades cada cert nombre d'iteracions. Després, s'han graficat aquests valors respecte a les iteracions per a cada nivell energètic i s'ha aplicat una regressió lineal als últims punts de la simulació.
+
+L'objectiu és veure com l'ocupació convergeix cap a un valor concret a mesura que avancen les iteracions. Si es manté constant, implica que el sistema ha arribat a l'equilibri. La regressió lineal s'utilitza per obtenir una dada quantitativa i poder aplicar una condició de convergència. Idealment, el pendent d'aquestes línies hauria de ser zero ($m \approx 0$).
+
+Tot i això, aquesta comprovació té la limitació de fer-se a una temperatura del bany fixada. Analitzar el sistema temperatura a temperatura no seria viable, motiu pel qual més endavant s'exposen tres casos extrems. De totes maneres, per reforçar la idea que el sistema arriba a l'equilibri, només cal fixar-se en l'apartat anterior, on s'ha demostrat la gran exactitud de la simulació respecte al model teòric de Boltzmann (el qual descriu, precisament, el sistema en l'estat d'equilibri tèrmic).
 
 \begin{lstlisting}[caption={}]
 	# Per comprovar que s'ha arribat a l'estat d'equilibri tèrmic, previament s'ha guardat les dades de l'ocupació cada unes certes iteracions. 
@@ -1260,10 +1269,10 @@ HE DE COMENTARLA, Q ESTA MU BIEN (ERROR MES ALT ES DE QUASI 3). Q CAL TENIR EN C
 		for k in Valors_T2:
 			ResultatsSim = OcupacioCodi(k)
 
-		if ResultatsSim[2] >= 1 and Tc_sim is None: 
-			Tc_sim = k
-			Tc_m.append(Tc_sim)
-			break  # Un cop s'ha trobat la temperatura crítica, el bucle s'anul·la. 
+			if ResultatsSim[2] >= 1 and Tc_sim is None: 
+				Tc_sim = k
+				Tc_m.append(Tc_sim)
+				break  # Un cop s'ha trobat la temperatura crítica, el bucle s'anul·la. 
 	
 	print("Temperatura crítica simulació = ", sum(Tc_m)/10)
 	print("Temperatura crítica teòrica = ", Tc)

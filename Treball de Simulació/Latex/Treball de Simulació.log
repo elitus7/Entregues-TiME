@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  16 MAY 2026 00:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  16 MAY 2026 11:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1086,114 +1086,108 @@ Package pdftex.def Info: 4i.jpg  used on input line 801.
 File: solid.jpg Graphic file (type jpg)
 <use solid.jpg>
 Package pdftex.def Info: solid.jpg  used on input line 808.
-(pdftex.def)             Requested size: 1ined on input line 596.
-
-<no_grav_distr_velz.png, id=234, 635.37375pt x 249.93375pt>
-File: no_grav_distr_velz.png Graphic file (type png)
-<use no_grav_distr_velz.png>
-Package pdftex.def Info: no_grav_distr_velz.png  used on input line 602.
-(pdftex.def)             Requested size: 218.94255pt x 86.12427pt.
-<no_grav_distr_posz.png, id=235, 561.59813pt x 213.04594pt>
-File: no_grav_distr_posz.png Graphic file (type png)
-<use no_grav_distr_posz.png>
-Package pdftex.def Info: no_grav_distr_posz.png  used on input line 609.
-(pdftex.def)             Requested size: 218.94255pt x 83.05507pt.
-
-LaTeX Warning: Reference `fig:1.12a' on page 11 undefined on input line 619.
-
-
-LaTeX Warning: Reference `fig:1.12a' on page 11 undefined on input line 621.
-
-
-LaTeX Warning: Reference `fig:1.12b' on page 11 undefined on input line 621.
-
-[11 <./no_grav_distr_velz.png> <./no_grav_distr_posz.png>]
-
-LaTeX Warning: Reference `annex:a3' on page 12 undefined on input line 646.
-
-<grav_distr_velzgterra.png, id=250, 679.78969pt x 329.73187pt>
-File: grav_distr_velzgterra.png Graphic file (type png)
-<use grav_distr_velzgterra.png>
-Package pdftex.def Info: grav_distr_velzgterra.png  used on input line 690.
-(pdftex.def)             Requested size: 233.53824pt x 113.2746pt.
-<grav_distr_poszgterra.png, id=251, 674.52pt x 325.215pt>
-File: grav_distr_poszgterra.png Graphic file (type png)
-<use grav_distr_poszgterra.png>
-Package pdftex.def Info: grav_distr_poszgterra.png  used on input line 697.
-(pdftex.def)             Requested size: 233.53824pt x 112.59628pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<grav_distr_vel_z.png, id=252, 770.12718pt x 357.58594pt>
-File: grav_distr_vel_z.png Graphic file (type png)
-<use grav_distr_vel_z.png>
-Package pdftex.def Info: grav_distr_vel_z.png  used on input line 709.
-(pdftex.def)             Requested size: 233.53824pt x 108.43333pt.
-<grav_distr_posz.png, id=253, 653.44125pt x 300.3722pt>
-File: grav_distr_posz.png Graphic file (type png)
-<use grav_distr_posz.png>
-Package pdftex.def Info: grav_distr_posz.png  used on input line 716.
-(pdftex.def)             Requested size: 233.53824pt x 107.35014pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `fig:1.13' on page 12 undefined on input line 724.
-
-
-LaTeX Warning: Reference `fig:1.14' on page 12 undefined on input line 724.
-
-
-LaTeX Warning: Reference `fig:1.12' on page 12 undefined on input line 724.
-
-
-LaTeX Warning: Reference `fig:1.13b' on page 12 undefined on input line 726.
-
-
-LaTeX Warning: Reference `fig:1.13a' on page 12 undefined on input line 726.
-
-[12]
-
-LaTeX Warning: Reference `fig:1.15' on page 13 undefined on input line 734.
-
-<simu_nongrav.png, id=283, 449.42906pt x 439.6425pt>
-File: simu_nongrav.png Graphic file (type png)
-<use simu_nongrav.png>
-Package pdftex.def Info: simu_nongrav.png  used on input line 740.
-(pdftex.def)             Requested size: 211.64471pt x 207.0345pt.
-<simu_grav.png, id=284, 502.87875pt x 447.17062pt>
-File: simu_grav.png Graphic file (type png)
-<use simu_grav.png>
-Package pdftex.def Info: simu_grav.png  used on input line 747.
-(pdftex.def)             Requested size: 233.53824pt x 207.66608pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[13 <./grav_distr_velzgterra.png> <./grav_distr_poszgterra.png> <./grav_distr_vel_z.png> <./grav_distr_posz.png>] [14 <./simu_nongrav.png> <./simu_grav.png>]
-Cap\'{\i }tol 2.
-
-LaTeX Warning: Reference `4i' on page 15 undefined on input line 795.
-
-<4i.jpg, id=305, 1927.2pt x 971.63pt>
-File: 4i.jpg Graphic file (type jpg)
-<use 4i.jpg>
-Package pdftex.def Info: 4i.jpg  used on input line 801.
-(pdftex.def)             Requested size: 291.92836pt x 147.17632pt.
-<solid.jpg, id=306, 332.74312pt x 330.48468pt>
-File: solid.jpg Graphic file (type jpg)
-<use solid.jpg>
-Package pdftex.def Info: solid.jpg  used on input line 808.
 (pdftex.def)             Requested size: 145.96417pt x 144.97498pt.
 [15
 
 ]
+<4iip.jpg, id=532, 1831.84375pt x 967.615pt>
+File: 4iip.jpg Graphic file (type jpg)
+<use 4iip.jpg>
+Package pdftex.def Info: 4iip.jpg  used on input line 823.
+(pdftex.def)             Requested size: 291.92836pt x 154.20145pt.
+<parat.jpg, id=533, 328.22626pt x 326.72063pt>
+File: parat.jpg Graphic file (type jpg)
+<use parat.jpg>
+Package pdftex.def Info: parat.jpg  used on input line 831.
+(pdftex.def)             Requested size: 145.96417pt x 145.293pt.
+<4ii.jpg, id=534, 1831.84375pt x 967.615pt>
+File: 4ii.jpg Graphic file (type jpg)
+<use 4ii.jpg>
+Package pdftex.def Info: 4ii.jpg  used on input line 843.
+(pdftex.def)             Requested size: 291.92836pt x 154.20145pt.
+<amorf.jpg, id=535, 335.00156pt x 332.74312pt>
+File: amorf.jpg Graphic file (type jpg)
+<use amorf.jpg>
+Package pdftex.def Info: amorf.jpg  used on input line 850.
+(pdftex.def)             Requested size: 145.96417pt x 144.97563pt.
+ [16 <./4i.jpg> <./solid.jpg> <./4iip.jpg> <./parat.jpg>] [17 <./4ii.jpg> <./am
+orf.jpg>]
+<diagrama_lj.png, id=568, 363.60844pt x 240.14719pt>
+File: diagrama_lj.png Graphic file (type png)
+<use diagrama_lj.png>
+Package pdftex.def Info: diagrama_lj.png  used on input line 934.
+(pdftex.def)             Requested size: 218.94255pt x 144.60608pt.
+ [18] [19 <./diagrama_lj.png>]
+Cap\'{\i }tol 3.
+[20
 
-LaTeX Warning: Reference `4iip' on page 16 undefined on input line 818.
+]
+<Hist10.png, id=623, 462.528pt x 346.896pt>
+File: Hist10.png Graphic file (type png)
+<use Hist10.png>
+Package pdftex.def Info: Hist10.png  used on input line 1023.
+(pdftex.def)             Requested size: 155.6971pt x 116.77327pt.
+<Hist500.png, id=624, 462.528pt x 346.896pt>
+File: Hist500.png Graphic file (type png)
+<use Hist500.png>
+Package pdftex.def Info: Hist500.png  used on input line 1031.
+(pdftex.def)             Requested size: 155.6971pt x 116.77327pt.
+<Hist5000.png, id=625, 462.528pt x 346.896pt>
+File: Hist5000.png Graphic file (type png)
+<use Hist5000.png>
+Package pdftex.def Info: Hist5000.png  used on input line 1039.
+(pdftex.def)             Requested size: 155.6971pt x 116.77327pt.
+ [21 <./Hist10.png> <./Hist500.png> <./Hist5000.png>] [22]
+<ocupacio.png, id=705, 722.7pt x 433.62pt>
+File: ocupacio.png Graphic file (type png)
+<use ocupacio.png>
+Package pdftex.def Info: ocupacio.png  used on input line 1142.
+(pdftex.def)             Requested size: 437.88512pt x 262.73459pt.
+ [23 <./ocupacio.png>] [24] [25]
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+1275.
+
+(C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 1300--1301
+[]\OT1/cmr/m/it/10 Maxwell-Boltzmann dis-tri-bu-ti-on\OT1/cmr/m/n/10 . Wiki-pe-
+dia. []$\OT1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Maxwell % E2
+ % 80 %
+ []
+
+[27
+
+] [28
+
+] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41]
+[42] [43] [44] (Treball de Simulació.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+ ***********
 
 
-LaTeX Warning: Reference `4ii' on page 16 undefined on input line 818.
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-<4iip.jpg, id=317, 1831.84375pt x 967.615pt>
+Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
+.
+(rerunfilecheck)             Checksum: FF97A563F62BC2A5F1D597BAD1913FA0;8137.
+ ) 
+Here is how much of TeX's memory you used:
+ 36365 strings out of 474486
+ 721789 string characters out of 5743756
+ 2762542 words of memory out of 5000000
+ 56535 multiletter control sequences out of 15000+600000
+ 576233 words of font info for 101 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 83i,14n,93p,1214b,2845s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
+1000.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcit0800.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\tcrm0800.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\tcbx1000.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts 1831.84375pt x 967.615pt>
 File: 4iip.jpg Graphic file (type jpg)
 <use 4iip.jpg>
 Package pdftex.def Info: 4iip.jpg  used on input line 823.
@@ -1290,20 +1284,30 @@ Package pdftex.def Info: ocupacio.png  used on input line 1142.
 
 LaTeX Warning: Reference `fig:3.1' on page 23 undefined on input line 1147.
 
-[23 <./ocupacio.png>] [24]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 1266.
+
+LaTeX Warning: Reference `tab:3.1' on page 23 undefined on input line 1151.
+
+
+LaTeX Warning: Reference `lst:Tc' on page 23 undefined on input line 1151.
+
+[23 <./ocupacio.png>]
+
+LaTeX Warning: Reference `lst:Ocupacio' on page 24 undefined on input line 1188.
+
+[24] [25]
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 1275.
  (C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1292
+) [26]
+Underfull \hbox (badness 10000) in paragraph at lines 1300--1301
 []\OT1/cmr/m/it/10 Maxwell-Boltzmann dis-tri-bu-ti-on\OT1/cmr/m/n/10 . Wiki-pe-dia. []$\OT1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Maxwell % E2 % 80 %
  []
 
-[26
+[27
 
-] [27
+] [28
 
-] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] (Treball de Simulació.aux)
+] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] (Treball de Simulació.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1328,17 +1332,17 @@ Package rerunfilecheck Info: Checksums for `"Treball de Simulació".out':
 (rerunfilecheck)             After:  FF97A563F62BC2A5F1D597BAD1913FA0;8137.
  ) 
 Here is how much of TeX's memory you used:
- 36328 strings out of 474486
- 721471 string characters out of 5743756
- 2679542 words of memory out of 5000000
- 56497 multiletter control sequences out of 15000+600000
+ 36331 strings out of 474486
+ 721500 string characters out of 5743756
+ 2762542 words of memory out of 5000000
+ 56499 multiletter control sequences out of 15000+600000
  576233 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,14n,93p,1296b,2845s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1000.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcit0800.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1000.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1200.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1440.pk> <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on "Treball de Simulació.pdf" (45 pages, 7282822 bytes).
+Output written on "Treball de Simulació.pdf" (46 pages, 7285353 bytes).
 PDF statistics:
- 2345 PDF objects out of 2487 (max. 8388607)
- 1586 named destinations out of 1728 (max. 500000)
+ 2349 PDF objects out of 2487 (max. 8388607)
+ 1587 named destinations out of 1728 (max. 500000)
  193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
