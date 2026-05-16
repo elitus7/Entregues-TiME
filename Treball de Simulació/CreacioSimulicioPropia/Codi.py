@@ -54,11 +54,9 @@ Nhist= [PN.count(0),PN.count(1*eps), PN.count(10*eps)]
 Etiq = [0,1,10]
 
 
-
 plt.bar(Etiq, Nhist, color='skyblue', edgecolor='black')
 plt.xticks(Etiq) # Només mostra els números 0, 1 i 10
 plt.xlabel(r"Nivell energètic ($\epsilon$ J)")
-plt.title(f"Histograma d'ocupació a l'equilibri tèrmic a {T} K")
 plt.ylabel("Ocupació (partícules)")
 plt.show()
 
@@ -146,10 +144,10 @@ plt.plot(Valors_TT, Ocupacio_T_1 ,'--', color='blue', label = "Resultat Analíti
 plt.plot(Valors_TT, Ocupacio_T_2, '--', color='red', label = "Resultat Analític, Nivell 2")
 plt.plot(Valors_TT, Ocupacio_T_3, '--', color='black', label = "Resultat Analític, Nivell 3")
 
-plt.title("Comparativa resultats simulació amb resultats analítics.")
 plt.ylabel("Ocupació (partícules)")
 plt.xlabel("Temperatura (K)")
 plt.legend()
+plt.grid()
 
 plt.show()
 
@@ -238,10 +236,10 @@ plt.plot(x1_E, y1_E, '.', color='red', zorder=5)
 plt.text(max(eix_x)/2 , (max(Valors_E1)+min(Valors_E1))/2 , eq1, fontsize=9, color='black', 
          bbox=dict(facecolor='white', alpha=0.8, edgecolor='gray'))
 plt.ylim(min(Valors_E1) -20 , max(Valors_E1) + 20)
-plt.title("Gràfic d'ocupació al Nivell 1 (0 J) respecte cada iteració ")
 plt.xlabel("Iteracions")
 plt.ylabel("Ocupació (partícules)")
 plt.legend()
+plt.grid()
 plt.show()
 
 # Gràfic Ocupació nivell 2 respecte cada iteració. a l'últim 1/3 de les dades s'aplica la regressió lineal. 
@@ -251,10 +249,10 @@ plt.plot(x2_E, y2_E, '.', color='red', zorder=5)
 plt.text(max(eix_x)/2 , min(Valors_E2) , eq2, fontsize=9, color='black', 
          bbox=dict(facecolor='white', alpha=0.8, edgecolor='gray'))
 plt.ylim(min(Valors_E2) -20 , max(Valors_E2) + 20)
-plt.title("Gràfic d'ocupació al Nivell 2 (1*eps J) respecte cada iteració ")
 plt.xlabel("Iteracions")
 plt.ylabel("Ocupació (partícules)")
 plt.legend()
+plt.grid()
 plt.show()
 
 # Gràfic Ocupació nivell 3 respecte cada iteració. a l'últim 1/3 de les dades s'aplica una regressió lineal. 
@@ -264,10 +262,10 @@ plt.plot(x3_E, y3_E, '.', color='red', zorder=5)
 plt.text(max(eix_x)/2 , (max(Valors_E3)+min(Valors_E3))/2 , eq3, fontsize=9, zorder=10,
          bbox=dict(facecolor='white', alpha=0.8))
 plt.ylim(min(Valors_E3) -20 , max(Valors_E3) + 20)
-plt.title("Gràfic d'ocupació al Nivell 3 (10*eps J) respecte cada iteració ")
 plt.xlabel("Iteracions")
 plt.ylabel("Ocupació (partícules)")
 plt.legend()
+plt.grid()
 plt.show()
 
 ''' Q7. Valor de Tc '''
@@ -362,9 +360,10 @@ for g in Parti2:
 # Gràfic comparatiu entre les fluctuacions de l'energia en l'equilibri en funció de N de la simulació i els teòrics. 
 plt.plot(Parti, Resultats_teorics, '--', color = 'red', label = ' Fluctuacions teòriques')
 plt.plot(Parti2, Resultats_exp, '.', color = 'black', label = ' Fluctuacions simulació')
-plt.title("Fluctuacions de l'energia en l'equilibri en funcio de N.")
 plt.ylabel(r"$\frac{\sigma_E}{\langle E \rangle}$", fontsize=14)
 plt.xlabel("N (Partícules)")
 plt.legend()
+plt.grid()
 plt.show()
+
 

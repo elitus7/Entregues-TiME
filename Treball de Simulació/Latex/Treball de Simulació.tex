@@ -1163,9 +1163,9 @@ Aquest procés es repeteix iterativament fins arribar a l'estat d'equilibri tèr
 
 A continuació es troba la modelització i implementació de la regla de Metropolis al sistema descrit a la introducció. 
 
-Tots els blocs de codi que es presenten a continuació recullen únicament les parts importants, ometent les línies de codi més trivials o de disseny de gràfiques (es poden trobar sencers a l'annex (REF)). També cal recalcar que tots els fragments formen part d'un mateix codi, per tant, les variables o funcions que es facin servir sense estar definides, ho han estat en fragments anteriors. AAAAAAAAAAAA
+Tots els blocs de codi que es presenten a continuació recullen únicament les parts importants, ometent les línies de codi més trivials o de disseny de gràfiques (es poden trobar sencers a l'annex (REF)). També cal recalcar que tots els fragments formen part d'un mateix codi, per tant, les variables o funcions que es facin servir sense estar definides, han estat declarades en fragments anteriors.
 
-\begin{lstlisting}[caption={Modelització i implementació de la regla de Metropolis.}]
+\begin{lstlisting}[caption={Modelització i implementació de la regla de Metropolis.},{label={lst:Model}}]
 
 	# Constants i variables.
 	
@@ -1227,8 +1227,8 @@ Tots els blocs de codi que es presenten a continuació recullen únicament les p
 	% Segona foto
 	\begin{subfigure}[b]{0.32\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{Hist500.png}
-		\caption{Hitograma d'ocupació a 500 K.}
+		\includegraphics[width=\linewidth]{Hist200.png}
+		\caption{Hitograma d'ocupació a 200 K.}
 		\label{fig:hist2}
 	\end{subfigure}
 	\hfill % Espai de separació horitzontal
@@ -1244,20 +1244,17 @@ Tots els blocs de codi que es presenten a continuació recullen únicament les p
 	\label{fig:3.2}
 \end{figure}
 
-A partir dels histogrames obtinguts a diferents temperatures $\ref{fig:3.2}$, s'observa com la simulació basada en la regla de Metròpolis convergeix cap als resultats predits per la distribució de Boltzmann. Aquest comportament es pot analitzar en dos règims extrems.
+A partir dels histogrames obtinguts a diferents temperatures $\ref{fig:3.2}$, s'observa com la simulació basada en la regla de Metròpolis convergeix cap als resultats predits per la distribució de Boltzmann. Estudiem aquests comportaments en dos règims extrems.
 
 A temperatures baixes $\ref{fig:hist1}$ , l'energia tèrmica del sistema és insuficient per excitar les partícules cap a estats superiors, provocant que la gran majoria ocupi el nivell fonamental ($E=0$). En la simulació, aquest fenomen es reflecteix en la probabilitat d'acceptació de Metròpolis. Quan la temperatura és petita, el paràmetre $\beta = 1/k_B T$ pren un valor molt gran. Per a salts cap a nivells superiors ($\Delta E > 0$), l'exponent $e^{-\beta \Delta E}$ esdevé gairebé zero, per tant, la probabilitat que aquest valor sigui superior al nombre aleatori generat entre $0,0$ i $1,0$ és extremadament baixa, i la majoria de salts ascendents són denegats. En canvi, partint d'un estat inicial on els tres nivells estan poblats equiprobablement, qualsevol salt cap a un nivell d'energia inferior ($\Delta E < 0$) s'acceptarà sempre. Aquesta preferència pels salts descendents acaba empenyent el sistema cap a l'estat d'energia mínima, on la gran majoria de partícules es concentren al nivell fonamental.
 
 Per a temperatures prou elevades $\ref{fig:hist3}$, s'observa una distribució molt més homogènia entre els tres nivells. En aquest règim, l'energia tèrmica és molt superior a les diferències d'energia entre nivells ($\Delta E \ll k_B T$). En termes de l'algoritme, quan $T$ és molt gran, $\beta$ tendeix a zero. Això fa que l'exponencial $e^{-\beta \Delta E}$ s'aproximi a $1$. En aquesta situació, la condició d'acceptació es compleix gairebé sempre. Com a conseqüència, el sistema perd la preferència pels estats de baixa energia i les partícules es reparteixen de manera pràcticament equiprobable entre els nivells disponibles, ja que gairebé qualsevol moviment és acceptat.
 
-(dir q el $\ref{fig:hist2}$ es per veure per un cas entremig dels dos extrems)
-
+Finalment, tenim un cas intermedi $\ref{fig:hist2}$ que permet observar la transició progressiva entre els dos extrems. A aquesta temperatura intermèdia, l'energia tèrmica ja és suficient perquè l'exponencial de Metròpolis no sigui zero, permetent que algunes partícules comencin a poblar el primer nivell excitat, però encara resulta gairebé insuficient per vèncer el gran salt energètic cap al nivell superior. NYEEEE
 
 \section{Ocupació mitjana en funció de la temperatura}
 
 A continuació trobem el codi que descriu l'ocupació mitjana en funció de la temperatura, i aquesta es compara amb els resultats teòrics basats en la distribució de Boltzmann. També s'ha afegit la comparació dels resultats de la simulació amb els analítics a una temperatura fixada, juntament amb l'error relatiu. 
-
-(després d'això, i parlar dels resutlats, dir que tot i veure que els resultats de la simulació son practicament identics als teòrics (per tant, estem en l'estat d'equilibri tèrmic), sha fet regressions lineals a les ulimes dades de cada iteracio de cada nivell, per veure si els valors variaven o no)
 
 \begin{lstlisting}[caption={Estudi de l'ocupació mitjana de cada un dels tres nivells d'energia en l'equilibri en funció de la temperatura.},{label={lst:Ocupacio}}]
 	
@@ -1339,7 +1336,7 @@ A continuació trobem el codi que descriu l'ocupació mitjana en funció de la t
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{ocupacio.png}
-	\caption{}
+	\caption{Gràfic comparatiu de l'ocupació mitjana (simulat i teòric) en funció de la temperatura per als tres nivells energètics. }
 	\label{fig:3.1}
 \end{figure}
 
@@ -1353,28 +1350,28 @@ Amb l'objectiu de quantificar la precisió de la simulació, s'ha optat per fer 
 	\centering
 	\small
 	\renewcommand{\arraystretch}{1.2}
-	\caption{ Taula }
+	\caption{Taula comparativa d'ocupacions mitjanes (teòriques i simulades) i errors relatius segons el nivell energètic i la temperatura.  }
 	\begin{tabular}{lcccc}
 		\toprule
 		Nivell ($J$) & Temperatura ($K$) & $\langle n \rangle_{\text{teòrica}}$ (part.) & $\langle n \rangle_{\text{exp}}$ (part.) & Error relatiu $(\%)$ \\
 		\midrule
 		  &  10  & 999,29 & 999,28 & 0,001 \\
-		  &  200   & 580,464 & 581,93 & 0,252 \\
-		 0$\epsilon $ &  400 & 500.577 &  497.13 & 0.689 \\
-		 &  1000   & 414,147 & 414,26 & 0,027\\
-		  &  5000 & 350.791 & 350.06 &  0.209 \\
+		  &  200   & 580,46 & 581,93 & 0,252 \\
+		 0$\epsilon $ &  400 & 500.58 &  497.13 & 0.689 \\
+		 &  1000   & 414,15 & 414,26 & 0,027\\
+		  &  5000 & 350.79 & 350.06 &  0.209 \\
 		\midrule
 		  & 10  & 0,71 & 0,72  & 1,089 \\
-		  &  200   & 404,038 & 402,16 & 0,464  \\
-		1$\epsilon $ &  400 & 417,632  & 421,93 & 1,029 \\
-		&  1000   & 385,198 & 383,11 & 0,542 \\
-		 &  5000 & 345,744 &  345,06 & 0,198 \\
+		  &  200   & 404,04 & 402,16 & 0,464  \\
+		1$\epsilon $ &  400 & 417,63  & 421,93 & 1,029 \\
+		&  1000   & 385,20 & 383,11 & 0,542 \\
+		 &  5000 & 345,74 &  345,06 & 0,198 \\
 		\midrule
 		 & 10 & 3,38 & 0,00  & 100,000 \\
-		 &  200   & 15,497 & 15,91 & 2,666 \\
-		10$\epsilon $& 400 & 81,791 & 80,94  & 1,040 \\
-		&  1000   & 200,654 & 202,63 & 0,984 \\
-		 & 5000 & 303,464 & 304,88  &  0,466 \\
+		 &  200   & 15,50 & 15,91 & 2,666 \\
+		10$\epsilon $& 400 & 81,79 & 80,94  & 1,040 \\
+		&  1000   & 200,65 & 202,63 & 0,984 \\
+		 & 5000 & 303,46 & 304,88  &  0,466 \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:3.1}
@@ -1382,7 +1379,7 @@ Amb l'objectiu de quantificar la precisió de la simulació, s'ha optat per fer 
 
 Amb aquesta comparativa podem veure de manera qualitativa l'exactitud de la nostra simulació respecte al model teòric, on l'error està gairebé sempre per sota del 1$\%$ d'error relatiu tret d'algun cas. 
 
-L'única excepció destacable és al nivell de major energia ($10\epsilon$) per a una temperatura del bany de 10 K, on tenim un error del 100 $\%$. Això és degut a que teòricament, l'ocupació mitjana hauria de ser tan sols d'uns 3,38 partícules, però en la nostra simulació en tenim 0. Això fa que l'error relatiu doni un valor del 100 $\%$, tot i nomes tenir una diferència de 3 partícules. (MILLORAR)
+L'única excepció destacable és al nivell de major energia ($10\epsilon$) per a una temperatura del bany de 10 K, on tenim un error del 100 $\%$. Això és degut a que teòricament, l'ocupació mitjana hauria de ser tan sols d'uns 3,38 partícules, però en la nostra simulació en tenim 0. Això fa que l'error relatiu doni un valor del 100 $\%$, tot i nomes tenir una diferència de 3 partícules. 
 
 També s'ha de tenir en compte que la simulació es basa en un procés aleatori. Per això, la funció OcupacioCodi(T), que és la que ens dona els valors de l'ocupació per a cada temperatura (es pot trobar explicada en el fragment del codi $\ref{lst:Ocupacio}$ ), calcula la mitjana de molts valors un cop s'ha arribat a l'equilibri. Això permet netejar l'efecte de l'atzar i les fluctuacions del programa, fent que els resultats finals siguin molt més estables i fiables. 
 
@@ -1391,11 +1388,10 @@ També s'ha de tenir en compte que la simulació es basa en un procés aleatori.
 
 Per garantir l'assoliment de l'estat d'equilibri tèrmic, s'ha seguit el procediment següent.
 
-En aquest cas no s'ha utilitzat la funció OcupacioCodi(T) ja que, com s'ha comentat, aquesta elimina el soroll estadístic. En el seu lloc, s'ha fet servir el bloc de codi principal (REF), modificant-lo perquè guardi l'ocupació de cada nivell en unes llistes predeterminades cada cert nombre d'iteracions. Després, s'han graficat aquests valors respecte a les iteracions per a cada nivell energètic i s'ha aplicat una regressió lineal als últims punts de la simulació.
+En aquest cas no s'ha utilitzat la funció OcupacioCodi(T) ja que, com s'ha comentat, aquesta elimina el soroll estadístic. En el seu lloc, s'ha fet servir el bloc de codi principal $\ref{lst:Model}$, modificant-lo perquè guardi l'ocupació de cada nivell en unes llistes predeterminades cada cert nombre d'iteracions. Després, s'han graficat aquests valors respecte a les iteracions per a cada nivell energètic i s'ha aplicat una regressió lineal als últims punts de la simulació.
 
-L'objectiu és veure com l'ocupació convergeix cap a un valor concret a mesura que avancen les iteracions. Si es manté constant, implica que el sistema ha arribat a l'equilibri. La regressió lineal s'utilitza per obtenir una dada quantitativa i poder aplicar una condició de convergència. Idealment, el pendent d'aquestes línies hauria de ser zero ($m \approx 0$).
+L'objectiu és veure com l'ocupació convergeix cap a un valor concret a mesura que avancen les iteracions. Si es manté constant, implica que el sistema ha arribat a l'equilibri. La regressió lineal s'utilitza per obtenir una dada quantitativa i poder aplicar una condició de convergència. Idealment, el pendent d'aquestes línies hauria de ser zero ($m \approx 0$). Es poden trobar les gràfiques de cada nivell energètic per a tres temperatures diferents després del fragment de codi. 
 
-Tot i això, aquesta comprovació té la limitació de fer-se a una temperatura del bany fixada. Analitzar el sistema temperatura a temperatura no seria viable, motiu pel qual més endavant s'exposen tres casos extrems. De totes maneres, per reforçar la idea que el sistema arriba a l'equilibri, només cal fixar-se en l'apartat anterior, on s'ha demostrat la gran exactitud de la simulació respecte al model teòric de Boltzmann (el qual descriu, precisament, el sistema en l'estat d'equilibri tèrmic).
 
 \begin{lstlisting}[caption={}]
 	# Per comprovar que s'ha arribat a l'estat d'equilibri tèrmic, previament s'ha guardat les dades de l'ocupació cada unes certes iteracions. 
@@ -1445,6 +1441,7 @@ Tot i això, aquesta comprovació té la limitació de fer-se a una temperatura 
 		print("Cal augmentar el nombre d'iteracions.")
 	
 \end{lstlisting}
+
 
 \begin{figure}[H]
 	\centering
@@ -1536,7 +1533,14 @@ Tot i això, aquesta comprovació té la limitació de fer-se a una temperatura 
 	\label{fig:3.6}
 \end{figure}
 
+Com es pot observar en els tres casos exposats ( $\ref{fig:3.4}$, $\ref{fig:3.5}$ i $\ref{fig:3.6}$ ), els pendents obtinguts mitjançant la regressió lineal són pràcticament nuls ($m \approx 0$). Tot i que en algunes gràfiques es detecta un soroll estadístic notable, aquest es distribueix de manera simètrica per sobre i per sota de la mitjana, confirmant que el sistema fluctua al voltant d'un valor constant. 
+
+Tot i això, s'ha de tenir en compte que analitzar el sistema únicament en aquests tres casos extrems no és l'opció ideal per garantir l'equilibri en tot el rang de temperatures, però avaluar-lo temperatura a temperatura no seria viable. De totes maneres, per reforçar la idea que el sistema arriba a l'equilibri, només cal fixar-se en l'apartat anterior, on s'ha demostrat la gran exactitud de la simulació respecte al model teòric de Boltzmann (el qual descriu, precisament, el sistema en l'estat d'equilibri tèrmic).
+
+
 \subsection{Temperatura crítica}
+
+En aquesta secció es comparen la temperatura crítica teòrica calculada a l'exercici 35 i la obtinguda mitjançant la simulació. Per trobar aquesta última, cal calcular a quina temperatura el nivell energètic superior ($\epsilon_2 = 10\epsilon$ J) comença a ser poblat, és a dir, quan comença a tenir mínim una 1 partícula. Per tal de minimitzar el soroll estadístic i obtenir un valor més precís, s'ha calculat la mitjana de 10 simulacions independents.
 
 \begin{lstlisting}[caption={Temperatura crítica}]
 	Tc = 10*eps/(kb*math.log(N)) # Temperatura crítica trobada al exercici 35. 
@@ -1563,8 +1567,27 @@ Tot i això, aquesta comprovació té la limitació de fer-se a una temperatura 
 	print("Error relatiu (%) = ", abs(sum(Tc_m)/10 - Tc)*100/Tc)
 	
 	
-	
 \end{lstlisting}
+
+\begin{table}[H]
+	\centering
+	\small
+	\renewcommand{\arraystretch}{1.2}
+	\caption{Temperatures crítiques trobades al exercici 35 i per la simulació, juntament amb l'error relatiu. }
+	\begin{tabular}{lcc}
+		\toprule
+		$T_{\text{c, exercici}}$ (K) & $T_{\text{c, simulació}}$ (K) & Error relatiu ($\%$)  \\
+		\midrule
+		104.9 & 108,5  & 3,906 \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:3.2}
+\end{table}
+
+Com es pot observar a la taula $\ref{tab:3.2}$, l'error relatiu obtingut és de només el $3,906\%$. Aquest valor confirma la validesa de la regla de Metropolis per descriure el sistema termodinàmic de manera precisa. 
+
+Cal considerar que, com que la simulació es basa en l'atzar, cada execució és diferent i presenta petites fluctuacions aleatòries. Per aquest motiu, incrementar el nombre de mesures per calcular la mitjana permetria reduir aquesta variabilitat i obtenir un valor més exacte, tot i que el temps d'execució es dispararia. Malgrat aquesta limitació, el valor simulat s'ajusta correctament a la predicció teòrica.
+
 
 \section{Estudi de les fluctuacions en l'energia}
 
@@ -1638,10 +1661,13 @@ Tot i això, aquesta comprovació té la limitació de fer-se a una temperatura 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Fluctuacions.png}
-	\caption{}
+	\caption{Fluctuacions (teòriques i simulades) de l'energia respecte el nombre de partícules del sistema a una temperatura de bany fixada (200 K).}
 	\label{fig:3.7}
 \end{figure}
 
+Com es pot observar al gràfic comparatiu $\ref{fig:3.7}$ , els valors obtinguts per a les fluctuacions en la simulació s'ajusten amb molta precisió a la corba teòrica, mostrant un comportament completament lògic i esperat.
+
+VALE NO SE Q MES DIR HELPO
 
 \begin{thebibliography}{99}
 \bibitem{ref4}
