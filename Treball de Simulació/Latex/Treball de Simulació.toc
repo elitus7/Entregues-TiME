@@ -13,7 +13,7 @@
 \contentsline {subsection}{\numberline {1.4.1}Resultats sense camp gravitatori}{11}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Implementació del camp gravitatori}{11}{subsection.1.4.2}%
 \contentsline {subsection}{\numberline {1.4.3}Resultats amb camp gravitatori}{12}{subsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.4.4}Conclusions}{13}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.4}Conclusions}{14}{subsection.1.4.4}%
 \contentsline {chapter}{\numberline {2}Fluid de Lennard-Jones}{15}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Introducció i fonament teòric}{15}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Estudi d'estats estacionaris}{15}{section.2.2}%
@@ -33,7 +33,7 @@
 \contentsline {subsection}{\numberline {3.4.1}Anàlisi dels resultats}{31}{subsection.3.4.1}%
 \contentsline {chapter}{Bibliografia}{33}{chapter*.40}%
 \contentsline {chapter}{Annexos}{34}{section*.41}%
-\contentsline {section}{\numberline {A}Gas d'Esferes Dures}{34}{section.a..1}%
-\contentsline {subsection}{\numberline {A.1}Codi original i distribució de velocitats}{34}{subsection.a..1.1}%
-\contentsline {subsection}{\numberline {A.2}Implementació del termostat d'Andersen i anàlisi de la distribució d'energies}{36}{subsection.a..1.2}%
-\contentsline {subsection}{\numberline {A.3}Addició d'un camp gravitatori}{43}{subsection.a..1.3}%
+\contentsline {section}{\numberline {A}Gas d'Esferes Dures}{34}{section.1..1}%
+\contentsline {subsection}{\numberline {A.1}Codi original i distribució de velocitats}{34}{subsection.1..1.1}%
+\contentsline {subsection}{\numberline {A.2}Implementació del termostat d'Andersen i anàlisi de la distribució d'energies}{36}{subsection.1..1.2}%
+\contentsline {subsection}{\numberline {A.3}Addició d'un camp gravitatori}{43}{subsection.1..1.3}%
