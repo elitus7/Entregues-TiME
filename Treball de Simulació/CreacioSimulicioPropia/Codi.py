@@ -6,8 +6,10 @@ import numpy as np
 
 ''' Apartat Q6. '''
 
+# Constants i variables.
+
 N = 1000 # Nombre de partícules del sistema.
-T = 10 # Temperatura (en K).
+T = 200 # Temperatura (en K).
 It = 200000 # Nombre d'iteracions. Si al executar salta un missatge 'Cal augmentar el nombre d'iteracions', cal augmentar aquest valor. 
 
 kb = 1.38e-23 # Constant de Boltzmann.
@@ -15,6 +17,8 @@ eps = 1e-21 # Valor d'epsilon que apareix a l'exercici 35 (en J). Valor arbitrar
 beta = 1/(kb*T)
 
 Nivells = [0,1*eps,10*eps] # Estats d'energia permesos per a cada partícula. 
+
+# Llistes buides que s'usaràn més endavant.
 Valors_E1 = []
 Valors_E2 = []
 Valors_E3 = []
@@ -49,7 +53,7 @@ for _ in range(It):
 Nhist= [PN.count(0),PN.count(1*eps), PN.count(10*eps)]
 Etiq = [0,1,10]
 
-'''
+
 
 plt.bar(Etiq, Nhist, color='skyblue', edgecolor='black')
 plt.xticks(Etiq) # Només mostra els números 0, 1 i 10
@@ -57,7 +61,7 @@ plt.xlabel(r"Nivell energètic ($\epsilon$ J)")
 plt.title(f"Histograma d'ocupació a l'equilibri tèrmic a {T} K")
 plt.ylabel("Ocupació (partícules)")
 plt.show()
-'''
+
 
 ''' Apartat Q7. Estudi de l'ocupació mitjana de cada un dels tres nivells d'energia en l'equilibri en funció de la temperatura.'''
 
@@ -88,7 +92,8 @@ def OcupacioCodi(T):
             
     # Un cop arribat a l'equilibri, es mesura 100 cops l'estat a l'equilibri i se'n fa la mitjana dels valors d'ocupació per reduir el soroll. 
     m_n0, m_n1, m_n2 = 0, 0, 0
-    for _ in range(100):
+    It2 = 100 # Número de mesures a l'equilibri. Es farà una mitjana amb aquests valors. Com més alt sigui aquest nombre, millor serà l'exactitud (més es reduirà el soroll). Cal tenir en compte que pot augmentar molt el temps d'executació.
+    for _ in range(It2):
         for _ in range(1000):
             idx = random.randint(0, N-1)
             E_in = PN[idx]
@@ -100,10 +105,10 @@ def OcupacioCodi(T):
         m_n1 += PN.count(eps)
         m_n2 += PN.count(10*eps)
   
-    return [m_n0/100, m_n1/100, m_n2/100] # Ens retorna l'ocupació mitjana a l'equilibri dels tres nivells d'energia. 
+    return [m_n0/It2, m_n1/It2, m_n2/It2] # Ens retorna l'ocupació mitjana a l'equilibri dels tres nivells d'energia. 
 
 # DEFINICIÓ EIXOS X (Temperatura (K))
-'''
+
 Valors_T = [20*x for x in range(1, 151)] # Valors de temperatura de 1 K a 1000 K amb intervals de 20 K (per a la simulació).
 Valors_TT = np.linspace(1, 3000, 500) # Valors de temperatura de 1 K a 1000 K (per al càlcul analític).
 
@@ -148,7 +153,7 @@ plt.legend()
 
 plt.show()
 
-'''
+
 ''' Per un cas particular (a T fixada) '''
 
 # Aquest és un cas particular (per a la T fixada al principi del codi). Trobem l'error relatiu entre el resultat de la simulació i el resultat analític. Per a diferents resultats de T, només cal canviar el valor de l'inici i executar.
@@ -281,47 +286,85 @@ for _ in range(10): # Trobem 10 vegades la temperatura crítica. Es farà una mi
     for k in Valors_T2:
         ResultatsSim = OcupacioCodi(k)
 
-    if ResultatsSim[2] >= 1 and Tc_sim is None: 
-        Tc_sim = k
-        Tc_m.append(Tc_sim)
-        break  # Un cop s'ha trobat la temperatura crítica, el bucle s'anul·la. 
+        if ResultatsSim[2] >= 1 and Tc_sim is None: 
+            Tc_sim = k
+            Tc_m.append(Tc_sim)
+            break  # Un cop s'ha trobat la temperatura crítica, el bucle s'anul·la. 
 
 print("Temperatura crítica simulació = ", sum(Tc_m)/10)
 print("Temperatura crítica teòrica = ", Tc)
 print("Error relatiu (%) = ", abs(sum(Tc_m)/10 - Tc)*100/Tc)
 
-	
 
 ''' Apartat Q8. '''
 
-# ESTÀ MALAMENT
-'''
-def Energia(N):
+# Les dues funcions següents es troben a la temperatura del bany fixada a l'inici (variable T).
+
+def Energia_Teorica(N): 
+    # Resultat trobat a l'exercici 35 per sigma_E/<E>.
+    Resultat = (1/math.sqrt(N))*(math.exp(9*eps*beta/2)*(math.sqrt(100*math.exp(beta*eps) + math.exp(10*beta*eps) + 81)))/(math.exp(9*beta*eps) + 10)
+
+    return Resultat
+
+def Energia_Codi(N): 
+    # És exactament el mateix codi de OcupacioCodi(T), però en funció de N. No ens dona però l'ocupció de cada nivell, sinó una llista de 100 valors de l'energia del sistema a l'equilibri a una T fixada en funció de N. 
     PN = list(random.choice(Nivells) for _ in range(N)) # Posició de cada partícula a l'inici de la simulació (probabilitat de cada nivell de 1/3).
 
-    for i in range(20000): 
-        i = random.randint(0,N-1)  # Selecciona de manera aleatoria una partícula.
-        E_in = PN[i] # Definim E_in com l'energia inicial de la partícula escollida.
-        E_nov = random.choice(Nivells) # Definim E_nov com l'energia en el nou nivell, que és escollit de manera aleatoria també.
-
-        Dif_E = E_nov - E_in # Diferència d'energia en el canvi de nivell de la partícula.
-
-    # Definim la condició següent: Si aquesta diferència d'energia és inferior a 0, s'accepta el canvi de nivell. Si és superior a 0, es genera un número aleatori de 0,0 a 1,0. Si aquest és inferior al exp(-beta*Dif_E), s'accepta el canvi de nivell. Si no compleix cap de les condicions anteriors, la partícula es queda en el nivell inicial. 
-        if Dif_E <= 0: 
-            PN[i] = E_nov
-        else:
-            if random.random() < math.exp(-beta*Dif_E):
-                PN[i] = E_nov
+    for _ in range(It): 
+        idx = random.randint(0, N-1)
+        E_in = PN[idx]
+        E_nov = random.choice(Nivells)
+        if (E_nov - E_in) <= 0 or random.random() < math.exp(-beta*(E_nov - E_in)):
+            PN[idx] = E_nov
     
-    EnergiaEq = PN.count(0)*0 + PN.count(1*eps)*eps + PN.count(10*eps)*10*eps
+    # Hem arribat a l'equilibri, ara iterem 100 cops més i guardem la suma de l'energia total en cada iteració en la llista Energy. 
+    Energy = []
+    for _ in range(100):
+        for _ in range(1000):
+            idx = random.randint(0, N-1)
+            E_in = PN[idx]
+            E_nov = random.choice(Nivells)
+            if (E_nov - E_in) <= 0 or random.random() < math.exp(-beta*(E_nov - E_in)):
+                PN[idx] = E_nov
+        
+        n0 = PN.count(0)
+        n1 = PN.count(eps)
+        n2 = PN.count(10*eps)
 
-    return EnergiaEq
+        EnergiaEq = n0*0 + n1*eps + n2*10*eps # Valor total de l'energia del sistema a l'equilibri respecte N.
+        Energy.append(EnergiaEq)
 
-Part = [10*x for x in range(1,500)]
+    return Energy
 
-Energy = [1/Energia(x) for x in Part]
+# EIX X 
+Parti = [x for x in range(1,2001)]
+Parti2 = [x for x in range(1,10)] + [25 * x for x in range(1, 80)]
 
-plt.plot(Part, Energy, color='blue') 
+# EIX Y
+Resultats_teorics = []
+Resultats_exp = []
+
+# Valors de sigma_E/<E> teòrics usant la funció Energia_teorica(N)
+for f in Parti:
+    val = Energia_Teorica(f)
+    Resultats_teorics.append(val)
+
+# Calculem sigma_E i <E> per a cada N definida usant Energia_Codi(N)
+for g in Parti2:
+    valors_E = Energia_Codi(g)
+    mitjana_E = np.mean(valors_E) # Mitjana dels 100 valors de l'energia del sistema en l'equilibri en cada N.
+    sigma_E = np.std(valors_E) # Desviació estàndard dels 100 valors de l'energia del sistema en l'equilibri en cada N.
+
+    fluctuacio = sigma_E/mitjana_E
+
+    Resultats_exp.append(fluctuacio)
+
+# Gràfic comparatiu entre les fluctuacions de l'energia en l'equilibri en funció de N de la simulació i els teòrics. 
+plt.plot(Parti, Resultats_teorics, '--', color = 'red', label = ' Fluctuacions teòriques')
+plt.plot(Parti2, Resultats_exp, '.', color = 'black', label = ' Fluctuacions simulació')
+plt.title("Fluctuacions de l'energia en l'equilibri en funcio de N.")
+plt.ylabel(r"$\frac{\sigma_E}{\langle E \rangle}$", fontsize=14)
+plt.xlabel("N (Partícules)")
+plt.legend()
 plt.show()
 
-'''

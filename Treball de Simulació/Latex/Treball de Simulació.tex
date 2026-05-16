@@ -1099,6 +1099,8 @@ Tots els blocs de codi que es presenten a continuació recullen únicament les p
 
 \begin{lstlisting}[caption={Modelització i implementació de la regla de Metropolis.}]
 
+	# Constants i variables.
+	
 	N = 1000 # Nombre de partícules del sistema.
 	T = 200 # Temperatura (en K).
 	It = 200000 # Nombre d'iteracions. Si al executar salta un missatge 'Cal augmentar el nombre d'iteracions', cal augmentar aquest valor. 
@@ -1108,10 +1110,11 @@ Tots els blocs de codi que es presenten a continuació recullen únicament les p
 	beta = 1/(kb*T)
 	
 	Nivells = [0,1*eps,10*eps] # Estats d'energia permesos per a cada partícula. 
+	
+	# Llistes buides que s'usaràn més endavant.
 	Valors_E1 = []
 	Valors_E2 = []
 	Valors_E3 = []
-	
 	
 	PN = list(random.choice(Nivells) for _ in range(N)) # Posició de cada partícula a l'inici de la simulació (probabilitat de cada nivell de 1/3).
 	
@@ -1373,12 +1376,97 @@ Tot i això, aquesta comprovació té la limitació de fer-se a una temperatura 
 	else: 
 		print("Cal augmentar el nombre d'iteracions.")
 	
-	# Escrivim les tres equacions de la recta per incloure-les a les gràfiques 
-	eq1 = f"y = {m1:.5f}x + {n1:.5f}"
-	eq2 = f"y = {m2:.5f}x + {n2:.5f}"
-	eq3 = f"y = {m3:.5f}x + {n3:.5f}"
-	
 \end{lstlisting}
+
+\begin{figure}[H]
+	\centering
+	% Primera foto
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ocup1_10.png}
+		\caption{ }
+		\label{fig:Ocup1.10}
+	\end{subfigure}
+	\hfill % Espai de separació horitzontal
+	% Segona foto
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ocup2_10.png}
+		\caption{}
+		\label{fig:Ocup2.10}
+	\end{subfigure}
+	\hfill % Espai de separació horitzontal
+	% Tercera foto
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ocup3_10.png}
+		\caption{}
+		\label{fig:Ocup3.10}
+	\end{subfigure}
+	
+	\caption{10 K.}
+	\label{fig:3.4}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	% Primera foto
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ocup1_200.png}
+		\caption{ }
+		\label{fig:Ocup1.200}
+	\end{subfigure}
+	\hfill % Espai de separació horitzontal
+	% Segona foto
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ocup2_200.png}
+		\caption{}
+		\label{fig:Ocup2.200}
+	\end{subfigure}
+	\hfill % Espai de separació horitzontal
+	% Tercera foto
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ocup3_200.png}
+		\caption{}
+		\label{fig:Ocup3.200}
+	\end{subfigure}
+	
+	\caption{200 K.}
+	\label{fig:3.5}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	% Primera foto
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ocup1_5000.png}
+		\caption{}
+		\label{fig:Ocup1.5000}
+	\end{subfigure}
+	\hfill % Espai de separació horitzontal
+	% Segona foto
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ocup2_5000.png}
+		\caption{}
+		\label{fig:Ocup2.5000}
+	\end{subfigure}
+	\hfill % Espai de separació horitzontal
+	% Tercera foto
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ocup3_5000.png}
+		\caption{}
+		\label{fig:Ocup3.5000}
+	\end{subfigure}
+	
+	\caption{5000 K.}
+	\label{fig:3.6}
+\end{figure}
 
 \subsection{Temperatura crítica}
 
@@ -1415,9 +1503,76 @@ Tot i això, aquesta comprovació té la limitació de fer-se a una temperatura 
 \subsection{Anàlisi dels resultats}
 
 \begin{lstlisting}[caption={Estudi de les fluctuacions en l'energia.}]
+	# Les dues funcions següents es troben a la temperatura del bany fixada a l'inici (variable T).
 	
+	def Energia_Teorica(N): 
+		# Resultat trobat a l'exercici 35 per sigma_E/<E>.
+		Resultat = (1/math.sqrt(N))*(math.exp(9*eps*beta/2)*(math.sqrt(100*math.exp(beta*eps) + math.exp(10*beta*eps) + 81)))/(math.exp(9*beta*eps) + 10)
+		
+		return Resultat
+	
+	def Energia_Codi(N): 
+		# És exactament el mateix codi de OcupacioCodi(T), però en funció de N. No ens dona però l'ocupció de cada nivell, sinó una llista de 100 valors de l'energia del sistema a l'equilibri a una T fixada en funció de N. 
+		PN = list(random.choice(Nivells) for _ in range(N)) # Posició de cada partícula a l'inici de la simulació (probabilitat de cada nivell de 1/3).
+		
+		for _ in range(It): 
+			idx = random.randint(0, N-1)
+			E_in = PN[idx]
+			E_nov = random.choice(Nivells)
+			if (E_nov - E_in) <= 0 or random.random() < math.exp(-beta*(E_nov - E_in)):
+				PN[idx] = E_nov
+		
+		# Hem arribat a l'equilibri, ara iterem 100 cops més i guardem la suma de l'energia total en cada iteració en la llista Energy. 
+		Energy = []
+		for _ in range(100):
+			for _ in range(1000):
+				idx = random.randint(0, N-1)
+				E_in = PN[idx]
+				E_nov = random.choice(Nivells)
+				if (E_nov - E_in) <= 0 or random.random() < math.exp(-beta*(E_nov - E_in)):
+					PN[idx] = E_nov
+		
+			n0 = PN.count(0)
+			n1 = PN.count(eps)
+			n2 = PN.count(10*eps)
+		
+			EnergiaEq = n0*0 + n1*eps + n2*10*eps # Valor total de l'energia del sistema a l'equilibri respecte N.
+			Energy.append(EnergiaEq)
+		
+		return Energy
+	
+	# EIX X 
+	Parti = [x for x in range(1,2001)]
+	Parti2 = [x for x in range(1,10)] + [25 * x for x in range(1, 80)]
+	
+	# EIX Y
+	Resultats_teorics = []
+	Resultats_exp = []
+	
+	# Valors de sigma_E/<E> teòrics usant la funció Energia_teorica(N)
+	for f in Parti:
+		val = Energia_Teorica(f)
+		Resultats_teorics.append(val)
+	
+	# Calculem sigma_E i <E> per a cada N definida usant Energia_Codi(N)
+	for g in Parti2:
+		valors_E = Energia_Codi(g)
+		mitjana_E = np.mean(valors_E) # Mitjana dels 100 valors de l'energia del sistema en l'equilibri en cada N.
+		sigma_E = np.std(valors_E) # Desviació estàndard dels 100 valors de l'energia del sistema en l'equilibri en cada N.
+		
+		fluctuacio = sigma_E/mitjana_E
+		
+		Resultats_exp.append(fluctuacio)
 	
 \end{lstlisting}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Fluctuacions.png}
+	\caption{}
+	\label{fig:3.7}
+\end{figure}
 
 
 \begin{thebibliography}{99}
