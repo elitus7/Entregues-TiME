@@ -868,12 +868,156 @@ Per contra, en la segona simulació, la distribució radial presenta un perfil s
 \textcolor{red}{
 	El factor de compressibilitat per un gas ideal és 1/P perquè es deriva PV=nRT respecte la pressió. Hauríem d'obtenir un comportament similar a aquest per a pressions molt baixes i en augmentar P el fluid es fa més comprimible per les atraccions del gas real de Lennard-jones.\\
 	Hem d'obtenir un factor molt més baix pel líquid ja que és quasi incompressible.}
-
+	
 El coeficient de compressibilitat isoterma es pot calcular, d'entre moltes altres maneres, seguint la fórmula \eqref{kT} següent:
 \begin{equation}
 	\kappa_T=-\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T.
-\label{kT}
+	\label{kT}
 \end{equation}
+Treballarem amb la col·lectivitat NPT (sistema isobàric-isoterm), la qual ens permet fixar una temperatura i una pressió per tal d'obtenir el volum com a variable.
+
+Per tal d'estimar el comportament de $\kappa_T$ per diferents temperatures reescrivim l'equació $\eqref{kT}$ en forma de logaritme, és a dir,
+\begin{equation}
+	\kappa_T=-\left(\frac{\partial\ln(V)}{\partial P}\right)_T.
+\end{equation}
+Aquesta derivada es pot aproximar a
+\begin{equation*}
+\left(\frac{\partial\ln(V)}{\partial P}\right)_T\approx\frac{\ln(V_2)-\ln(V_1)}{P_2-P_1}
+\end{equation*}
+per un canvi suficientment petit en les pressions. Per tant, agafant un parell de valors amb una $P$ prou pròxims, podem calcular la diferència de logaritmes de volums per tal d'obtenir una estimació del factor de compressibilitat isoterma per a una determinada temperatura (fixada).
+
+Per tal d'assegurar-nos que estem treballant en fase líquida o gasosa, ens és útil tenir les dades de pressió i temperatura del punt crític per un fluid de Lennard-Jones:
+\begin{itemize}
+	\item $T_c = 1,321 \pm 0,007\, \varepsilon k_B^{-1}$.
+	\item $p_c = 0,129 \pm 0,005\, \varepsilon \sigma^{-3}$.
+\end{itemize}
+Veiem que aquests valors determinen, efectivament, el punt crític del diagrama de fases per un fluid de Lennard-Jones mostrat a la figura $\ref{diagrama_lj}$.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\linewidth]{diagrama_lj}
+	\caption{Diagrama de fases en el pla pressió-temperatura per un fluid de Lennard-Jones. Veure $\cite{ref_lj}$.}
+	\label{diagrama_lj}
+\end{figure}
+
+Així, treballant amb $N=500$ partícules i amb uns valors dins dels rangs de pressió i temperatura corresponents a l'estat gas i líquid obtenim els resultats que es presenten als apartats a continuació.
+
+\subsubsection{Factor de compressibilitat isoterma per un gas de Lennard-Jones}
+A partir de la figura $\ref{diagrama_lj}$ hem decidit fer l'estudi per un rang de temperatures entre 0,9 i 1,275 (en unitats normalitzades) i una variació de pressió de 0,015 i 0,010 per a cada $T$. Notem que simular una temperatura superior a la crítica no ens permetria diferenciar bé si ens trobem en estat gasós, ja que tindríem un fluid supercrític que, per definició, combina les propietats d'ambdues fases.
+
+Ens hem assegurat que els valors escollits de pressió i temperatura siguin perfectament compatibles amb un gas observant la gràfica de la distribució radial $g(r)$ mostrada a la figura $\ref{gr_gas}$, la qual no presenta cap posició preferida per les partícules, essent així la distribució corresponent a una fase gasosa.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{gr_gas}
+	\caption{Distribució radial $g(r)$ obtinguda després de 10150 cicles per $N=500$, $T=1,200$ i $P=0,015$. El perfil de la funció és anàleg per a tot el rang de temperatures i pressions en què s'ha treballat.}
+	\label{gr_gas}
+\end{figure}
+
+
+A més, s'han compararat els resultats experimentals obtinguts amb la $\kappa_T$ corresponent al gas ideal. En aquest cas,
+\begin{equation}
+	\kappa_{T,ideal}=-\frac{1}{V} \left(\frac{\partial V}{\partial P}\right)_T = -\frac{1}{V} \left(-\frac{nRT}{P^2}\right) = \frac{nRT}{V P^2} = \frac{PV}{V P^2} = \frac{1}{P}.
+\end{equation}
+Tot i que podríem prendre la $P$ mitjana entre 0,015 i 0,010, hem cregut convenient utilitzar l'aproximació
+\begin{equation}
+	\kappa_{T,ideal}\approx\frac{\ln(P_1/P_2)}{P_1-P_2},
+\label{ktideal}
+\end{equation}
+ja que ens dóna un valor més fiable pel mètode emprat.
+
+Així, a partir del mètode explicat anteriorment, els resultats obtinguts han estat els que es mostren a la taula $\ref{kt_volum_gas}$.
+
+\begin{table}[h!]
+	\centering
+	\caption{Dades obtingudes a partir de la simulació i càlcul a partir dels volums del factor de compressibilitat isoterma per a cada valor de temperatura. Totes les variables s'expressen adimensionalment (normalitzades).}
+	\label{kt_volum_gas}
+	\smallskip
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{ccccccccccc}
+			\toprule
+			Temperatura & Pressió 1 & Pressió 2 & Volum 1 & Incertesa $V_1$ & Volum 2 & Incertesa $V_2$ & $\ln(V_1)$ & $\ln(V_2)$ & $\kappa_T$ & Incertesa $\kappa_T$ \\ 
+			\midrule
+			0,900   & 0,015 & 0,01 & 26013,59 & 5000,00  & 40814,72 & 11111,11 & 10,16637 & 10,61680 & 90,0847 & 66,6496  \\
+			1,000     & 0,015 & 0,01 & 30154,12 & 5190,31  & 45770,21 & 17361,11 & 10,31408 & 10,73139 & 83,4624 & 83,3075  \\
+			1,100  & 0,015 & 0,01 & 33891,15 & 10204,08 & 51200,77 & 25000,00 & 10,43091 & 10,84351 & 82,5201 & 114,7280 \\
+			1,200   & 0,015 & 0,01 & 37499,40 & 16528,93 & 56591,94 & 25000,00 & 10,53208 & 10,94362 & 82,3083 & 124,8097 \\
+			1,250  & 0,015 & 0,01 & 39238,36 & 25000,00 & 59003,07 & 30864,20 & 10,57741 & 10,98534 & 81,5869 & 164,8714 \\
+			1,275 & 0,015 & 0,01 & 39970,65 & 24691,36 & 60100,20 & 46875,00 & 10,59590 & 11,00377 & 81,5735 & 198,8922 \\ 
+			\bottomrule
+		\end{tabular}%
+	}
+\end{table}
+
+Notem que, mentre que el programa només ens proporciona el valor de la incertesa de la densitat, nosaltres necessitem tenir la del volum. Aquesta es pot obtenir fàcilment per propagació d'incerteses. Sabent que $\rho=\frac{N}{V}$,
+\begin{equation}
+	\delta V = \left| \frac{dV}{d\rho} \right| \delta \rho= \left| -\frac{N}{\rho^2} \right| \delta \rho=\frac{N}{\rho^2} \delta \rho.
+\end{equation}
+Anàlogament, el coeficient de compressibilitat isoterma té la incertesa associada següent:
+\begin{equation}
+	\delta \kappa_T = \frac{1}{|p_1 - p_2|} \sqrt{\left(\frac{\delta V_1}{V_1}\right)^2 + \left(\frac{\delta V_2}{V_2}\right)^2}.
+\end{equation}
+L'elevada incertesa en el càlcul de $\kappa_T$ és una conseqüència directa de la limitació en la precisió numèrica de les dades de la densitat ($\rho$). Atès que els valors absoluts són petits i estan acotats a només tres xifres decimals, la incertesa associada ($\delta \rho$) és considerablement elevada, generant un error molt significatiu que es va propagant i es magnifica en el càlcul final.
+
+Per tal de poder visualitzar millor els resultats obtinguts, la taula $\ref{kt_volum_gas}$ s'ha graficat a la figura $\ref{fig_gas}$, juntament amb el valor del factor de compressibilitat ideal constant.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{kt_volum_gas}
+	\caption{Valors del coeficient de compressibilitat isotèrmica per un gas de Lennard-Jones obtinguts amb la nostra aproximació a partir dels volums comparats amb el valor d'un gas ideal.}
+	\label{fig_gas}
+\end{figure}
+Tal i com podem observar a la figura $\ref{fig_gas}$, hi ha una clara tendència cap al comportament ideal a mesura que augmentem la temperatura de treball. Això es pot explicar recordant, prèviament, que les partícules en un fluid de Lennard-Jones es troben sotmeses a un pou de potencial i, per tant, es contemplen certes interaccions entre elles. Així, en augmentar la temperatura, la seva energia cinètica també es fa més gran fins arribar a un punt on les partícules poden escapar del potencial del pou atractiu i, a més, les col·lisions entre elles seran tan ràpides que tindrem un comportament més similar a un gas d'esferes dures, en el qual les forces de llarg abast no es contemplen. En aquestes condicions, el fluid de Lennard-Jones s'estarà comportant similarment a un gas ideal i, consegüentment, la $\kappa_T$ tendirà a la $\kappa_{T,ideal}$.
+
+\subsubsection{Factor de compressibilitat isoterma per un líquid de Lennard-Jones}
+
+\subsection{Mètodes alternatius}
+\subsubsection{Càlcul amb la densitat}
+El factor de compressibilitat calculat segons l'expressió $\eqref{kT}$ també es podria estimar a partir dels valors de la densitat reescrivint-ho segons
+\begin{equation}
+	\kappa_T=\frac{1}{\rho}\left(\frac{\partial\rho}{\partial P}\right)_T = \left(\frac{\partial\ln(\rho)}{\partial P}\right)_T \approx \frac{\ln(\rho_1) - \ln(\rho_2)}{P_1 - P_2}.
+\end{equation}
+El procediment seguit seria anàleg a l'anterior però fixant-nos aquest cop en el valor de la densitat en lloc del volum. Es va fer la prova per la fase gasosa i els resultats es mostren a la taula $\ref{taula_densitat}$ i a la figura $\ref{fig_densitat}$.
+
+\begin{table}[h!]
+	\centering
+	\caption{Dades obtingudes a partir de la simulació i el càlcul del factor de compressibilitat isoterma a partir de les densitats per a cada valor de temperatura. Totes les variables s'expressen adimensionalment (normalitzades).}
+	\label{taula_densitat}
+	\smallskip
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{ccccccccccc}
+			\toprule
+			Temperatura & Pressió 1 & Pressió 2 & $\rho_1$ & Incertesa $\rho_1$ & $\rho_2$ & Incertesa $\rho_2$ & $\ln(\rho_1)$ & $\ln(\rho_2)$ & $\kappa_T$ & Incertesa $\kappa_T$ \\ 
+			\midrule
+			0,900 & 0,02 & 0,01 & 0,027 & 0,003 & 0,013 & 0,003 & -3,61192 & -4,34281 & 73,0888 & 25,6125198 \\
+			1,000 & 0,02 & 0,01 & 0,023 & 0,004 & 0,011 & 0,004 & -3,77226 & -4,50986 & 73,7599 & 40,3084547 \\
+			1,100 & 0,02 & 0,01 & 0,022 & 0,003 & 0,011 & 0,003 & -3,81671 & -4,50986 & 69,3147 & 30,4918361 \\
+			1,200 & 0,02 & 0,01 & 0,019 & 0,003 & 0,010 & 0,004 & -3,96332 & -4,60517 & 64,1854 & 43,0035752 \\
+			1,250 & 0,02 & 0,01 & 0,017 & 0,002 & 0,009 & 0,005 & -4,07454 & -4,71053 & 63,5989 & 56,7875696 \\
+			1,275 & 0,02 & 0,01 & 0,017 & 0,002 & 0,009 & 0,002 & -4,07454 & -4,71053 & 63,5989 & 25,1442929 \\ 
+			\bottomrule
+		\end{tabular}%
+	}
+\end{table}
+La incertesa associada a $\kappa_T$ s'han calculat segons la propagació d'incerteses
+\begin{equation}
+	\delta \kappa_T = \frac{1}{|P_1 - P_2|} \sqrt{\left(\frac{\delta \rho_1}{\rho_1}\right)^2 + \left(\frac{\delta \rho_2}{\rho_2}\right)^2}.
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{kt_densitat_gas}
+	\caption{Valors del coeficient de compressibilitat isotèrmica per un gas de Lennard-Jones obtinguts amb la nostra aproximació a partir de les densitats comparats amb el valor d'un gas ideal.}
+	\label{fig_densitat}
+\end{figure}
+El valor $\kappa_{T,ideal}$ ha estat calculat seguint la mateixa equació $\eqref{ktideal}$ emprada anteriorment.
+
+Com podem observar a la figura $\ref{fig_densitat}$, els resultats simulats no s'ajusten correctament a la tendència ideal, tal i com passava amb el mètode dels volums. La principal font d'error en aquest mètode és, de nou, els pocs decimals proporcionats en les mesures de la densitat i la seva incertesa associada. Per aquest motiu, com que el programa ens proporciona el volum amb moltes més xifres significatives, el mètode es va descartar immediatament.
+
+Addicionalment, podem observar a la taula de resultats $\ref{taula_densitat}$ que l'interval de pressions és lleugerament major al finalment emprat. Aquesta disminució final de la diferència entre $P_1$ i $P_2$, també és una bona manera de millorar el mètode.
+
+\subsubsection{Càlcul amb les fluctuacions}
+A partir de l'expressió $\eqref{kT}$ pel càlcul del coeficient de compressibilitat isoterma, es proposa un mètode alternatiu que, tot i que es va acabar descartant per motius exposats més endevant, aprofita les fluctuacions i els valors mitjans proporcionats per la simulació de Monte Carlo.
+
 Com que treballarem en la col·lectivitat NPT, el volum serà una variable aleatòria i com a tal estarà sotmès a fluctuacions. Per això, necessitem treballar amb el seu valor mitjà $\langle V \rangle$.
 
 Així, necessitem el valor de $\left( \frac{\partial \langle V \rangle}{\partial P} \right)_T$. Per fer-ho, com que treballem en un sistema isobàric-isoterm, definim la seva funció de partició com
@@ -918,28 +1062,12 @@ relació que podem incloure dins de l'equació $\eqref{eq2.8}$:
 \end{equation}
 Com que treballem amb variables normalitzades, considerem $k_B=1$, de manera que arribem a l'expressió final
 \begin{equation}
-	\boxed{\kappa_T =\frac{\langle V \rangle \sigma_\rho^2}{\langle \rho \rangle^2 T}}
+	\kappa_T =\frac{\langle V \rangle \sigma_\rho^2}{\langle \rho \rangle^2 T}
 \label{calculkt}
 \end{equation}
 on $\sigma_{\rho}$ seran les fluctuacions de la densitat i $\langle V \rangle$ i $\langle \rho \rangle$ són el valor mig del volum i la densitat, respectivament.
 
-Per tal d'assegurar-nos que estem treballant en fase líquida o gasosa, ens és útil tenir les dades de pressió i temperatura del punt crític per un fluid de Lennard-Jones:
-\begin{itemize}
-	\item $T_c = 1,321 \pm 0,007\, \varepsilon k_B^{-1}$.
-	\item $p_c = 0,129 \pm 0,005\, \varepsilon \sigma^{-3}$.
-\end{itemize}
-Veiem que aquests valors determinen, efectivament, el punt crític del diagrama de fases per un fluid de Lennard-Jones mostrat a la figura $\ref{diagrama_lj}$.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.45\linewidth]{diagrama_lj}
-	\caption{Diagrama de fases en el pla pressió-temperatura per un fluid de Lennard-Jones.}
-	\label{diagrama_lj}
-\end{figure}
-Tenint en compte aquest diagrama, concloem que per treballar de manera segura dins de les dues fases estudiades ens haurem de moure entre els valors aproximats següents:
-\begin{itemize}
-	\item \textbf{Líquid:} $T\approx0,8-1,2$ i $P\approx 10^{-2}-10^{-1}$.
-	\item \textbf{Gas:} $T\approx0,8-1,2$ i $P\leq10^{-3}$.
-\end{itemize}
+Malauradament, tot i ser un mètode que s'ajusta molt als valors proporcionats pel programa de simulació emprat, es va haver de descartar per falta de significància en les mesures de la densitat. De nou, el problema principal és l'elevadíssima incertesa associada a mesures de densitat molt baixes (necessàries per tal de treballar amb gasos). Els resultats obtinguts a partir d'aquest mètode no tenien cap sentit físic, de manera que es va haver de buscar un mètode alternatiu. Tot i això, creiem que si la sensibilitat de les mesures fos més elevada, seria una manera òptima d'estimar $\kappa_T$.
 
 \chapter{Creació d'una simulació pròpia}
 
@@ -1306,6 +1434,8 @@ Frenkel, D. \textit{Understanding Molecular Simulation. From Algorithms to Aplic
 McCarty, R. D. (1973). \textit{Thermodynamic Properties of Helium-4 from 2 to 1500 K at Pressures to 10$^3$ Pa}. Journal of Physical and Chemical Reference Data, 2(4), 923–1042. \url{https://srd.nist.gov/jpcrdreprint/1.3253133.pdf}. Consultat el: 03/05/2026.
 \bibitem{ref1}
 \textit{Col·lecció de problemes de l'assignatura Termodinàmica i Mecànica Estadística}.
+\bibitem{ref_lj}
+Trudu Dornbierer, F. (2006). \textit{Computer simulation study of homogeneous nucleation in a Lennard-Jones fluid} (Diss. ETH No. 16869) [Doctoral dissertation, Swiss Federal Institute of Technology Zurich].
 \end{thebibliography}
 
 \newpage
