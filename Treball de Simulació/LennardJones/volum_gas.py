@@ -17,7 +17,6 @@ plt.scatter(x, y_variable, color='#1f77b4', label='Gas de Lennard-Jones')
 plt.axhline(y=81.0930216, color="#fa0000", linestyle='--', linewidth=2, label='Gas ideal')
 
 # 3. Configuració d'eixos i títols
-plt.title('Compressibilitat isotèrmica $k_T$ en funció de la temperatura $T$')
 plt.xlabel('$T$ normalitzada (adimensional)')
 plt.ylabel('$k_T$ normalitzada (adimensional)')
 plt.grid(True, linestyle='-', alpha=0.3)
