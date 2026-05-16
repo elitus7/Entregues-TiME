@@ -18,24 +18,22 @@
 \contentsline {section}{\numberline {2.1}Introducció i fonament teòric}{15}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Estudi d'estats estacionaris}{15}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Anàlisi del coeficient de compressibilitat isoterma}{17}{section.2.3}%
-\contentsline {subsubsection}{Factor de compressibilitat isoterma per un gas de Lennard-Jones}{18}{figure.caption.23}%
-\contentsline {subsubsection}{Factor de compressibilitat isoterma per un líquid de Lennard-Jones}{20}{figure.caption.26}%
-\contentsline {subsection}{\numberline {2.3.1}Mètodes alternatius}{20}{subsection.2.3.1}%
-\contentsline {subsubsection}{Càlcul amb la densitat}{20}{subsection.2.3.1}%
-\contentsline {subsubsection}{Càlcul amb les fluctuacions}{21}{figure.caption.28}%
-\contentsline {chapter}{\numberline {3}Creació d'una simulació pròpia}{23}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introducció i fonament teòric}{23}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Modelització i implementació de la regla de Metropolis}{23}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Anàlisi dels resultats}{24}{subsection.3.2.1}%
-\contentsline {section}{\numberline {3.3}Ocupació mitjana en funció de la temperatura}{25}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Anàlisi dels resultats}{26}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Garantia d'assoliment de l'estat d'equilibri tèrmic.}{27}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Temperatura crítica}{29}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Estudi de les fluctuacions en l'energia}{29}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Anàlisi dels resultats}{29}{subsection.3.4.1}%
-\contentsline {chapter}{Bibliografia}{32}{chapter*.36}%
-\contentsline {chapter}{Annexos}{33}{section*.37}%
-\contentsline {section}{\numberline {A}Gas d'Esferes Dures}{33}{section.a..1}%
-\contentsline {subsection}{\numberline {A.1}Codi original i distribució de velocitats}{33}{subsection.a..1.1}%
-\contentsline {subsection}{\numberline {A.2}Implementació del termostat d'Andersen i anàlisi de la distribució d'energies}{35}{subsection.a..1.2}%
-\contentsline {subsection}{\numberline {A.3}Addició d'un camp gravitatori}{42}{subsection.a..1.3}%
+\contentsline {subsection}{\numberline {2.3.1}Factor de compressibilitat isoterma per un líquid de Lennard-Jones}{18}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Factor de compressibilitat isoterma per un gas de Lennard-Jones}{20}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Mètode alternatiu (càlcul amb la densitat)}{23}{subsection.2.3.3}%
+\contentsline {chapter}{\numberline {3}Creació d'una simulació pròpia}{24}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introducció i fonament teòric}{24}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Modelització i implementació de la regla de Metropolis}{24}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Anàlisi dels resultats}{25}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}Ocupació mitjana en funció de la temperatura}{26}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Anàlisi dels resultats}{27}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Garantia d'assoliment de l'estat d'equilibri tèrmic.}{28}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Temperatura crítica}{30}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Estudi de les fluctuacions en l'energia}{30}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Anàlisi dels resultats}{30}{subsection.3.4.1}%
+\contentsline {chapter}{Bibliografia}{33}{chapter*.39}%
+\contentsline {chapter}{Annexos}{34}{section*.40}%
+\contentsline {section}{\numberline {A}Gas d'Esferes Dures}{34}{section.1..1}%
+\contentsline {subsection}{\numberline {A.1}Codi original i distribució de velocitats}{34}{subsection.1..1.1}%
+\contentsline {subsection}{\numberline {A.2}Implementació del termostat d'Andersen i anàlisi de la distribució d'energies}{36}{subsection.1..1.2}%
+\contentsline {subsection}{\numberline {A.3}Addició d'un camp gravitatori}{43}{subsection.1..1.3}%
