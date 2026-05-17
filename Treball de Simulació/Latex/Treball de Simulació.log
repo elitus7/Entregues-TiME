@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  17 MAY 2026 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  17 MAY 2026 15:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1622,7 +1622,7 @@ Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
 Here is how much of TeX's memory you used:
  37033 strings out of 473682
  733987 string characters out of 5719215
- 1953722 words of memory out of 5000000
+ 1953810 words of memory out of 5000000
  57523 multiletter control sequences out of 15000+600000
  576530 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1674,7 +1674,7 @@ pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmti8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmtt8.pfb>
-Output written on "Treball de Simulació.pdf" (59 pages, 8103560 bytes).
+Output written on "Treball de Simulació.pdf" (59 pages, 8103665 bytes).
 PDF statistics:
  3298 PDF objects out of 3580 (max. 8388607)
  2065 named destinations out of 2073 (max. 500000)
