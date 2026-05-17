@@ -1091,15 +1091,13 @@ Per tal de poder visualitzar millor els resultats obtinguts, la taula $\ref{kt_v
 	\caption{Valors del coeficient de compressibilitat isotèrmica per un gas de Lennard-Jones obtinguts amb la nostra aproximació a partir dels volums comparats amb el valor d'un gas ideal.}
 	\label{fig_gas}
 \end{figure}
-Tal i com podem observar a la figura $\ref{fig_gas}$, hi ha una clara tendència cap al comportament ideal a mesura que augmentem la temperatura de treball. Això es pot explicar recordant, prèviament, que les partícules en un fluid de Lennard-Jones es troben sotmeses a un pou de potencial i, per tant, es contemplen certes interaccions entre elles. Així, en augmentar la temperatura, la seva energia cinètica també es fa més gran fins arribar a un punt on les partícules poden escapar del potencial del pou atractiu i, a més a més, les col·lisions entre elles seran tan ràpides que tindrem un comportament més similar a un gas d'esferes dures, en el qual les forces de llarg abast no es contemplen. La minimització de les interaccions, principalment les de llarg abast, en augmentar la temperatura ens permet explicar la convergència del valor de la compressibilitat isoterma al del cas ideal. 
-
-Així doncs, en aquestes condicions, el fluid de Lennard-Jones s'estarà comportant quasi-idealment, consegüentment, la $\kappa_T$ tendirà en certa manera a la $\kappa_{T,ideal}$.
+Tal i com podem observar a la figura $\ref{fig_gas}$, hi ha una clara tendència cap al comportament ideal a mesura que augmentem la temperatura de treball. Això es pot explicar recordant, prèviament, que les partícules en un fluid de Lennard-Jones es troben sotmeses a un pou de potencial i, per tant, es contemplen certes interaccions entre elles. Així, en augmentar la temperatura, la seva energia cinètica també es fa més gran fins arribar a un punt on les partícules poden escapar del potencial del pou atractiu i, a més a més, les col·lisions entre elles seran tan ràpides que tindrem un comportament més similar a un gas d'esferes dures, tal i com es pot veure a la figura \ref{fig:idealisimo}, en el qual les forces de llarg abast no es contemplen. La minimització de les interaccions, principalment les de llarg abast, en augmentar la temperatura ens permet explicar la convergència del valor de la compressibilitat isoterma al del cas ideal. Així doncs, en aquestes condicions, el fluid de Lennard-Jones s'estarà comportant quasi-idealment, consegüentment, la $\kappa_T$ tendirà en certa manera a la $\kappa_{T,ideal}$.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.52\linewidth]{screenshot007}
 	\caption{Distribució radial $g(r)$ obtinguda per $N = 500$, $P = 0,015$ i temperatura molt elevada després de 10110 cicles. Es pot veure, efectivament, com tenim una distribució corresponent a un gas d'esferes dures; les úniques interaccions entre les partícules del gas es donen quan es produeix una col·lisió física. Les interaccions a llarg abast són negligibles. Imposant que $T\rightarrow \infty$ sí que obtenim, però, $g(r) = \text{cte.}$, corresponent al gas ideal.}
-	\label{fig:screenshot007}
+	\label{fig:idealisimo}
 \end{figure}
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  17 MAY 2026 15:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  17 MAY 2026 16:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1419,18 +1419,18 @@ File: kt_volum_gas.png Graphic file (type png)
 <use kt_volum_gas.png>
 Package pdftex.def Info: kt_volum_gas.png  used on input line 1090.
 (pdftex.def)             Requested size: 340.57814pt x 204.34398pt.
-<screenshot007.png, id=677, 928.21782pt x 438.8897pt>
+<screenshot007.png, id=678, 928.21782pt x 438.8897pt>
 File: screenshot007.png Graphic file (type png)
 <use screenshot007.png>
-Package pdftex.def Info: screenshot007.png  used on input line 1100.
+Package pdftex.def Info: screenshot007.png  used on input line 1098.
 (pdftex.def)             Requested size: 253.00407pt x 119.62688pt.
 
 
 [22 <./kt_volum_gas.png> <./screenshot007.png>]
-<kt_densitat_gas.png, id=693, 722.7pt x 433.62pt>
+<kt_densitat_gas.png, id=694, 722.7pt x 433.62pt>
 File: kt_densitat_gas.png Graphic file (type png)
 <use kt_densitat_gas.png>
-Package pdftex.def Info: kt_densitat_gas.png  used on input line 1138.
+Package pdftex.def Info: kt_densitat_gas.png  used on input line 1136.
 (pdftex.def)             Requested size: 340.57814pt x 204.34398pt.
 
 
@@ -1441,114 +1441,114 @@ Cap\'{\i }tol 3.
 [24
 
 ]
-<Hist10.png, id=748, 462.528pt x 346.896pt>
+<Hist10.png, id=749, 462.528pt x 346.896pt>
 File: Hist10.png Graphic file (type png)
 <use Hist10.png>
-Package pdftex.def Info: Hist10.png  used on input line 1232.
+Package pdftex.def Info: Hist10.png  used on input line 1230.
 (pdftex.def)             Requested size: 155.6971pt x 116.77327pt.
-<Hist200.png, id=749, 462.528pt x 346.896pt>
+<Hist200.png, id=750, 462.528pt x 346.896pt>
 File: Hist200.png Graphic file (type png)
 <use Hist200.png>
-Package pdftex.def Info: Hist200.png  used on input line 1240.
+Package pdftex.def Info: Hist200.png  used on input line 1238.
 (pdftex.def)             Requested size: 155.6971pt x 116.77327pt.
-<Hist5000.png, id=750, 462.528pt x 346.896pt>
+<Hist5000.png, id=751, 462.528pt x 346.896pt>
 File: Hist5000.png Graphic file (type png)
 <use Hist5000.png>
-Package pdftex.def Info: Hist5000.png  used on input line 1248.
+Package pdftex.def Info: Hist5000.png  used on input line 1246.
 (pdftex.def)             Requested size: 155.6971pt x 116.77327pt.
 
 
 [25 <./Hist10.png> <./Hist200.png> <./Hist5000.png>]
 
 [26]
-<ocupacio.png, id=835, 722.7pt x 433.62pt>
+<ocupacio.png, id=836, 722.7pt x 433.62pt>
 File: ocupacio.png Graphic file (type png)
 <use ocupacio.png>
-Package pdftex.def Info: ocupacio.png  used on input line 1345.
+Package pdftex.def Info: ocupacio.png  used on input line 1343.
 (pdftex.def)             Requested size: 437.88512pt x 262.73459pt.
 
 
 [27 <./ocupacio.png>]
 
 [28]
-<Ocup1_10.png, id=874, 418.4433pt x 317.2653pt>
+<Ocup1_10.png, id=875, 418.4433pt x 317.2653pt>
 File: Ocup1_10.png Graphic file (type png)
 <use Ocup1_10.png>
-Package pdftex.def Info: Ocup1_10.png  used on input line 1455.
+Package pdftex.def Info: Ocup1_10.png  used on input line 1453.
 (pdftex.def)             Requested size: 155.6971pt x 118.04955pt.
-<Ocup2_10.png, id=875, 410.4936pt x 310.0383pt>
+<Ocup2_10.png, id=876, 410.4936pt x 310.0383pt>
 File: Ocup2_10.png Graphic file (type png)
 <use Ocup2_10.png>
-Package pdftex.def Info: Ocup2_10.png  used on input line 1463.
+Package pdftex.def Info: Ocup2_10.png  used on input line 1461.
 (pdftex.def)             Requested size: 155.6971pt x 117.59343pt.
-<Ocup3_10.png, id=876, 410.4936pt x 310.761pt>
+<Ocup3_10.png, id=877, 410.4936pt x 310.761pt>
 File: Ocup3_10.png Graphic file (type png)
 <use Ocup3_10.png>
-Package pdftex.def Info: Ocup3_10.png  used on input line 1471.
+Package pdftex.def Info: Ocup3_10.png  used on input line 1469.
 (pdftex.def)             Requested size: 155.6971pt x 117.86754pt.
-<Ocup1_200.png, id=877, 406.8801pt x 308.5929pt>
+<Ocup1_200.png, id=878, 406.8801pt x 308.5929pt>
 File: Ocup1_200.png Graphic file (type png)
 <use Ocup1_200.png>
-Package pdftex.def Info: Ocup1_200.png  used on input line 1485.
+Package pdftex.def Info: Ocup1_200.png  used on input line 1483.
 (pdftex.def)             Requested size: 155.6971pt x 118.08583pt.
-<Ocup2_200.png, id=878, 407.6028pt x 307.1475pt>
+<Ocup2_200.png, id=879, 407.6028pt x 307.1475pt>
 File: Ocup2_200.png Graphic file (type png)
 <use Ocup2_200.png>
-Package pdftex.def Info: Ocup2_200.png  used on input line 1493.
+Package pdftex.def Info: Ocup2_200.png  used on input line 1491.
 (pdftex.def)             Requested size: 155.6971pt x 117.32652pt.
-<Ocup3_200.png, id=879, 409.0482pt x 307.8702pt>
+<Ocup3_200.png, id=880, 409.0482pt x 307.8702pt>
 File: Ocup3_200.png Graphic file (type png)
 <use Ocup3_200.png>
-Package pdftex.def Info: Ocup3_200.png  used on input line 1501.
+Package pdftex.def Info: Ocup3_200.png  used on input line 1499.
 (pdftex.def)             Requested size: 155.6971pt x 117.18448pt.
 
 
 [29 <./Ocup1_10.png> <./Ocup2_10.png> <./Ocup3_10.png>]
-<Ocup1_5000.png, id=928, 409.0482pt x 309.3156pt>
+<Ocup1_5000.png, id=929, 409.0482pt x 309.3156pt>
 File: Ocup1_5000.png Graphic file (type png)
 <use Ocup1_5000.png>
-Package pdftex.def Info: Ocup1_5000.png  used on input line 1515.
+Package pdftex.def Info: Ocup1_5000.png  used on input line 1513.
 (pdftex.def)             Requested size: 155.6971pt x 117.73465pt.
-<Ocup2_5000.png, id=929, 412.6617pt x 309.3156pt>
+<Ocup2_5000.png, id=930, 412.6617pt x 309.3156pt>
 File: Ocup2_5000.png Graphic file (type png)
 <use Ocup2_5000.png>
-Package pdftex.def Info: Ocup2_5000.png  used on input line 1523.
+Package pdftex.def Info: Ocup2_5000.png  used on input line 1521.
 (pdftex.def)             Requested size: 155.6971pt x 116.70573pt.
-<Ocup3_5000.png, id=930, 410.4936pt x 310.0383pt>
+<Ocup3_5000.png, id=931, 410.4936pt x 310.0383pt>
 File: Ocup3_5000.png Graphic file (type png)
 <use Ocup3_5000.png>
-Package pdftex.def Info: Ocup3_5000.png  used on input line 1531.
+Package pdftex.def Info: Ocup3_5000.png  used on input line 1529.
 (pdftex.def)             Requested size: 155.6971pt x 117.59343pt.
 
 
 [30 <./Ocup1_200.png> <./Ocup2_200.png> <./Ocup3_200.png> <./Ocup1_5000.png> <.
 /Ocup2_5000.png> <./Ocup3_5000.png>]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-1567.
+1565.
 
 (C:\Users\ericg\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 
 [31]
-<Fluctuacions.png, id=992, 462.528pt x 346.896pt>
+<Fluctuacions.png, id=993, 462.528pt x 346.896pt>
 File: Fluctuacions.png Graphic file (type png)
 <use Fluctuacions.png>
-Package pdftex.def Info: Fluctuacions.png  used on input line 1679.
+Package pdftex.def Info: Fluctuacions.png  used on input line 1677.
 (pdftex.def)             Requested size: 291.92836pt x 218.9585pt.
 
 
 [32]
 
 [33 <./Fluctuacions.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1691--1692
+Underfull \hbox (badness 10000) in paragraph at lines 1689--1690
 []\OT1/cmr/m/it/10 Maxwell-Boltzmann dis-tri-bu-ti-on\OT1/cmr/m/n/10 . Wiki-pe-
 dia. []$\OT1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Maxwell % E2
  % 80 %
  []
 
 
-Underfull \hbox (badness 5064) in paragraph at lines 1703--1704
+Underfull \hbox (badness 5064) in paragraph at lines 1701--1702
 []\OT1/cmr/m/it/10 Fluctuation{dissipation the-o-rem\OT1/cmr/m/n/10 . Wiki-pe-d
 ia. []$\OT1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Fluctuation %
  E2 % 80 %
@@ -1621,7 +1621,7 @@ Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
  ) 
 Here is how much of TeX's memory you used:
  37033 strings out of 473682
- 733987 string characters out of 5719215
+ 733984 string characters out of 5719215
  1953810 words of memory out of 5000000
  57523 multiletter control sequences out of 15000+600000
  576530 words of font info for 102 fonts, out of 8000000 for 9000
@@ -1674,9 +1674,9 @@ pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmti8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmtt8.pfb>
-Output written on "Treball de Simulació.pdf" (59 pages, 8103665 bytes).
+Output written on "Treball de Simulació.pdf" (59 pages, 8103889 bytes).
 PDF statistics:
- 3298 PDF objects out of 3580 (max. 8388607)
+ 3299 PDF objects out of 3580 (max. 8388607)
  2065 named destinations out of 2073 (max. 500000)
  595 words of extra memory for PDF output out of 10000 (max. 10000000)
 
