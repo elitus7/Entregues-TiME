@@ -33,7 +33,7 @@
 \contentsline {subsection}{\numberline {3.4.1}Anàlisi dels resultats}{32}{subsection.3.4.1}%
 \contentsline {chapter}{Bibliografia}{34}{chapter*.41}%
 \contentsline {chapter}{Annexos}{35}{section*.42}%
-\contentsline {section}{\numberline {A}Gas d'Esferes Dures}{35}{section.1..1}%
+\contentsline {section}{\numberline {A}Gas d'esferes dures}{35}{section.1..1}%
 \contentsline {subsection}{\numberline {A.1}Codi original i distribució de velocitats}{35}{subsection.1..1.1}%
 \contentsline {subsection}{\numberline {A.2}Implementació del termostat d'Andersen i anàlisi de la distribució d'energies}{37}{subsection.1..1.2}%
 \contentsline {subsection}{\numberline {A.3}Addició d'un camp gravitatori}{44}{subsection.1..1.3}%

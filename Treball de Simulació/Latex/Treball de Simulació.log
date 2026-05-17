@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  17 MAY 2026 16:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  17 MAY 2026 17:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1617,7 +1617,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `"Treball de Simulació".out' has not changed
 .
-(rerunfilecheck)             Checksum: EE2F153E3C8172B48CB4225C36E3C71E;9485.
+(rerunfilecheck)             Checksum: 6DF8435565C4BC197FF4D28C8CE95629;9485.
  ) 
 Here is how much of TeX's memory you used:
  37033 strings out of 473682
@@ -1674,7 +1674,7 @@ pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmti8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmtt8.pfb>
-Output written on "Treball de Simulació.pdf" (59 pages, 8103889 bytes).
+Output written on "Treball de Simulació.pdf" (59 pages, 8103881 bytes).
 PDF statistics:
  3299 PDF objects out of 3580 (max. 8388607)
  2065 named destinations out of 2073 (max. 500000)
