@@ -20,7 +20,7 @@
 \contentsline {section}{\numberline {2.3}Anàlisi del coeficient de compressibilitat isoterma}{17}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Factor de compressibilitat isoterma per un líquid de Lennard-Jones}{17}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Factor de compressibilitat isoterma per un gas de Lennard-Jones}{20}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Mètode alternatiu (càlcul amb la densitat)}{22}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.3}Mètode alternatiu (càlcul amb la densitat)}{23}{subsection.2.3.3}%
 \contentsline {chapter}{\numberline {3}Creació d'una simulació pròpia}{24}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introducció i fonament teòric}{24}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Modelització i implementació de la regla de Metròpolis}{24}{section.3.2}%
@@ -30,9 +30,9 @@
 \contentsline {subsection}{\numberline {3.3.2}Garantia d'assoliment de l'estat d'equilibri tèrmic.}{28}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Temperatura crítica}{30}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}Estudi de les fluctuacions en l'energia}{31}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Anàlisi dels resultats}{33}{subsection.3.4.1}%
-\contentsline {chapter}{Bibliografia}{34}{chapter*.40}%
-\contentsline {chapter}{Annexos}{35}{section*.41}%
+\contentsline {subsection}{\numberline {3.4.1}Anàlisi dels resultats}{32}{subsection.3.4.1}%
+\contentsline {chapter}{Bibliografia}{34}{chapter*.41}%
+\contentsline {chapter}{Annexos}{35}{section*.42}%
 \contentsline {section}{\numberline {A}Gas d'Esferes Dures}{35}{section.1..1}%
 \contentsline {subsection}{\numberline {A.1}Codi original i distribució de velocitats}{35}{subsection.1..1.1}%
 \contentsline {subsection}{\numberline {A.2}Implementació del termostat d'Andersen i anàlisi de la distribució d'energies}{37}{subsection.1..1.2}%

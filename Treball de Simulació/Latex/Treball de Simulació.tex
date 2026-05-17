@@ -652,18 +652,18 @@ El codi corresponent a aquesta simulació el podeu trobar a l'annex \ref{annex:a
 
 # 2) Introduïm el moviment de les partícules i la gravetat.
 for i in range(Natoms): 
-# Guardem la component Z de la velocitat anterior per tal de posar-la a l'histograma.
-old_vz = p[i].z / mass  
+	# Guardem la component Z de la velocitat anterior per tal de posar-la a l'histograma.
+	old_vz = p[i].z / mass  
 	
-# Modifiquem la component Z del moment lineal de les partícules per introduir els efectes del camp gravitatori.
-p[i].z -= mass * g * dt 
+	# Modifiquem la component Z del moment lineal de les partícules per introduir els efectes del camp gravitatori.
+	p[i].z -= mass * g * dt 
 	
-# Usant el nou moment, actualitzem les posicions.
-apos[i] = apos[i] + (p[i]/mass)*dt
-Atoms[i].pos = apos[i]
+	# Usant el nou moment, actualitzem les posicions.
+	apos[i] = apos[i] + (p[i]/mass)*dt
+	Atoms[i].pos = apos[i]
 	
-# Actualitzem l'histograma.
-interchange(old_vz, p[i].z / mass)	
+	# Actualitzem l'histograma.
+	interchange(old_vz, p[i].z / mass)	
 \end{lstlisting}
 
 Tal i com es pot veure, l'únic canvi destacable\footnote{Recordem que $\mathrm{d}t = 10^{-5}$ s.} és que, en comptes d'usar l'equació del moviment per les partícules
@@ -1095,6 +1095,14 @@ Tal i com podem observar a la figura $\ref{fig_gas}$, hi ha una clara tendència
 
 Així doncs, en aquestes condicions, el fluid de Lennard-Jones s'estarà comportant quasi-idealment, consegüentment, la $\kappa_T$ tendirà en certa manera a la $\kappa_{T,ideal}$.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.52\linewidth]{screenshot007}
+	\caption{Distribució radial $g(r)$ obtinguda per $N = 500$, $P = 0,015$ i temperatura molt elevada després de 10110 cicles. Es pot veure, efectivament, com tenim una distribució corresponent a un gas d'esferes dures; les úniques interaccions entre les partícules del gas es donen quan es produeix una col·lisió física. Les interaccions a llarg abast són negligibles.}
+	\label{fig:screenshot007}
+\end{figure}
+
+
 \subsection{Mètode alternatiu (càlcul amb la densitat)}
 El factor de compressibilitat calculat segons l'expressió $\eqref{kT}$ també es podria estimar a partir dels valors de la densitat reescrivint-ho segons
 \begin{equation}
@@ -1141,7 +1149,7 @@ Addicionalment, podem observar a la taula de resultats $\ref{taula_densitat}$ qu
 
 \section{Introducció i fonament teòric}
 
-L’objectiu d’aquest apartat és estudiar el comportament d’un sistema de $N$ partícules independents distribuïdes en tres nivells d’energia: $\epsilon_0 = 0$, $\epsilon_1 = \epsilon$ i $\epsilon_2 = 10\epsilon$. El sistema no es resoldrà analíticament, sinó que se’n simularà l’evolució cap a l’equilibri tèrmic implementant una regla de Metròpolis. Aquest mètode permet generar una seqüència d’estats on la probabilitat de trobar el sistema en una configuració concreta acaba convergint cap a la distribució de Boltzmann. La implementació d'aquesta regla és la següent. 
+L’objectiu d’aquest apartat és estudiar el comportament d’un sistema de $N$ partícules independents distribuïdes en tres nivells d’energia: $\epsilon_0 = 0$, $\epsilon_1 = \epsilon$ i $\epsilon_2 = 10\epsilon$\footnote{Aquest sistema es correspon amb el problema 35 de la col·lecció de problemes de l'assignatura \textit{Termodinàmica i Mecànica Estadística} (vegeu \cite{p35}).}. El sistema no es resoldrà analíticament, sinó que se’n simularà l’evolució cap a l’equilibri tèrmic implementant una regla de Metròpolis. Aquest mètode permet generar una seqüència d’estats on la probabilitat de trobar el sistema en una configuració concreta acaba convergint cap a la distribució de Boltzmann. La implementació d'aquesta regla és la següent. 
 
 La simulació comença amb les partícules distribuïdes uniformement entre els tres nivells energètics possibles. A partir d'aquí s'apliquen els següents passos:  
 
@@ -1163,7 +1171,7 @@ Aquest procés es repeteix iterativament fins arribar a l'estat d'equilibri tèr
 
 A continuació es troba la modelització i implementació de la regla de Metròpolis al sistema descrit a la introducció. 
 
-Tots els blocs de codi que es presenten a continuació recullen únicament les parts importants, ometent les línies de codi més trivials o de disseny de gràfiques (es poden trobar sencers a l'annex $\ref{lst:CodiSencer}$ ). També cal recalcar que tots els fragments formen part d'un mateix codi, per tant, les variables o funcions que es facin servir sense estar definides, han estat declarades en fragments anteriors.
+Tots els blocs de codi que es presenten a continuació recullen únicament les parts importants, ometent les línies de codi més trivials o de disseny de gràfiques (es poden trobar sencers a l'annex \ref{annex:2}). També cal recalcar que tots els fragments formen part d'un mateix codi, per tant, les variables o funcions que es facin servir sense estar definides, han estat declarades en fragments anteriors.
 
 \begin{lstlisting}[caption={Modelització i implementació de la regla de Metropolis.},{label={lst:Model}}]
 
@@ -1214,6 +1222,8 @@ for _ in range(It):
 
 \subsection{Anàlisi dels resultats}
 
+A partir dels histogrames obtinguts a diferents temperatures $\ref{fig:3.2}$, s'observa com la simulació basada en la regla de Metròpolis convergeix cap als resultats predits per la distribució de Boltzmann. Estudiem aquests comportaments en dos règims extrems.
+
 \begin{figure}[H]
 	\centering
 	% Primera foto
@@ -1243,8 +1253,6 @@ for _ in range(It):
 	\caption{Comparativa de l'ocupació a diferents temperatures.}
 	\label{fig:3.2}
 \end{figure}
-
-A partir dels histogrames obtinguts a diferents temperatures $\ref{fig:3.2}$, s'observa com la simulació basada en la regla de Metròpolis convergeix cap als resultats predits per la distribució de Boltzmann. Estudiem aquests comportaments en dos règims extrems.
 
 A temperatures baixes $\ref{fig:hist1}$ , l'energia tèrmica del sistema és insuficient per excitar les partícules cap a estats superiors, provocant que la gran majoria ocupi el nivell fonamental ($E=0$). En la simulació, aquest fenomen es reflecteix en la probabilitat d'acceptació de Metròpolis. Quan la temperatura és petita, el paràmetre $\beta = 1/k_B T$ pren un valor molt gran. Per a salts cap a nivells superiors ($\Delta E > 0$), l'exponent $e^{-\beta \Delta E}$ esdevé gairebé zero, per tant, la probabilitat que aquest valor sigui superior al nombre aleatori generat entre $0,0$ i $1,0$ és extremadament baixa, i la majoria de salts ascendents són denegats. En canvi, partint d'un estat inicial on els tres nivells estan poblats equiprobablement, qualsevol salt cap a un nivell d'energia inferior ($\Delta E < 0$) s'acceptarà sempre. Aquesta preferència pels salts descendents acaba empenyent el sistema cap a l'estat d'energia mínima, on la gran majoria de partícules es concentren al nivell fonamental.
 
@@ -1382,7 +1390,7 @@ També s'ha de tenir en compte que la simulació es basa en un procés aleatori.
 
 \subsection{Garantia d'assoliment de l'estat d'equilibri tèrmic.}
 
-Per garantir l'assoliment de l'estat d'equilibri tèrmic, s'ha seguit el procediment següent.
+Per garantir l'assoliment de l'estat d'equilibri tèrmic, s'ha seguit el següent procediment.
 
 En aquest cas no s'ha utilitzat la funció OcupacioCodi(T) ja que, com s'ha comentat, aquesta elimina el soroll estadístic. En el seu lloc, s'ha fet servir el bloc de codi principal $\ref{lst:Model}$, modificant-lo perquè guardi l'ocupació de cada nivell en unes llistes predeterminades cada cert nombre d'iteracions. Després, s'han graficat aquests valors respecte a les iteracions per a cada nivell energètic i s'ha aplicat una regressió lineal als últims punts de la simulació.
 
@@ -1664,14 +1672,14 @@ for g in Parti2:
 
 \subsection{Anàlisi dels resultats}
 
+Podem observar a la gràfica comparativa $\ref{fig:3.7}$ que les fluctuacions relatives de l'energia en funció del nombre de partícules ($N$) s'ajusten amb molta precisió a la llei de decreixement teòrica proporcional a $1/\sqrt{N}$. La tendència descrita pels punts de la simulació coincideix correctament amb el model analític, fet que torna a demostrar que el codi funciona perfectament. 
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{Fluctuacions.png}
+	\includegraphics[width=0.6\linewidth]{Fluctuacions.png}
 	\caption{Fluctuacions (teòriques i simulades) de l'energia respecte el nombre de partícules del sistema a una temperatura de bany fixada (200 K).}
 	\label{fig:3.7}
 \end{figure}
-
-Podem observar a la gràfica comparativa $\ref{fig:3.7}$ que les fluctuacions relatives de l'energia en funció del nombre de partícules ($N$) s'ajusten amb molta precisió a la llei de decreixement teòrica proporcional a $1/\sqrt{N}$. La tendència descrita pels punts de la simulació coincideix correctament amb el model analític, fet que torna a demostrar que el codi funciona perfectament. 
 
 Cal recordar que el programa es basa en l'atzar, i per tant, és normal que apareguin petites fluctuacions (sobretot quan tenim poques partícules), però fer la mitjana amb el nombre de mesures triat ha estat suficient per netejar aquest soroll sense que el temps d'execució es disparés, confirmant que el resultat real s'apropa molt al teòric.
 
@@ -1682,15 +1690,13 @@ Cal recordar que el programa es basa en l'atzar, i per tant, és normal que apar
 \bibitem{ref6}
 \textit{Maxwell-Boltzmann distribution}. Wikipedia. \url{https://en.wikipedia.org/wiki/Maxwell%E2%80%93Boltzmann_distribution}. Consultat el: 08/05/2026.
 \bibitem{ref2}
-Arcila Pérez, J. \textit{Revisión bibliográfica sobre dinámica molecular. Modelización, algoritmos y aplicaciones}. Universidad de Granada.
+Arcila Pérez, J. (2025). \textit{Revisión bibliográfica sobre dinámica molecular. Modelización, algoritmos y aplicaciones}. Universidad de Granada.
 \bibitem{ref3}
 Frenkel, D. \textit{Understanding Molecular Simulation. From Algorithms to Aplications}. 3a Edició. Academic Press. Capítol 7.
 \bibitem{ref5}
 McCarty, R. D. (1973). \textit{Thermodynamic Properties of Helium-4 from 2 to 1500 K at Pressures to 10$^3$ Pa}. Journal of Physical and Chemical Reference Data, \textbf{2}(4), 923–1042. \url{https://srd.nist.gov/jpcrdreprint/1.3253133.pdf}. Consultat el: 03/05/2026.
-\bibitem{ref1}
-\textit{Col·lecció de problemes de l'assignatura Termodinàmica i Mecànica Estadística}.
 \bibitem{cosa}
-C. Sainz Ubide. \textit{Estudio microscópico de transicions de fase en el fluido de esferas duras por simulación molecular.} Universidad Politécnica de Madrid.
+C. Sainz Ubide (2016). \textit{Estudio microscópico de transicions de fase en el fluido de esferas duras por simulación molecular.} Universidad Politécnica de Madrid.
 \bibitem{col}
 \textit{Isothermal–isobaric ensemble}. Wikipedia. Consultat el: 14/05/2026.
 \bibitem{teorema}
@@ -1699,6 +1705,8 @@ C. Sainz Ubide. \textit{Estudio microscópico de transicions de fase en el fluid
 Simon Stephan, Monika Thol, Jadran Vrabec, and Hans Hasse (2019). \textit{Thermophysical Properties of the Lennard-Jones Fluid: Database and Data Assessment.} Journal of Chemical Information an Modeling, \textbf{59}(10), 4248-4265.
 \bibitem{ref_lj}
 Trudu Dornbierer, F. (2006). \textit{Computer simulation study of homogeneous nucleation in a Lennard-Jones fluid} (Diss. ETH No. 16869). Swiss Federal Institute of Technology Zurich.
+\bibitem{p35}
+\textit{Col·lecció de problemes de l'assignatura Termodinàmica i Mecànica Estadística}.
 \end{thebibliography}
 
 \newpage
