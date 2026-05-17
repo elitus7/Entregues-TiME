@@ -314,7 +314,7 @@ Així doncs, atenint-nos als resultats obtinguts que prèviament hem discutit, d
 \begin{equation*}
 	\boxed{r_0 = 0,04 \text{ m}},
 \end{equation*}
-en tant i en quan aquest presenta un equilibri òptim entre temps de simulació baixos i compatibilitat amb la predicció teòrica, determinada per la distribució de Maxwell-Boltzmann (vegeu l'equació \eqref{eq:1.2}).
+en tant que aquest presenta un equilibri òptim entre temps de simulació baixos i compatibilitat amb la predicció teòrica, determinada per la distribució de Maxwell-Boltzmann (vegeu l'equació \eqref{eq:1.2}).
 
 \subsection{Conclusions}
 En aquests apartat hem estudiat en detall els efectes que té sobre la distribució de velocitats l'elecció de diferents radis atòmics per les partícules del gas d'esferes dures. Hem constatat que, si usem el radi real (radi atòmic de l'He), no s'assolia en cap moment la distribució de Maxwell-Boltzmann per falta d'interacció entre partícules.
@@ -324,7 +324,7 @@ Atenint-nos a un criteri basat en l'adaptació a la distribució teòrica i el t
 \section{Col·lectivitat canònica i anàlisi de la distribució d'energies}
 Per tal de mantenir la temperatura fixada en tot moment i, en conseqüència, treballar en la col·lectivitat NVT (canònica), cal implementar un termostat. Els termostats ens permeten regular la temperatura del sistema modelitzat reproduint la interacció d'aquest amb un bany tèrmic. Aquest bany s'ocuparà de donar o extreure energia al sistema per tal de mantenir la temperatura constant, fent que apareguin unes certes fluctuacions en l'energia total que abans no teníem. Existeixen diferents tipus de termostats, però en el nostre cas ens ocuparem d'implementar el més simple de tots: el \textit{termostat d'Andersen}.
 
-En el termostat d'Andersen\cite{ref2} es simula la interacció d'un sistema amb un bany tèrmic a partir de les col·lisions aleatòries amb partícules fictícies que modificaran la velocitat dels elements del nostre sistema (en el cas que ens ocupa, dels àtoms del gas d'He). Per tal d'aconseguir-ho, en cada pas de la simulació, seleccionarem una partícula del gas amb una determinada probabilitat $p$ i reassignarem la seva velocitat d'acord amb la distribució de Maxwell-Boltzmann per una determinada temperatura objectiu. Abans, però, caldrà escollir com de gran és l'acoblament entre el nostre sistema i el bany tèrmic. Això vindrà determinat per la freqüència de les col·lisions $\nu$ amb les partícules fictícies abans esmentades. Grans acoblaments implicaran interaccions importants amb el bany tèrmic i petits acoblaments implicaran interaccions poc importants amb aquest. 
+En el termostat d'Andersen\cite{ref2} se simula la interacció d'un sistema amb un bany tèrmic a partir de les col·lisions aleatòries amb partícules fictícies que modificaran la velocitat dels elements del nostre sistema (en el cas que ens ocupa, dels àtoms del gas d'He). Per tal d'aconseguir-ho, en cada pas de la simulació, seleccionarem una partícula del gas amb una determinada probabilitat $p$ i reassignarem la seva velocitat d'acord amb la distribució de Maxwell-Boltzmann per una determinada temperatura objectiu. Abans, però, caldrà escollir com de gran és l'acoblament entre el nostre sistema i el bany tèrmic. Això vindrà determinat per la freqüència de les col·lisions $\nu$ amb les partícules fictícies abans esmentades. Grans acoblaments implicaran interaccions importants amb el bany tèrmic i petits acoblaments implicaran interaccions poc importants amb aquest. 
 
 \subsection{Implementació del termostat d'Andersen}
 
@@ -332,7 +332,7 @@ Si les col·lisions successives no estan correlacionades (les noves velocitats n
 \begin{equation}
 	\rho(t) = \nu \mathrm{e}^{-\nu t}.
 \end{equation}
-La probabilitat de que una d'aquestes col·lisions amb les partícules fictícies associades al bany tèrmic es produeixi en un interval de temps $\Delta t$ serà
+La probabilitat que una d'aquestes col·lisions amb les partícules fictícies associades al bany tèrmic es produeixi en un interval de temps $\Delta t$ serà
 \begin{equation}
 	P(\Delta t) = \int_{0}^{\Delta t} \nu \mathrm{e}^{-\nu t} \mathrm{d}t,
 \end{equation}
@@ -344,7 +344,7 @@ i, si considerem intervals de temps petits, aleshores e$^{-\nu t} \approx 1$, de
 Així doncs, l'algoritme que usarem per incorporar el termostat d'Andersen a la simulació anterior consistirà en:
 \begin{enumerate}
 	\item Donades unes posicions i moments inicials, integrem les equacions del moviment per a un pas de temps $\Delta t$, tal i com ja tenim a la simulació original.
-	\item Seleccionem un nombre donat de partícules per a que interaccionin amb el bany tèrmic (col·lisió amb les partícules fictícies). La probabilitat de que una partícula sigui seleccionada per un pas de temps $\Delta t$ vindrà determinada per $\nu \Delta t$ (veure equació \eqref{eq:1.7}).
+	\item Seleccionem un nombre donat de partícules per a que interaccionin amb el bany tèrmic (col·lisió amb les partícules fictícies). La probabilitat que una partícula sigui seleccionada per un pas de temps $\Delta t$ vindrà determinada per $\nu \Delta t$ (veure equació \eqref{eq:1.7}).
 	\item Si la partícula $i$ ha estat seleccionada, la seva nova velocitat s'escollirà a partir de la distribució de Maxwell-Boltzmann associada a la temperatura $T$ del bany tèrmic. Tota la resta de partícules no es veuran afectades per això.
 	
 	Hem de tenir present, però, que per escollir la nova velocitat de la partícula $i$ a partir de la distribució de Maxwell-Boltzmann és necessari fer servir una \textit{transformada de Box-Muller}, que ens permet generar una distribució gaussiana amb $\mu = 0$ i $\sigma^2 = 1$ a partir d'una distribució uniforme (entre 0 i 1)\footnote{Que és la que podem generar si usem la funció \textsf{\textbackslash random()} de \textit{Python}.} per a cada component de la velocitat $\vec{v} = (v_x, v_y, v_z)$. De forma general, donades dues variables $x_1$ i $x_2$ distribuïdes de forma uniforme entre 0 i 1, podem generar dues noves variables $z_1$ i $z_2$ amb una distribució normal centrada a l'origen i amb una variància igual a la unitat segons
@@ -370,9 +370,9 @@ Així doncs, l'algoritme que usarem per incorporar el termostat d'Andersen a la 
 	\end{equation}
 \end{enumerate}
 
-Notem però, que l'algoritme proposat per Andersen té un seguit de limitacions. És un procés estocàstic en el que assignem unes noves velocitats a les partícules seleccionades, sense atenir-nos a arguments físics (només imposem que les noves velocitats segueixin la distribució de Maxwell-Boltzmann). Això provoca que, en aquesta implementació, ni el moment lineal ni l'energia es conservin, fet que pot alterar dràsticament l'evolució de les propietats dinàmiques del sistema estudiat. Existeixen altres models més refinats, però, que permeten introduir els efectes d'un bany tèrmic sense comprometre tant la realitat física de l'objecte d'estudi. Un exemple d'això n'és el termostat de Nosé-Hoover (vegeu D. Frenkel\cite{ref3}).
+Notem però, que l'algoritme proposat per Andersen té un seguit de limitacions. És un procés estocàstic en el qual assignem unes noves velocitats a les partícules seleccionades, sense atenir-nos a arguments físics (només imposem que les noves velocitats segueixin la distribució de Maxwell-Boltzmann). Això provoca que, en aquesta implementació, ni el moment lineal ni l'energia es conservin, fet que pot alterar dràsticament l'evolució de les propietats dinàmiques del sistema estudiat. Existeixen altres models més refinats, però, que permeten introduir els efectes d'un bany tèrmic sense comprometre tant la realitat física de l'objecte d'estudi. Un exemple d'això n'és el termostat de Nosé-Hoover (vegeu D. Frenkel\cite{ref3}).
 
-Convé destacar, a més a més, que la implementació de l'algoritme que simula les interaccions entre els àtoms del gas d'esferes dures i les partícules fictícies associades al bany tèrmic la fem després d'actualitzar les posicions i els moments de les partícules reals que interaccionen, garantint així que les col·lisions es produeixen sempre abans de que el bany `termalitzi' el sistema. Si ho féssim al revés, és a dir, si primer fem la termalització del sistema i després el deixem evolucionar lliurement, estarem introduint una sèrie d'errors associats a les limitacions del termostat d'Andersen (principalment, les no conservacions del moment lineal i de l'energia, produïdes per l'aleatorietat en la selecció de les noves velocitats imposada pel mètode) abans de que les col·lisions reals s'arribin a produir. En general, és recomanable, per tant, executar primer la part associada amb les interaccions reals de la simulació i, tot seguit, introduir el termostat d'Andersen (procés estocàstic), per tal de no destruir la informació física del sistema abans d'hora.
+Convé destacar, a més a més, que la implementació de l'algoritme que simula les interaccions entre els àtoms del gas d'esferes dures i les partícules fictícies associades al bany tèrmic la fem després d'actualitzar les posicions i els moments de les partícules reals que interaccionen, garantint així que les col·lisions es produeixen sempre abans de que el bany `termalitzi' el sistema. Si ho féssim al revés, és a dir, si primer fem la termalització del sistema i després el deixem evolucionar lliurement, estarem introduint una sèrie d'errors associats a les limitacions del termostat d'Andersen (principalment, les no conservacions del moment lineal i de l'energia, produïdes per l'aleatorietat en la selecció de les noves velocitats imposada pel mètode) abans que les col·lisions reals s'arribin a produir. En general, és recomanable, per tant, executar primer la part associada amb les interaccions reals de la simulació i, tot seguit, introduir el termostat d'Andersen (procés estocàstic), per tal de no destruir la informació física del sistema abans d'hora.
 
 A continuació mostrem la part del codi en \textit{Python} responsable de la implementació del termostat d'Andersen. Està dividida en dues parts, la corresponent a la transformada de Box-Muller per generar velocitats distribuïdes segons la distribució de Maxwell-Boltzmann a partir d'una distribució uniforme de $x \in [0,1]$, i la corresponent al termostat com a tal. Els codis globals, els comentaris relacionats amb al generació de gràfiques, i altres, es poden trobar a l'annex \ref{annex:a2}, aquí només n'especifiquem les parts més rellevants.
 
@@ -429,7 +429,7 @@ for i in range(Natoms):
 				
 \end{lstlisting}
 
-En aquest codi comencem definim el paràmetre $\nu$ que representa l'acoblament amb el bany tèrmic (és una freqüència de col·lisió). La probabilitat de que una partícula sigui seleccionada per interaccionar amb el bany tèrmic ve determinada per l'equació \eqref{eq:1.7}; donat el pas de temps $\mathrm{d}t = 1 \cross 10^{-5}$ s i l'acoblament $\nu = 5000 \text{ s}^{-1}$ seleccionats, tenim que $P = 0,05$. Fixem-nos en què, com major sigui $\nu$ (per un mateix pas de temps), més gran serà la probabilitat de selecció i, per tant, més ràpid forçarem la distribució de M-B.  Acte seguit imposem un bucle que ens selecciona, amb probabilitat $P$, cadascuna de les partícules del gas i, per les seleccionades, introdueix el canvi de velocitat que hem discutit al principi d'aquest apartat. 
+En aquest codi comencem definint el paràmetre $\nu$ que representa l'acoblament amb el bany tèrmic (és una freqüència de col·lisió). La probabilitat que una partícula sigui seleccionada per interaccionar amb el bany tèrmic ve determinada per l'equació \eqref{eq:1.7}; donat el pas de temps $\mathrm{d}t = 1 \cross 10^{-5}$ s i l'acoblament $\nu = 5000 \text{ s}^{-1}$ seleccionats, tenim que $P = 0,05$. Fixem-nos en què, com major sigui $\nu$ (per un mateix pas de temps), més gran serà la probabilitat de selecció i, per tant, més ràpid forçarem la distribució de M-B.  Acte seguit imposem un bucle que ens selecciona, amb probabilitat $P$, cadascuna de les partícules del gas i, per les seleccionades, introdueix el canvi de velocitat que hem discutit al principi d'aquest apartat. 
 
 \subsection{Distribució d'energies i comparació entre col·lectivitats}
 Un cop tenim implementat el termostat d'Andersen, convé estudiar quina és la distribució d'energies obtinguda i comparar-la amb l'esperada teòricament per saber així si hem procedit adequadament. La distribució teòrica d'energies $\rho(E)$ es pot deduir a partir de la distribució de velocitats de Maxwell-Boltzmann tot considerant que\footnote{El terme d'interacció no el considerem ja que no aporta energia de forma contínua. Només quan, en un determinat instant de temps, la partícules $i$ i la $j$ col·lisionen, és rellevant.}
@@ -467,7 +467,7 @@ Per veure, però, si hem passat de la col·lectivitat NVE (microcanònica) a la 
 \end{itemize}
 
 \subsection{Anàlisi dels resultats}
-Tot seguit mostrem i discutim quins han estat els principals resutlats de les simulacions del sistema del gas d'esferes dures sota col·lectivitat NVE (sense el termostat d'Andersen) i NVT (amb el termostat d'Andersen). Ens centrem en l'estudi de la distribució d'energies, l'energia total en funció del temps i les fluctuacions de l'energia total. Com que les energies són petites\footnote{Les simulacions són, aproximadament, a temperatura ambient, de manera que $k_BT \approx 4,1 \cross 10^{-21}$ J.} convé treballar en l'escala dels eV (1 eV $= 1,602\cross 10^{-19}$ J). Cada pas de temps de la simulació equival a $\mathrm{d}t = 10^{-5}$ s. A les gràfiques de $E(t)$ i de les fluctuacions es pot veure durant quant de temps s'han deixat córrer les simulacions (en termes de passos de temps $\mathrm{d}t$).
+Tot seguit mostrem i discutim quins han estat els principals resultats de les simulacions del sistema del gas d'esferes dures sota col·lectivitat NVE (sense el termostat d'Andersen) i NVT (amb el termostat d'Andersen). Ens centrem en l'estudi de la distribució d'energies, l'energia total en funció del temps i les fluctuacions de l'energia total. Com que les energies són petites\footnote{Les simulacions són, aproximadament, a temperatura ambient, de manera que $k_BT \approx 4,1 \cross 10^{-21}$ J.} convé treballar en l'escala dels eV (1 eV $= 1,602\cross 10^{-19}$ J). Cada pas de temps de la simulació equival a $\mathrm{d}t = 10^{-5}$ s. A les gràfiques de $E(t)$ i de les fluctuacions es pot veure durant quant de temps s'han deixat córrer les simulacions (en termes de passos de temps $\mathrm{d}t$).
 
 Abans d'implementar el termostat d'Andersen es va simular el sistema sota col·lectivitat NVE per veure que l'energia en funció del temps era constant (vegeu la figura \ref{fig:1.8}).
 
@@ -627,7 +627,7 @@ Per tal d'introduir els efectes d'un camp gravitatori en la nostra simulació ca
 \end{equation}
 per tant, donat un pas de temps $\mathrm{d}t$ definit, el canvi en la component Z del moment serà $\mathrm{d}p_z = -mg\mathrm{d}t$.
 
-Ara bé, hem de tenir present el següent. En les condicions en les que estem fent la simulació, tenim que l'energia tèrmica és molt més gran que l'energia potencial gravitatòria
+Ara bé, hem de tenir present el següent. En les condicions en què estem fent la simulació, tenim que l'energia tèrmica és molt més gran que l'energia potencial gravitatòria
 \begin{equation}
 	k_BT \gg m_{He}gz,
 \end{equation}
@@ -772,13 +772,13 @@ el qual, per simplicitat, el podem transformar en un potencial reduït per tal d
 
 El potencial de Lennard-Jones escrit en termes de variables reduïdes és
 \begin{equation}
-	u^*(r)=4\left(\left(\frac{1}{r^*}\right)^{12}-\left(\frac{1}{r^*}\right)^6\right)
+	u^*(r)=4\left(\left(\frac{1}{r^*}\right)^{12}-\left(\frac{1}{r^*}\right)^6\right) \label{eq:2.2}
 \end{equation}
-on veiem que clarament $u^*=u/\epsilon$ i $r^*=r/\sigma$. Amb això, les variables reduïdes amb què treballarem són les següents:
+on veiem que clarament $u^*=u/\epsilon$ i $r^*=r/\sigma$. Amb això, les variables reduïdes amb què treballarem en tot moment són les següents
 \begin{equation*}
-	T^*=\frac{k_BT}{\epsilon} \qquad P^*=\frac{P\sigma^3}{\epsilon} \qquad \rho^*=\rho\sigma^3=\frac{\sigma^3}{v} \qquad t^*=\frac{t}{\sigma}\sqrt{\frac{\epsilon}{m}}
+	T^*=\frac{k_BT}{\epsilon}, \qquad P^*=\frac{P\sigma^3}{\epsilon}, \qquad \rho^*=\rho\sigma^3=\frac{\sigma^3}{v}, \qquad t^*=\frac{t}{\sigma}\sqrt{\frac{\epsilon}{m}}.
 \end{equation*}
-Aquest potencial és un model matemàtic que descriu partícules neutres, els quals es veuen sotmeses a forces de llarg i curt abast. A continuació en detallem cada terme:
+Aquest potencial és un model matemàtic que descriu partícules neutres, les quals es veuen sotmeses a forces de llarg i curt abast. A continuació en detallem cada terme:
 \begin{itemize}
 	\item \textbf{$\epsilon$:} És la profunditat del pou de potencial i representa la força atractiva entre partícules (força d'enllaç).
 	\item \textbf{$\sigma$:} És el radi de l'esfera dura, és a dir, la distància de col·lisió. En aquest punt el potencial és exactament zero, ja que per a una distància menor, la repulsió es dispara.
@@ -786,20 +786,20 @@ Aquest potencial és un model matemàtic que descriu partícules neutres, els qu
 	\item \textbf{$-\left(\frac{1}{r^*}\right)^6$:} Aquest terme representa la força atractiva, ja que el signe negatiu implica una disminució de l'energia del sistema i, per tant, fent-lo més estable. L'atracció ve donada per forces de llarg abast com la de van der Waals o força de dispersió.
 \end{itemize}
 
-Per tant, tot i la simplicitat del potencial de Lennard-Jones, aquest descriu molt acuradament el comportament dels gasos nobles i altres partícules neutres, especialment combinant-ho amb el mètode de Monte Carlo. En canvi, aquest model no se sol utilitzar en molècules polars, no esfèriques i/o interaccions metàl·liques.
+Per tant, tot i la simplicitat del potencial de Lennard-Jones, aquest descriu molt acuradament el comportament dels gasos nobles i altres partícules neutres, especialment combinant-ho amb el mètode de Monte Carlo. En canvi, aquest model no se sol utilitzar en molècules polars, no esfèriques i/o amb interaccions metàl·liques.
 
 \section{Estudi d'estats estacionaris}
-Tal i com ens demana l'enunciat, en aquest apartat es treballa amb la col·lectivitat canònica (NVT). En aquest cas, doncs, la temperatura es manté constant com si tinguéssim el sistema en un bany tèrmic. A més, en tenir $N$ i $V$ també constants, la densitat ($\rho=\frac{N}{V}$) també es mantidrà invariant durant tot el procés.
+En aquest apartat es treballa en la col·lectivitat canònica (NVT). Així doncs, la temperatura es manté constant com si tinguéssim el sistema en un bany tèrmic. A més a més, en tenir $N$ i $V$ també constants, la densitat ($\rho=\frac{N}{V}$) també es mantidrà invariant durant tot el procés.
 
 Inicialment, es fa córrer una simulació amb $N$ = 500, $\rho$ = 0,8 i
 T = 0,2 fins arribar a l'estat estacionari mostrat a la figura $\ref{4i}$.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}[t]{0.6\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{4i}
-		\caption{Representació de la distribució radial $g(r)$ en funció de la distància entre el centre d'una partícula i qualsevol altra $r$ per l'estat estacionari assolit. Nombre de cicles: 6150.}
+		\caption{Representació de la distribució radial $g(r)$ en funció de la distància $r$ entre el centre d'una partícula i qualsevol altra per l'estat estacionari assolit. Nombre de cicles: 6150.}
 		\label{4ia}
 	\end{subfigure}
 	\hfill
@@ -816,7 +816,8 @@ T = 0,2 fins arribar a l'estat estacionari mostrat a la figura $\ref{4i}$.
 
 A continuació, es fa una segona simulació amb amb $N$ = 500, $\rho$ = 0,8 i
 $T$ = 1,5 durant uns segons i es pausa. L'estat en què es troba el sistema es mostra a la figura $\ref{4iip}$. Seguidament, es canvia $T$ = 0,2 i, mantenint tots els altres paràmetres, es torna a reprendre el programa. En aquest segon cas, l'estat estacionari assolit es mostra a la figura $\ref{4ii}$.
-\begin{figure}[H]
+
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}[t]{0.6\textwidth}
 		\centering
@@ -836,7 +837,8 @@ $T$ = 1,5 durant uns segons i es pausa. L'estat en què es troba el sistema es m
 	\caption{Diferents representacions del sistema pausat amb els paràmetres $N$ = 500, $\rho$ = 0,8 i $T_{inicial}$ = 1,5. Nombre de cicles: 1200.}
 	\label{4iip}
 \end{figure}
-\begin{figure}[H]
+
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}[t]{0.6\textwidth}
 		\centering
@@ -854,34 +856,35 @@ $T$ = 1,5 durant uns segons i es pausa. L'estat en què es troba el sistema es m
 	\caption{En ambdós casos es representa la funció radial $g(r)$ en funció de la distància entre el centre d'una partícula i qualsevol altra ($r$) amb xoc tèrmic.}
 	\label{4ii}
 \end{figure}
-Si comparem els dos estats estacionaris assolits en les dues simulacions anteriors, notem que, tot i tenir un pic molt intens i marcat a $r\approx 1,15$ , la funció radial presenta pics molt més suavitzats en el segon cas. Aquest primer pic tan intens s'anomena primera capa de coordinació i marca la mínima distància a la que poden trobar-se dues partícules, és a dir, el primer mínim de potencial. En aquest punt les forces d'atracció i de repulsió es troben compensades i per això no podem trobar partícules per sota d'aquest valor.
 
-Per tal d'explicar la diferència en el perfil dels pics, hem de pensar en el significat físic de les gràfiques. Per això, tenint en compte que la funció representada és una distribució radial de les partícules segons la distància $r$ i comparant-ho amb el valor del gas ideal que tindria $g(r)=1$ constant, concloem que uns pics més perfilats impliquen una estructura molt més ordenada. Això últim té sentit perquè els pics marcaríen els valors de $r$ on hi hauria situades la majoria de partícules, creant així una estructura cristal·lina. Com que en aquest cas la posició tan definida es traduiria en una repulsió serà menor, l'energia total serà també més baixa.
+Si comparem els dos estats estacionaris assolits en les dues simulacions anteriors, notem que, tot i tenir un pic molt intens i marcat a $r\approx 1,15$ , la funció de distribució radial presenta pics molt més suavitzats en el segon cas. Aquest primer pic tan intens s'anomena primera capa de coordinació i marca la mínima distància a la que poden trobar-se dues partícules de forma estable, és a dir, el primer mínim de potencial. En aquest punt les forces d'atracció i de repulsió es troben compensades.
+
+Per tal d'explicar la diferència en el perfil dels pics, hem de pensar en el significat físic de les gràfiques. Per això, tenint en compte que la funció representada és una distribució radial de les partícules segons la distància $r$ i comparant-ho amb el valor del gas ideal que tindria $g(r)=1$ constant\footnote{Com que en el gas ideal no hi ha forces d'interacció, és d'esperar que no hi hagi valors de $r$ en què l'energia es minimitzi i, per tant, que tinguem màxims o mínims de la funció de distribució radial. Així doncs, $g_{ideal}(r) = \text{cte.}$}, concloem que uns pics més perfilats impliquen una estructura molt més ordenada. Això últim té sentit perquè els pics marcarien els valors de $r$ on hi hauria situades la majoria de partícules, creant així una estructura cristal·lina (molt ordenada). Com que en aquest cas la posició tan definida es traduiria en una repulsió menor, l'energia total serà també més baixa.
 
 Pel que acabem d'exposar, deduïm que la figura $\ref{4i}$ representa un estat estacionari corresponent a una estructura sòlida cristal·lina que es correspon a un mínim global del sistema. Per això, deixar evolucionar el sistema directament des de l'estat inicial ens porta a una distribució radial amb pics més ben definits, fet que ens indica que el sistema ha assolit una estructura periòdica en què les partícules vibren poc al voltant de la seva posició a la xarxa. Això es veu clarament a la figura $\ref{4ib}$, on observem que la posició de cada partícula segueix un ordre molt marcat.
 
-Per contra, en la segona simulació, la distribució radial presenta un perfil similar però amb els pics més suaus, comportament que s'accentura a mesura que augmenta $r$. Això ens porta a concloure que ens trobem davant d'un estat metaestable, és a dir, el sistema es troba atrapat en un mínim d'energia local i no té suficient energia per poder sortir-ne. Així, veiem que en refredar el model de manera brusca (xoc tèrmic) obtenim una estructura amorfa que podria correspondre's amb la d'un vidre. En aquesta situació, veiem una clara absència d'ordre de llarg abast, és a dir, les partícules perden ordre a mesura que $r$ augmenta i, consegüentment, els pics se suavitzen perquè la posició de les molècules està menys definida. Això es visualitza a la figura $\ref{4iib}$ on, comparant amb el cas del sòlid cristal·lí, veiem una manca d'ordre definit.
+Per contra, en la segona simulació, la distribució radial presenta un perfil similar però amb els pics més suaus, comportament que s'accentua a mesura que augmenta $r$. Això ens porta a concloure que ens trobem davant d'un estat metaestable, és a dir, el sistema es troba atrapat en un mínim d'energia local i no té suficient energia per poder sortir-ne. Així, veiem que en refredar el sòlid de manera brusca (xoc tèrmic) obtenim una estructura amorfa que podria correspondre's amb la d'un vidre. En aquesta situació, veiem una clara absència d'ordre de llarg abast, és a dir, les partícules perden ordre a mesura que $r$ augmenta i, consegüentment, els pics se suavitzen perquè la posició de les molècules està menys definida. Això es visualitza a la figura $\ref{4iib}$ on, comparant amb el cas del sòlid cristal·lí, veiem una manca d'ordre definit.
 
-\textcolor{red}{Notem que la funció radial $g(r)$ per un $r$ molt gran tendirà a ser 1. Aquest és el comportament del gas ideal, el qual representa el màxim desordre possible, ja que no es considera la interacció entre partícules. Notem com, en les dues simulacions anteriors, la funció tendeix cap a 1 a mesura que $r$ augmenta, especialment pel cas del xoc tèrmic (sistema amorf i per tant més similar al desordre del gas ideal). NO SÉ SI ÉS VERITAT!}
+Notem que la funció radial $g(r)$ per un $r$ molt gran tendirà a ser 1 tal i com es pot veure imposant $r^* \rightarrow \infty$ a \eqref{eq:2.2}. Aquest és el comportament del gas ideal, el qual representa el màxim desordre possible, ja que no es considera la interacció entre partícules. Notem com, en les dues simulacions anteriors, la funció tendeix cap a 1 a mesura que $r$ augmenta, especialment pel cas del xoc tèrmic (tenim un sistema amorf i per tant més similar al desordre del gas ideal). 
 
 \section{Anàlisi del coeficient de compressibilitat isoterma}
-Per tal de fer l'anàlisi del coeficient de compressibilitat isoterma per la fase gas i la líquida, s'han utilitzat metodologies diferents, ja que ens hem trobat una sèrie d'impediments que comentarem més endevant.
+Per tal de fer l'anàlisi del coeficient de compressibilitat isoterma per la fase gas i la líquida, s'han utilitzat metodologies diferents, ja que ens hem trobat una sèrie d'impediments que comentarem més endavant.
 
 \subsection{Factor de compressibilitat isoterma per un líquid de Lennard-Jones}
-El coeficient de compressibilitat isoterma es pot calcular, d'entre moltes altres maneres, seguint la fórmula \eqref{kT} següent:
+El coeficient de compressibilitat isoterma es pot calcular, d'entre moltes altres maneres, seguint la fórmula \eqref{kT} següent
 \begin{equation}
 	\kappa_T=-\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T.
 	\label{kT}
 \end{equation}
 
-Com que treballarem en la col·lectivitat NPT, el volum serà una variable aleatòria i com a tal estarà sotmès a fluctuacions. Per això, necessitem treballar amb el seu valor mitjà $\langle V \rangle$.
+Com que treballarem en la col·lectivitat NPT, el volum serà una variable aleatòria i com a tal estarà sotmès a fluctuacions. Per això, treballarem amb el seu valor mitjà $\langle V \rangle$.
 
-Així, necessitem el valor de $\left( \frac{\partial \langle V \rangle}{\partial P} \right)_T$. Per fer-ho, com que treballem en un sistema isobàric-isoterm, definim la seva funció de partició com
+Així, necessitem el valor de $\left( \frac{\partial \langle V \rangle}{\partial P} \right)_T$. Per fer-ho, com que treballem en un sistema isobàric-isoterm, definim la seva funció de partició com (vegeu \cite{col})
 \begin{equation}
 	\Delta(N, P, T) = \int_0^\infty e^{-\beta P V} Z(N, V, T) \, dV
 	\label{fpnpt}
 \end{equation}
-on $Z(N,V,T)$ és la funció de partició de la col·lectivitat canònica. Per tant, l'expressió $\eqref{fpnpt}$ és una extensió de  $Z(N,V,T)$. Així, per definició estadística, el valor mitjà del volum vindrà donat per
+on $Z(N,V,T)$ és la funció de partició de la col·lectivitat canònica. Per tant, l'expressió $\eqref{fpnpt}$ és una extensió de  $Z(N,V,T)$. Així, per definició, el valor mitjà del volum vindrà donat per
 \begin{equation}
 	\langle V \rangle = \frac{\int V e^{-\beta P V} Z(V) \, dV}{\Delta}.
 	\label{vmigv}
@@ -890,12 +893,12 @@ Com que en volem la derivada parcial respecte la pressió
 \begin{equation}
 	\left( \frac{\partial \langle V \rangle}{\partial P} \right)_T = \frac{\partial}{\partial P} \left[ \frac{\int V e^{-\beta PV} Z(V) \, dV}{\Delta} \right] = \frac{(-\beta \Delta \langle V^2 \rangle) \cdot \Delta - (\Delta \langle V \rangle) \cdot (-\beta \Delta \langle V \rangle)}{\Delta^2} = -\beta \left( \langle V^2 \rangle - \langle V \rangle^2 \right).
 \end{equation}
-Ara, sabent que la variança del volum serà $\sigma_V^2 = \langle V^2 \rangle - \langle V \rangle^2$ i substituint que $\beta = \frac{1}{k_B T}$, arribem fàcilment a l'expressió següent:
+Ara, sabent que la variança del volum serà $\sigma_V^2 = \langle V^2 \rangle - \langle V \rangle^2$ i substituint que $\beta = \frac{1}{k_B T}$, arribem fàcilment a l'expressió
 \begin{equation}
 	\sigma_V^2 = -k_B T \left( \frac{\partial \langle V \rangle}{\partial P} \right)_T.
 	\label{varv}
 \end{equation}
-Cal comentar que aquesta expressió posa de manifest el Teorema de Fluctuació-Dissipació, el qual relaciona la resposta d'un sistema a una pertorbació externa, en aquest cas la pressió, amb les seves fluctuacions internes espontànies en estat d'equilibri.
+Cal comentar que aquesta expressió posa de manifest el Teorema de Fluctuació-Dissipació (vegeu \cite{teorema}), el qual relaciona la resposta d'un sistema a una pertorbació externa, en aquest cas la pressió, amb les seves fluctuacions internes espontànies en estat d'equilibri.
 
 Per tant, recuperant l'expressió $\eqref{kT}$ i substituint la derivada parcial pel que hem obtingut a l'equació$\eqref{varv}$, obtenim una relació entre el coeficient de compressibilitat isoterma i la variança del volum. Aquests dos paràmetres es relacionen segons
 \begin{equation}
@@ -919,15 +922,14 @@ relació que podem incloure dins de l'equació $\eqref{eq2.8}$:
 Com que treballem amb variables normalitzades, considerem $k_B=1$, de manera que arribem a l'expressió final
 \begin{equation}
 	\kappa_T =\frac{\langle V \rangle \sigma_\rho^2}{\langle \rho \rangle^2 T}
-	\label{calculkt}
+	\label{calculkt},
 \end{equation}
 on $\sigma_{\rho}$ seran les fluctuacions de la densitat i $\langle V \rangle$ i $\langle \rho \rangle$ són el valor mig del volum i la densitat, respectivament.
 
-Per tal d'assegurar-nos que estem treballant en fase líquida o gasosa, ens és útil tenir les dades de pressió i temperatura del punt crític per un fluid de Lennard-Jones:
-\begin{itemize}
-	\item $T_c = 1,321 \pm 0,007\, \varepsilon k_B^{-1}$.
-	\item $p_c = 0,129 \pm 0,005\, \varepsilon \sigma^{-3}$.
-\end{itemize}
+Per tal d'assegurar-nos que estem treballant en fase líquida o gasosa, ens és útil tenir les dades de pressió i temperatura del punt crític per un fluid de Lennard-Jones. Segons S. Stephan et al.\cite{crit}
+\begin{equation*}
+	T_c = 1,321 \pm 0,007, \varepsilon k_B^{-1},\hspace{0.5cm} P_c = 0,129 \pm 0,005, \varepsilon \sigma^{-3}.
+\end{equation*}
 Veiem que aquests valors determinen, efectivament, el punt crític del diagrama de fases per un fluid de Lennard-Jones mostrat a la figura $\ref{diagrama_lj}$.
 \begin{figure}[H]
 	\centering
@@ -936,30 +938,30 @@ Veiem que aquests valors determinen, efectivament, el punt crític del diagrama 
 	\label{diagrama_lj}
 \end{figure}
 
-Així, hem decidit treballar amb $N=500$ partícules i una pressió constant de $P=1,000$ dins del rang de temperatures $T=0,9-1,275$. Aquests valors ens proporcionen seguretat alhora de treballar en la fase líquida, ja que no tenim risc de vaporitzar o solidificar la fase en trobar-se en plena regió líquida del diagrama de fases mostrat anteriorment. Notem que simular una temperatura o pressió superior a la crítica no ens permetria diferenciar bé si ens trobem en estat gasós, ja que tindríem un fluid supercrític que, per definició, combina les propietats d'ambdues fases.
+Així, per l'estudi del líquid, hem decidit treballar amb $N=500$ partícules i una pressió constant de $P=1,000$ dins del rang de temperatures $T=0,9-1,275$\footnote{Recordem que estem treballant en tot moment en variables normalitzades.}. Aquests valors ens proporcionen seguretat a l'hora de treballar en la fase líquida, ja que no tenim risc de vaporitzar o solidificar la fase perquè ens trobem en plena regió líquida del diagrama de fases mostrat anteriorment. Notem que simular una temperatura o pressió superior a la crítica no ens permetria diferenciar bé si ens trobem en estat gasós, ja que tindríem un fluid supercrític que, per definició, combina les propietats d'ambdues fases.
 
 Durant les simulacions s'ha anat comprovant que no sortim d'aquest estat. Això es pot veure a la figura $\ref{liq}$ on mostrem un seguit de gràfiques propocionades pel programa de simulació emprat.
 	
 	\begin{figure}[H]
 		\centering
-		\begin{subfigure}[b]{0.35\textwidth}
+		\begin{subfigure}[t]{0.35\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{gr_liq.jpg} 
 			\caption{Distribució radial $g(r)$ per un líquid de Lennard-Jones amb els paràmetres $N=500$, $T=1,000$ i $P=1,000$ després de 10150 cicles.}
 			\label{gr_liquid}
 		\end{subfigure}
 		\hfill
-		\begin{subfigure}[b]{0.55\textwidth}
+		\begin{subfigure}[t]{0.55\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{coex_liq.png}
-			\caption{Gràfiques de coexistència líquid-gas per un fluid de Lennard-Jones amb els paràmetres $N=500$, $T=1,000$ i $P=1,000$ després de 10150 cicles.}
+			\caption{Gràfiques de coexistència líquid-gas per un fluid de Lennard-Jones amb els paràmetres $N=500$, $T=1,000$ i $P=1,000$ després de 10150 cicles. En aquest cas, estem en fase líquida.}
 			\label{coex_liq}
 		\end{subfigure}
-		\caption{Gràfiques proporcionades per la simulació per un fluid de Lennard-Jones amb els paràmetres $N=500$, $T=1,000$ i $P=1,000$ després de 10150 cicles. Els perfils són anàlegs per tot el rang de temperatures treballades.}
+		\caption{Gràfiques proporcionades per la simulació per un fluid de Lennard-Jones amb els paràmetres $N=500$, $T=1,000$ i $P=1,000$ després de 10150 cicles. Els perfils són anàlegs per tot el rang de temperatures amb que s'ha treballat.}
 		\label{liq}
 	\end{figure}
 	
-Com podem veure, la figura $\ref{gr_liquid}$ mostra una distribució que podria correspondre's perfectament amb un líquid, ja que no és completament plana com en el cas d'un gas on no hi ha cap posició preferida, però la funció tampoc experimenta pics perfilats que denotarien una estructura de sòlid (com ja hem vist a l'apartat anterior). Per acabar de comprovar que ens trobem en estat líquid, ens podem fixar en la línia verda de les gràfiques de la figura $\ref{coex_liq}$, les quals, tenint en compte que les corbes blaves representen la fase líquida, ens indiquen que ens trobem de ple en aquesta regió.
+Com podem veure, la figura $\ref{gr_liquid}$ mostra una distribució que podria correspondre's perfectament amb un líquid, ja que no és completament plana com en el cas d'un gas on no hi ha cap posició preferida (llevat d'un pic inicial que denota les possibles interaccions atractives existents a curt abast), però la funció tampoc experimenta pics perfilats que denotarien una estructura de sòlid (com ja hem vist a l'apartat anterior). Per acabar de comprovar que ens trobem en estat líquid, ens podem fixar en la línia verda de les gràfiques de la figura $\ref{coex_liq}$, les quals, tenint en compte que les corbes blaves representen la fase líquida, ens indiquen que ens trobem de ple en aquesta regió.
 
 Amb això, els resultats obtinguts per un líquid de Lennard-Jones es troben recollits a la taula $\ref{taula_liquid}$ que es mostra a continuació. En aquesta es pot veure, com a punt de control addicional a tot el mencionat abans, que la densitat del fluid es pot correspondre amb la d'un líquid, ja que és notablement superior a la que trobem pels gasos al següent subapartat.
 
@@ -969,7 +971,7 @@ Amb això, els resultats obtinguts per un líquid de Lennard-Jones es troben rec
 	\label{taula_liquid}
 	\begin{tabular}{cccccc}
 		\toprule
-		Temperatura & Pressió & $\langle V \rangle$ & $\langle \rho \rangle \pm \delta_{\rho}$ & $\langle \rho \rangle^2 \pm (\delta_{\rho})^2$ & $k_T \pm \delta_{\kappa_T}$ \\ 
+		$T$ & $P$ & $\langle V \rangle$ & $\langle \rho \rangle $ & $\langle \rho \rangle^2 $ & $k_T $ \\ 
 		\midrule
 		0,900 & 1,000 & 602,86 & $0,8290 \pm 0,0090$ & $0,687241 \pm 0,000081$ & $0,0789 \pm 0,0021$ \\
 		1,000 & 1,000 & 626,68 & $0,798 \pm 0,010$ & $0,63680 \pm 0,00010$ & $0,0984 \pm 0,0031$ \\
@@ -994,16 +996,16 @@ Finalmemt, si es representa el valor de $\kappa_T$ obtingut per a cada temperatu
 	\label{ktliquid}
 \end{figure}
 
-Podem observar que els valors del factor de compressibilitat tenen una clara tendència a l'alça en augmentar la temperatura de treball. Aquest comportament és completament lògic, ja que, en augmentar la temperatura, els líquids tendeixen a expandir-se (disminució de la densitat), disminuint així les forces de cohesió internes entre partícules. Llavors, en tenir un volum més gran, els és més fàcil comprimir-se, fet que es tradueix en una $\kappa_T$ més elevada. A més, tenint en compte que cada cop estem donant més energia tèrmica al sistema en forma d'energia cinètica, les molècules del líquid poden començar a agitar-se cada cop més, fent que les fluctuacions en el volum (i per tant en la pressió) siguin considerables i, com que el seu quadrat és directament proporcional al factor de compressibilitat, aquest creixerà ràpidament.
+Podem observar que els valors del factor de compressibilitat tenen una clara tendència a l'alça en augmentar la temperatura de treball. Aquest comportament és completament lògic, ja que, en augmentar la temperatura, els líquids tendeixen a expandir-se (disminució de la densitat), reduint així les forces de cohesió internes entre partícules. Llavors, en tenir un volum més gran, els és més fàcil comprimir-se, fet que es tradueix en una $\kappa_T$ més elevada. A més, tenint en compte que cada cop estem donant més energia tèrmica al sistema en forma d'energia cinètica, les molècules del líquid poden començar a agitar-se cada cop més, fent que les fluctuacions en el volum (i per tant en la pressió) siguin considerables i, com que el seu quadrat és directament proporcional al factor de compressibilitat, aquest creixerà ràpidament.
 
 En aquesta fase no tenim cap valor de referència amb què comparar $\kappa_T$, tal i com passarà amb el gas ideal, però podem destacar el fet que els resultats obtinguts siguin molt propers a zero (i, per tant, molt menors al cas dels gasos que veurem més endevant). Aquests valors pel factor de compressibilitat isotèrmica per un líquid són compleament coherents amb l'esperat, ja que els líquids són fluids pràcticament incompressibles.
 
 \subsection{Factor de compressibilitat isoterma per un gas de Lennard-Jones}
-Incialment, la idea era fer aquest estudi amb el mateix mètode emprat a l'apartat anterior, ja que el mètode aprofita a la perfecció les fluctuacions que ens presenta el mètode de Monte Carlo.
+Inicialment, la idea era fer aquest estudi seguint la mateixa metodologia que l'emprada a l'apartat anterior, ja que aquest aprofita a la perfecció les fluctuacions que ens presenta el mètode de Monte Carlo.
 
-Malauradament, tot i ser un mètode que s'ajusta molt als valors proporcionats pel programa de simulació emprat, s'ha hagut de descartar per falta de significància en les mesures de la densitat. Així com amb els líquids s'obtenien valors raonables amb una incertesa bastant menor, pel cas dels gasos el càlcul resulta impossible a causa de la baixa densitat que presenten aquests. Així, el problema principal és l'elevadíssima incertesa associada a mesures de densitat molt baixes. Els resultats obtinguts a partir d'aquest mètode no tenen cap sentit físic, de manera s'ha hagut de fer l'estudi amb un mètode alternatiu.
+Malauradament, tot i ser un mètode que s'ajusta molt als valors proporcionats pel programa de simulació emprat, s'ha hagut de descartar per falta de significància en les mesures de la densitat\footnote{Les xifres significatives que dóna el programa no són suficients com per fer un estudi prou precís.}. Així com amb els líquids s'obtenien valors raonables amb una incertesa bastant menor, pel cas dels gasos el càlcul resulta impossible a causa de la baixa densitat que presenten aquests. Així, el problema principal és l'elevadíssima incertesa associada a mesures de densitat molt baixes. Els resultats obtinguts a partir d'aquest mètode no tenen cap sentit físic, de manera s'ha hagut de fer l'estudi amb un mètode alternatiu.
 
-En aquest cas tabmbé treballarem amb la col·lectivitat NPT (sistema isobàric-isoterm), la qual ens permet fixar una temperatura i una pressió per tal d'obtenir el volum com a variable.
+En aquest cas també treballarem amb la col·lectivitat NPT (sistema isobàric-isoterm), la qual ens permet fixar una temperatura i una pressió per tal d'obtenir el volum com a variable.
 
 Per tal d'estimar el comportament de $\kappa_T$ per diferents temperatures reescrivim l'equació $\eqref{kT}$ en forma de logaritme, és a dir,
 \begin{equation}
@@ -1030,22 +1032,22 @@ Per tal d'assegurar-nos que estem treballant amb la fase gas, ens hem anat fixan
 	\begin{subfigure}[b]{0.55\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{coex_gas.png}
-		\caption{Gràfiques de coexistència líquid-gas per un fluid de Lennard-Jones amb els paràmetres $N=500$, $T=1,200$ i $P=0,015$ després de 10150 cicles.}
+		\caption{Gràfiques de coexistència líquid-gas per un fluid de Lennard-Jones amb els paràmetres $N=500$, $T=1,200$ i $P=0,015$ després de 10150 cicles. En aquest cas, estem en fase gas.}
 		\label{coex_gas}
 	\end{subfigure}
-	\caption{Gràfiques proporcionades per la simulació per un fluid de Lennard-Jones amb els paràmetres $N=500$, $T=1,000$ i $P=1,000$ després de 10150 cicles. Els perfils són anàlegs per tot el rang de temperatures treballades.}
+	\caption{Gràfiques proporcionades per la simulació per un fluid de Lennard-Jones amb els paràmetres $N=500$, $T=1,000$ i $P=0,010$ després de 10150 cicles. Els perfils són anàlegs per tot el rang de temperatures treballades.}
 	\label{gass}
 \end{figure}
 
-Observant la gràfica de la distribució radial $g(r)$ mostrada a la figura $\ref{gr_gas}$, veiem que aquesta no presenta cap posició preferida per les partícules, essent així la distribució corresponent a una fase gasosa. Addicionalment, les gràfiques de la figura $\ref{coex_gas}$ ens acaben de confirmar aquesta hipòtesi, ja que la línia verda ens marca la fase en què ens trobem i aquesta sempre es troba a la regió gasosa (per sota de la corba líquid-vapor del diagrama de fases, per exemple). A més, les densitats que s'obtenen per a aquestes simulacions són valors molt baixos, la majoria propers a 0,001, fet que ens confirma, juntament amb tot el mencionat anteriorment, que treballem amb fase vapor.
+Observant la gràfica de la distribució radial $g(r)$ mostrada a la figura $\ref{gr_gas}$, veiem que aquesta no presenta cap posició preferida per les partícules llevat d'un primer pic associat a interaccions de curt abast, essent així la distribució corresponent a una fase gasosa. Addicionalment, les gràfiques de la figura $\ref{coex_gas}$ ens acaben de confirmar aquesta hipòtesi, ja que la línia verda ens marca la fase en què ens trobem i aquesta sempre es troba a la regió gasosa (per sota de la corba líquid-vapor del diagrama de fases, per exemple). A més, les densitats que s'obtenen per a aquestes simulacions són valors molt baixos, la majoria propers a 0,001, fet que ens confirma, juntament amb tot el mencionat anteriorment, que treballem amb fase vapor.
 
-A més, s'han compararat els resultats experimentals obtinguts amb la $\kappa_T$ corresponent al gas ideal. En aquest cas,
+En aquest apartat s'han compararat els resultats experimentals obtinguts amb la $\kappa_T$ corresponent al gas ideal. En aquest cas,
 \begin{equation}
 	\kappa_{T,ideal}=-\frac{1}{V} \left(\frac{\partial V}{\partial P}\right)_T = -\frac{1}{V} \left(-\frac{nRT}{P^2}\right) = \frac{nRT}{V P^2} = \frac{PV}{V P^2} = \frac{1}{P}.
 \end{equation}
 Tot i que podríem prendre la $P$ mitjana entre 0,015 i 0,010, hem cregut convenient utilitzar l'aproximació
 \begin{equation}
-	\kappa_{T,ideal}\approx\frac{\ln(P_1/P_2)}{P_1-P_2},
+	\kappa_{T,ideal}\approx\frac{\ln(P_2/P_1)}{P_2-P_1},
 \label{ktideal}
 \end{equation}
 ja que ens dóna un valor més fiable pel mètode emprat.
@@ -1056,21 +1058,19 @@ Així, a partir del mètode explicat anteriorment, els resultats obtinguts han e
 	\centering
 	\caption{Dades obtingudes a partir de la simulació i càlcul del factor de compressibilitat isoterma amb els volums per a cada valor de temperatura. Totes les variables s'expressen adimensionalment (normalitzades).}
 	\label{kt_volum_gas}
-	\smallskip
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{cccccccc}
+		\begin{tabular}{cccccc}
 			\toprule
-			Temperatura & Pressió 1 & Pressió 2 & $V_1 \pm \delta V_1$ & $V_2 \pm \delta V_2$ & $\ln(V_1)$ & $\ln(V_2)$ & $\kappa_T \pm \delta\kappa_T$ \\ 
+			$T$ & $P_1$ & $P_2$ & $V_1 $ & $V_2 $  & $\kappa_T$ \\ 
 			\midrule
-			0,900   & 0,015 & 0,010 & $(2,60 \pm 0,50) \times 10^4$ & $(4,1 \pm 1,1) \times 10^4$ & 10,17 & 10,62 & $90 \pm 67$   \\
-			1,000   & 0,015 & 0,010 & $(3,02 \pm 0,52) \times 10^4$ & $(4,6 \pm 1,7) \times 10^4$ & 10,31 & 10,73 & $83 \pm 83$   \\
-			1,100   & 0,015 & 0,010 & $(3,4 \pm 1,0) \times 10^4$   & $(5,1 \pm 2,5) \times 10^4$ & 10,43 & 10,84 & $(0,8 \pm 1,1) \times 10^2$  \\
-			1,200   & 0,015 & 0,010 & $(3,7 \pm 1,7) \times 10^4$   & $(5,7 \pm 2,5) \times 10^4$ & 10,53 & 10,94 & $(0,8 \pm 1,2) \times 10^2$  \\
-			1,250   & 0,015 & 0,010 & $(3,9 \pm 2,5) \times 10^4$   & $(5,9 \pm 3,1) \times 10^4$ & 10,58 & 10,99 & $(0,8 \pm 1,6) \times 10^2$  \\
-			1,275   & 0,015 & 0,010 & $(4,0 \pm 2,5) \times 10^4$   & $(6,0 \pm 4,7) \times 10^4$ & 10,60 & 11,00 & $(0,8 \pm 2,0) \times 10^2$  \\ 
+			0,900   & 0,015 & 0,010 & $(2,60 \pm 0,50) \times 10^4$ & $(4,1 \pm 1,1) \times 10^4$ & $90 \pm 67$   \\
+			1,000   & 0,015 & 0,010 & $(3,02 \pm 0,52) \times 10^4$ & $(4,6 \pm 1,7) \times 10^4$  & $83 \pm 83$   \\
+			1,100   & 0,015 & 0,010 & $(3,4 \pm 1,0) \times 10^4$   & $(5,1 \pm 2,5) \times 10^4$  & $(0,8 \pm 1,1) \times 10^2$  \\
+			1,200   & 0,015 & 0,010 & $(3,7 \pm 1,7) \times 10^4$   & $(5,7 \pm 2,5) \times 10^4$  & $(0,8 \pm 1,2) \times 10^2$  \\
+			1,250   & 0,015 & 0,010 & $(3,9 \pm 2,5) \times 10^4$   & $(5,9 \pm 3,1) \times 10^4$  & $(0,8 \pm 1,6) \times 10^2$  \\
+			1,275   & 0,015 & 0,010 & $(4,0 \pm 2,5) \times 10^4$   & $(6,0 \pm 4,7) \times 10^4$  & $(0,8 \pm 2,0) \times 10^2$  \\ 
 			\bottomrule
 		\end{tabular}%
-	}
+	
 \end{table}
 
 Notem que, mentre que el programa només ens proporciona el valor de la incertesa de la densitat, nosaltres necessitem tenir la del volum. Aquesta es pot obtenir fàcilment per propagació d'incerteses. Sabent que $\rho=\frac{N}{V}$,
@@ -1081,7 +1081,7 @@ Anàlogament, el coeficient de compressibilitat isoterma té la incertesa associ
 \begin{equation}
 	\delta \kappa_T = \frac{1}{|p_1 - p_2|} \sqrt{\left(\frac{\delta V_1}{V_1}\right)^2 + \left(\frac{\delta V_2}{V_2}\right)^2}.
 \end{equation}
-L'elevada incertesa en el càlcul de $\kappa_T$ és una conseqüència directa de la limitació en la precisió numèrica de les dades de la densitat ($\rho$). Atès que els valors absoluts són petits i estan acotats a només tres xifres decimals, la incertesa associada ($\delta \rho$) és considerablement elevada, generant un error molt significatiu que es va propagant i es magnifica en el càlcul final.
+L'elevada incertesa en el càlcul de $\kappa_T$ és una conseqüència directa de la limitació en la precisió numèrica de les dades de la densitat $\rho$. Atès que els valors absoluts són petits i estan acotats a només tres xifres decimals, la incertesa associada $\delta \rho$ és considerablement elevada, generant un error molt significatiu que es va propagant i es magnifica en el càlcul final.
 
 Per tal de poder visualitzar millor els resultats obtinguts, la taula $\ref{kt_volum_gas}$ s'ha graficat a la figura $\ref{fig_gas}$, juntament amb el valor del factor de compressibilitat ideal constant.
 
@@ -1091,39 +1091,39 @@ Per tal de poder visualitzar millor els resultats obtinguts, la taula $\ref{kt_v
 	\caption{Valors del coeficient de compressibilitat isotèrmica per un gas de Lennard-Jones obtinguts amb la nostra aproximació a partir dels volums comparats amb el valor d'un gas ideal.}
 	\label{fig_gas}
 \end{figure}
-Tal i com podem observar a la figura $\ref{fig_gas}$, hi ha una clara tendència cap al comportament ideal a mesura que augmentem la temperatura de treball. Això es pot explicar recordant, prèviament, que les partícules en un fluid de Lennard-Jones es troben sotmeses a un pou de potencial i, per tant, es contemplen certes interaccions entre elles. Així, en augmentar la temperatura, la seva energia cinètica també es fa més gran fins arribar a un punt on les partícules poden escapar del potencial del pou atractiu i, a més, les col·lisions entre elles seran tan ràpides que tindrem un comportament més similar a un gas d'esferes dures, en el qual les forces de llarg abast no es contemplen. En aquestes condicions, el fluid de Lennard-Jones s'estarà comportant similarment a un gas ideal i, consegüentment, la $\kappa_T$ tendirà a la $\kappa_{T,ideal}$.
+Tal i com podem observar a la figura $\ref{fig_gas}$, hi ha una clara tendència cap al comportament ideal a mesura que augmentem la temperatura de treball. Això es pot explicar recordant, prèviament, que les partícules en un fluid de Lennard-Jones es troben sotmeses a un pou de potencial i, per tant, es contemplen certes interaccions entre elles. Així, en augmentar la temperatura, la seva energia cinètica també es fa més gran fins arribar a un punt on les partícules poden escapar del potencial del pou atractiu i, a més a més, les col·lisions entre elles seran tan ràpides que tindrem un comportament més similar a un gas d'esferes dures, en el qual les forces de llarg abast no es contemplen. La minimització de les interaccions, principalment les de llarg abast, en augmentar la temperatura ens permet explicar la convergència del valor de la compressibilitat isoterma al del cas ideal. 
+
+Així doncs, en aquestes condicions, el fluid de Lennard-Jones s'estarà comportant quasi-idealment, consegüentment, la $\kappa_T$ tendirà en certa manera a la $\kappa_{T,ideal}$.
 
 \subsection{Mètode alternatiu (càlcul amb la densitat)}
 El factor de compressibilitat calculat segons l'expressió $\eqref{kT}$ també es podria estimar a partir dels valors de la densitat reescrivint-ho segons
 \begin{equation}
-	\kappa_T=\frac{1}{\rho}\left(\frac{\partial\rho}{\partial P}\right)_T = \left(\frac{\partial\ln(\rho)}{\partial P}\right)_T \approx \frac{\ln(\rho_1) - \ln(\rho_2)}{P_1 - P_2}.
+	\kappa_T=\frac{1}{\rho}\left(\frac{\partial\rho}{\partial P}\right)_T = \left(\frac{\partial\ln(\rho)}{\partial P}\right)_T \approx \frac{\ln(\rho_2) - \ln(\rho_1)}{P_2 - P_1}.
 \end{equation}
 El procediment seguit seria anàleg a l'anterior però fixant-nos aquest cop en el valor de la densitat en lloc del volum. Es va fer la prova per la fase gasosa i els resultats es mostren a la taula $\ref{taula_densitat}$ i a la figura $\ref{fig_densitat}$.
 
-\begin{table}[h!]
-	\centering
-	\caption{Dades obtingudes a partir de la simulació i el càlcul del factor de compressibilitat isoterma a partir de les densitats per a cada valor de temperatura. Totes les variables s'expressen adimensionalment (normalitzades).}
-	\label{taula_densitat}
-	\smallskip
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{ccccccccccc}
-			\toprule
-			Temperatura & Pressió 1 & Pressió 2 & $\rho_1$ & Incertesa $\rho_1$ & $\rho_2$ & Incertesa $\rho_2$ & $\ln(\rho_1)$ & $\ln(\rho_2)$ & $\kappa_T$ & Incertesa $\kappa_T$ \\ 
-			\midrule
-			0,900 & 0,02 & 0,01 & 0,027 & 0,003 & 0,013 & 0,003 & -3,61192 & -4,34281 & 73,0888 & 25,6125198 \\
-			1,000 & 0,02 & 0,01 & 0,023 & 0,004 & 0,011 & 0,004 & -3,77226 & -4,50986 & 73,7599 & 40,3084547 \\
-			1,100 & 0,02 & 0,01 & 0,022 & 0,003 & 0,011 & 0,003 & -3,81671 & -4,50986 & 69,3147 & 30,4918361 \\
-			1,200 & 0,02 & 0,01 & 0,019 & 0,003 & 0,010 & 0,004 & -3,96332 & -4,60517 & 64,1854 & 43,0035752 \\
-			1,250 & 0,02 & 0,01 & 0,017 & 0,002 & 0,009 & 0,005 & -4,07454 & -4,71053 & 63,5989 & 56,7875696 \\
-			1,275 & 0,02 & 0,01 & 0,017 & 0,002 & 0,009 & 0,002 & -4,07454 & -4,71053 & 63,5989 & 25,1442929 \\ 
-			\bottomrule
-		\end{tabular}%
-	}
-\end{table}
 La incertesa associada a $\kappa_T$ s'han calculat segons la propagació d'incerteses
 \begin{equation}
 	\delta \kappa_T = \frac{1}{|P_1 - P_2|} \sqrt{\left(\frac{\delta \rho_1}{\rho_1}\right)^2 + \left(\frac{\delta \rho_2}{\rho_2}\right)^2}.
 \end{equation}
+
+\begin{table}[h]
+	\centering
+	\caption{Dades obtingudes a partir de la simulació i el càlcul del factor de compressibilitat isoterma a partir de les densitats per a cada valor de temperatura. Totes les variables s'expressen adimensionalment (normalitzades).}
+	\label{taula_densitat}
+	\begin{tabular}{cccccc}
+		\toprule
+		$T$ & $P_1$ & $P_2$ & $\rho_1$ & $\rho_2$ & $\kappa_T$ \\ 
+		\midrule
+		0,900 & 0,02 & 0,01 & $0,027 \pm 0,003$ & $0,013 \pm 0,003$ & $73 \pm 26$ \\
+		1,000 & 0,02 & 0,01 & $0,023 \pm 0,004$ & $0,011 \pm 0,004$ & $74 \pm 40$ \\
+		1,100 & 0,02 & 0,01 & $0,022 \pm 0,003$ & $0,011 \pm 0,003$ & $69 \pm 30$ \\
+		1,200 & 0,02 & 0,01 & $0,019 \pm 0,003$ & $0,010 \pm 0,004$ & $64 \pm 43$ \\
+		1,250 & 0,02 & 0,01 & $0,017 \pm 0,002$ & $0,009 \pm 0,005$ & $64 \pm 57$ \\
+		1,275 & 0,02 & 0,01 & $0,017 \pm 0,002$ & $0,009 \pm 0,002$ & $64 \pm 25$ \\ 
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \begin{figure}[H]
 	\centering
@@ -1146,7 +1146,7 @@ L’objectiu d’aquest apartat és estudiar el comportament d’un sistema de $
 La simulació comença amb les partícules distribuïdes uniformement entre els tres nivells energètics possibles. A partir d'aquí s'apliquen els següents passos:  
 
 \begin{enumerate}
-	\item Es selecciona una partícula a l'atzar i se li proposa un canvi d'estat, un nivell d'energia nou escollit també de manera aleatòria.
+	\item Se selecciona una partícula a l'atzar i se li proposa un canvi d'estat, un nivell d'energia nou escollit també de manera aleatòria.
 	
 	\item Es calcula la diferència d'energies entre l'estat inicial, $E_{inicial}$, i l'estat final, $E_{final}$, mitjançant l'expressió $\Delta E = E_{final} - E_{inicial}$.
 	
@@ -1171,7 +1171,7 @@ Tots els blocs de codi que es presenten a continuació recullen únicament les p
 
 N = 1000 # Nombre de partícules del sistema.
 T = 200 # Temperatura (en K).
-It = 200000 # Nombre d'iteracions. Si al executar salta un missatge 'Cal augmentar el nombre d'iteracions', cal augmentar aquest valor. 
+It = 200000 # Nombre d'iteracions. Si l'executar salta un missatge 'Cal augmentar el nombre d'iteracions', cal augmentar aquest valor. 
 
 kb = 1.38e-23 # Constant de Boltzmann.
 eps = 1e-21 # Valor d'epsilon que apareix a l'exercici 35 (en J). Valor arbitrari. 
@@ -1179,7 +1179,7 @@ beta = 1/(kb*T)
 
 Nivells = [0,1*eps,10*eps] # Estats d'energia permesos per a cada partícula. 
 
-# Llistes buides que s'usaràn més endavant.
+# Llistes buides que s'usaran més endavant.
 Valors_E1 = []
 Valors_E2 = []
 Valors_E3 = []
@@ -1193,7 +1193,7 @@ for _ in range(It):
 
 	Dif_E = E_nov - E_in # Diferència d'energia en el canvi de nivell de la partícula.
 
-	# Definim la condició següent (regla de Metropolis): Si aquesta diferència d'energia és inferior a 0, s'accepta el canvi de nivell. Si és superior a 0, es genera un número aleatori de 0,0 a 1,0. Si aquest és inferior al exp(-beta*Dif_E), s'accepta el canvi de nivell. Si no compleix cap de les condicions anteriors, la partícula es queda en el nivell inicial. 
+	# Definim la condició següent (regla de Metròpolis): Si aquesta diferència d'energia és inferior a 0, s'accepta el canvi de nivell. Si és superior a 0, es genera un número aleatori de 0,0 a 1,0. Si aquest és inferior al exp(-beta*Dif_E), s'accepta el canvi de nivell. Si no compleix cap de les condicions anteriors, la partícula es queda en el nivell inicial. 
 	if Dif_E <= 0: 
 		PN[indexPart] = E_nov
 	else:
@@ -1220,7 +1220,7 @@ for _ in range(It):
 	\begin{subfigure}[b]{0.32\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{Hist10.png}
-		\caption{Hitograma d'ocupació a 10 K. }
+		\caption{Histograma d'ocupació a 10 K. }
 		\label{fig:hist1}
 	\end{subfigure}
 	\hfill % Espai de separació horitzontal
@@ -1228,7 +1228,7 @@ for _ in range(It):
 	\begin{subfigure}[b]{0.32\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{Hist200.png}
-		\caption{Hitograma d'ocupació a 200 K.}
+		\caption{Histograma d'ocupació a 200 K.}
 		\label{fig:hist2}
 	\end{subfigure}
 	\hfill % Espai de separació horitzontal
@@ -1236,7 +1236,7 @@ for _ in range(It):
 	\begin{subfigure}[b]{0.32\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{Hist5000.png}
-		\caption{Hitograma d'ocupació a 5000 K.}
+		\caption{Histograma d'ocupació a 5000 K.}
 		\label{fig:hist3}
 	\end{subfigure}
 	
@@ -1258,7 +1258,7 @@ A continuació trobem el codi que descriu l'ocupació mitjana en funció de la t
 
 \begin{lstlisting}[caption={Estudi de l'ocupació mitjana de cada un dels tres nivells d'energia en l'equilibri en funció de la temperatura.},{label={lst:Ocupacio}}]
 	
-# Atenció: Usant la funció de OcupacioCodi, els valors donats NO seran els mateixos que els obtinguts fora de la funció en cada executació, tot i ser el mateix codi (degut a l'aleatorietat). Nomes la usem per a estudiar l'ocupació en funcio de la Temperatura i comparació amb el valor teòric. 
+# Atenció: Usant la funció de OcupacioCodi, els valors donats NO seran els mateixos que els obtinguts fora de la funció en cada executació, tot i ser el mateix codi (degut a l'aleatorietat). Nomes la usem per estudiar l'ocupació en funció de la Temperatura i comparació amb el valor teòric. 
 
 # Funció que ens retorna l'ocupació de cada nivell per a una certa temperatura basat en la distribució de Boltzmann.
 def OcupacioTeorica(T): 
@@ -1270,7 +1270,7 @@ def OcupacioTeorica(T):
 	
 	return OcupacioT
 
-# Funció que ens retorna l'ocupació de cada nivell per a una certa temperatura generat per la regla de Metropolis (S'ha adaptat el codi original integrant una mitjana temporal (100 mesures separades per 1000 passos) per minimitzar les fluctuacions i millorar la convergència visual de la simulació.). 
+# Funció que ens retorna l'ocupació de cada nivell per a una certa temperatura generat per la regla de Metròpolis (S'ha adaptat el codi original integrant una mitjana temporal (100 mesures separades per 1000 passos) per minimitzar les fluctuacions i millorar la convergència visual de la simulació.). 
 def OcupacioCodi(T):
 	beta = 1/(kb*T)
 	PN = [random.choice(Nivells) for _ in range(N)]
@@ -1297,7 +1297,7 @@ def OcupacioCodi(T):
 		m_n1 += PN.count(eps)
 		m_n2 += PN.count(10*eps)
 	
-	return [m_n0/100, m_n1/100, m_n2/100] # Ens retorna l'ocupació mitjana a 	l'equilibri dels tres nivells d'energia. 
+	return [m_n0/100, m_n1/100, m_n2/100] # Ens retorna l'ocupació mitjana a l'equilibri dels tres nivells d'energia. 
 	
 	
 \end{lstlisting}
@@ -1331,18 +1331,14 @@ print('Nivell 3: Numero de particules = ', NP_Niv3, 'Ocupacio teorica =', NPT_Ni
 \end{lstlisting}
 
 \subsection{Anàlisi dels resultats}
-
-
-\begin{figure}[H]
+Com es pot observar a la gràfica $\ref{fig:3.1}$, les corbes d'ocupació mitjana obtingudes mitjançant la simulació reprodueixen amb gran exactitud el comportament teòric de la distribució de Boltzmann en tot el rang de temperatures. Analitzem les corbes per a cada nivell d'energia.
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{ocupacio.png}
 	\caption{Gràfic comparatiu de l'ocupació mitjana (simulat i teòric) en funció de la temperatura per als tres nivells energètics. }
 	\label{fig:3.1}
 \end{figure}
-
-Com es pot observar a la gràfica $\ref{fig:3.1}$, les corbes d'ocupació mitjana obtingudes mitjançant la simulació reprodueixen amb gran exactitud el comportament teòric de la distribució de Boltzmann en tot el rang de temperatures. Analitzem les corbes per a cada nivell d'energia.
-
-Podem veure com a temperatures baixes el nivell fonamental està saturat de partícules, mentre que els altres dos nivells estan pràcticament buits. A mesura que la temperatura del bany augmenta, les partícules comencen a tenir prou energia per saltar als estats més alts. Com a conseqüència, l'ocupació dels nivells superiors comença a pujar i la del nivell fonamental a descendir. Es pot observar com les tres corbes acaben convergint en el mateix valor a mesura que $T \to \infty$. En aquest punt, el sistema arriba a l'equidistribució, on les partícules es reparteixen de manera homogènia i l'ocupació de cada nivell és, exactament, d'un terç ($1/3$) del total. 
+Podem veure com a temperatures baixes el nivell fonamental està saturat de partícules, mentre que els altres dos nivells estan pràcticament buits. A mesura que la temperatura del bany augmenta, les partícules comencen a tenir prou energia per saltar als estats més alts. Com a conseqüència, l'ocupació dels nivells superiors comença a pujar i la del nivell fonamental a descendir. Es pot observar com les tres corbes acaben convergint en el mateix valor a mesura que $T \to \infty$. En aquest punt, el sistema arriba a l'equidistribució, on les partícules es reparteixen de manera homogènia i l'ocupació de cada nivell és, exactament, d'un terç del total. 
 
 Amb l'objectiu de quantificar la precisió de la simulació, s'ha optat per fer una comparativa numèrica a diferents temperatures fixades. La taula següent $\ref{tab:3.1}$ mostra els valors d'ocupació mitjana (simulats i teòrics) obtinguts per a diferents valors de temperatura, juntament amb el seu error relatiu associat. Els valors exposats s'han trobat executant el fragment del codi $\ref{lst:Tc}$ per a les diferents temperatures mostrades. 
 
@@ -1357,9 +1353,9 @@ Amb l'objectiu de quantificar la precisió de la simulació, s'ha optat per fer 
 		\midrule
 		  &  10  & 999,29 & 999,28 & 0,001 \\
 		  &  200   & 580,46 & 581,93 & 0,252 \\
-		 0$\epsilon $ &  400 & 500.58 &  497.13 & 0.689 \\
+		 0$\epsilon $ &  400 & 500,58 &  497,13 & 0,689 \\
 		 &  1000   & 414,15 & 414,26 & 0,027\\
-		  &  5000 & 350.79 & 350.06 &  0.209 \\
+		  &  5000 & 350,79 & 350,06 &  0,209 \\
 		\midrule
 		  & 10  & 0,71 & 0,72  & 1,089 \\
 		  &  200   & 404,04 & 402,16 & 0,464  \\
@@ -1379,7 +1375,7 @@ Amb l'objectiu de quantificar la precisió de la simulació, s'ha optat per fer 
 
 Amb aquesta comparativa podem veure de manera qualitativa l'exactitud de la nostra simulació respecte al model teòric, on l'error està gairebé sempre per sota del 1$\%$ d'error relatiu tret d'algun cas. 
 
-L'única excepció destacable és al nivell de major energia ($10\epsilon$) per a una temperatura del bany de 10 K, on tenim un error del 100 $\%$. Això és degut a que teòricament, l'ocupació mitjana hauria de ser tan sols d'uns 3,38 partícules, però en la nostra simulació en tenim 0. Això fa que l'error relatiu doni un valor del 100 $\%$, tot i nomes tenir una diferència de 3 partícules. 
+L'única excepció destacable és al nivell de major energia ($10\epsilon$) per a una temperatura del bany de 10 K, on tenim un error del 100 $\%$. Això és degut a que teòricament, l'ocupació mitjana hauria de ser tan sols d'unes 3,38 partícules, però en la nostra simulació en tenim 0. Això fa que l'error relatiu doni un valor del 100 $\%$, tot i nomes tenir una diferència de 3 partícules. 
 
 També s'ha de tenir en compte que la simulació es basa en un procés aleatori. Per això, la funció OcupacioCodi(T), que és la que ens dona els valors de l'ocupació per a cada temperatura (es pot trobar explicada en el fragment del codi $\ref{lst:Ocupacio}$ ), calcula la mitjana de molts valors un cop s'ha arribat a l'equilibri. Això permet netejar l'efecte de l'atzar i les fluctuacions del programa, fent que els resultats finals siguin molt més estables i fiables. 
 
@@ -1394,11 +1390,11 @@ L'objectiu és veure com l'ocupació convergeix cap a un valor concret a mesura 
 
 
 \begin{lstlisting}[caption={Garantia d'assoliment de l'estat d'equilibri tèrmic.}]
-# Per comprovar que s'ha arribat a l'estat d'equilibri tèrmic, previament s'ha guardat les dades de l'ocupació cada unes certes iteracions. 
+# Per comprovar que s'ha arribat a l'estat d'equilibri tèrmic, prèviament s'han guardat les dades de l'ocupació cada unes certes iteracions. 
 # Fem una regressió lineal a una part final d'aquestes dades. Si el pendent d'aquesta regressió compleix el criteri de convergència establert, considerarem que s'ha arribat a l'equilibri (idealment, caldria que el pendent fos de 0, ja que les dades no haurien de variar a l'equilibri). 
 
 # Dividim els valors obtinguts en dos. La primera part (2/3) la deixem com està. La segona part (1/3) fem una regressió lineal i trobem el pendent d'aquesta. Ho fem per als tres nivells d'energia.
-tall_1 = round((2/3*len(Valors_E1))) # Fem que el tall es situi a 2/3 dels valors (per als tres nivells).
+tall_1 = round((2/3*len(Valors_E1))) # Fem que el tall se situi a 2/3 dels valors (pels tres nivells).
 tall_2 = round((2/3*len(Valors_E2)))
 tall_3 = round((2/3*len(Valors_E3)))
 
@@ -1420,7 +1416,7 @@ y2_E = Valors_E2[tall_2:]
 x3_E = eix_x[tall_3:]
 y3_E = Valors_E3[tall_3:]
 
-# Regressions lineals per als tres nivells. m1, m2 i m3 son els pendents de les regressions lineals que volem calcular per als tres nivells energètics respectivament. 
+# Regressions lineals pels tres nivells. m1, m2 i m3 són els pendents de les regressions lineals que volem calcular per als tres nivells energètics respectivament. 
 m1, n1 = np.polyfit(x1_E, y1_E, 1)
 recta1 = [m1 * x + n1 for x in x1_E]
 print('Pendent recta 1 = ', m1)
@@ -1540,9 +1536,9 @@ Tot i això, s'ha de tenir en compte que analitzar el sistema únicament en aque
 
 \subsection{Temperatura crítica}
 
-En aquesta secció es comparen la temperatura crítica teòrica calculada a l'exercici 35 i la obtinguda mitjançant la simulació. Per trobar aquesta última, cal calcular a quina temperatura el nivell energètic superior ($\epsilon_2 = 10\epsilon$ J) comença a ser poblat, és a dir, quan comença a tenir mínim una 1 partícula. Per tal de minimitzar el soroll estadístic i obtenir un valor més precís, s'ha calculat la mitjana de 10 simulacions independents.
+En aquesta secció es comparen la temperatura crítica teòrica calculada a l'exercici 35 i l'obtinguda mitjançant la simulació. Per trobar aquesta última, cal calcular a quina temperatura el nivell energètic superior ($\epsilon_2 = 10\epsilon$ J) comença a ser poblat, és a dir, quan comença a tenir mínim una 1 partícula. Per tal de minimitzar el soroll estadístic i obtenir un valor més precís, s'ha calculat la mitjana de 10 simulacions independents.
 
-\begin{lstlisting}[caption={Temperatura crítica}]
+\begin{lstlisting}[caption={Temperatura crítica.}]
 Tc = 10*eps/(kb*math.log(N)) # Temperatura crítica trobada al exercici 35. 
 Tc_m = [] # Llista on s'afegiràn els valors de temperatura crítica trobats. S'ha optat per fer una mitjana de varis valors perquè la Tc trobava sigui exacta. 
 
@@ -1584,7 +1580,7 @@ print("Error relatiu (%) = ", abs(sum(Tc_m)/10 - Tc)*100/Tc)
 	\label{tab:3.2}
 \end{table}
 
-Com es pot observar a la taula $\ref{tab:3.2}$, l'error relatiu obtingut és de només el $3,906\%$. Aquest valor confirma la validesa de la regla de Metropolis per descriure el sistema termodinàmic de manera precisa. 
+Com es pot observar a la taula $\ref{tab:3.2}$, l'error relatiu obtingut és de només el $3,906\%$. Aquest valor confirma la validesa de la regla de Metròpolis per descriure el sistema termodinàmic de manera precisa. 
 
 Cal considerar que, com que la simulació es basa en l'atzar, cada execució és diferent i presenta petites fluctuacions aleatòries. Per aquest motiu, incrementar el nombre de mesures per calcular la mitjana permetria reduir aquesta variabilitat i obtenir un valor més exacte, tot i que el temps d'execució es dispararia. Malgrat aquesta limitació, el valor simulat s'ajusta correctament a la predicció teòrica.
 
@@ -1690,11 +1686,19 @@ Arcila Pérez, J. \textit{Revisión bibliográfica sobre dinámica molecular. Mo
 \bibitem{ref3}
 Frenkel, D. \textit{Understanding Molecular Simulation. From Algorithms to Aplications}. 3a Edició. Academic Press. Capítol 7.
 \bibitem{ref5}
-McCarty, R. D. (1973). \textit{Thermodynamic Properties of Helium-4 from 2 to 1500 K at Pressures to 10$^3$ Pa}. Journal of Physical and Chemical Reference Data, 2(4), 923–1042. \url{https://srd.nist.gov/jpcrdreprint/1.3253133.pdf}. Consultat el: 03/05/2026.
+McCarty, R. D. (1973). \textit{Thermodynamic Properties of Helium-4 from 2 to 1500 K at Pressures to 10$^3$ Pa}. Journal of Physical and Chemical Reference Data, \textbf{2}(4), 923–1042. \url{https://srd.nist.gov/jpcrdreprint/1.3253133.pdf}. Consultat el: 03/05/2026.
 \bibitem{ref1}
 \textit{Col·lecció de problemes de l'assignatura Termodinàmica i Mecànica Estadística}.
+\bibitem{cosa}
+C. Sainz Ubide. \textit{Estudio microscópico de transicions de fase en el fluido de esferas duras por simulación molecular.} Universidad Politécnica de Madrid.
+\bibitem{col}
+\textit{Isothermal–isobaric ensemble}. Wikipedia. Consultat el: 14/05/2026.
+\bibitem{teorema}
+\textit{Fluctuation–dissipation theorem}. Wikipedia. \url{https://en.wikipedia.org/wiki/Fluctuation%E2%80%93dissipation_theorem}. Consultat el: 15/05/2026.
+\bibitem{crit}
+Simon Stephan, Monika Thol, Jadran Vrabec, and Hans Hasse (2019). \textit{Thermophysical Properties of the Lennard-Jones Fluid: Database and Data Assessment.} Journal of Chemical Information an Modeling, \textbf{59}(10), 4248-4265.
 \bibitem{ref_lj}
-Trudu Dornbierer, F. (2006). \textit{Computer simulation study of homogeneous nucleation in a Lennard-Jones fluid} (Diss. ETH No. 16869) [Doctoral dissertation, Swiss Federal Institute of Technology Zurich].
+Trudu Dornbierer, F. (2006). \textit{Computer simulation study of homogeneous nucleation in a Lennard-Jones fluid} (Diss. ETH No. 16869). Swiss Federal Institute of Technology Zurich.
 \end{thebibliography}
 
 \newpage
@@ -1709,7 +1713,7 @@ Trudu Dornbierer, F. (2006). \textit{Computer simulation study of homogeneous nu
 	
 	\section{Gas d'Esferes Dures}
 	\label{annex:1}
-	En aquest annex mostrem els codis relacionats amb la primera part d'aquest treball sobre el model d'esferes dures aplicat a l'He gas. En cadascun dels codis adjuntats es comenten els procediments més importants (llevat dels de la simulació original). Els podeu trobar també en el següent repositori de \textit{GitHub}: \textbf{POSAR REPOSITORI}.
+	En aquest annex mostrem els codis relacionats amb la primera part d'aquest treball sobre el model d'esferes dures aplicat a l'He gas. En cadascun dels codis adjuntats es comenten els procediments més importants (llevat dels de la simulació original). Els podeu trobar també en el següent repositori de \textit{GitHub}: \url{https://github.com/elitus7/Entregues-TiME}.
 	
 	\subsection{Codi original i distribució de velocitats}
 	\label{annex:a1}
