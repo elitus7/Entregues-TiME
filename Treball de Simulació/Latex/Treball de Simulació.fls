@@ -326,10 +326,10 @@ INPUT .\Treball de Simulació.out
 INPUT .\Treball de Simulació.out
 INPUT Treball de Simulació.out
 INPUT Treball de Simulació.out
+OUTPUT Treball de Simulació.pdf
 INPUT .\Treball de Simulació.out
 INPUT .\Treball de Simulació.out
 OUTPUT Treball de Simulació.out
-OUTPUT Treball de Simulació.pdf
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
@@ -346,7 +346,7 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tf
 INPUT .\Treball de Simulació.toc
 INPUT .\Treball de Simulació.toc
 INPUT Treball de Simulació.toc
-OUTPUT Treball de Simulació.toc
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
@@ -361,7 +361,8 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
+OUTPUT Treball de Simulació.toc
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx5.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmib10.tfm
@@ -370,7 +371,6 @@ INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cme
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy7.tfm
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy5.tfm
-INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT .\screenshot001.png
 INPUT .\screenshot001.png
 INPUT .\screenshot001.png
@@ -745,9 +745,12 @@ INPUT .\Fluctuacions.png
 INPUT .\Fluctuacions.png
 INPUT .\Fluctuacions.png
 INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcti1000.tfm
+INPUT C:\Users\natvi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tctt0800.tfm
 INPUT Treball de Simulació.aux
 INPUT .\Treball de Simulació.out
 INPUT .\Treball de Simulació.out
+INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tctt0800.pk
+INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tctt0800.pk
 INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcti1000.pk
 INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcti1000.pk
 INPUT C:\Users\natvi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcit0800.pk
