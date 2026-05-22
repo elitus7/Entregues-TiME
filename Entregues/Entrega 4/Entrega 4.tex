@@ -36,13 +36,82 @@
 	\author{\small{1549086: Bujones Umbert, Jun Shan} \\
 		\small{1672980: González Barea, Eric} \\
 		\small{1644841: Vilarrúbias Morral, Natàlia}}
-	\date{Abril 2026}
+	\date{Maig 2026}
 	\maketitle
 	
 	% Aseguramos que las cabeceras se muestren también en la primera página
 	\thispagestyle{fancy}
 
+\textbf{Considereu un gas format per N partícules confinat en un volum $V$. Suposeu que les partícules interaccionen per parelles d'acord amb el potencial de la figura.}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\linewidth]{screenshot001}
+	\label{fig:screenshot001}
+\end{figure}
+
+\section*{\textbf{Apartat a)}}
+
+\textbf{Calculeu el segon coeficient del virial. Discutiu físicament el límit $r_1\rightarrow r_0$.}
+
+El potencial d'interacció que tenim és 
+\begin{equation}
+	\phi(r) =
+	\begin{cases}
+		\infty & \text{ per } 0 < r < r_0 \\
+		-\epsilon & \text{ per } r_0 < r < r_1 \\
+		0 & \text{ per } r > r_1
+	\end{cases}
+\end{equation}
+i, per calcular el segon coeficient del virial, podem usar que
+\begin{equation}
+	B_2(T) = -2\pi \int_0^{\infty}r^2(\mathrm{e}^{-\beta \phi(r)}-1)\mathrm{d}r,
+\end{equation}
+on, recordem, aquesta expressió és vàlida sota les aproximacions que vam estudiar a les classes de teoria\footnote{Aquestes eren, en essència, considerar que les interaccions són binàries, que el sistema és isòtrop (de manera que el potencial només depèn de la distància de separació $r$ entre dues partícules) i que $I(\beta) \ll V$ (podem interpretar això com el fet que el volum molecular és molt més petit que el del sistema).}. Així doncs, usant l'expressió donada per $\phi(r)$, calculem $B_2(T)$. Per fer-ho, desglossem l'anterior integral en les tres regions del potencial, tot obtenint que
+\begin{align*}
+	B_2(T) = & -2\pi \left[\int_0^{r_0}r^2(0-1)\mathrm{d}r + \int_{r_0}^{r_1}r^2(\mathrm{e}^{-\beta \epsilon}-1)\mathrm{d}r+\int_{r_1}^{\infty} r^2(1-1)\mathrm{d}r\right]\\
+	= & -2\pi \left[-\int_{0}^{r_0}r^2\mathrm{d}r+\int_{r_0}^{r_1}r^2(\mathrm{e}^{\beta \epsilon}-1)\mathrm{d}r\right] \\
+	= & -2\pi\left[-\frac{r_0^3}{3}+(\mathrm{e}^{\beta \epsilon}-1)\left(\frac{r_1^3}{3}-\frac{r_0^3}{3}\right)\right] \\
+	= & \frac{2\pi}{3}\left(r_1^3+\mathrm{e}^{\beta \epsilon}(r_0^3-r_1^3)\right).
+\end{align*}
+Convé ara expressar el nostre resultat en termes de la variable adimensional $\rho \equiv \frac{r_1}{r_0}$, tot arribant a
+\begin{equation}
+	\boxed{B_2(T) = \frac{2\pi r_0^3}{3}\left(\rho^3+\mathrm{e}^{\beta \epsilon}(1-\rho^3)\right)} \label{eq:3}.
+\end{equation}
+Analitzem ara físicament el límit $r_1 \rightarrow r_0$ ($\rho \rightarrow 1$). Si imposem això tenim que el segon coeficient del virial esdevé 
+\begin{equation}
+	B_2(T) = \frac{2\pi r_0^3}{3},
+\end{equation}
+que és el segon coeficient del virial que s'obté per un gas d'esferes dures de diàmetre $r_0$. Això era esperable, ja que en imposar la condició anterior, estem fent que el potencial $\phi(r)$ inicial es transformi en un potencial tipus \textit{barrera}, que és el potencial que descriu els gasos d'esferes dures\footnote{Recordem que, un dels gasos que es pot modelitzar segons aquest potencial, obtenint-ne uns resultats compatibles amb els experimentals, és l'He gas.}, és a dir
+\begin{equation}
+	\phi(r) =
+	\begin{cases}
+		\infty & \text{ per } 0 < r < r_0 \\
+		0 & \text{ per } r > r_0
+	\end{cases}
+\end{equation}
+En aquests sistemes, el potencial d'interacció entre les partícules és inexistent llevat de quan es produeix una col·lisió física entre dues partícules, moment en el qual una força repulsiva apareix. Notem que, en el cas del $\phi(r)$ de l'enunciat, tenim una barrera de potencial a $r = r_0$ però, a més a més, tenim també un terme atractiu entre $r_0$ i $r_1$.
+\section*{\textbf{Apartat b)}}
+
+\textbf{Trobeu la temperatura de Boyle i la temperatura d'inversió màxima en funció de $\rho \equiv r_1/r_0$, $\epsilon$ i $T$. En el cas de la temperatura d'inversió màxima expresseu el resultat utilitzant la funció de Lambert $W(y)$, que és solució de l'equació $y = W\mathrm{e}^W$.}
+
+La \textit{temperatura de Boyle} $T_B$ es defineix com aquella temperatura tal que $B_2(T_B) = 0$. Imposant aquesta condició sobre \eqref{eq:3}, tenim que
+\begin{equation}
+	0 = \frac{2\pi r_0^3}{3}(\rho^3+\mathrm{e}^{\frac{\epsilon}{k_BT}}(1-\rho^3)),
+\end{equation}
+com que $r_0 \neq 0$
+\begin{equation}
+	AAA
+\end{equation}
+\section*{\textbf{Apartat c)}}
+
+\textbf{Les interaccions intermoleculars del xenó es poden descriure amb aquest potencial. Considereu els valors experimentals de $B_2(T)$ que es mostren a la taula \textcolor{red}{\textbf{POSEU LA TAULA}}.} 
+
+\textbf{Ajusteu les dades i trobeu els valors dels paràmetres $\epsilon / k_B$, $\rho$ i $r_0$. Quant val $B_2(T)$ en el límit $T\rightarrow \infty$? Trobeu els valors de la temperatura de Boyle i la temperatura d'inversió màxima.}
+
+\section*{\textbf{Apartat d)}}
+
+\textbf{Considereu ara el límit $\epsilon \ll k_BT$. Trobeu les expressions aproximades per la temperatura de Boyle i la temperatura d'inversió màxima en aquest límit. Per quin rang de valors de la temperatura és vàlida aquesta aproximació? Compareu els resultats aproximats amb els exactes i discutiu les diferències. Confeccioneu un gràfic per $B_2(T)$ que s'ajusti als resultats i en què apareguin la temperatura de Boyle i la temperatura d'inversió màxima.}
 
 
 \end{document}
