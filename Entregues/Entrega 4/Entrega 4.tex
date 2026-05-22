@@ -18,6 +18,41 @@
 \usepackage{amssymb}
 \usepackage{subfigure}
 \usepackage{cancel}
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+	language=Python,                 % Lenguaje del código
+	frame=single,                    % Marco alrededor del código
+	basicstyle=\ttfamily\footnotesize, % Fuente del código
+	keywordstyle=\color{blue},       % Color para palabras clave (def, if, else...)
+	commentstyle=\color{gray},       % Color para comentarios
+	stringstyle=\color{teal},        % Color para strings
+	numbers=left,                    % Numeración de líneas
+	numberstyle=\tiny\color{gray},   % Estilo de los números de línea
+	stepnumber=1,                     % Cada cuántas líneas numerar
+	showspaces=false,                 % No mostrar espacios en blanco
+	showstringspaces=false,            % No mostrar espacios en strings
+	breaklines=true,                   % Romper líneas largas automáticamente
+	tabsize=4,                         % Tamaño de tabulación
+	captionpos=b,                      % Posición de la caption (arriba o abajo)
+	morekeywords={self, as, in},       % Palabras clave adicionales
+}
+\lstset{style=mystyle} 
+\renewcommand{\lstlistingname}{Codi}
+\captionsetup[lstlisting]{font=normal}
+\lstset{
+	inputencoding=utf8,
+	extendedchars=true,
+	literate=
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\`E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{ç}{{\c{c}}}1 {Ç}{{\c{C}}}1
+	{ï}{{\"i}}1 {Ï}{{\"I}}1
+	{ü}{{\"u}}1 {Ü}{{\"U}}1
+	{·}{{\textperiodcentered}}1
+}
+\usepackage{xcolor}
 \usepackage{float}
 \usepackage{titling} % Per controlar el títol
 \pagestyle{fancy}
@@ -105,13 +140,129 @@ com que $r_0 \neq 0$
 \end{equation}
 \section*{\textbf{Apartat c)}}
 
-\textbf{Les interaccions intermoleculars del xenó es poden descriure amb aquest potencial. Considereu els valors experimentals de $B_2(T)$ que es mostren a la taula \textcolor{red}{\textbf{POSEU LA TAULA}}.} 
+\textbf{Les interaccions intermoleculars del xenó es poden descriure amb aquest potencial. Considereu els valors experimentals de $B_2(T)$ que es mostren a la taula $\ref{taula_dades}$}
 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$T(\mathrm{K})$ & $B_2(\mathrm{cm}^3/\mathrm{mol})$ \\
+		\hline
+		\hline
+		273.16 & -154.74 \\
+		\hline
+		298.16 & -130.21 \\
+		\hline
+		323.16 & -110.62 \\
+		\hline
+		348.16 & -95.04 \\
+		\hline
+		373.16 & -82.13 \\
+		\hline
+		423.16 & -62.10 \\
+		\hline
+		473.16 & -46.74 \\
+		\hline
+		573.16 & -25.06 \\
+		\hline
+		673.16 & -10.77 \\
+		\hline
+		773.16 & -0.13 \\
+		\hline
+		873.16 & 7.95 \\
+		\hline
+		973.16 & 14.22 \\
+		\hline
+	\end{tabular}
+\caption{Valors del segon coeficient del virial en funció de la temperatura.}
+\label{taula_dades}
+\end{table} 
 \textbf{Ajusteu les dades i trobeu els valors dels paràmetres $\epsilon / k_B$, $\rho$ i $r_0$. Quant val $B_2(T)$ en el límit $T\rightarrow \infty$? Trobeu els valors de la temperatura de Boyle i la temperatura d'inversió màxima.}
+
+Per tal d'ajustar les dades experimentals a la nostra expressió pel coeficient del virial trobada a l'apartat a) (veure $\eqref{eq:3}$) utilitzem la funció \textit{curve\_fit} de la llibreria \textit{scipy.optimize} de Python. El codi complet es pot consultar a l'Annex $\ref{annex:codib2}$.
+
+L'ajust obtingut es mostra a la figura $\ref{ajustb2}$ i els valors dels paràmetres optimitzats són els següents:
+\begin{itemize}
+	\item $\varepsilon / k_B = 175,12\ \mathrm{K}$.
+	\item $\rho \,(r_1/r_0) = 1,7023$.
+	\item $r_0 = 3,6396 \times 10^{-8}\ \mathrm{cm}$.
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{AjustB2}
+	\caption{Ajust de les dades experimentals de la taula $\ref{taula_dades}$ a l'expressió teòrica obtinguda anteriorment.}
+	\label{ajustb2}
+\end{figure}
+
+Per tal d'obtenir el valor numèric del segon coeficient del virial en fer tendir la temperatura a infinit farem el límit $T \rightarrow \infty$ per l'expressió $\eqref{eq:3}$ on, clarament, la dependència amb la temperatura es troba dins del paràmetre $\beta$, definit com $\beta=\frac{1}{k_BT}$. L'expressió anterior, però, la multiplicarem pel nombre d'Avogadro, ja que les dades venen donades per mol.
+\begin{equation*}
+B_2(T \rightarrow \infty) = \frac{2\pi N_A r_0^3}{3} \left( \rho^3 + 1 \cdot (1 - \rho^3) \right) = \frac{2\pi N_A r_0^3}{3} \left( \rho^3 + 1 - \rho^3 \right) = \frac{2\pi N_A r_0^3}{3}
+\end{equation*}
+Veiem, doncs, que en augmentar la temperatura cap a infinit, el terme de l'exponencial tendeix cap a 1 i, per tant, obtenim el resultat mostrat.
+
+Ara només cal substituir pels valors numèrics de cada paràmetre, recordant que $r_0$ ha estat optimitzat en unitats de centímetres.
+\begin{equation*}
+	B_2(T \rightarrow \infty) = \frac{2\pi \cdot 6.0221 \times 10^{23} \cdot \left(3,6396 \times 10^{-8}\right)^3}{3}=\boxed{60,809 \text{ cm$^3$/mol}}.
+\end{equation*}
 
 \section*{\textbf{Apartat d)}}
 
 \textbf{Considereu ara el límit $\epsilon \ll k_BT$. Trobeu les expressions aproximades per la temperatura de Boyle i la temperatura d'inversió màxima en aquest límit. Per quin rang de valors de la temperatura és vàlida aquesta aproximació? Compareu els resultats aproximats amb els exactes i discutiu les diferències. Confeccioneu un gràfic per $B_2(T)$ que s'ajusti als resultats i en què apareguin la temperatura de Boyle i la temperatura d'inversió màxima.}
+\newpage
+\appendix
 
+\section{Codi Python de l'ajust del segon coeficient del virial pel xenó}
+\label{annex:codib2}
 
+\begin{lstlisting}[caption={Codi per l'ajust del segon coeficient del virial experimental.}]
+	from vpython import *
+import numpy as np
+from scipy.optimize import curve_fit
+import matplotlib.pyplot as plt
+import os
+import matplotlib.ticker as ticker
+
+# Dades experimentals de la taula (T en K, B2 en cm^3/mol)
+T_data = np.array([273.16, 298.16, 323.16, 348.16, 373.16, 423.16, 473.16, 573.16, 673.16, 773.16, 873.16, 973.16])
+B2_data = np.array([-154.74, -130.21, -110.62, -95.04, -82.13, -62.10, -46.74, -25.06, -10.77, -0.13, 7.95, 14.22])
+
+# B2 expressió teòrica
+def b2_teoric(T, eps_k, rho, r0_cm):
+N_A = 6.02214e23
+return (2 * np.pi * N_A * (r0_cm**3)) / 3 * (rho**3 + np.exp(eps_k / T) * (1 - rho**3))
+
+# Valors inicials (posarem valors raonables perquè acabi convergint)
+valors_inicials = [200.0, 1.5, 4e-8]
+
+# Ajust de les dades experimentals a l'expressió teòrica
+popt, pcov = curve_fit(b2_teoric, T_data, B2_data, p0=valors_inicials)
+eps_k_opt, rho_opt, r0_opt = popt
+
+# Visualitzaió dels resultats
+print("Resultats de l'ajust:")
+print(f"epsilon / k_B = {eps_k_opt:.2f} K")
+print(f"rho (r1/r0)   = {rho_opt:.4f}")
+print(f"r0            = {r0_opt:.4e} cm")
+
+# Gràfica
+plt.figure(figsize=(8, 6))
+plt.scatter(T_data, B2_data, color='red', label='Dades experimentals')
+T_fit = np.linspace(250, 1000, 200)
+ax = plt.gca()
+decimals = ticker.FormatStrFormatter('%.2f')
+ax.xaxis.set_major_formatter(decimals)
+ax.yaxis.set_major_formatter(decimals)
+plt.plot(T_fit, b2_teoric(T_fit, *popt), label='Ajust teòric', color='blue')
+plt.xlabel('Temperatura (K)')
+plt.ylabel(r'$B_2$ ($cm^3/mol$)')
+plt.legend()
+plt.grid(True)
+
+directori_actual = os.path.dirname(os.path.abspath(__file__))
+directori= os.path.dirname(directori_actual)            
+
+guardar = os.path.join(directori, 'Entrega 4', 'AjustB2.png')
+plt.savefig(guardar, dpi=300, bbox_inches='tight')
+plt.show()
+\end{lstlisting}
 \end{document}
