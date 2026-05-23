@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  23 MAY 2026 19:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  23 MAY 2026 20:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -880,7 +880,7 @@ File: AjustB2.png Graphic file (type png)
 Package pdftex.def Info: AjustB2.png  used on input line 192.
 (pdftex.def)             Requested size: 340.57814pt x 246.39845pt.
  [3 <./AjustB2.png>] [4]
-<ComparativaB2.png, id=92, 462.528pt x 346.896pt>
+<ComparativaB2.png, id=94, 462.528pt x 346.896pt>
 File: ComparativaB2.png Graphic file (type png)
 <use ComparativaB2.png>
 Package pdftex.def Info: ComparativaB2.png  used on input line 287.
@@ -934,9 +934,9 @@ AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/User
 s/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb
 ><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mtt8.pfb>
-Output written on "Entrega 4.pdf" (6 pages, 437591 bytes).
+Output written on "Entrega 4.pdf" (6 pages, 437956 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
+ 266 PDF objects out of 1000 (max. 8388607)
  85 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
