@@ -208,6 +208,87 @@ Ara només cal substituir pels valors numèrics de cada paràmetre, recordant qu
 \section*{\textbf{Apartat d)}}
 
 \textbf{Considereu ara el límit $\epsilon \ll k_BT$. Trobeu les expressions aproximades per la temperatura de Boyle i la temperatura d'inversió màxima en aquest límit. Per quin rang de valors de la temperatura és vàlida aquesta aproximació? Compareu els resultats aproximats amb els exactes i discutiu les diferències. Confeccioneu un gràfic per $B_2(T)$ que s'ajusti als resultats i en què apareguin la temperatura de Boyle i la temperatura d'inversió màxima.}
+
+Per trobar les expressions aproximades per a la temperatura de Boyle i la temperatura d'inversió màxima en el límit $\epsilon \ll k_B T$ (equivalentment, $\beta\epsilon \to 0$), reprenem l'expressió exacta del segon coeficient del virial obtinguda a l'equació (REF)
+
+En aquest règim, podem realitzar el desenvolupament en sèrie de Taylor de la funció exponencial $e^{\beta\epsilon}$ al voltant de zero
+\begin{equation*}
+	e^{\beta\epsilon} = 1 + \beta\epsilon + \frac{(\beta\epsilon)^2}{2!} + \frac{(\beta\epsilon)^3}{3!} + \dots
+\end{equation*}
+
+Si trunquem el desenvolupament a primer ordre i substituïm a l'expressió exacta del segon coeficient del virial (REF), obtenim
+
+\begin{equation}
+	B_2(T) \approx \frac{2\pi r_0^3}{3}\left(\rho^3 + (1 + \beta\epsilon)(1-\rho^3)\right) = \frac{2\pi r_0^3}{3}\left( 1 + \beta\epsilon(1-\rho^3)\right). 
+\end{equation}
+
+A partir d'ara procedim de la mateixa manera que s'ha fet a l'apartat b). 
+
+Per la temperatura de Boyle ($T_B$),
+\begin{equation}
+	B_2(T_B) = 0 = \frac{2\pi r_0^3}{3}\left( 1 + \beta\epsilon(1-\rho^3)\right),
+\end{equation}
+
+tenint en compte que $\beta = \frac{1}{k_B T}$, aïllem la temperatura obtenint
+
+\begin{equation}
+	\boxed{ T_B = \frac{\epsilon}{k_B} (\rho^3 - 1) }.
+\end{equation}
+
+Per la temperatura d'inversió màxima, $T_{\text{inv}}$, trobem $\frac{\partial B_2}{\partial T} = \frac{B_2}{T}$. (BORRAR AIXO I POSAR REF QUAN HO POSIS TU ERIC)
+
+Calculem primer la derivada parcial respecte a la temperatura de la nostra expressió aproximada
+
+\begin{equation}
+	\frac{\partial B_2(T)}{\partial T} = - \frac{2\pi r_0^3}{3} \frac{\epsilon (1 - \rho^3)}{k_B T^2} = \frac{2\pi r_0^3}{3} \frac{\epsilon (\rho^3 - 1)}{k_B T^2}.
+\end{equation}
+
+Igualant els dos termes, arribem a
+
+\begin{equation}
+	\frac{2\pi r_0^3}{3} \frac{\epsilon (\rho^3 - 1)}{k_B T^2} = \frac{2\pi r_0^3}{3 T}\left( 1 + \frac{\epsilon}{k_B T} (1-\rho^3)\right).
+\end{equation}
+
+Simplificant i aïllant la temperatura, trobem
+
+\begin{equation}
+	\boxed{ T_{\text{inv}} = \frac{2 \epsilon (\rho^3 - 1) }{k_B} }.
+\end{equation}
+
+
+
+Per determinar quantitativament el rang de validesa de l'aproximació al límit $\beta\epsilon \to 0$ , utilitzem el \textit{criteri del residu de Taylor}. L'error relatiu ($\text{Err}$) entre el valor exacte i l'aproximat per Taylor ve donat per
+
+\begin{equation}
+	\text{Err} = \left\lvert \frac{(e^{\beta\epsilon} - 1) - \beta\epsilon}{e^{\beta\epsilon} - 1} \right\rvert.
+\end{equation}
+
+Si expandim mitjançant la sèrie de Taylor tant el numerador com el denominador, l'expressió de l'error esdevé
+
+\begin{equation}
+	\text{Err} = \left\lvert \frac{\left(\beta\epsilon + \frac{1}{2}(\beta\epsilon)^2 + \frac{1}{6}(\beta\epsilon)^3 + \dots\right) - \beta\epsilon}{\beta\epsilon + \frac{1}{2}(\beta\epsilon)^2 + \frac{1}{6}(\beta\epsilon)^3 + \dots} \right\rvert = \frac{\frac{1}{2}(\beta\epsilon)^2 + \frac{1}{6}(\beta\epsilon)^3 + \dots}{\beta\epsilon + \frac{1}{2}(\beta\epsilon)^2 + \dots}
+\end{equation}
+
+Com que estem avaluant el límit d'altes temperatures ($\beta\epsilon \to 0$), les potències d'ordre superior s'aproximen a zero de manera molt més ràpida que els termes de menor grau. Per tant, el numerador queda dominat pel terme quadràtic $\frac{1}{2}(\beta\epsilon)^2$ i el denominador pel terme lineal $\beta\epsilon$, quedant
+
+\begin{equation}
+	\text{Err} \approx \frac{\frac{1}{2}(\beta\epsilon)^2}{\beta\epsilon} = \frac{1}{2}\beta\epsilon.
+\end{equation}
+
+Imposant un error relatiu màxim d'un $3\%$ ($\text{Err} \le 0.03$), podem aïllar la temperatura llindar a partir de la qual l'aproximació de $B_2(T)$ comença a ser vàlida
+\begin{equation}
+	\frac{1}{2}\left(\frac{\epsilon}{k_B T}\right) \le 0.03 \implies \frac{\epsilon}{k_B T} \le 0.06 \implies \boxed{ T \ge \frac{50 \epsilon}{3 k_B}  }.
+\end{equation}
+
+La Figura~\ref{fig:Comp} mostra la comparació gràfica entre el model exacte i l'aproximació lineal del segon coeficient del virial. La línia vertical delimita la temperatura llindar calculada per a un error del 3\%. Visualment, s'observa amb molta claredat com ambdues corbes convergeixen fins a ser pràcticament idèntiques a la regió verda, a la d'altes temperatures. En canvi, a la zona vermella, l'aproximació lineal deixa de ser representativa, ja que el terme exponencial creix ràpidament a mesura que disminueix la temperatura, divergent respecte al comportament real del sistema.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{ComparativaB2.png}
+	\caption{Comparació entre el coeficient del virial exacte i l'aproximació lineal a altes temperatures amb la delimitació del rang de validesa per a un error inferior al $3\%$.}
+	\label{fig:Comp}
+\end{figure} 
+
 \newpage
 \appendix
 
