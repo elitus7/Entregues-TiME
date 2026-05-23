@@ -83,6 +83,7 @@
 	\centering
 	\includegraphics[width=0.25\linewidth]{screenshot001}
 	\label{fig:screenshot001}
+	\caption{Potencial del sistema d'estudi.}
 \end{figure}
 
 \section*{\textbf{Apartat a)}}
@@ -135,15 +136,66 @@ La \textit{temperatura de Boyle} $T_B$ es defineix com aquella temperatura tal q
 	0 = \frac{2\pi r_0^3}{3}(\rho^3+\mathrm{e}^{\frac{\epsilon}{k_BT}}(1-\rho^3)),
 \end{equation}
 com que $r_0 \neq 0$
+\begin{align*}
+	0 & = \rho^3+\mathrm{e}^{\beta \epsilon}-\mathrm{e}^{\beta \epsilon}\rho^3 \Rightarrow \\
+	\Rightarrow \mathrm{e}^{\beta\varepsilon} & = \frac{\rho^3}{\rho^3-1} \Rightarrow \\
+	\Rightarrow \beta\varepsilon & = \ln \left(\frac{\rho^3}{\rho^3-1}\right) \Rightarrow \\
+	\Rightarrow \frac{1}{T_B} & = \frac{k_B}{\varepsilon}\ln \left(\frac{\rho^3}{\rho^3-1}\right),
+\end{align*}
+de manera que
 \begin{equation}
-	AAA
+	\boxed{T_B = \frac{\varepsilon}{k_B}\frac{1}{\ln\left(\frac{\rho^3}{\rho^3-1}\right)}}.
 \end{equation}
+
+Pel que fa a la \textit{temperatura d'inversió màxima} $T_i$, recordem que aquesta és la temperatura tal que se satisfà que
+\begin{equation}
+	T\derivative{B_2(T)}{T}-B_2(T)=0. \label{eq:8}
+\end{equation}
+
+A partir de l'equació \eqref{eq:3}, tenim que
+\begin{equation*}
+	\derivative{B_2(T)}{T} = \frac{\partial B_2}{\partial \beta}\frac{\partial \beta}{\partial T} = \frac{2\pi r_0^3}{3}(1-\rho^3)\varepsilon\mathrm{e}^{\beta \varepsilon}\cdot\left(-\frac{1}{k_BT^2}\right),
+\end{equation*}
+i, substituint aquest resultat sobre \eqref{eq:8}, tenim que
+\begin{equation*}
+	\frac{2\pi r_0^3\varepsilon}{3k_BT}(1-\rho^2)\mathrm{e}^{\frac{\varepsilon}{k_BT}} = \frac{2\pi r_0^3}{3}(\rho^3+\mathrm{e}^{\frac{\varepsilon}{k_BT}}(1-\rho^3)),
+\end{equation*}
+simplificant, reordenant i definint $x\equiv \frac{\varepsilon}{k_BT}$
+\begin{equation*}
+	x\mathrm{e}^x=\frac{\rho^3}{1-\rho^3} + \mathrm{e}^x,
+\end{equation*}
+de manera que
+\begin{equation*}
+	\mathrm{e}^x(x-1) = \frac{\rho^3}{1-\rho^3},
+\end{equation*}
+i, multiplicant adequadament per $\mathrm{e}^{-1}$ a banda i banda de la igualtat, obtenim
+\begin{equation}
+	\mathrm{e}^{x-1}(x-1) = \frac{1}{\mathrm{e}}\frac{\rho^3}{1-\rho^3}.
+\end{equation}
+Podem comparar aquesta darrera equació amb l'\textit{equació de Lambert}
+\begin{equation}
+	y = W\mathrm{e}^W
+\end{equation}
+que admet com a solució $W(y)$. Així doncs, arribem a la conclusió de que
+\begin{equation*}
+	x-1 = W\left(\frac{1}{\mathrm{e}}\frac{\rho^3}{1-\rho^3}\right),
+\end{equation*}
+o, el que és el mateix 
+\begin{equation*}
+	\frac{\varepsilon}{k_BT_i}-1 = W\left(\frac{1}{\mathrm{e}}\frac{\rho^3}{1-\rho^3}\right),
+\end{equation*}
+de manera que, si aïllem $T_i$, obtenim
+\begin{equation}
+	\boxed{T_i=\frac{\varepsilon}{k_B}\frac{1}{W\left(\frac{1}{\mathrm{e}}\frac{\rho^3}{1-\rho^3}\right)+1}}. 	
+\end{equation}
+
 \section*{\textbf{Apartat c)}}
 
 \textbf{Les interaccions intermoleculars del xenó es poden descriure amb aquest potencial. Considereu els valors experimentals de $B_2(T)$ que es mostren a la taula $\ref{taula_dades}$}
 
 \begin{table}[H]
 	\centering
+	\caption{Valors del segon coeficient del virial en funció de la temperatura.}
 	\begin{tabular}{|c|c|}
 		\hline
 		$T(\mathrm{K})$ & $B_2(\mathrm{cm}^3/\mathrm{mol})$ \\
@@ -174,7 +226,6 @@ com que $r_0 \neq 0$
 		973.16 & 14.22 \\
 		\hline
 	\end{tabular}
-\caption{Valors del segon coeficient del virial en funció de la temperatura.}
 \label{taula_dades}
 \end{table} 
 \textbf{Ajusteu les dades i trobeu els valors dels paràmetres $\epsilon / k_B$, $\rho$ i $r_0$. Quant val $B_2(T)$ en el límit $T\rightarrow \infty$? Trobeu els valors de la temperatura de Boyle i la temperatura d'inversió màxima.}
