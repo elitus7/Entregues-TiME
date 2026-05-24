@@ -114,7 +114,7 @@ Convé ara expressar el nostre resultat en termes de la variable adimensional $\
 \begin{equation}
 	\boxed{B_2(T) = \frac{2\pi r_0^3}{3}\left(\rho^3+\mathrm{e}^{\beta \epsilon}(1-\rho^3)\right)} \label{eq:3}.
 \end{equation}
-Analitzem ara físicament el límit $r_1 \rightarrow r_0$ ($\rho \rightarrow 1$). Si imposem això tenim que el segon coeficient del virial esdevé 
+Analitzem ara físicament el límit $r_1 \rightarrow r_0$ ($\rho \rightarrow 1$). Si imposem això tenim 
 \begin{equation}
 	B_2(T) = \frac{2\pi r_0^3}{3},
 \end{equation}
@@ -247,23 +247,23 @@ L'ajust obtingut es mostra a la figura $\ref{ajustb2}$ i els valors dels paràme
 	\label{ajustb2}
 \end{figure}
 
-Per tal d'obtenir el valor numèric del segon coeficient del virial en fer tendir la temperatura a infinit farem el límit $T \rightarrow \infty$ per l'expressió $\eqref{eq:3}$ on, clarament, la dependència amb la temperatura es troba dins del paràmetre $\beta$, definit com $\beta=\frac{1}{k_BT}$. L'expressió anterior, però, la multiplicarem pel nombre d'Avogadro, ja que les dades venen donades per mol
+Per tal d'obtenir el valor numèric del segon coeficient del virial en fer tendir la temperatura a infinit, farem el límit $T \rightarrow \infty$ per l'expressió $\eqref{eq:3}$ on, clarament, la dependència amb la temperatura es troba dins del paràmetre $\beta$, definit com $\beta=\frac{1}{k_BT}$. L'expressió anterior, però, la multiplicarem pel nombre d'Avogadro, ja que les dades venen donades per mol.
 \begin{equation*}
 B_2(T \rightarrow \infty) = \frac{2\pi N_A r_0^3}{3} \left( \rho^3 + 1 \cdot (1 - \rho^3) \right) = \frac{2\pi N_A r_0^3}{3} \left( \rho^3 + 1 - \rho^3 \right) = \frac{2\pi N_A r_0^3}{3}.
 \end{equation*}
 Veiem, doncs, que en augmentar la temperatura cap a infinit, el terme de l'exponencial tendeix cap a 1 i, per tant, obtenim el resultat mostrat.
 
-Ara només cal substituir pels valors numèrics de cada paràmetre, recordant que $r_0$ ha estat optimitzat en unitats de centímetres
+Ara només cal substituir pels valors numèrics de cada paràmetre, recordant que $r_0$ ha estat optimitzat en unitats de centímetres,
 \begin{equation*}
 	B_2(T \rightarrow \infty) = \frac{2\pi \cdot 6.0221 \times 10^{23} \cdot \left(3,6396 \times 10^{-8}\right)^3}{3}=\boxed{60,809 \text{ cm$^3$/mol}}.
 \end{equation*}
 
-Pel que fa a la temperatura de Boyle, recuperem l'expressió $\eqref{eq:7}$ i substituïm, de nou, pels valors optimitzats
+Pel que fa a la temperatura de Boyle, recuperem l'expressió $\eqref{eq:7}$ i substituïm, de nou, pels valors optimitzats:
 \begin{equation}
 	T_B = \frac{\varepsilon}{k_B}\frac{1}{\ln\left(\frac{\rho^3}{\rho^3-1}\right)}=175,12\cdot \frac{1}{\ln(\frac{1,7023^3}{1,7023^3-1})}= \boxed{773,00 \text{ K}}.
 \end{equation}
 
-I anàlogament amb la temperatura d'inversió màxima de l'expressió $\eqref{eq:11}$
+I anàlogament amb la temperatura d'inversió màxima de l'expressió: $\eqref{eq:11}$
 \begin{equation}
 	T_i=\frac{\varepsilon}{k_B}\frac{1}{W\left(\frac{\mathrm{e}\rho^3}{\rho^3-1}\right)-1}=175,12\cdot\frac{1}{W(3,4094)-1}\approx\boxed{1504,2 \text{ K}},
 \end{equation}
@@ -276,7 +276,7 @@ Els resultats obtinguts tant per la temperatura de Boyle com per la d'inversió 
 
 \textbf{Considereu ara el límit $\epsilon \ll k_BT$. Trobeu les expressions aproximades per la temperatura de Boyle i la temperatura d'inversió màxima en aquest límit. Per quin rang de valors de la temperatura és vàlida aquesta aproximació? Compareu els resultats aproximats amb els exactes i discutiu les diferències. Confeccioneu un gràfic per $B_2(T)$ que s'ajusti als resultats i en què apareguin la temperatura de Boyle i la temperatura d'inversió màxima.}
 
-Per trobar les expressions aproximades per a la temperatura de Boyle i la temperatura d'inversió màxima en el límit $\epsilon \ll k_B T$ (equivalentment, $\beta\epsilon \to 0$), reprenem l'expressió exacta del segon coeficient del virial obtinguda a l'equació $\ref{eq:3}$
+Per trobar les expressions aproximades per a la temperatura de Boyle i la temperatura d'inversió màxima en el límit $\epsilon \ll k_B T$ (equivalentment, $\beta\epsilon \to 0$), reprenem l'expressió exacta del segon coeficient del virial obtinguda a l'equació $\ref{eq:3}$.
 
 En aquest règim, podem realitzar el desenvolupament en sèrie de Taylor de la funció exponencial $e^{\beta\epsilon}$ al voltant de zero
 \begin{equation*}
@@ -303,7 +303,7 @@ tenint en compte que $\beta = \frac{1}{k_B T}$, aïllem la temperatura obtenint
 	\label{eq:TB} 
 \end{equation}
 
-Per la \textit{temperatura d'inversió màxima}, usem $\ref{eq:8}$. Calculem primer la derivada parcial respecte a la temperatura de la nostra expressió aproximada
+Per la \textit{temperatura d'inversió màxima}, trobem $\ref{eq:8}$. Calculem primer la derivada parcial respecte a la temperatura de la nostra expressió aproximada
 
 \begin{equation}
 	\frac{\partial B_2(T)}{\partial T} = - \frac{2\pi r_0^3}{3} \frac{\epsilon (1 - \rho^3)}{k_B T^2} = \frac{2\pi r_0^3}{3} \frac{\epsilon (\rho^3 - 1)}{k_B T^2}.
@@ -367,7 +367,7 @@ Per acabar, mostrem en la Figura $\ref{fig:Aprox}$ el segon coeficient de virial
 	\label{fig:Aprox}
 \end{figure} 
 
-Cal observar que tant la temperatura de Boyle com la d'inversió màxima aproximades queden situades clarament dins de la zona de no validesa de l'aproximació. Això significa que, numèricament, els valors obtinguts no són representatius per a un gas real com el Xenó. Malgrat això, el càlcul continua sent útil a nivell conceptual, ja que ens permet veure com el potencial de pou quadrat es redueix al model clàssic de Van der Waals en el límit d'altes temperatures.
+Cal observar que tant la temperatura de Boyle com la d'inversió màxima aproximades queden situades clarament dins de la zona de no validesa de l'aproximació. Això significa que, numèricament, els valors obtinguts no són representatius per als paràmetres d'un gas real com el Xenó. Malgrat això, el càlcul continua sent útil a nivell conceptual, ja que ens permet veure com el potencial de pou quadrat es redueix al model clàssic de Van der Waals en el límit d'altes temperatures.
 
 \newpage
 \appendix
