@@ -133,7 +133,7 @@ En aquests sistemes, el potencial d'interacció entre les partícules és inexis
 
 La \textit{temperatura de Boyle} $T_B$ es defineix com aquella temperatura tal que $B_2(T_B) = 0$. Imposant aquesta condició sobre \eqref{eq:3}, tenim que
 \begin{equation}
-	0 = \frac{2\pi r_0^3}{3}(\rho^3+\mathrm{e}^{\frac{\epsilon}{k_BT}}(1-\rho^3)),
+	0 = \frac{2\pi r_0^3}{3}(\rho^3+\mathrm{e}^{\beta\epsilon}(1-\rho^3)),
 \end{equation}
 com que $r_0 \neq 0$
 \begin{align*}
@@ -163,15 +163,15 @@ i, substituint aquest resultat sobre \eqref{eq:8}, tenim que
 \end{equation*}
 simplificant, reordenant i definint $x\equiv \frac{\varepsilon}{k_BT}$
 \begin{equation*}
-	x\mathrm{e}^x=\frac{\rho^3}{1-\rho^3} + \mathrm{e}^x,
+	-x\mathrm{e}^x=\frac{\rho^3}{1-\rho^3} + \mathrm{e}^x,
 \end{equation*}
 de manera que
 \begin{equation*}
-	\mathrm{e}^x(x-1) = \frac{\rho^3}{1-\rho^3},
+	\mathrm{e}^x(x+1) = \frac{\rho^3}{\rho^3-1},
 \end{equation*}
-i, multiplicant adequadament per $\mathrm{e}^{-1}$ a banda i banda de la igualtat, obtenim
+i, multiplicant adequadament per $\mathrm{e}$ a banda i banda de la igualtat, obtenim
 \begin{equation}
-	\mathrm{e}^{x-1}(x-1) = \frac{1}{\mathrm{e}}\frac{\rho^3}{1-\rho^3}.
+	\mathrm{e}^{x+1}(x+1) = \frac{1}{\mathrm{e}}\frac{\rho^3}{\rho^3-1}.
 \end{equation}
 Podem comparar aquesta darrera equació amb l'\textit{equació de Lambert}
 \begin{equation}
@@ -179,15 +179,15 @@ Podem comparar aquesta darrera equació amb l'\textit{equació de Lambert}
 \end{equation}
 que admet com a solució $W(y)$. Així doncs, arribem a la conclusió de que
 \begin{equation*}
-	x-1 = W\left(\frac{1}{\mathrm{e}}\frac{\rho^3}{1-\rho^3}\right),
+	x+1 = W\left(\frac{\mathrm{e}\rho^3}{\rho^3-1}\right),
 \end{equation*}
 o, el que és el mateix 
 \begin{equation*}
-	\frac{\varepsilon}{k_BT_i}-1 = W\left(\frac{1}{\mathrm{e}}\frac{\rho^3}{1-\rho^3}\right),
+	\frac{\epsilon}{k_BT}+1 = W\left(\frac{\mathrm{e}\rho^3}{\rho^3-1}\right),
 \end{equation*}
 de manera que, si aïllem $T_i$, obtenim
 \begin{equation}
-	\boxed{T_i=\frac{\varepsilon}{k_B}\frac{1}{W\left(\frac{1}{\mathrm{e}}\frac{\rho^3}{1-\rho^3}\right)+1}}.
+	\boxed{T_i=\frac{\varepsilon}{k_B}\frac{1}{W\left(\frac{\mathrm{e}\rho^3}{\rho^3-1}\right)-1}}.
 \label{eq:11} 	
 \end{equation}
 
@@ -247,28 +247,30 @@ L'ajust obtingut es mostra a la figura $\ref{ajustb2}$ i els valors dels paràme
 	\label{ajustb2}
 \end{figure}
 
-Per tal d'obtenir el valor numèric del segon coeficient del virial en fer tendir la temperatura a infinit farem el límit $T \rightarrow \infty$ per l'expressió $\eqref{eq:3}$ on, clarament, la dependència amb la temperatura es troba dins del paràmetre $\beta$, definit com $\beta=\frac{1}{k_BT}$. L'expressió anterior, però, la multiplicarem pel nombre d'Avogadro, ja que les dades venen donades per mol.
+Per tal d'obtenir el valor numèric del segon coeficient del virial en fer tendir la temperatura a infinit farem el límit $T \rightarrow \infty$ per l'expressió $\eqref{eq:3}$ on, clarament, la dependència amb la temperatura es troba dins del paràmetre $\beta$, definit com $\beta=\frac{1}{k_BT}$. L'expressió anterior, però, la multiplicarem pel nombre d'Avogadro, ja que les dades venen donades per mol
 \begin{equation*}
-B_2(T \rightarrow \infty) = \frac{2\pi N_A r_0^3}{3} \left( \rho^3 + 1 \cdot (1 - \rho^3) \right) = \frac{2\pi N_A r_0^3}{3} \left( \rho^3 + 1 - \rho^3 \right) = \frac{2\pi N_A r_0^3}{3}
+B_2(T \rightarrow \infty) = \frac{2\pi N_A r_0^3}{3} \left( \rho^3 + 1 \cdot (1 - \rho^3) \right) = \frac{2\pi N_A r_0^3}{3} \left( \rho^3 + 1 - \rho^3 \right) = \frac{2\pi N_A r_0^3}{3}.
 \end{equation*}
 Veiem, doncs, que en augmentar la temperatura cap a infinit, el terme de l'exponencial tendeix cap a 1 i, per tant, obtenim el resultat mostrat.
 
-Ara només cal substituir pels valors numèrics de cada paràmetre, recordant que $r_0$ ha estat optimitzat en unitats de centímetres.
+Ara només cal substituir pels valors numèrics de cada paràmetre, recordant que $r_0$ ha estat optimitzat en unitats de centímetres
 \begin{equation*}
 	B_2(T \rightarrow \infty) = \frac{2\pi \cdot 6.0221 \times 10^{23} \cdot \left(3,6396 \times 10^{-8}\right)^3}{3}=\boxed{60,809 \text{ cm$^3$/mol}}.
 \end{equation*}
 
-Pel que fa a la temperatura de Boyle, recuperem l'expressió $\eqref{eq:7}$ i substituïm, de nou, pels valors optimitzats:
+Pel que fa a la temperatura de Boyle, recuperem l'expressió $\eqref{eq:7}$ i substituïm, de nou, pels valors optimitzats
 \begin{equation}
 	T_B = \frac{\varepsilon}{k_B}\frac{1}{\ln\left(\frac{\rho^3}{\rho^3-1}\right)}=175,12\cdot \frac{1}{\ln(\frac{1,7023^3}{1,7023^3-1})}= \boxed{773,00 \text{ K}}.
 \end{equation}
 
-I anàlogament amb la temperatura d'inversió màxima de l'expressió $\eqref{eq:11}$:
+I anàlogament amb la temperatura d'inversió màxima de l'expressió $\eqref{eq:11}$
 \begin{equation}
-	T_i=\frac{\varepsilon}{k_B}\frac{1}{W\left(\frac{1}{\mathrm{e}}\frac{\rho^3}{1-\rho^3}\right)+1}=175,12\cdot\frac{1}{W\left(\frac{1}{e}\frac{1,7023^3}{1-1,7023^3}\right)}\approx\boxed{9,0770 \text{ K}},
+	T_i=\frac{\varepsilon}{k_B}\frac{1}{W\left(\frac{\mathrm{e}\rho^3}{\rho^3-1}\right)-1}=175,12\cdot\frac{1}{W(3,4094)-1}\approx\boxed{1504,2 \text{ K}},
 \end{equation}
-on s'ha obtingut el valor de la funció de Lambert a partir de WolframAlpha.
+on s'ha obtingut el valor de la funció de Lambert a partir de WolframAlpha, de manera que $W(3,4094) = 1,1164$.
 
+Els resultats obtinguts tant per la temperatura de Boyle com per la d'inversió màxima s'han comparat amb els valors tabulats del xenó, els quals són 775 K i 1486 K, respectivament. Veiem, doncs, que els valors que acabem de trobar amb els paràmetres optimitzats són perfectament compatibles amb els experimentals
+.
 \newpage
 \section*{\textbf{Apartat d)}}
 
@@ -278,7 +280,7 @@ Per trobar les expressions aproximades per a la temperatura de Boyle i la temper
 
 En aquest règim, podem realitzar el desenvolupament en sèrie de Taylor de la funció exponencial $e^{\beta\epsilon}$ al voltant de zero
 \begin{equation*}
-	e^{\beta\epsilon} = 1 + \beta\epsilon + \frac{(\beta\epsilon)^2}{2!} + \frac{(\beta\epsilon)^3}{3!} + \dots
+	\mathrm{e}^{\beta\epsilon} = 1 + \beta\epsilon + \frac{(\beta\epsilon)^2}{2!} + \frac{(\beta\epsilon)^3}{3!} + \dots
 \end{equation*}
 
 Si trunquem el desenvolupament a primer ordre i substituïm a l'expressió exacta del segon coeficient del virial $\ref{eq:3}$, obtenim
@@ -317,15 +319,13 @@ Igualant els dos termes, arribem a
 Simplificant i aïllant la temperatura, trobem
 
 \begin{equation}
-	\boxed{ T_{\text{inv}} = \frac{2 \epsilon (\rho^3 - 1) }{k_B} }.
+	\boxed{ T_{\text{i}} = \frac{2 \epsilon (\rho^3 - 1) }{k_B} }.
 \end{equation}
-
-
 
 Per determinar quantitativament el rang de validesa de l'aproximació al límit $\beta\epsilon \to 0$ , utilitzem el \textit{criteri del residu de Taylor}. L'error relatiu ($\text{Err}$) entre el valor exacte i l'aproximat per Taylor ve donat per
 
 \begin{equation}
-	\text{Err} = \left\lvert \frac{(e^{\beta\epsilon} - 1) - \beta\epsilon}{e^{\beta\epsilon} - 1} \right\rvert.
+	\text{Err} = \left\lvert \frac{(\mathrm{e}^{\beta\epsilon} - 1) - \beta\epsilon}{\mathrm{e}^{\beta\epsilon} - 1} \right\rvert.
 \end{equation}
 
 Si expandim mitjançant la sèrie de Taylor tant el numerador com el denominador, l'expressió de l'error esdevé
@@ -345,11 +345,11 @@ Imposant un error relatiu màxim d'un $3\%$ ($\text{Err} \le 0.03$), podem aïll
 	\frac{1}{2}\left(\frac{\epsilon}{k_B T}\right) \le 0.03 \implies \frac{\epsilon}{k_B T} \le 0.06 \implies \boxed{ T \ge \frac{50 \epsilon}{3 k_B}  }.
 \end{equation}
 
-La Figura~\ref{fig:Comp} mostra la comparació gràfica entre el model exacte i l'aproximació lineal del segon coeficient del virial. La línia vertical delimita la temperatura llindar calculada per a un error del 3\%. Visualment, s'observa amb molta claredat com ambdues corbes convergeixen fins a ser pràcticament idèntiques a la regió verda, a la d'altes temperatures. En canvi, a la zona vermella, l'aproximació lineal deixa de ser representativa, ja que el terme exponencial creix ràpidament a mesura que disminueix la temperatura, divergent respecte al comportament real del sistema.
+La figura \ref{fig:Comp} mostra la comparació gràfica entre el model exacte i l'aproximació lineal del segon coeficient del virial. La línia vertical delimita la temperatura llindar calculada per a un error del 3\%. Visualment, s'observa amb molta claredat com ambdues corbes convergeixen fins a ser pràcticament idèntiques a la regió verda, a la d'altes temperatures. En canvi, a la zona vermella, l'aproximació lineal deixa de ser representativa, ja que el terme exponencial creix ràpidament a mesura que disminueix la temperatura, divergent respecte al comportament real del sistema.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{ComparativaB2.png}
+	\includegraphics[width=0.6\linewidth]{ComparativaB2.png}
 	\caption{Comparació entre el coeficient del virial exacte i l'aproximació lineal a altes temperatures amb la delimitació del rang de validesa per a un error inferior al $3\%$.}
 	\label{fig:Comp}
 \end{figure} 
@@ -357,6 +357,7 @@ La Figura~\ref{fig:Comp} mostra la comparació gràfica entre el model exacte i 
 \newpage
 \appendix
 
+\Huge{\textbf{Annexos}}
 \section{Codi Python de l'ajust del segon coeficient del virial pel xenó}
 \label{annex:codib2}
 
