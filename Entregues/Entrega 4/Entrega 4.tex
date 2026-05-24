@@ -159,7 +159,7 @@ A partir de l'equació \eqref{eq:3}, tenim que
 \end{equation*}
 i, substituint aquest resultat sobre \eqref{eq:8}, tenim que
 \begin{equation*}
-	\frac{2\pi r_0^3\varepsilon}{3k_BT}(1-\rho^2)\mathrm{e}^{\frac{\varepsilon}{k_BT}} = \frac{2\pi r_0^3}{3}(\rho^3+\mathrm{e}^{\frac{\varepsilon}{k_BT}}(1-\rho^3)),
+	-\frac{2\pi r_0^3\varepsilon}{3k_BT}(1-\rho^3)\mathrm{e}^{\frac{\varepsilon}{k_BT}} = \frac{2\pi r_0^3}{3}(\rho^3+\mathrm{e}^{\frac{\varepsilon}{k_BT}}(1-\rho^3)),
 \end{equation*}
 simplificant, reordenant i definint $x\equiv \frac{\varepsilon}{k_BT}$
 \begin{equation*}
@@ -171,7 +171,7 @@ de manera que
 \end{equation*}
 i, multiplicant adequadament per $\mathrm{e}$ a banda i banda de la igualtat, obtenim
 \begin{equation}
-	\mathrm{e}^{x+1}(x+1) = \frac{1}{\mathrm{e}}\frac{\rho^3}{\rho^3-1}.
+	\mathrm{e}^{x+1}(x+1) = \frac{\mathrm{e}\rho^3}{\rho^3-1}.
 \end{equation}
 Podem comparar aquesta darrera equació amb l'\textit{equació de Lambert}
 \begin{equation}
@@ -232,7 +232,7 @@ de manera que, si aïllem $T_i$, obtenim
 \end{table} 
 \textbf{Ajusteu les dades i trobeu els valors dels paràmetres $\epsilon / k_B$, $\rho$ i $r_0$. Quant val $B_2(T)$ en el límit $T\rightarrow \infty$? Trobeu els valors de la temperatura de Boyle i la temperatura d'inversió màxima.}
 
-Per tal d'ajustar les dades experimentals a la nostra expressió pel coeficient del virial trobada a l'apartat a) (veure $\eqref{eq:3}$) utilitzem la funció \textit{curve\_fit} de la llibreria \textit{scipy.optimize} de Python. El codi complet es pot consultar a l'Annex $\ref{annex:codib2}$.
+Per tal d'ajustar les dades experimentals a la nostra expressió pel coeficient del virial trobada a l'apartat a) (veure $\eqref{eq:3}$) utilitzem la funció \textit{curve\_fit} de la llibreria \textit{scipy.optimize} de Python. El codi complet es pot consultar a l'Annex \ref{annex:codib2}.
 
 L'ajust obtingut es mostra a la figura $\ref{ajustb2}$ i els valors dels paràmetres optimitzats són els següents:
 \begin{itemize}
@@ -303,9 +303,7 @@ tenint en compte que $\beta = \frac{1}{k_B T}$, aïllem la temperatura obtenint
 	\label{eq:TB} 
 \end{equation}
 
-Per la \textit{temperatura d'inversió màxima}, trobem $\ref{eq:8}$. 
-
-Calculem primer la derivada parcial respecte a la temperatura de la nostra expressió aproximada
+Per la \textit{temperatura d'inversió màxima}, usem $\ref{eq:8}$. Calculem primer la derivada parcial respecte a la temperatura de la nostra expressió aproximada
 
 \begin{equation}
 	\frac{\partial B_2(T)}{\partial T} = - \frac{2\pi r_0^3}{3} \frac{\epsilon (1 - \rho^3)}{k_B T^2} = \frac{2\pi r_0^3}{3} \frac{\epsilon (\rho^3 - 1)}{k_B T^2}.
@@ -324,7 +322,7 @@ Simplificant i aïllant la temperatura, trobem
 	\label{eq:Tinv} 
 \end{equation}
 
-Podem veure que es compleix la relació $T_{\text{i}} = 2 T_B$. Això implica que el nostre potencial de pou quadrat, a altes temperatures, es comporta exactament igual que un gas de Van der Waals.
+Podem veure que es compleix la relació $T_{\text{i}} = 2 T_B$ que se satisfà en el cas del model de Van der Waals. Això implica que el nostre potencial de pou quadrat, a altes temperatures, es comporta exactament igual que un gas de Van der Waals.
 
 
 Per determinar quantitativament el rang de validesa de l'aproximació al límit $\beta\epsilon \to 0$ , utilitzem el \textit{criteri del residu de Taylor}. L'error relatiu ($\text{Err}$) entre el valor exacte i l'aproximat per la sèrie de Taylor ve donat per
@@ -336,7 +334,7 @@ Per determinar quantitativament el rang de validesa de l'aproximació al límit 
 Si expandim mitjançant la sèrie de Taylor tant el numerador com el denominador, l'expressió de l'error esdevé
 
 \begin{equation}
-	\text{Err} = \left\lvert \frac{\left(\beta\epsilon + \frac{1}{2}(\beta\epsilon)^2 + \frac{1}{6}(\beta\epsilon)^3 + \dots\right) - \beta\epsilon}{\beta\epsilon + \frac{1}{2}(\beta\epsilon)^2 + \frac{1}{6}(\beta\epsilon)^3 + \dots} \right\rvert = \frac{\frac{1}{2}(\beta\epsilon)^2 + \frac{1}{6}(\beta\epsilon)^3 + \dots}{\beta\epsilon + \frac{1}{2}(\beta\epsilon)^2 + \dots}
+	\text{Err} = \left\lvert \frac{\left(\beta\epsilon + \frac{1}{2}(\beta\epsilon)^2 + \frac{1}{6}(\beta\epsilon)^3 + \dots\right) - \beta\epsilon}{\beta\epsilon + \frac{1}{2}(\beta\epsilon)^2 + \frac{1}{6}(\beta\epsilon)^3 + \dots} \right\rvert = \frac{\frac{1}{2}(\beta\epsilon)^2 + \frac{1}{6}(\beta\epsilon)^3 + \dots}{\beta\epsilon + \frac{1}{2}(\beta\epsilon)^2 + \dots}.
 \end{equation}
 
 Com que estem avaluant el límit d'altes temperatures ($\beta\epsilon \to 0$), les potències d'ordre superior s'aproximen a zero de manera molt més ràpida que els termes de menor grau. Per tant, el numerador queda dominat pel terme quadràtic $\frac{1}{2}(\beta\epsilon)^2$ i el denominador pel terme lineal $\beta\epsilon$, quedant
@@ -345,13 +343,13 @@ Com que estem avaluant el límit d'altes temperatures ($\beta\epsilon \to 0$), l
 	\text{Err} \approx \frac{\frac{1}{2}(\beta\epsilon)^2}{\beta\epsilon} = \frac{1}{2}\beta\epsilon.
 \end{equation}
 
-Imposant un error relatiu màxim d'un $3\%$ ($\text{Err} \le 0.03$), podem aïllar la temperatura llindar a partir de la qual l'aproximació de $B_2(T)$ comença a ser vàlida
+Imposant un error relatiu màxim d'un $3\%$ ($\text{Err} \le 0,03$), podem aïllar la temperatura llindar a partir de la qual l'aproximació de $B_2(T)$ comença a ser vàlida
 \begin{equation}
-	\frac{1}{2}\left(\frac{\epsilon}{k_B T}\right) \le 0.03 \implies \frac{\epsilon}{k_B T} \le 0.06 \implies \boxed{ T \ge \frac{50 \epsilon}{3 k_B}  }.
+	\frac{1}{2}\left(\frac{\epsilon}{k_B T}\right) \le 0,03 \implies \frac{\epsilon}{k_B T} \le 0,06 \implies \boxed{ T \ge \frac{50 \epsilon}{3 k_B}  }.
 	\label{eq:Tll}
 \end{equation}
 
-La Figura \ref{fig:Comp} mostra la comparació gràfica entre el model exacte i l'aproximació lineal del segon coeficient del virial. La línia vertical delimita la temperatura llindar calculada per a un error del 3\%. Visualment, s'observa amb molta claredat com ambdues corbes convergeixen fins a ser pràcticament idèntiques a la regió verda. En canvi, a la zona vermella, l'aproximació lineal deixa de ser representativa, ja que el terme exponencial creix ràpidament a mesura que disminueix la temperatura, divergent respecte al comportament real del sistema.
+La figura \ref{fig:Comp} mostra la comparació gràfica entre el model exacte i l'aproximació lineal del segon coeficient del virial. La línia vertical delimita la temperatura llindar calculada per un error del 3\%. Visualment, s'observa amb molta claredat com ambdues corbes convergeixen fins a ser pràcticament idèntiques a la regió verda. En canvi, a la zona vermella, l'aproximació lineal deixa de ser representativa, ja que el terme exponencial creix ràpidament a mesura que disminueix la temperatura, diferenciant-se així del comportament real del sistema.
 
 \begin{figure}[H]
 	\centering
@@ -369,7 +367,7 @@ Per acabar, mostrem en la Figura $\ref{fig:Aprox}$ el segon coeficient de virial
 	\label{fig:Aprox}
 \end{figure} 
 
-Cal observar que tant la temperatura de Boyle com la d'inversió màxima aproximades queden situades clarament dins de la zona de no validesa de l'aproximació. Això significa que, numèricament, els valors obtinguts no són representatius per a un gas real com el Xenó. Malgrat això, el càlcul continua sent útil a nivell conceptual, ja que ens permet veure com el potencial de pou quadrat es redueix al model clàssic de Van der Waals en el límit d'alta temperatura.
+Cal observar que tant la temperatura de Boyle com la d'inversió màxima aproximades queden situades clarament dins de la zona de no validesa de l'aproximació. Això significa que, numèricament, els valors obtinguts no són representatius per a un gas real com el Xenó. Malgrat això, el càlcul continua sent útil a nivell conceptual, ja que ens permet veure com el potencial de pou quadrat es redueix al model clàssic de Van der Waals en el límit d'altes temperatures.
 
 \newpage
 \appendix
@@ -379,7 +377,7 @@ Cal observar que tant la temperatura de Boyle com la d'inversió màxima aproxim
 \label{annex:codib2}
 
 \begin{lstlisting}[caption={Codi per l'ajust del segon coeficient del virial experimental.}]
-	from vpython import *
+from vpython import *
 import numpy as np
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
@@ -431,7 +429,7 @@ plt.show()
 \end{lstlisting}
 
 \newpage
-\section{Codi Python de l'apartat d}
+\section{Codi Python pels gràfics de l'apartat d}
 
 \begin{lstlisting}[caption={Codi pels gràfics trobats a l'apartat d.}]
 import math
