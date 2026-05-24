@@ -291,7 +291,7 @@ Si trunquem el desenvolupament a primer ordre i substituïm a l'expressió exact
 
 A partir d'ara procedim de la mateixa manera que s'ha fet a l'apartat b). 
 
-Per la temperatura de Boyle ($T_B$),
+Per la \textit{temperatura de Boyle} ($T_B$),
 \begin{equation}
 	B_2(T_B) = 0 = \frac{2\pi r_0^3}{3}\left( 1 + \beta\epsilon(1-\rho^3)\right),
 \end{equation}
@@ -300,9 +300,10 @@ tenint en compte que $\beta = \frac{1}{k_B T}$, aïllem la temperatura obtenint
 
 \begin{equation}
 	\boxed{ T_B = \frac{\epsilon}{k_B} (\rho^3 - 1) }.
+	\label{eq:TB} 
 \end{equation}
 
-Per la temperatura d'inversió màxima, $T_{\text{inv}}$, trobem $\frac{\partial B_2}{\partial T} = \frac{B_2}{T}$. (BORRAR AIXO I POSAR REF QUAN HO POSIS TU ERIC)
+Per la \textit{temperatura d'inversió màxima}, trobem $\ref{eq:8}$. 
 
 Calculem primer la derivada parcial respecte a la temperatura de la nostra expressió aproximada
 
@@ -320,9 +321,13 @@ Simplificant i aïllant la temperatura, trobem
 
 \begin{equation}
 	\boxed{ T_{\text{i}} = \frac{2 \epsilon (\rho^3 - 1) }{k_B} }.
+	\label{eq:Tinv} 
 \end{equation}
 
-Per determinar quantitativament el rang de validesa de l'aproximació al límit $\beta\epsilon \to 0$ , utilitzem el \textit{criteri del residu de Taylor}. L'error relatiu ($\text{Err}$) entre el valor exacte i l'aproximat per Taylor ve donat per
+Podem veure que es compleix la relació $T_{\text{i}} = 2 T_B$. Això implica que el nostre potencial de pou quadrat, a altes temperatures, es comporta exactament igual que un gas de Van der Waals.
+
+
+Per determinar quantitativament el rang de validesa de l'aproximació al límit $\beta\epsilon \to 0$ , utilitzem el \textit{criteri del residu de Taylor}. L'error relatiu ($\text{Err}$) entre el valor exacte i l'aproximat per la sèrie de Taylor ve donat per
 
 \begin{equation}
 	\text{Err} = \left\lvert \frac{(\mathrm{e}^{\beta\epsilon} - 1) - \beta\epsilon}{\mathrm{e}^{\beta\epsilon} - 1} \right\rvert.
@@ -343,9 +348,10 @@ Com que estem avaluant el límit d'altes temperatures ($\beta\epsilon \to 0$), l
 Imposant un error relatiu màxim d'un $3\%$ ($\text{Err} \le 0.03$), podem aïllar la temperatura llindar a partir de la qual l'aproximació de $B_2(T)$ comença a ser vàlida
 \begin{equation}
 	\frac{1}{2}\left(\frac{\epsilon}{k_B T}\right) \le 0.03 \implies \frac{\epsilon}{k_B T} \le 0.06 \implies \boxed{ T \ge \frac{50 \epsilon}{3 k_B}  }.
+	\label{eq:Tll}
 \end{equation}
 
-La figura \ref{fig:Comp} mostra la comparació gràfica entre el model exacte i l'aproximació lineal del segon coeficient del virial. La línia vertical delimita la temperatura llindar calculada per a un error del 3\%. Visualment, s'observa amb molta claredat com ambdues corbes convergeixen fins a ser pràcticament idèntiques a la regió verda, a la d'altes temperatures. En canvi, a la zona vermella, l'aproximació lineal deixa de ser representativa, ja que el terme exponencial creix ràpidament a mesura que disminueix la temperatura, divergent respecte al comportament real del sistema.
+La Figura \ref{fig:Comp} mostra la comparació gràfica entre el model exacte i l'aproximació lineal del segon coeficient del virial. La línia vertical delimita la temperatura llindar calculada per a un error del 3\%. Visualment, s'observa amb molta claredat com ambdues corbes convergeixen fins a ser pràcticament idèntiques a la regió verda. En canvi, a la zona vermella, l'aproximació lineal deixa de ser representativa, ja que el terme exponencial creix ràpidament a mesura que disminueix la temperatura, divergent respecte al comportament real del sistema.
 
 \begin{figure}[H]
 	\centering
@@ -353,6 +359,17 @@ La figura \ref{fig:Comp} mostra la comparació gràfica entre el model exacte i 
 	\caption{Comparació entre el coeficient del virial exacte i l'aproximació lineal a altes temperatures amb la delimitació del rang de validesa per a un error inferior al $3\%$.}
 	\label{fig:Comp}
 \end{figure} 
+
+Per acabar, mostrem en la Figura $\ref{fig:Aprox}$ el segon coeficient de virial aproximat, conjuntament amb la \textit{temperatura de Boyle} ($\ref{eq:TB}$) i la \textit{temperatura d'inversió màxima} ($\ref{eq:Tinv}$) acabades de calcular. També s'ha afegit la temperatura llindar. ($\ref{eq:Tll}$)
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Aprox.png}
+	\caption{Representació del segon coeficient del virial aproximat a primer ordre de Taylor en funció de la temperatura, incloent-hi les posicions de la \textit{temperatura de Boyle} ($T_B$) i la \textit{temperatura d'inversió màxima} ($T_{\text{i}}$).}
+	\label{fig:Aprox}
+\end{figure} 
+
+Cal observar que tant la temperatura de Boyle com la d'inversió màxima aproximades queden situades clarament dins de la zona de no validesa de l'aproximació. Això significa que, numèricament, els valors obtinguts no són representatius per a un gas real com el Xenó. Malgrat això, el càlcul continua sent útil a nivell conceptual, ja que ens permet veure com el potencial de pou quadrat es redueix al model clàssic de Van der Waals en el límit d'alta temperatura.
 
 \newpage
 \appendix
@@ -412,4 +429,86 @@ guardar = os.path.join(directori, 'Entrega 4', 'AjustB2.png')
 plt.savefig(guardar, dpi=300, bbox_inches='tight')
 plt.show()
 \end{lstlisting}
+
+\newpage
+\section{Codi Python de l'apartat d}
+
+\begin{lstlisting}[caption={Codi pels gràfics trobats a l'apartat d.}]
+import math
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Constants i variables. Per aquestes últimes, posem valors arbitraris però raonables. 
+eps_kb = 175.12  # epsilon/kB      
+rho = 1.7023              
+r0_cm = 3.6396e-8          
+Na = 6.02214e23           
+
+A = (2*np.pi*Na*(r0_cm**3))/3  
+
+T_aprox = eps_kb/(0.06) # Temperatura llindar a la que comença a ser vàlida l'aproximació (Error inferior al 3%).
+
+# Funció B_2(T) exacta (trobada a l'apartat b).
+def fB2(T):
+	beta = 1/T
+	Resultat = A*(rho**3 + math.exp(beta*eps_kb)*(1-rho**3))
+	
+	return Resultat
+
+# Funció B_2(T) aproximada amb sèrie de Taylor. 
+def fB2_aprox(T): 
+	beta = 1/T
+	Resultat = A*(1 + beta*eps_kb*(1-rho**3))
+	
+	return Resultat
+
+# EIX X (Temperatura (K))
+Temp = [150 + 2*x for x in range(1, 2000)]
+
+# EIX Y (B_2(T) exacta i aproximada (cm^3/mol))
+B2 = []
+B2_aprox = []
+
+for i in Temp:
+	valors = fB2(i)
+	B2.append(valors)
+
+for j in Temp: 
+	valors = fB2_aprox(j)
+	B2_aprox.append(valors)
+
+
+# Gràfica comparativa entre B_2(T) exacta i aproximada. Indicant la temperatura llindar i les zones vàlides i no vàlides per l'aproximació. 
+plt.plot(Temp, B2, '--', color='red', label='$B_2(T)$ Exacte')
+plt.plot(Temp, B2_aprox, color='black', label='$B_2(T)$ Aproximat')
+plt.axvline(x=T_aprox, color='green', linestyle=':', linewidth=2, label='$T$ llindar')
+plt.axvspan(min(Temp), T_aprox, color='red', alpha=0.07, label='Zona de no validesa (Error > 3%)')
+plt.axvspan(T_aprox , max(Temp), color='green', alpha=0.07, label='Zona de validesa (Error $\leq$ 3%)')
+plt.xlabel("Temperatura (K)")
+plt.ylabel(r'$B_2$ ($\text{cm}^3/\text{mol}$)')
+plt.ylim(min(B2_aprox), max(B2_aprox) + 20)
+plt.xlim(min(Temp), max(Temp)) # Ajusta l'eix X exactament al teu rang
+plt.grid(True, alpha=0.3)
+plt.legend(loc='lower right') 
+plt.show()
+
+# Temperatura de Boyle i d'inversió màxima calculades a partir de B_2(T) aproximada
+T_B = eps_kb*(rho**3 - 1)
+T_inv = 2*eps_kb*(rho**3 - 1)
+
+# Gràfica de B_2(T) aproximada més T_B i T_inv
+plt.plot(Temp, B2_aprox, color='black', label='$B_2(T)$ Aproximat')
+plt.axvline(x=T_B, color='green', linestyle=':', linewidth=2, label='$T$ de Boyle aproximada')
+plt.axvline(x=T_inv, color='red', linestyle=':', linewidth=2, label="$T$ d'inversió màxima aproximada")
+plt.xlabel("Temperatura (K)")
+plt.ylabel(r'$B_2$ ($\text{cm}^3/\text{mol}$)')
+plt.xlim(0 , max(Temp))
+plt.ylim(min(B2_aprox), max(B2_aprox) + 20)
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+
+\end{lstlisting}
+
+
 \end{document}
