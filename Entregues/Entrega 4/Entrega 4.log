@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.19)  24 MAY 2026 10:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.19)  24 MAY 2026 10:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -943,16 +943,16 @@ Package pdftex.def Info: AjustB2.png  used on input line 245.
 [4 <./AjustB2.png>]
 
 [5]
-<ComparativaB2.png, id=114, 462.528pt x 346.896pt>
+<ComparativaB2.png, id=113, 462.528pt x 346.896pt>
 File: ComparativaB2.png Graphic file (type png)
 <use ComparativaB2.png>
-Package pdftex.def Info: ComparativaB2.png  used on input line 350.
+Package pdftex.def Info: ComparativaB2.png  used on input line 352.
 (pdftex.def)             Requested size: 340.57814pt x 255.44452pt.
 
 
 [6 <./ComparativaB2.png>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 361.
+nput line 363.
 
 
 [7] (Entrega 4.aux)
@@ -995,7 +995,7 @@ AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/User
 s/juuns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb
 ><C:/Users/juuns/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mtt8.pfb>
-Output written on "Entrega 4.pdf" (7 pages, 448614 bytes).
+Output written on "Entrega 4.pdf" (7 pages, 448916 bytes).
 PDF statistics:
  289 PDF objects out of 1000 (max. 8388607)
  92 named destinations out of 1000 (max. 500000)
